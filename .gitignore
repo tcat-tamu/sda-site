@@ -1,0 +1,7 @@
+/releng/*/build
+/main/*/vendor
+/build
+/dist
+
+*~
+*.bak
