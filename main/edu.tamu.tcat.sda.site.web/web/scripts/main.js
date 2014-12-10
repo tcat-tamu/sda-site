@@ -2,6 +2,7 @@ function fixHeight(el) {
     var maxHeight = 0,
         slides = $('#banners').find('.slides'),
         data = $('#banners').data('flexslider');
+    
     slides.children()
         .height('auto')
         .each(function() {
@@ -21,6 +22,7 @@ $(document).ready(function() {
 		slideshow: false,
 		touch: false,
 	});
+	
 	$('#banners').flexslider({
 		controlNav: false,
 		directionNav: false,
@@ -38,18 +40,23 @@ $(document).ready(function() {
 			$('#slider-controls .flex-control-paging a').eq(slider.currentSlide).addClass('flex-active');
 		}
 	});
+	
+	// listen to slider paging controls (i.e. nav dots)
 	$('body').delegate('#slider-controls .flex-control-paging a', 'click', function(e) {
 		sliderIndex = $(this).parent().index();
 		$('#banners').flexslider(sliderIndex);
 		$('#intro-text').flexslider(sliderIndex);
 		e.preventDefault();
 	});
+	
+	// listen to prev/next buttons
 	$('#slider-controls .flex-direction-nav .flex-prev').on('click', function(e) {
 		$('#banners').flexslider('prev');
 		$('#intro-text').flexslider('prev');
 		$('#slider-controls .flex-control-paging a.flex-active').removeClass('flex-active');
 		e.preventDefault();
 	});
+	
 	$('#slider-controls .flex-direction-nav .flex-next').on('click', function(e) {
 		$('#banners').flexslider('next');
 		$('#intro-text').flexslider('next');
@@ -57,7 +64,7 @@ $(document).ready(function() {
 		e.preventDefault();
 	});
 
-	// Fixing the height of the banner slider to be the height of the tallest slide
+	// HACK: Fixing the height of the banner slider to be the height of the tallest slide
 	fixHeight();
 	$(window).load(function() {
 		fixHeight();
