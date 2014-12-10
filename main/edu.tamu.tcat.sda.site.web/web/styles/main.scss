@@ -403,50 +403,75 @@ h1 {
         padding-bottom: 14%;
         padding-left: 1rem;
         padding-right: 1rem;
-        padding-top: 50%;
-        p {
-            @extend %AvenirLTStd-Roman; 
-            font-size: 0.9em;
-            margin: 1em 0 0;
-        }
-        &.right {
-            float: right;
-            text-align: right;
-        }
-        @media only all and (min-width: 20em) {
-            font-size: 1.125em;
-            padding-top: 47.5%;
-        }
-        @media only all and (min-width: 30em) {
-            padding-bottom: 12%;
-            padding-top: 45%;
-        }
-        @media only all and (min-width: 40em) {
-            font-size: 1.25em;
-            padding-top: 42.5%;
-        }
-        @media only all and (min-width: 50em) {
-            padding-bottom: 10%;
-            padding-top: 40%;
-        }
-        @media only all and (min-width: 60em) {
-            font-size: 1.5em;
-            padding-top: 37.5%;
-        }
-        @media only all and (min-width: 70em) {
-            padding-bottom: 8%;
-            padding-top: 35%;
-        }
-        @media only all and (min-width: 80em) {
-            font-size: 1.75em;
-            padding-top: 32.5%;
-        }
-        @media only all and (min-width: 90em) {
-            padding-top: 30%;
-        }
-        @media only all and (min-width: 100em) {
-            padding-bottom: 7rem;
-            padding-top: 31rem;
+        padding-top: 40%;
+        
+        /* Slide content is implemented using several different core templates. 
+         * Each template provides slots for different textual elements and lays 
+         * that text out appropriately to handle different page-widths. This is 
+         * designed to accomodate different image types and content needs flexibly 
+         * without requiring CSS to tailor the experience for each new slide.
+         */        
+        
+        /* A slide with a simple title and sub-title approximately 2/3 down the image.
+         * This template provide for two main content elements
+         *  - title:    Typically 2 to 5 words, large font
+         *  - subtitle  Smaller font, about 80-120 characters. May be manually split  
+         *              over two or three lines.
+         *
+         * Class: basic-title     
+         * Variants
+         *  - .right    Display the text on the right-hand edge of the slide
+         *  - .textbg   Add a background shading under the text to improve legibility
+         */
+        &.basic-title {
+            p.subtitle {
+                @extend %AvenirLTStd-Roman;
+                font-size: 0.9em;
+                margin: 1em 0 0;
+                p.subtitle { display:none; }
+            }
+            &.right {
+                float: right;
+                text-align: left;
+            }
+            &.textbg {
+                background-color: rgba($darkBrown, .5);
+            }
+            @media only all and (min-width: 20em) {
+                font-size: 1.125em;
+                padding-top: 37.5%;
+            }
+            @media only all and (min-width: 30em) {
+                padding-bottom: 12%;
+                padding-top: 35%;
+            }
+            @media only all and (min-width: 40em) {
+                font-size: 1.25em;
+                padding-top: 32.5%;
+            }
+            @media only all and (min-width: 50em) {
+                padding-bottom: 10%;
+                padding-top: 30%;
+            }
+            @media only all and (min-width: 60em) {
+                font-size: 1.5em;
+                padding-top: 27.5%;
+            }
+            @media only all and (min-width: 70em) {
+                padding-bottom: 8%;
+                padding-top: 25%;
+            }
+            @media only all and (min-width: 80em) {
+                font-size: 1.75em;
+                padding-top: 22.5%;
+            }
+            @media only all and (min-width: 90em) {
+                padding-top: 22.5%;
+            }
+            @media only all and (min-width: 100em) {
+                padding-bottom: 10rem;
+                padding-top: 23rem;
+            }
         }
     }
     h2 {
