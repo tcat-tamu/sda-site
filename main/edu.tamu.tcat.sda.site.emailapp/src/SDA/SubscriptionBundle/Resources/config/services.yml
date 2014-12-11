@@ -1,0 +1,9 @@
+parameters:
+    sda_subscription.controller.subscriber.class: SDA\SubscriptionBundle\Controller\SubscriberController
+
+services:
+    sda_subscription.controller.subscriber:
+        class: %sda_subscription.controller.subscriber.class%
+        arguments:
+            - @doctrine
+            - @templating
