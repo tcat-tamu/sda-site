@@ -185,6 +185,17 @@ h1 {
     @extend %CenturyStd-Book;
     font-size: 1.9em;
     line-height: 1;
+    
+    @media only all and (min-width: 40em) {
+        font-size: 2.3em;
+    }
+    @media only all and (min-width: 60em) {
+        font-size: 2.7em;
+    }
+    @media only all and (min-width: 80em) {
+        font-size: 3.1em;
+    }
+   /* 
     @media only all and (min-width: 25em) {
         font-size: 2.375em;
     }
@@ -196,7 +207,7 @@ h1 {
     }
     @media only all and (min-width: 40em) {
         font-size: 3.8em;
-    }
+    } */
 }
 
 .main {
@@ -1761,6 +1772,8 @@ nav[role=navigation] li a {
     .aside {
         display: none;
         img {
+            margin: 0 0 2rem;
+            max-width: 250px;
             width: 100%;
         }
     }
@@ -1773,6 +1786,19 @@ nav[role=navigation] li a {
         text-decoration: none;
     }
 }
+.table-of-contents {
+    // @extend %AvenirLTStd-Heavy;
+    
+    h3 {
+      border-bottom: 1px solid #ccc;
+      color: #292626;
+      margin-bottom: 2rem;
+    }
+    ol {
+      color: #b88554;
+    }
+}
+
 
 .sidenote {
     text-transform: uppercase;
