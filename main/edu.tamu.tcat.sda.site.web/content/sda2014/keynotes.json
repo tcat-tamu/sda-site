@@ -114,7 +114,7 @@
         },
         {
             "id": 15,
-            "name": "Raymnod Tallis",
+            "name": "Raymond Tallis",
             "affiliation": "",
             "email": "",
             "photo": "",
@@ -124,24 +124,24 @@
     "plenaries": [
         {
             "id": 1,
-            "speakerId": { "id":1, "name": "Susan Eastman"},
-            "respondentId": { "id":2, "name": "Andrew Pinsent"},
+            "speaker": { "id":1, "name": "Susan Eastman"},
+            "respondent": { "id":2, "name": "Andrew Pinsent"},
             "time": "Wednesday 16 July, 11:00am",
             "title": "Second-Personal Knowledge of Divine Action: A View from the Apostle Paul",
             "abstract": "<p>In this paper I shall argue that we know and recognize the presence of God in the same ways that we know and recognize other human beings as different from ourselves and yet personally engaged with us. Knowledge of divine action is not primarily inward, private, esoteric, ineffable and other-worldly but interpersonal, embodied, and embedded in communal interaction. Such an argument requires two subsidiary arguments: first, concerning the sources of our capacity for thought, including the knowledge of self and others; and second, concerning the mode of knowing and experiencing God’s action. For the first argument it will be important to clarify two contrasting approaches to infant development and problems of mind in psychology and philosophy – a first- or third-personal approach starting with the self, and a second-personal approach starting with relationship. These approaches may also be discerned in different presumptions about what constitutes the knowledge and experience of divine action, or “spiritual experience”. For the second half of my argument concerning the mode of knowing God, I will draw on the writings of the apostle Paul, in whom one finds a second-personal understanding and expression of knowing and being known by God in relationship with other people through the Spirit indwelling the community of faith.</p>"
         },
         {
             "id": 2,
-            "speakerId": { "id":3, "name": "Lenn Goodman"},
-            "respondentId": { "id":4, "name": "Timothy McGrew"},
+            "speaker": { "id":3, "name": "Lenn Goodman"},
+            "respondent": { "id":4, "name": "Timothy McGrew"},
             "time": "Monday 14 July, 11:00am",
             "title": "To Make a Rainbow &mdash; God’s Work in Nature",
             "abstract": "<p>In speaking of special divine action is one seeking to square the circle? One naturally thinks of God’s work in nature either in terms of nature’s constancy or in terms of dramatic disruptions of a pattern still, somewhat paradoxically, seen as evidence of God’s wisdom. In the first case one runs the risk of Saint Exupery’s little prince, who thinks he rules his little world because he commands the sun to rise – but only when he knows it will. Is the wilful tyrant wiser, who presumes his power real only when his actions are outrageous or untoward? Those who imagine nature as fixity risk implying a block universe, as Maimonides cautioned. We see that error not just in Aristotle’s unchanging heavens or the unchanging species of classical biology but also in Monod’s strange definition of life in terms of constancy, or in the misnomer of the term ‘reproduction’ – as though our offspring were our replicas. Still, the disruptive view leans hard on subjectivity, making God the reflex of our needs, a genie, to be invoked in desperate want or fear but otherwise best left alone – in Aristotle’s terms, a <em>deus ex machina</em>. The third option is to recognize God’s creativity in the birth of stars, and in evolution, in the rise of consciousness and human freedom and creativity, echoing God’s creativity and freedom. The hallmark of such emergence is the necessity of empiricism in science: We cannot capture a priori how God must work in nature.</p>"
         },
         {
             "id": 3,
-            "speakerId": { "id":5, "name": "Peter Harrison"},
-            "respondentId": { "id":6, "name": "Ignacio Silva"},
+            "speaker": { "id":5, "name": "Peter Harrison"},
+            "respondent": { "id":6, "name": "Ignacio Silva"},
             "time": "Tuesday 14 July, 9:00am",
             "title": "Natural Causes, Divine Action, and Scientific Explanation",
             "abstract": "<p>Scientific explanation is routinely understood to be governed by the principle of methodological naturalism, which excludes putative supernatural causes.  This conception of naturalism is dependent on a distinction between natural and supernatural which in modern discussions is regarded as largely unproblematic.  However, the natural-supernatural distinction has an important history that shows how interdependent these notions once were.   In the past, ideas about the relative self-sufficiency of the natural realm typically relied upon deeper theological or metaphysical assumptions that could not themselves be established by naturalistic methods.  In the Middle Ages, when the natural-supernatural distinction first emerged, divine action was an integral component of natural causation.   Subsequently, during the scientific revolution, the introduction of the modern conception of laws of nature, understood as divine dictates, collapsed the natural-supernatural distinction, effectively erasing the notion of natural causes.  This early modern effacing of any real distinction between natural and supernatural causation paradoxically laid the foundations for a modern science that would later be understood in purely naturalistic terms.  Viewed historically, scientific naturalism is indebted to particular notions of divine action.</p>" 
@@ -149,64 +149,64 @@
         
         {
             "id": 4,
-            "speakerId": { "id":7, "name": "Craig Keener"},
-            "respondentId": { "id":4, "name": "Timothy McGrew"},
+            "speaker": { "id":7, "name": "Craig Keener"},
+            "respondent": { "id":4, "name": "Timothy McGrew"},
             "time": "Monday 14 July, 4:30pm",
             "title": "Miracle Reports in the Gospels and Today",
             "abstract": "<p>Virtually all substantial ancient sources about Jesus, including those from his detractors, recognize that his contemporaries experienced him as a healer. Some multiply-attested reports of his activity appear particularly dramatic, including healing blindness, resuscitating some dead persons, and on rare occasions what modern scholars call nature miracles. Such accounts comprise perhaps one-third of the earliest extant Gospel, yet they are also a major reason for many traditional critics suspecting the reliability of the gospel tradition. Paradoxically, most scholars today do believe that Jesus’s contemporaries experienced him as a healer, however we explain these experiences.</p> <p>That even first-hand witnesses can claim to experience such events, however, can no longer be credibly denied. Varieties of explanations exist (e.g., cures of psychosomatic disorders), and various levels of explanation are also possible (e.g., some argue for a deity working through natural causes). However explained, surveys suggest that hundreds of millions of people today claim to have witnessed what they consider divine healing. Moreover, millions of people have changed centuries of ancestral allegiances on the basis of such experiences. As in the gospel tradition, these experiences do include even healing of blindness, resuscitation of some dead persons through prayer, and occasionally what their reporters consider nature miracles. Some experiences go beyond the gospel tradition in reporting instant or nearly instant visible changes such as vanishing goitres. Such reports challenge traditional scepticism of the Gospel accounts. Depending on how they are understood, some experiences could also challenge Hume’s presumption against sufficient credible witnesses regarding miracles.</p>" 
         },
         {
             "id": 5,
-            "speakerId": { "id":8, "name": "Colin McGinn"},
-            "respondentId": { "id":9, "name": "Roger Scruton"},
+            "speaker": { "id":8, "name": "Colin McGinn"},
+            "respondent": { "id":9, "name": "Roger Scruton"},
             "time": "Tuesday 17 July, 8:00pm",
             "title": "Mysterianism and the Mind of God",
             "abstract": "<p>Which aspects of God’s mind are mysterious and which are not? Do the mysteries of God’s mind parallel the mysteries of the human mind? The mystery of the mind-body connection will not apply to God’s mind, since God has no material body-- though the consciousness of God itself might pose mysteries in its own right, such as the mystery of intentionality. But the mystery of free will can be expected to apply equally to God, as it does to humans. How God can have free will in a world either deterministic or indeterministic is just as problematic as the analogous problem for human freedom. On the other hand, all is not mysterious, either for humans or for God, since some mental faculties do admit of understanding: the language faculty, logical reasoning, geometrical competence, and moral and social cognition. God presumably possesses each of these faculties, and so the theories that apply to humans will carry over to God, mutatis mutandis. For instance, God’s language faculty will involve a combinatorial system built from a finite base and extending to infinity.</p> <p>As to the problem of divine intervention in the natural world, I see no metaphysical reason why this should be more difficult to understand than the intervention of the human will in the natural world (which is not to say that this problem is easy). In both cases we are confronted with a physical world governed by natural laws that appear to proceed without volitional causation—how then can volitional acts, human or divine, affect what happens in the natural world?</p>" 
         },
         {
             "id": 6,
-            "speakerId": { "id":10, "name": "Alister McGrath"},
-            "respondentId": { "id":9, "name": ": Roger Scruton"},
+            "speaker": { "id":10, "name": "Alister McGrath"},
+            "respondent": { "id":9, "name": ": Roger Scruton"},
             "time": "Monday 14 July, 9:00am",
             "title": "Understanding Cultural and Theological Resistance to Special Divine Action",
             "abstract": "<p>This lecture explores some concerns about the notion of Special Divine Action (SDA) within mainline English religious circles from about 1650 to 1800, focussing on three interconnected developments. In the first place, the increasingly rational culture of this period appears to have created a prejudice against the idea of SDA. Second, the growing emphasis on the \"lawlike\" behaviour of the natural world created anxiety about the notion of SDA, partly because this appeared to contravene the frameworks of regularity that were coming to be valued around this time.</p><p>SDA was something that had indeed happened in the primordial act of creation; yet many now regarded God as governing the world not through \"signs and wonders\", but through the laws of nature. Third, many theologians of this age were apprehensive about the rationality of the doctrine of the Trinity, and tended to think of God in non-interventionist terms. These trends will be discussed in the writings of theologians from Newton to Paley, and their mutual relationship and significance assessed. Finally, their relevance for contemporary discussions of the question will be assessed.</p>" 
         },
         {
             "id": 7,
-            "speakerId": { "id":4, "name": "Timothy McGrew"},
-            "respondentId": null,
+            "speaker": { "id":4, "name": "Timothy McGrew"},
+            "respondent": null,
             "time": "Sunday 13 July, 4:30pm",
             "title": "Special Divine Action: The Uses of History and the State of the Art",
             "abstract": "<p>The subject of special divine action, once a vigorous field of academic discussion and debate, fell into comparative neglect in the 20th century as Hume’s famous essay became, in many places, the only piece anyone was required to read on the subject. Recent work, however, has shaken this consensus severely and brought Hume’s reasoning under heavy fire, providing a welcome opportunity to reopen the subject. For this purpose, it is important to revisit the long history of the discussion, a history that not only anticipates many modern moves but also includes perspectives that can, properly appreciated, advance the state of the art.</p>" 
         },
         {
             "id": 8,
-            "speakerId": { "id":12, "name": "Robert Russell"},
-            "respondentId": { "id":11, "name": "Willem Drees"},
+            "speaker": { "id":12, "name": "Robert Russell"},
+            "respondent": { "id":11, "name": "Willem Drees"},
             "time": "Tuesday 15 July, 4:30pm",
             "title": "Does 'the God Who Acts' Really Act? A Theory of Non-Interventionist Objective Divine Action (NIODA) in Light of Contemporary Science",
             "abstract": "<p>In a mechanistic world, such as dominated the modern period due in large measure to the resounding success of Newtonian science, all natural events were understood to occur deterministically from lock-step, natural causes. If God were to act, beyond creating and sustaining the universe, in special ways to alter the course of nature, God’s action would be considered ‘miraculous’ (in the Humean sense, at least): an objective intrusion into or suspension of the flow of natural processes and a violation of the laws of nature as discovered by science. Beginning in the twentieth century, however, philosophical arguments have been made that the natural sciences now can be interpreted in ways that allow for objective divine action that is non-interventionist (i.e., non-miraculous). In this lecture I will explore a variety of approaches to NIODA, assessing their relative fruitfulness and considering the challenges to them. I will argue that quantum mechanics, and thus ‘bottom-up causality,’ provides the most promising such approach.</p>" 
         },
         {
             "id": 9,
-            "speakerId": { "id":9, "name": "Roger Scruton"},
-            "respondentId": { "id":15, "name": "Raymond Tallis"},
+            "speaker": { "id":9, "name": "Roger Scruton"},
+            "respondent": { "id":15, "name": "Raymond Tallis"},
             "time": "Wednesday 16 July, 9:00am",
             "title": "What is it for a prayer to be answered?",
             "abstract": "Problems about special divine action trouble our understanding of prayer. Even if God hears our prayers, what can he do about them? Many prayers are for rectification of the past - 'Let it not be that she has drowned', e.g. the fervent prayers of the relatives of those on the Malaysian airliner come to mind. There seems to be a distinction between prayers relating to actions and resolutions of one's own, in which one calls for a strengthening of one's own will, and prayers addressed solely to the will of God. I explore the phenomenology of prayer, with a view to understanding just what 'the will of God' might mean in this context." 
         },
         {
             "id": 10,
-            "speakerId": { "id":13, "name": "Richard Swinburne"},
-            "respondentId": { "id":15, "name": "Raymond Tallis"},
+            "speaker": { "id":13, "name": "Richard Swinburne"},
+            "respondent": { "id":15, "name": "Raymond Tallis"},
             "time": "Tuesday 15 July, 11:00am",
             "title": "The Probability of the Resurrection of Jesus",
             "abstract": "<p>God has major reasons for intervening in human history by becoming incarnate himself – to identify with our suffering, to provide atonement for our sins, and to reveal truths. Given there is at least a significant probability that there is a God, there is at least a modest probability that he would become incarnate and live a life and provide teaching appropriate to one who sought thereby to realise these goals. Jesus lived and taught in the appropriate way. If it was God incarnate who did so live and teach, he would need to show us that it was God who had done so, and so could be expected to put his signature on that life and teaching by a super-miracle, such as the Resurrection. So there is a modest prior probability in advance of considering the direct historical evidence of the Resurrection, to expect that it would happen to someone who lived and taught as Jesus did. Jesus is the only person in human history about whom there is significant evidence both that he led the appropriate kind of life, and that his life was culminated by a super-miracle. So we do not need too many witnesses to the empty tomb or too many witnesses who claimed to have talked to the risen Jesus, to make it probable that Jesus did indeed rise. We do have some such witness evidence, which it is very improbable would occur (in connection with someone who led the appropriate sort of life) unless the Resurrection occurred. In consequence it is overall very probable that the Resurrection occurred.</p>" 
         },
         {
             "id": 11,
-            "speakerId": { "id":14, "name": "Graham Twelftree"},
-            "respondentId": { "id":7, "name": "Craig Keener"},
+            "speaker": { "id":14, "name": "Graham Twelftree"},
+            "respondent": { "id":7, "name": "Craig Keener"},
             "time": "Sunday 13 July, 8:00pm",
             "title": "The Historian and the Miraculous",
             "abstract": "Although Søren Kierkegaard insisted that faith did not depend on history and miracle came to be seen as irrelevant in describing early Christianity, at least the postmodern turn and the increasing sociological significance of the Pentecostal and Charismatic movements with their testimony of miracle have increasingly brought the topic of miracle back to the fore in historiography. In an attempt to make a case that historians may be justified in judging whether or not a reported event can be described as a miracle, this presentation takes into account a number of points at which the work of the historian and the problem of miracle intersect: the postmodern challenge to realist history, the hegemony of confessional secular history, the emic history that avoids the problem of miracle, the problem of potential divine intervention for scientific enquiry, the historian and the unique event, and the question of the historian’s ability to identify supernatural agency, for example." 
