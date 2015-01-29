@@ -100,6 +100,30 @@ $('#send-button').magnificPopup({
   	items: {
       	src: '#email-confirmation',
       	type: 'inline'
+  	},
+  	callbacks: {
+  	   beforeOpen: function() {
+  	      var pendingText = "<h2>Just a moment&hellip;</h2><p>We're processing your request.</p>";
+  	      var successText = "<h2>Thank You!</h2><p>You have successfully signed up to receive email updates about Special Divine Action.</p>";
+  	      var badArgumentText = "<h2>Things don't look right.</h2><p>That doesn't look like an email address to us.</p>";
+  	      var internalErrorText = "<h2>Well, this is embarassing.</h2><p>We seem to be having problems with email signup.</p>";
+  	      var displayEl = $("#email-confirmation .msg");
+  	      
+  	    displayEl.html(pendingText);
+  	    $.ajax({
+  	            type: $('form.signup-form').attr('method'),
+  	            url: $('form.signup-form').attr('action'),
+  	            data: {email:$("#email-signup").val()},
+  	            success: function()
+  	            {
+  	               displayEl.html(successText)
+  	            },
+  	            error: function()
+  	            {
+  	               displayEl.html(internalErrorText)
+  	            }
+  	      });
+  	   }
   	}
 });
 $('#play-video').magnificPopup({
