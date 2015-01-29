@@ -286,6 +286,19 @@ h1 {
         position: relative;
         width: 100%;
     }
+    input[type="email"] {
+        background: transparent;
+        border: 1px solid #4e534d;
+        border-radius: 8px;
+        color: #eee8de;
+        height: 50px;
+        outline: 0;
+        padding: 12px 12px;
+        width: 100%;
+        &::-webkit-input-placeholder {
+            color: #eee8de;
+        }
+    }
     input[type="text"] {
         background: transparent;
         border: 1px solid #4e534d;
@@ -393,16 +406,7 @@ h1 {
     background-size: cover;
     height: 100%;
     position: relative;
-    &--1 {
-    }
-    &--2 {
-    }
-    &--3 {
-        background-image: url(../img/slider-books.jpg);
-    }
-    &--4 {
-        background-image: url(../img/slider-people.jpg);
-    }
+    padding-top:1rem;
     .interior {
         margin: 0 auto;
         max-width: 1600px;
@@ -488,11 +492,13 @@ h1 {
         &.upper-box {
             color: white;
             margin: 0;
+            margin-top: 0rem;
             margin-left:1rem;
-            padding-bottom: 2em;
+            padding-bottom: 1em;
             padding-left: 1rem;
             padding-right: 1rem;
             padding-top: 5%;
+            display:inline-block;
             
             h2 { 
                 font-size:1.5em;
@@ -503,22 +509,27 @@ h1 {
                 font-size: 1.1em;
                 margin-left:1em;
                 margin-top:0.25em;
-                margin-bottom:0;
+                margin-bottom:1em;
             }
             
             p.blurb {
                 color: white;
-                display:none;
                 @extend %AvenirLTStd-Roman;
                 font-size: 0.8em;
-                margin: 2em 0 0;
+                margin: 0;
+                margin-top:0.5em;
+                padding-right:3em;
             }
+            
             &.right {
                 float: right;
                 text-align: left;
             }
             &.textbg {
                 background-color: rgba($darkBrown, .35);
+                &-copper {
+                    background-color: rgba($lightBrown, .50);
+                }
             }
             @media only all and (min-width: 20em) {
                 max-width: 80%;
@@ -526,28 +537,33 @@ h1 {
                 padding-top: 7.5%;
             }
             @media only all and (min-width: 30em) {
-                max-width: 70%;
+              //  max-width: 70%;
                 padding-top: 2rem;
                 p.blurb { display:block; }
             }
             @media only all and (min-width: 40em) {
-                max-width: 60%;
+                // max-width: 60%;
                 font-size: 1.25em;
             }
             @media only all and (min-width: 50em) {
-                max-width: 50%;
+               // max-width: 57.5%;
             }
             @media only all and (min-width: 60em) {
+                //max-width: 55%;
                 font-size: 1.5em;
             }
             @media only all and (min-width: 70em) {
+                //max-width: 52.5%;
             }
             @media only all and (min-width: 80em) {
+               // max-width: 50%;
                 font-size: 1.75em;
             }
             @media only all and (min-width: 90em) {
+                //max-width: 47.5%;
             }
             @media only all and (min-width: 100em) {
+                //max-width: 45%;
             }
         }
         
@@ -1288,6 +1304,10 @@ h1 {
         .content {
             margin: 0 auto;
             max-width: 46rem;
+        }
+        
+        .container .content {
+            font-size:.75em;
         }
     }
     @media only all and (min-width: 40em) {
