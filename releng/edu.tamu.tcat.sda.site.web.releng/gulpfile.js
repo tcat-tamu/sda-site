@@ -8,7 +8,8 @@ var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var uglifyJs = require('gulp-uglify');
 var uglifyCSS = require('gulp-cssmin');
-var tap = require('gulp-tap');
+var nunjucks = require('gulp-nunjucks-render');
+// var tap = require('gulp-tap');
 
 var buildPath = '../../build/web/';
 var cssBuildPath = buildPath + 'assets/css/';
@@ -38,7 +39,13 @@ gulp.task('images', function()
 
 gulp.task('html', function()
 {
+   nunjucks.nunjucks.configure(srcPath + 'html/', {
+      watch: false
+   });
    gulp.src(srcPath + 'html/**/*')
+       .pipe(nunjucks({
+          baseUrl: '/sda'
+       }))
        .pipe(gulp.dest(buildPath));
 });
 
@@ -56,6 +63,7 @@ gulp.task('js', function()
    gulp.src(srcPath + 'vendor/**/*.js')
        .pipe(gulp.dest(jsBuildPath + 'vendor/'));
 });
+
 gulp.task('stylesheets', function()
 {
    gulp.src(srcPath + 'styles/main.scss')
