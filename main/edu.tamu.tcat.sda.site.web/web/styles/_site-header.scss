@@ -1,0 +1,178 @@
+// Main definition of the site header
+
+/*  Site Header  */
+
+.site-header {
+    background-color: $darkBrown;
+    .container {
+        @extend %clearfix;
+        padding: 1em;
+    }
+}
+
+.logo {
+    float: left;
+    max-width: 70px;
+}
+
+.entity {
+    float: right;
+    width: 40%;
+    img {
+        float: right;
+        max-width: 40px;
+    }
+}
+
+.nav-trigger {
+    float: left;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 24px;
+    i {
+        color: $lightBrown;
+        font-size: 1.75em;
+    }
+    .aid {
+        color: #5e5d57;
+        display: block;
+        font-size: 0.5em;
+        text-align: center;
+        text-transform: uppercase;
+    }
+}
+
+.signup-trigger {
+    cursor: pointer;
+    float: right;
+    margin-top: 4px;
+    i {
+        color: $lightBrown;
+        font-size: 1.75em;
+    }
+}
+
+.search {
+    clear: both;
+    display: none;
+    margin-top: 20px;
+}
+
+.signup-form {
+    color: #eee8de;
+    float: right;
+    max-width: 400px;
+    width: 100%;
+    label {
+        display: block;
+        font-size: 0.875em;
+        margin-bottom: 0.25em;
+    }
+    .form-field {
+        position: relative;
+        width: 100%;
+    }
+    input[type="email"] {
+        background: transparent;
+        border: 1px solid #4e534d;
+        border-radius: 8px;
+        color: #eee8de;
+        height: 50px;
+        outline: 0;
+        padding: 12px 12px;
+        width: 100%;
+        &::-webkit-input-placeholder {
+            color: #eee8de;
+        }
+    }
+    input[type="text"] {
+        background: transparent;
+        border: 1px solid #4e534d;
+        border-radius: 8px;
+        color: #eee8de;
+        height: 50px;
+        outline: 0;
+        padding: 12px 12px;
+        width: 100%;
+        &::-webkit-input-placeholder {
+            color: #eee8de;
+        }
+    }
+    .submit {
+        background-color: #212221;
+        border: 1px solid #4e534d;
+        border-radius: 0 8px 8px 0;
+        color: #eee8de;
+        font-size: 11px;
+        height: 50px;
+        letter-spacing: 1px;
+        padding: 0 24px;
+        position: absolute;
+        right: 0;
+        text-transform: uppercase;
+        top: 0;
+        transition: background-color 400ms;
+        &:hover, &:focus, &:active {
+            background-color: lighten(#212221, 5%);
+        }
+    }
+    .note {
+        display: block;
+        font-size: 0.8125em;
+        margin-top: 0.5em;
+        text-align: right;
+        a {
+            border-bottom: 1px solid;
+            display: inline-block;
+            text-decoration: none;
+        }
+    }
+}
+
+.logo-area {
+    @extend %clearfix;
+}
+
+.entity {
+    display: none;
+}
+
+@media only all and (min-width: 55em) {
+    .header-wrapper {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+    }
+    .logo-area {
+        display: table-cell;
+        vertical-align: middle;
+        width: 200px;
+    }
+    .logo {
+        margin-left: 16px;
+        max-width: none;
+    }
+    .search {
+        display: table-cell !important;
+        vertical-align: middle;
+    }
+    .entity {
+        display: table-cell;
+        float: none;
+        vertical-align: middle;
+        width: 113px;
+        img {
+            max-width: none;
+        }
+    }
+    .signup-form {
+        display: block;
+        margin-right: 70px;
+    }
+    .nav-trigger {
+        margin-top: 17px;
+    }
+    .signup-trigger {
+        display: none;
+    }
+}

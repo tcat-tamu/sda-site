@@ -1,0 +1,158 @@
+/*  Author  */
+
+.author-portrait {
+    padding: 3rem 2rem;
+    img {
+        display: block;
+        // margin: 0 auto;
+    }
+
+    .header {
+        color: $lightBrown;
+        @extend %CenturyStd-Book;
+        font-size: 1.9em;
+        line-height: 1;
+        margin-bottom: 0.67em;
+        @media only all and (min-width: 25em) {
+            font-size: 2.375em;
+        }
+        @media only all and (min-width: 30em) {
+            font-size: 2.85em;
+        }
+        @media only all and (min-width: 35em) {
+            font-size: 3.325em;
+        }
+        @media only all and (min-width: 40em) {
+            font-size: 3.8em;
+        }
+        @media only all and (min-width: 60em) {
+            display: none;
+        }
+    }
+}
+
+.author-details {
+    border-top: 1px solid #ccc;
+    font-size: 0.8125em;
+    line-height: 1.5;
+    padding: 3rem 2rem;
+    a {
+        text-decoration: none;
+    }
+}
+
+.author-fact {
+    display: table;
+    margin-bottom: 0.75rem;
+    width: 100%;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.author-meta-title {
+    display: table-cell;
+    @extend %AvenirLTStd-Heavy;
+    width: 8em;
+}
+
+.author-meta-details {
+    display: table-cell;
+}
+
+.author-content {
+    border-top: 1px solid #ccc;
+    line-height: 1.8;
+    padding: 3rem 2rem 2rem;
+    h1 {
+        display: none;
+        margin-top: 0;
+        @media only all and (min-width: 60em) {
+            display: block;
+        }
+    }
+}
+
+.author-aside {
+    border-top: 1px solid #ccc;
+    font-size: 0.875em;
+    line-height: 1.6;
+    padding: 3rem 2rem;
+    h3 {
+        color: black;
+        @extend %AvenirLTStd-Heavy;
+        margin-top: 0;
+    }
+}
+
+.aside-block {
+    margin-bottom: 2rem;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.section--author {
+    @extend %clearfix;
+}
+
+@media only all and (min-width: 40em) {
+    .author-portrait, .author-details, .author-content, .author-aside {
+        padding: 4rem 3rem;
+    }
+}
+
+@media only all and (min-width: 60em) {
+    .section--author {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+    }
+    .col--author-info {
+        border-right: 1px solid #ccc;
+        display: table-cell;
+        vertical-align: top;
+        width: 40%;
+    }
+    .col--author-main {
+        display: table-cell;
+        vertical-align: top;
+        width: 60%;
+    }
+    .author-content, .author-aside {
+        padding: 4rem;
+    }
+}
+
+@media only all and (min-width: 80em) {
+    .author-portrait, .author-details, .author-content, .author-aside {
+        padding: 5rem 3rem;
+    }
+    .col--author-info {
+        width: 20rem;
+    }
+    .author-content {
+        float: left;
+        width: 70%
+    }
+    .author-aside {
+        float: left;
+        width: 30%;
+    }
+    .aside-block {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 1rem;
+    }
+}
+
+@media only all and (min-width: 100em) {
+    .author-content, .author-aside {
+        padding: 7rem 4rem;
+    }
+    .author-portrait {
+        padding: 7rem 4rem 4rem;
+    }
+    .author-details {
+        padding: 4rem 3rem;
+    }
+}

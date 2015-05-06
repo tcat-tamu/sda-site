@@ -1,0 +1,212 @@
+// supplies core styles for typography, colors and general utilities
+// along with the basic element definitions
+
+// Fonts
+
+@font-face {font-family: 'CenturyStd-BookItalic';src: url('../fonts/2B8BDF_0_0.eot');src: url('../fonts/2B8BDF_0_0.eot?#iefix') format('embedded-opentype'),url('../fonts/2B8BDF_0_0.woff') format('woff'),url('../fonts/2B8BDF_0_0.ttf') format('truetype');}
+@font-face {font-family: 'CenturyStd-Book';src: url('../fonts/2B8BDF_1_0.eot');src: url('../fonts/2B8BDF_1_0.eot?#iefix') format('embedded-opentype'),url('../fonts/2B8BDF_1_0.woff') format('woff'),url('../fonts/2B8BDF_1_0.ttf') format('truetype');}
+@font-face {font-family: 'AvenirLTStd-Heavy';src: url('../fonts/2B8BDF_2_0.eot');src: url('../fonts/2B8BDF_2_0.eot?#iefix') format('embedded-opentype'),url('../fonts/2B8BDF_2_0.woff') format('woff'),url('../fonts/2B8BDF_2_0.ttf') format('truetype');}
+@font-face {font-family: 'AvenirLTStd-Roman';src: url('../fonts/2B8BDF_3_0.eot');src: url('../fonts/2B8BDF_3_0.eot?#iefix') format('embedded-opentype'),url('../fonts/2B8BDF_3_0.woff') format('woff'),url('../fonts/2B8BDF_3_0.ttf') format('truetype');}
+
+%CenturyStd-BookItalic {
+    font-family: CenturyStd-BookItalic;
+    font-weight: normal;
+    font-style: normal;
+}
+%CenturyStd-Book {
+    font-family: CenturyStd-Book;
+    font-weight: normal;
+    font-style: normal;
+}
+%AvenirLTStd-Heavy {
+    font-family: AvenirLTStd-Heavy;
+    font-weight: normal;
+    font-style: normal;
+}
+%AvenirLTStd-Roman {
+    font-family: AvenirLTStd-Roman;
+    font-weight: normal;
+    font-style: normal;
+}
+
+// Colors
+$darkBrown: #1a1b1a;
+$lightBrown: #b88554;
+$text: #2e2e2e;
+$textGrey: #acaaa3;
+$textBlack: #292626;
+
+// Utility
+
+%activeUnderline {
+    &:hover, &:focus, &:active {
+        text-decoration: underline;
+    }
+}
+
+// Clearfix by Nicolas Gallagher
+%clearfix {
+    *zoom: 1;
+    &:before {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+        content: " ";
+        display: table;
+    }
+}
+
+// Visually hide an element while keeping it accessible
+%visuallyhidden {
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip: rect(0, 0, 0, 0);
+    position: absolute;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+@mixin hide-text {
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+}
+
+// Setting a rem font size with pixel fallback
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+}
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+
+// Font Smoothing (making fonts appear less "heavy")
+@mixin font-smoothing($value: on) {
+    @if $value == on {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    @else {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+    }
+}
+
+/*  General  */
+
+html {
+    background-color: $darkBrown;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html, body {
+    margin: 0;
+}
+
+body {
+    color: $text;
+    @extend %AvenirLTStd-Roman;
+    @include font-smoothing(on);
+}
+
+img, picture {
+    max-width: 100%;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 1.5rem;
+    margin: 0 auto;
+    max-width: 1600px;
+    @media only all and (min-width: 40em) {
+        padding: 2rem;
+    }
+    @media only all and (min-width: 40em) {
+        padding: 2rem 3rem;
+    }
+    &.no-vert {
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+    &.no-horiz {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: $lightBrown;
+    @extend %CenturyStd-Book;
+}
+
+p {
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+a {
+    color: $lightBrown;
+}
+
+h1 {
+    @extend %CenturyStd-Book;
+    font-size: 1.9em;
+    line-height: 1;
+
+    @media only all and (min-width: 40em) {
+        font-size: 2.3em;
+    }
+    @media only all and (min-width: 60em) {
+        font-size: 2.7em;
+    }
+    @media only all and (min-width: 80em) {
+        font-size: 3.1em;
+    }
+   /*
+    @media only all and (min-width: 25em) {
+        font-size: 2.375em;
+    }
+    @media only all and (min-width: 30em) {
+        font-size: 2.85em;
+    }
+    @media only all and (min-width: 35em) {
+        font-size: 3.325em;
+    }
+    @media only all and (min-width: 40em) {
+        font-size: 3.8em;
+    } */
+}
+
+.main {
+    background-color: white;
+}
