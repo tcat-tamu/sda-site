@@ -1,0 +1,41 @@
+{% extends 'condensed_page_layout.html' %}
+
+{% block meta_description -%}
+A cool description for SEO purposes.
+{%- endblock %}
+
+
+{% block title -%}
+  Don't Forget the Grapes
+{%- endblock %}
+
+
+{% block page_body %}
+<section class="section section--general section--comp">
+   <div class="container">
+      <div class="interior">
+         <div class="aside">
+             <img src="{{ baseUrl }}/assets/img/sda-course-grants.jpg" alt="">
+             <div class="table-of-contents" id="table-of-contents">
+                 <h3>Table of Contents</h3>
+                 <ol>
+                    <li><a href="#section-1" class="pagelink">Aim and summary</a></li>
+                    <li><a href="#section-2" class="pagelink">Eligibility</a></li>
+                    <li><a href="#section-3" class="pagelink">Topics</a></li>
+                    <li><a href="#section-4" class="pagelink">Monetary amount</a></li>
+                    <li><a href="#section-5" class="pagelink">Proposal submission instructions</a></li>
+                    <li><a href="#section-6" class="pagelink">Selection criteria</a></li>
+                    <li><a href="#section-7" class="pagelink">Application process deadlines</a></li>
+                    <li><a href="#section-8" class="pagelink">Frequently asked questions</a></li>
+                 </ol>
+             </div>
+         </div>
+
+         <div class="content" style="bottom:0px">
+            <iframe class="full" src="//babel.hathitrust.org/cgi/pt?id=uc2.ark:/13960/t3610x12d;ui=embed;view=1up;seq=6;skin=mobile" width="100%" height="100%"></iframe>
+         </div>
+      </div>
+   </div>
+</section>
+
+{% endblock %}
