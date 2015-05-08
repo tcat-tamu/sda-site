@@ -16,38 +16,38 @@ var merge = require('gulp-merge');
 var vendorPath     = '../../build/vendor';
 
 
-var buildPath      = '../../build/web/';
-var jsBuildPath    = buildPath + 'assets/js/';
-var cssBuildPath   = buildPath + 'assets/css/';
-var fontsBuildPath = buildPath + 'assets/fonts/';
-var imgBuildPath   = buildPath + 'assets/img/';
+var buildPath      = '../../build/web';
+var jsBuildPath    = buildPath + '/assets/js';
+var cssBuildPath   = buildPath + '/assets/css';
+var fontsBuildPath = buildPath + '/assets/fonts';
+var imgBuildPath   = buildPath + '/assets/img';
 
-var srcPath = '../../main/edu.tamu.tcat.sda.site.web/web/';
+var srcPath = '../../main/edu.tamu.tcat.sda.site.web/web';
 
 gulp.task('fonts', function()
 {
-   gulp.src(srcPath + 'fonts/**/*')
+   gulp.src(srcPath + '/fonts/**/*')
        .pipe(gulp.dest(fontsBuildPath));
 });
 
 gulp.task('icons', function()
 {
-   gulp.src(srcPath + 'icons/**/*')
+   gulp.src(srcPath + '/icons/**/*')
        .pipe(gulp.dest(buildPath));
 });
 
 gulp.task('images', function()
 {
-   gulp.src(srcPath + 'img/**/*')
+   gulp.src(srcPath + '/img/**/*')
        .pipe(gulp.dest(imgBuildPath));
 });
 
 gulp.task('html', function()
 {
-   nunjucks.nunjucks.configure(srcPath + 'html/', {
+   nunjucks.nunjucks.configure(srcPath + '/html/', {
       watch: false
    });
-   gulp.src(srcPath + 'html/**/*')
+   gulp.src(srcPath + '/html/**/*')
        .pipe(nunjucks({
           baseUrl: '/sda'
        }))
@@ -56,10 +56,10 @@ gulp.task('html', function()
 
 gulp.task('js', function() {
    // FIXME copy dependencies into
-   gulp.src(srcPath + 'vendor/*.js')
+   gulp.src(srcPath + '/vendor/*.js')
        .pipe(gulp.dest(jsBuildPath + '/vendor'));
 
-   var javascripts = gulp.src(srcPath + 'scripts/**/*.js')
+   var javascripts = gulp.src(srcPath + '/scripts/**/*.js')
         .pipe(amdOptimize('main', {
             findNestedDependencies: true,
             paths: {
@@ -135,9 +135,9 @@ gulp.task('stylesheets', function()
 });
 
 gulp.task('watch', function() {
-   gulp.watch(srcPath + 'styles/**/*.scss', ['stylesheets']);
-   gulp.watch(srcPath + 'scripts/**/*.js', ['js']);
-   gulp.watch(srcPath + 'html/**/*.html', ['html']);
+   gulp.watch(srcPath + '/styles/**/*.scss', ['stylesheets']);
+   gulp.watch(srcPath + '/scripts/**/*.js', ['js']);
+   gulp.watch(srcPath + '/html/**/*.html', ['html']);
 });
 
 gulp.task('default', ['stylesheets', 'fonts', 'icons', 'images', 'html', 'js']);
