@@ -1,0 +1,208 @@
+{% extends 'layout.html' %}
+
+{% macro heroImage(imgUrl, style) %}
+   {# TODO Need to handle different format banner images here #}
+   <li>
+     <div class="banner" style="background-image: url({{ baseUrl }}/assets/img/{{ imgUrl }});">
+         <div class="interior">
+            <aside class="content {{ sytle }}">
+               {{ caller() }}
+            </aside>
+         </div>
+     </div>
+  </li>
+{% endmacro %}
+
+{% block page_header %}
+<header class="site-header">
+    <div class="container">
+        <div class="header-wrapper">
+            <div class="logo-area">
+                <a href="/"><img src="assets/img/sda-logo-light.png" alt="" class="logo"></a>
+                <div class="signup-trigger" id="signup-trigger">
+                    <i class="fa fa-envelope-o"></i>
+                </div>
+            </div>
+            <div class="search" id="search">
+                <form action="/email-manager/" method="post" class="signup-form">
+                    <fieldset>
+                        <label for="email-signup">Signup for Email Updates</label>
+                        <div class="form-field">
+                           <input type="email" placeholder="Email address" name="email" id="email-signup">
+                           <button type="submit" class="submit" id="send-button">Send</button>
+                        </div>
+                        <div class="note">
+                           <a href="#privacy-policy" id="privacy-link" class="open-popup-link">View our Privacy Policy</a>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="entity">
+                <img src="assets/img/ox-brand.gif" alt="">
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+
+{% block page_body %}
+<section class="section section--intro">
+   <div id="banners" class="flexslider">
+        <ul class="slides">
+            {% call heroImage('slider-female.jpg', 'basic-title right') %}
+               <h2>Does God Act?</h2>
+               <p class="subtitle">Explore one of the most profound<br/> influences on ideas, culture and civilisation</p>
+            {% endcall %}
+
+            <!--
+            {% call heroImage('slider-books.jpg', 'upper-box textbg') %}
+               <h2 class="title">Digital Library</h2>
+               <h3 class="subtitle">Coming May 2015</h3>
+               <p class="blurb">The SDA Project Digital Library brings together enduring historical resources and contemporary scholarship to assist in understanding the range of debates, insights, and perspectives.</p>
+            {% endcall %}
+            -->
+
+            {% call heroImage('slider-books.jpg', 'upper-box textbg-copper') %}
+               <h2 class="title">Digital Library</h2>
+               <p class="blurb">Discover the landscape of insights and influences that shape our understanding</p>
+            {% endcall %}
+
+            {% call heroImage('slider-earth.jpg', 'upper-box textbg-copper') %}
+               <h2 class="title">Student and Teacher Support</h2>
+               <p class="blurb">Apply study aids, competitions and course materials to universities, colleges, and schools</p>
+            {% endcall %}
+
+            {% call heroImage('slider-radcliffe.jpg', 'upper-box') %}
+               <h2 class="title">Conferences and Publications</h2>
+               <p class="blurb">Benefit from opportunities to learn present and debate new research</p>
+            {% endcall %}
+
+            {% call heroImage('slider-people.jpg', 'upper-box textbg-copper') %}
+               <h2 class="title">Public Engagement</h2>
+               <p class="blurb">Enjoy introductions to the themes and questions of special divine action</p>
+            {% endcall %}
+        </ul>
+   </div>
+   <div class="intro-stage">
+        <div class="container">
+           <div class="intro-content">
+                <div class="brow-filler"></div>
+                <div class="brow" id="brow">
+                    <div class="video-controls">
+                       <a href="https://www.youtube.com/watch?v=HmSKMbq7Fk8" class="play-video" id="play-video">
+                           <div class="image">
+                               <img src="assets/img/icon-video-play.png" alt="">
+                           </div>
+                           <div class="video-details">
+                               <span class="video-title">Introducing the Project</span>
+                               <span class="video-length">(3:40)</span>
+                           </div>
+                       </a>
+                    </div>
+                    <div class="control-section">
+                       <div class="slider-controls" id="slider-controls">
+                           <ol class="flex-control-nav flex-control-paging" id="sda-paging"></ol>
+                           <ul class="flex-direction-nav">
+                               <li><a class="flex-prev" href="#">Previous</a></li>
+                               <li><a class="flex-next" href="#">Next</a></li>
+                           </ul>
+                       </div>
+                    </div>
+                </div>
+                <div class="intro-text flexslider" id="intro-text">
+                    <ul class="slides">
+                       <li>
+                           <div class="leadin">
+                               <p>Is every action in the cosmos only an effect of some other action in the cosmos? Or is there something more? Is there divine action?</p>
+                           </div>
+                           <div class="slide-content">
+                               <div class="text">
+                                    <p>One fact is certain: belief in these special divine actions has had an immense impact on human society and civilisation. Such beliefs shape, often decisively, the way we think about the world, what we do in the world, and what we hope for now and in the future.</p>
+                                    <a href="about/overview.html" class="read-more">Read More</a>
+
+                               </div>
+                           </div>
+                       </li>
+
+                       <li>
+                           <div class="leadin">
+                               <div class="text">
+                                    <p>What do centuries of scholarship teach about special divine action in relation to our philosophical, religious, and scientific worldviews?</p>
+                               </div>
+                           </div>
+                           <div class="slide-content">
+                               <div class="text">
+                                    <p>The Special Divine Action Project assists scholars by providing access to digital versions  of key works,  topical essays, biographies and tools to explore the influences, provocations and convergences among these works in science, philosophy, theology and religion.</p>
+                                    <a href="about/digitallibrary.html" class="read-more">Read More</a>
+                               </div>
+                           </div>
+                       </li>
+                       <li>
+                           <div class="leadin">
+                               <p>How can I study, teach or research the questions, perspectives and debates about special divine action in my school, college or university?</p>
+                           </div>
+                           <div class="slide-content">
+                               <div class="text">
+                                    <p>The Special Divine Action Project supports study and teaching in universities, colleges, and schools, providing introductions, biographies, reviews, reading lists, audio-visual materials, course materials, course development and cluster group competitions.</p>
+                                    <a href="about/student_and_teacher_support.html" class="read-more">Read More</a>
+                               </div>
+                           </div>
+                       </li>
+                       <li>
+                           <div class="leadin">
+                               <p>What research is being done by academics today on special divine action? How can I contribute or engage with such work?</p>
+                           </div>
+                           <div class="slide-content">
+                               <div class="text">
+                                    <p>Research activities of the Special Divine Action Project include conferences with leading academics worldwide, competitively selected short papers, opportunities for debates and discussion, and keynote videos online together with a range of academic publications.</p>
+                               </div>
+                           </div>
+                       </li>
+                       <li>
+                           <div class="leadin">
+                               <p>How can I benefit from this project in daily life? How can I explore the ideas and questions regarding special divine action in the world?</p>
+                           </div>
+                           <div class="slide-content">
+                               <div class="text">
+                                    <p>The Special Divine Action Project provides summaries of key ideas for general use by members of the public supported by audiovisual materials and animations. All academic tools and research of the project are also made available via the web for use worldwide.</p>
+                                    <a href="about/public_engagement.html" class="read-more">Read More</a>
+                               </div>
+                           </div>
+                       </li>
+           <!--
+                       <li>
+                           <div class="leadin">
+                               <p>Four Is every action in the cosmos only an affect of some other action in the cosmos? Is there divine intervention?</p>
+                           </div>
+                           <div class="slide-content">
+                               <div class="text">
+                                    <p>Four fact is certain: belief in these special divine actions has had an immense impact on human society and civilisation. Such beliefs shape, often decisively, the way we think about the world, what we do in the world, and what we hope for now and in the future. <a href="" class="read-more">Read More</a></p>
+                               </div>
+                           </div>
+                       </li>
+                       <li>
+                           <div class="leadin">
+                               <p>Five Is every action in the cosmos only an affect of some other action in the cosmos? Is there divine intervention?</p>
+                           </div>
+                           <div class="slide-content">
+                               <div class="text">
+                                    <p>Five fact is certain: belief in these special divine actions has had an immense impact on human society and civilisation. Such beliefs shape, often decisively, the way we think about the world, what we do in the world, and what we hope for now and in the future. <a href="" class="read-more">Read More</a></p>
+                               </div>
+                           </div>
+                       </li>
+                 -->
+                    </ul>
+                </div>
+           </div>
+        </div>
+   </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+
+   <script>
+      require('./legacy-main');  // TODO need to call tool to init slides rather than running automatically
+   </script>
+{% endblock %}
