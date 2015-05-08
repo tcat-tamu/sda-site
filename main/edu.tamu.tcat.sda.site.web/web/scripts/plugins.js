@@ -1,5 +1,6 @@
-define(function() {
+define(function(require) {
 
+var jQuery = require('jquery');
 
 
 /*
@@ -34,7 +35,7 @@ define(function() {
         focused = true;
 
     // Store a reference to the slider object
-    $.data(el, "flexslider", slider);
+    $.data(el, "flexslider", slider); 
 
     // Private slider methods
     methods = {
