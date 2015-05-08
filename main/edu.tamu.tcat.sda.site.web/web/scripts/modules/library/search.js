@@ -18,10 +18,9 @@ define(function (require) {
       apiEndpoint: Config.apiEndpoint + '/works'
    });
 
-
-
    var SearchController = Marionette.Controller.extend({
 
+      // FIXME 'router' is not a router
       initialize: function (opts) {
          this.mergeOptions(opts, ['region', 'repository', 'router']);
 
@@ -41,7 +40,7 @@ define(function (require) {
             }
          });
 
-         this.searchForm.on('result:click', function (workSearchProxy) {
+         this.listenTo(this.searchForm, 'result:click', function (workSearchProxy) {
             this.router.command('work:show', workSearchProxy.uri);
          });
       },
@@ -73,10 +72,6 @@ define(function (require) {
       el: '#page_body'
    });
 
-
-   var routerChannel = Radio.channel('router');
-
-
    var SearchRouter = Marionette.AppRouter.extend({
       appRoutes: {
          '': 'searchForWork',
@@ -93,6 +88,8 @@ define(function (require) {
          }, this);
       }
    });
+
+   var routerChannel = Radio.channel('router');
 
    var searchRouter = new SearchRouter({
       channel: routerChannel,
