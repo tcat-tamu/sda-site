@@ -89,19 +89,4 @@
   {{ super() }}
   <script src="{{ baseUrl }}/assets/js/config.js"></script>
   <script src="{{ baseUrl }}/assets/js/main.js"></script>
-
-  <script>
-
-    var pgBody = $('main');
-    function resizePageBody()
-    {
-       var docHeight = $(window).height();
-
-       pgBody.height(docHeight - pgBody.offset().top);
-    }
-
-    resizePageBody();
-
-    $(window).on('resize', resizePageBody);
-  </script>
 {% endblock %}
