@@ -11,9 +11,11 @@ define(function (require) {
    var WorkRepository = require('trc-entries-biblio');
    var BookreaderView = require('modules/library/bookreader');
 
+   var Config = require('config');
+
 
    var repo = new WorkRepository({
-      apiEndpoint: '/api/catalog/works'
+      apiEndpoint: Config.apiEndpoint + '/works'
    });
 
 

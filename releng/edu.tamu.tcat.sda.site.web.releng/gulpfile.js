@@ -85,7 +85,9 @@ gulp.task('js', function() {
 
             shim: {
                 'bootstrap': ['jquery']
-            }
+            },
+
+            exclude: ['config']
         }))
         .pipe(sourcemaps.init({
             loadMaps: true
@@ -103,9 +105,15 @@ gulp.task('js', function() {
         .pipe(concat('vendors.js'));
 
 
-    return merge(vendors, javascripts)
-      //   .pipe(uglifyJS())
-        .pipe(sourcemaps.write('.'))
+    var minified = merge(vendors, javascripts)
+        // .pipe(uglifyJS())
+        .pipe(sourcemaps.write('.'));
+
+    var config = gulp.src([
+        srcPath + '/scripts/config.js'
+    ]);
+
+    return merge(minified, config)
         .pipe(gulp.dest(jsBuildPath));
 });
 // gulp.task('js', function()
