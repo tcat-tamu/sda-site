@@ -13,8 +13,7 @@ var nunjucks     = require('gulp-nunjucks-render');
 var merge = require('gulp-merge');
 // var tap = require('gulp-tap');
 
-var stagingPath    = '../../vendor/web/';
-var vendorPath     = stagingPath + '/vendor';
+var vendorPath     = '../../build/vendor';
 
 
 var buildPath      = '../../build/web/';
@@ -56,8 +55,13 @@ gulp.task('html', function()
 });
 
 gulp.task('js', function() {
+   // FIXME copy dependencies into
+   gulp.src(srcPath + 'vendor/*.js')
+       .pipe(gulp.dest(jsBuildPath + '/vendor'));
+
+   // gulp.src([srcPat + '/'])
    var javascripts = gulp.src(srcPath + 'scripts/**/*.js')
-        .pipe(amdOptimize('examples', {
+        .pipe(amdOptimize('main', {
             findNestedDependencies: true,
             paths: {
                 'backbone': vendorPath + '/backbone/backbone',
@@ -71,10 +75,10 @@ gulp.task('js', function() {
                 // NOTE: quill cannot be shimmed; see src/quill.js
                 'underscore': vendorPath + '/underscore/underscore',
 
-                'trc-entries-biblio': vendorPath + 'trc-js-core/modules/trc-entries-biblio/dist/trc-entries-biblio',
-                'trc-entries-bio': vendorPath + 'trc-js-core/modules/trc-entries-bio/dist/trc-entries-bio',
-                //  'trc-entries-reln': vendorPath + 'trc-js-core/modules/trc-entries-reln/dist/trc-entries-reln',
-                'trc-ui-widgets': vendorPath + 'trc-js-core/modules/trc-ui-widgets/dist/trc-ui-widgets'
+                'trc-entries-biblio': vendorPath + '/trc-js-core/modules/trc-entries-biblio/dist/trc-entries-biblio',
+                'trc-entries-bio': vendorPath + '/trc-js-core/modules/trc-entries-bio/dist/trc-entries-bio',
+                //  'trc-entries-reln': vendorPath + '/trc-js-core/modules/trc-entries-reln/dist/trc-entries-reln',
+                'trc-ui-widgets': vendorPath + '/trc-js-core/modules/trc-ui-widgets/dist/trc-ui-widgets'
             },
 
             shim: {
@@ -99,23 +103,23 @@ gulp.task('js', function() {
 
 
     return merge(vendors, javascripts)
-        .pipe(uglifyJS())
+      //   .pipe(uglifyJS())
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(jsBuildPath));
 });
-gulp.task('js', function()
-{
-   gulp.src([srcPath + 'scripts/plugins.js', srcPath + 'scripts/main.js'])
-       .pipe(sourcemaps.init())
-       .pipe(concat('main.js')).on('error', gutil.log)
-       .pipe(uglifyJS())
-       .pipe(sourcemaps.write('.'))
-       .pipe(gulp.dest(jsBuildPath));
-
-   // copy vendor libraries
-   gulp.src(srcPath + 'vendor/**/*.js')
-       .pipe(gulp.dest(jsBuildPath + 'vendor/'));
-});
+// gulp.task('js', function()
+// {
+//    gulp.src([srcPath + 'scripts/plugins.js', srcPath + 'scripts/main.js'])
+//        .pipe(sourcemaps.init())
+//        .pipe(concat('main.js')).on('error', gutil.log)
+//        .pipe(uglifyJS())
+//        .pipe(sourcemaps.write('.'))
+//        .pipe(gulp.dest(jsBuildPath));
+//
+//    // copy vendor libraries
+//    gulp.src(srcPath + 'vendor/**/*.js')
+//        .pipe(gulp.dest(jsBuildPath + 'vendor/'));
+// });
 
 gulp.task('stylesheets', function()
 {
