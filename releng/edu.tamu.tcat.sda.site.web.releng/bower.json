@@ -13,8 +13,8 @@
     "moment": "~2.9.0",
     "prism": "*",
     "quill": "~0.19.8",
-    "underscore": "~1.7.0",
-    "trc-js-core": "C:\\dev\\git\\trc.js.core\\"
+    "trc-js-core": "../../../trc.js.core/#*",
+    "underscore": "~1.7.0"
   },
   "resolutions": {
     "underscore": "~1.7.0"

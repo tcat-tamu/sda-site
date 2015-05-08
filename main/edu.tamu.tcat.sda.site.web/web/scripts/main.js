@@ -2,11 +2,13 @@ define(function (require) {
    // require('./plugins');
    require('./legacy-main');
 
-   var Biblio = require('trc-entries-biblio');
    var Backbone = require('backbone');
    var Marionette = require('marionette');
-   var Marionette = require('marionette');
    var BookreaderView = require('modules/library/bookreader');
+
+   // required to satisfy dependencies of other modules
+   require('trc-entries-biblio');
+   require('modules/library/search');
 
    var Router = Marionette.AppRouter.extend({
       appRoutes: {

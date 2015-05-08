@@ -59,7 +59,6 @@ gulp.task('js', function() {
    gulp.src(srcPath + 'vendor/*.js')
        .pipe(gulp.dest(jsBuildPath + '/vendor'));
 
-   // gulp.src([srcPat + '/'])
    var javascripts = gulp.src(srcPath + 'scripts/**/*.js')
         .pipe(amdOptimize('main', {
             findNestedDependencies: true,
@@ -78,7 +77,9 @@ gulp.task('js', function() {
                 'trc-entries-biblio': vendorPath + '/trc-js-core/modules/trc-entries-biblio/dist/trc-entries-biblio',
                 'trc-entries-bio': vendorPath + '/trc-js-core/modules/trc-entries-bio/dist/trc-entries-bio',
                 //  'trc-entries-reln': vendorPath + '/trc-js-core/modules/trc-entries-reln/dist/trc-entries-reln',
-                'trc-ui-widgets': vendorPath + '/trc-js-core/modules/trc-ui-widgets/dist/trc-ui-widgets'
+                'trc-ui-widgets': vendorPath + '/trc-js-core/modules/trc-ui-widgets/dist/trc-ui-widgets',
+
+                'templates': vendorPath + '/trc-js-core/modules/trc-ui-widgets/dist/templates'
             },
 
             shim: {
@@ -93,7 +94,6 @@ gulp.task('js', function() {
     var vendors = gulp.src([
             // quill must be included before almond because it does not use the runtime define() method properly
             vendorPath + '/quill/dist/quill.js',
-            vendorPath + '/prism/prism.js',
             vendorPath + '/almond/almond.js'
         ])
         .pipe(sourcemaps.init({
