@@ -65,6 +65,7 @@ gulp.task('js', function() {
             paths: {
                 'backbone': vendorPath + '/backbone/backbone',
                 'backbone.babysitter': vendorPath + '/backbone.babysitter/lib/backbone.babysitter',
+                'backbone.radio': vendorPath + '/backbone.radio/build/backbone.radio',
                 'backbone.wreqr': vendorPath + '/backbone.wreqr/lib/backbone.wreqr',
                 'bootstrap': vendorPath + '/bootstrap/dist/js/bootstrap',
                 'jquery': vendorPath + '/jquery/dist/jquery',
