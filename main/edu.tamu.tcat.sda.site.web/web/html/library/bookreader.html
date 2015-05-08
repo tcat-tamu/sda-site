@@ -56,6 +56,20 @@ A cool description for SEO purposes.
    {{ super() }}
 
    <script>
+   var pgBody = $('main');
+      function resizePageBody()
+      {
+         var docHeight = $(window).height();
+
+         pgBody.height(docHeight - pgBody.offset().top);
+      }
+
+      resizePageBody();
+
+      $(window).on('resize', resizePageBody);
+   </script>
+
+   <script>
    require('main');
    </script>
 

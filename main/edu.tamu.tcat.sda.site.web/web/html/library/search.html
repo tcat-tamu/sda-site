@@ -14,7 +14,7 @@ A cool description for SEO purposes.
       <div class="interior">
          <aside class="aside">
              <div class="" id="biblio-search-basic">
-                 
+
              </div>
          </aside>
 
@@ -30,6 +30,20 @@ A cool description for SEO purposes.
 {% block scripts %}
    {{ super() }}
 
+   <script>
+   var pgBody = $('main');
+      function resizePageBody()
+      {
+         var docHeight = $(window).height();
+
+         pgBody.height(docHeight - pgBody.offset().top);
+      }
+
+      resizePageBody();
+
+      $(window).on('resize', resizePageBody);
+   </script>
+   
    <script>
    require('modules/library/search');
    </script>
