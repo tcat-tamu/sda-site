@@ -16,6 +16,7 @@ define(function (require) {
 
    var Views = require('./work_views');
 
+
    var WorkSearchResultView = Marionette.ItemView.extend({
       template: _.partial(nunjucks.render, 'trc/entries/ui/biblio/simple_search_result.html'),
       className: 'work-search-result',
