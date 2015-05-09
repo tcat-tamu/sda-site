@@ -54,12 +54,18 @@ gulp.task('html', function () {
 });
 
 gulp.task('templates', function () {
-   gulp.src(srcPath + '/scripts/**/*.j2')
+   var localTemplates = gulp.src(srcPath + '/scripts/**/*.j2')
       .pipe(nunjucksCompile({
          name: function (file) {
-            return file.relative.slice(0, -3);
+            // remove 'templates/' prefix and trailing .j2
+            return file.relative.slice(10, -3);
          }
-      }))
+      }));
+
+   var externalTemplates = gulp.src([vendorPath + '/trc-js-core/modules/trc-ui-widgets/dist/templates.js']);
+
+   // NOTE merge external then local templates to ensure locals override external defaults
+   merge(externalTemplates, localTemplates)
       .pipe(concat('templates.js'))
       .pipe(gulp.dest(jsBuildPath));
 });
@@ -89,18 +95,9 @@ gulp.task('js', ['templates'], function () {
             'trc-entries-biblio': vendorPath + '/trc-js-core/modules/trc-entries-biblio/dist/trc-entries-biblio',
             'trc-entries-bio': vendorPath + '/trc-js-core/modules/trc-entries-bio/dist/trc-entries-bio',
             //  'trc-entries-reln': vendorPath + '/trc-js-core/modules/trc-entries-reln/dist/trc-entries-reln',
-            'trc-ui-widgets': vendorPath + '/trc-js-core/modules/trc-ui-widgets/dist/trc-ui-widgets',
-
-            'trc-ui-widgets-templates': vendorPath + '/trc-js-core/modules/trc-ui-widgets/dist/templates',
-            'templates': 'empty:'
+            // NOTE default templates are included in the 'templates' task
+            'trc-ui-widgets': vendorPath + '/trc-js-core/modules/trc-ui-widgets/dist/trc-ui-widgets'
          },
-
-         map: {
-            'controls/modal/views/layout_helper_view': {
-               'templates': 'trc-ui-widgets-templates'
-            }
-         },
-
          shim: {
             'bootstrap': ['jquery']
          },
@@ -122,7 +119,6 @@ gulp.task('js', ['templates'], function () {
       }))
       .pipe(concat('vendors.js'));
 
-
    var minified = merge(vendors, javascripts)
       // .pipe(uglifyJS())
       .pipe(sourcemaps.write('.'));
@@ -136,12 +132,12 @@ gulp.task('js', ['templates'], function () {
 });
 
 gulp.task('stylesheets', function () {
-   gulp.src(srcPath + 'styles/main.scss')
+   gulp.src(srcPath + '/styles/main.scss')
       .pipe(sourcemaps.init())
       .pipe(sass())
       .pipe(autoprefixer())
       .pipe(concat('main.css')).on('error', gutil.log)
-      .pipe(uglifyCSS())
+      // .pipe(uglifyCSS())
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest(cssBuildPath));
 });

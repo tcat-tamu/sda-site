@@ -1,0 +1,9 @@
+{# expects to be provided a WorkSearchProxy #}
+
+<ol class="authorList">
+   {% for author in authors %}
+   <li><span class="author" data-id="{{ author.authorId }}" title="{{ author.firstName}} {{ author.lastName }}">{{ author.lastName }}</a>{{',' if not loop.last else ''}}</li>
+   {% endfor %}
+</ol>
+{% if pubYear %}<span class="pubYear">({{ pubYear }}).</span>{% endif %}
+<span class="title">{{ title }}</span>

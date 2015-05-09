@@ -20,12 +20,12 @@ define(function (require) {
    });
 
    var PublicationInfoView = Marionette.ItemView.extend({
-      template: _.partial(nunjucks.render, 'templates/biblio/pubinfo.html'),
+      template: _.partial(nunjucks.render, 'biblio/pubinfo.html'),
       tagName: 'span'
    });
 
    var VolumeView = Marionette.LayoutView.extend({
-      template: _.partial(nunjucks.render, 'templates/biblio/volume.html'),
+      template: _.partial(nunjucks.render, 'biblio/volume.html'),
       tagName: 'section',
       className: 'volume'
    });
@@ -37,7 +37,7 @@ define(function (require) {
 
 
    var EditionView = Marionette.LayoutView.extend({
-      template: _.partial(nunjucks.render, 'templates/biblio/edition.html'),
+      template: _.partial(nunjucks.render, 'biblio/edition.html'),
       tagName: 'section',
       className: 'edition',
 
@@ -83,7 +83,7 @@ define(function (require) {
 
 
    var WorkDisplayView = Marionette.LayoutView.extend({
-      template: _.partial(nunjucks.render, 'templates/biblio/work.html'),
+      template: _.partial(nunjucks.render, 'biblio/work.html'),
       tagName: 'article',
       className: 'work book',
 
