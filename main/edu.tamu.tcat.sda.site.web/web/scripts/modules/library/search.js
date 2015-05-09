@@ -4,8 +4,10 @@ define(function (require) {
    // more modular searching
 
    var Backbone = require('backbone');
-   var Marionette = require('marionette');
    var Radio = require('backbone.radio');
+   var _ = require('underscore');
+   var Marionette = require('marionette');
+   var nunjucks = require('nunjucks');
 
    var Widgets = require('trc-ui-widgets');
    var WorkRepository = require('trc-entries-biblio');
@@ -14,36 +16,57 @@ define(function (require) {
 
    var Views = require('./work_views');
 
+   var WorkSearchResultView = Marionette.ItemView.extend({
+      template: _.partial(nunjucks.render, 'trc/entries/ui/biblio/simple_search_result.html'),
+      className: 'work-search-result',
 
+      events: {
+         'click ol.authorList span.author': function(event) {
+            var el = event.target;
 
-   var SearchController = Marionette.Controller.extend({
+            var authors = this.model.get('authors');
+            var authorRef = _.where(authors, {
+               authorId: el.dataset.id
+            });
+            event.stopPropagation();
+            this.trigger('author:click', authorRef);
+         },
+
+         'click': function(event) {
+            this.trigger('work:click', this.model);
+         }
+      }
+   });
+
+   var BookSearchController = Marionette.Controller.extend({
 
       initialize: function (opts) {
          this.mergeOptions(opts, ['region', 'repository', 'routerChannel']);
 
          var _this = this;
          this.searchForm = new Widgets.Controls.SearchForm({
+            placeholder: 'Search Books',
+            resultView: WorkSearchResultView,
             searchProvider: function (q, limit) {
                _this.routerChannel.command('work:search', q);
 
                return _this.repository.search(q, { limit: limit })
                   .filter(function (workSearchProxy) {
                      return workSearchProxy.uri.match(/^works\/\d+$/);
-                  })
-                  .map(function (workSearchProxy) {
-                     return {
-                        title: workSearchProxy.label,
-                        description: null,
-                        obj: workSearchProxy
-                     };
                   });
             }
          });
 
          this.region.show(this.searchForm.getView());
 
-         this.listenTo(this.searchForm, 'result:click', function (workSearchProxy) {
-            this.routerChannel.command('work:show', workSearchProxy.uri, { trigger: true });
+         this.listenTo(this.searchForm, 'result:author:click', function(authorRef)
+         {
+            alert(authorRef);
+         });
+
+         this.listenTo(this.searchForm, 'result:work:click', function(workSearchProxy)
+         {
+            this.routerChannel.command('work:show', workSearchProxy.get('uri'), { trigger: true });
          });
       },
 
@@ -138,7 +161,7 @@ define(function (require) {
 
    var searchRouter = new SearchRouter({
       channel: routerChannel,
-      controller: new SearchController({
+      controller: new BookSearchController({
          region: layout.getRegion('basicBiblioSearch'),
          repository: repo,
          routerChannel: routerChannel
