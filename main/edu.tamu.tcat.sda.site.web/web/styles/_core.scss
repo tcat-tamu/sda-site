@@ -58,6 +58,34 @@ $textBlack: #292626;
     }
 }
 
+// copied from bootstrap for convenience
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+// Use in conjunction with .sr-only to only display content when it's focused.
+// Useful for "Skip to main content" links; see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
+// Credit: HTML5 Boilerplate
+
+.sr-only-focusable {
+  &:active,
+  &:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+  }
+}
+
 // Visually hide an element while keeping it accessible
 %visuallyhidden {
     margin: -1px;
@@ -209,4 +237,58 @@ h1 {
 
 main, .main {
     background-color: white;
+}
+
+/*  Forms - (Generic)  */
+
+#page_body
+{
+   form fieldset {
+     margin-bottom: 2rem;
+
+     .form-field {   // note, adds an extra REM to the bottom margin
+       margin-bottom: 1rem;
+
+       &:last-child
+       {
+       margin-bottom: 0;
+       }
+
+       label {
+         display: block;
+       }
+
+       input {
+         height: 2.75em;
+       }
+
+       input, textarea {
+         -webkit-appearance: none;
+         border-radius: 0;
+         color: #272927;
+         display: block;
+         padding: 0.5em;
+         width: 100%;
+       }
+     }
+   }
+
+
+
+   .submit {
+     background-color: #a47140;
+     border: 0;
+     border-radius: 0;
+     color: white;
+     font-size: 0.8275em;
+     letter-spacing: 1px;
+     padding: 1em 1.5em;
+     text-transform: uppercase;
+     -webkit-transition: background-color 400ms;
+     transition: background-color 400ms;
+   }
+
+   .submit:hover, .submit:focus, .submit:active {
+     background-color: #926439;
+   }
 }

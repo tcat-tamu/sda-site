@@ -1,5 +1,4 @@
 /*  Bookreader  */
-
 .section--bookreader {
    font-size: 0.8275em;
    font-size: 0.875em;
@@ -32,12 +31,10 @@
          width: 100%;
       }
    }
-
    .full {
       width: 100%;
       height: 100%;
    }
-
    .content {
       .text {
          max-width: 50em;
@@ -48,8 +45,7 @@
    }
 }
 .biblio-entry {
-    // @extend %AvenirLTStd-Heavy;
-
+   // @extend %AvenirLTStd-Heavy;
    h1 {
       font-size: 1.5em;
       border-bottom: 1px solid #ccc;
@@ -58,74 +54,138 @@
    }
    h2 {
       font-size: 1.25em;
-      width:100%;
+      width: 100%;
       border-bottom: 1px solid #ccc;
       //color: #292626;
       margin-bottom: 0.2rem;
    }
-
    .authors {
-      margin-left:1rem;
-      line-height:1.2rem;
-      display:inline;
-      list-style-type:none;
+      margin-left: 1rem;
+      line-height: 1.2rem;
+      display: inline;
+      list-style-type: none;
+   }
+}
+.sidenote {
+   text-transform: uppercase;
+}
+.acc-trigger {
+   border-bottom: 1px solid #ccc;
+   color: black;
+   cursor: pointer;
+   display: block;
+   @extend %AvenirLTStd-Heavy;
+   line-height: 1.2;
+   padding: 0.5rem 1rem 0.5rem 0;
+   position: relative;
+   &:after {
+      content: "\f063";
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: absolute;
+      right: 0;
+      top: 0.55rem;
+   }
+   &.active {
+      &:after {
+         content: "\f062";
+      }
+   }
+}
+.acc-segment {
+   display: none;
+   p,
+   ol,
+   ul {
+      margin-top: 0;
+      &:last-child {
+         margin-bottom: 0;
+      }
+   }
+}
+.single-question {
+   margin-bottom: 1rem;
+   &:last-child {
+      margin-bottom: 0;
+   }
+}
+.question {
+   @extend %AvenirLTStd-Heavy;
+   font-size: 1em;
+}
+
+// HACK format the search box
+//
+form.search-form {
+   .form-group {
+      // TODO should be a fieldset?
+      margin-bottom: 2rem;
+   }
+   .input-group
+   {
+      position:relative;
+
+      input {
+         display:block;
+         height:2.75rem;
+         line-height:2.75rem;
+         width:100%;
+         padding:0 1rem;
+         box-sizing: border-box;
+         padding-right:3rem;
+      }
+
+      button {
+         position:absolute;
+         top:0px;
+         right:0px;
+         background-color: #a47140;
+         border: 0;
+         border-radius: 0;
+         color: white;
+         height:2.75rem;
+         width:2.75rem;
+         line-height:2.75rem;
+         font-size: 0.8275em;
+         letter-spacing: 1px;
+         text-align:center;
+         // padding: 0 1.5rem;
+         text-transform: uppercase;
+         -webkit-transition: background-color 400ms;
+         transition: background-color 400ms;
+
+         i {      // button icon
+            font-size:1.5em;
+         }
+         &[type='reset'] {
+            background-color: $textGrey;
+            color: black;
+            margin-right: 0.5rem;
+         }
+      }
    }
 }
 
+.work-search-result {
+   margin-bottom:0.5rem;
+   padding-left:2rem;
+   text-indent:-2rem;
+   cursor:pointer;
 
-.sidenote {
-    text-transform: uppercase;
-}
-
-.acc-trigger {
-    border-bottom: 1px solid #ccc;
-    color: black;
-    cursor: pointer;
-    display: block;
-    @extend %AvenirLTStd-Heavy;
-    line-height: 1.2;
-    padding: 0.5rem 1rem 0.5rem 0;
-    position: relative;
-    &:after {
-        content: "\f063";
-        display: inline-block;
-        font: normal normal normal 14px/1 FontAwesome;
-        font-size: inherit;
-        text-rendering: auto;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-
-        position: absolute;
-        right: 0;
-        top: 0.55rem;
-    }
-    &.active {
-        &:after {
-            content: "\f062";
-        }
-    }
-}
-
-.acc-segment {
-    display: none;
-    p, ol, ul {
-        margin-top: 0;
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-}
-
-.single-question {
-    margin-bottom: 1rem;
-    &:last-child {
-        margin-bottom: 0;
-    }
-}
-
-.question {
-    @extend %AvenirLTStd-Heavy;
-    font-size: 1em;
+   ol.authorList {
+      list-style: none;
+      display: inline;
+      margin: 0;
+      padding: 0;
+      border: none;
+      li {
+         display: inline;
+      }
+   }
 }
 
 @media only all and (min-width: 60em) {
@@ -137,19 +197,16 @@
          padding-bottom: 1rem;
          padding-top: 1rem;
          height: 100%;
-
          .interior {
             display: table;
             table-layout: fixed;
             width: 100%;
             height: 100%;
-
             aside {
                display: table-cell;
                vertical-align: top;
                width: 25%;
             }
-
             .bookreader {
                height: 100%;
             }
@@ -158,56 +215,23 @@
                padding-left: 5%;
                vertical-align: top;
                width: 70%;
-
             }
          }
       }
    }
-    .acc-trigger {
-        border-bottom: 0;
-        cursor: default;
-        &:after {
-            display: none;
-        }
-    }
-    .acc-segment {
-        display: block !important;
-    }
-
-    .addl-info {
-        .header {
-            width: 10rem;
-        }
-    }
-
-}
-
-
-.site-header {
-    &.condensed {
-        .signup-form {
-            margin-right: 0;
-            input {
-                height: 32px;
-            }
-            .submit {
-                height: 32px;
-            }
-        }
-        .logo {
-            margin-left: 0;
-        }
-        .logo-area {
-            img {
-                width: 80px;
-            }
-        }
-        @media only all and (min-width: 60em) {
-            .container {
-                padding-bottom: 1rem;
-                padding-top: 1rem;
-                height:100%;
-            }
-        }
-    }
+   .acc-trigger {
+      border-bottom: 0;
+      cursor: default;
+      &:after {
+         display: none;
+      }
+   }
+   .acc-segment {
+      display: block !important;
+   }
+   .addl-info {
+      .header {
+         width: 10rem;
+      }
+   }
 }
