@@ -13,14 +13,10 @@ A cool description for SEO purposes.
    <div class="container">
       <div class="interior">
          <aside class="aside">
-             <div class="" id="biblio-search-basic">
-
-             </div>
+             <div class="" id="biblio-search-basic"></div>
          </aside>
 
-         <div id="bookreader" class="content">
-            <!-- <iframe src="//babel.hathitrust.org/cgi/pt?id=uc2.ark:/13960/t3610x12d;ui=embed" width="100%" height="100%"></iframe> -->
-         </div>
+         <div id="biblio-work-display" class="content"></div>
       </div>
    </div>
 </section>
@@ -30,22 +26,11 @@ A cool description for SEO purposes.
 {% block scripts %}
    {{ super() }}
 
+   <script src="{{ baseUrl }}/assets/js/templates.js"></script>
+
    <script>
-   var pgBody = $('main');
-      function resizePageBody()
-      {
-         var docHeight = $(window).height();
-
-         pgBody.height(docHeight - pgBody.offset().top);
-      }
-
-      resizePageBody();
-
-      $(window).on('resize', resizePageBody);
-   </script>
-   
-   <script>
-   require('modules/library/search');
+      require('modules/library/search');
+      // require('layout_behavior/fill_window')('main');
    </script>
 
 {% endblock %}

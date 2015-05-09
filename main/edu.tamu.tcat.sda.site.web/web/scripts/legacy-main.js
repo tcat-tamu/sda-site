@@ -1,4 +1,5 @@
 define(function(require) {
+
    require('plugins');
    var $ = require('jquery');
 

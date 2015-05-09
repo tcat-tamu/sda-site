@@ -9,27 +9,27 @@ define(function (require) {
 
    var Widgets = require('trc-ui-widgets');
    var WorkRepository = require('trc-entries-biblio');
-   var BookreaderView = require('modules/library/bookreader');
 
    var Config = require('config');
 
+   var Views = require('./work_views');
 
-   var repo = new WorkRepository({
-      apiEndpoint: Config.apiEndpoint + '/works'
-   });
+
 
    var SearchController = Marionette.Controller.extend({
 
-      // FIXME 'router' is not a router
       initialize: function (opts) {
-         this.mergeOptions(opts, ['region', 'repository', 'router']);
+         this.mergeOptions(opts, ['region', 'repository', 'routerChannel']);
 
          var _this = this;
          this.searchForm = new Widgets.Controls.SearchForm({
             searchProvider: function (q, limit) {
-               _this.router.command('work:search', q);
+               _this.routerChannel.command('work:search', q);
 
                return _this.repository.search(q, { limit: limit })
+                  .filter(function (workSearchProxy) {
+                     return workSearchProxy.uri.match(/^works\/\d+$/);
+                  })
                   .map(function (workSearchProxy) {
                      return {
                         title: workSearchProxy.label,
@@ -40,19 +40,18 @@ define(function (require) {
             }
          });
 
+         this.region.show(this.searchForm.getView());
+
          this.listenTo(this.searchForm, 'result:click', function (workSearchProxy) {
-            this.router.command('work:show', workSearchProxy.uri);
+            this.routerChannel.command('work:show', workSearchProxy.uri, { trigger: true });
          });
       },
 
-      displayBiblioWork: function (id) {
-         this.region.show(new BookreaderView({
-            htid: id
-         }));
-      },
-
       searchForWork: function (q) {
-         this.region.show(this.searchForm.getView());
+         if (this.region.currentView !== this.searchForm.getView()) {
+            this.region.show(this.searchForm.getView());
+         }
+
          if (q) {
             this.searchForm.search(q);
          }
@@ -60,17 +59,35 @@ define(function (require) {
    });
 
 
-   var Layout = Marionette.LayoutView.extend({
-      regions: {
-         'bookreader': '#bookreader',
-         'basicBiblioSearch': '#biblio-search-basic'
+   var WorkDisplayController = Marionette.Controller.extend({
+
+      initialize: function (opts) {
+         this.mergeOptions(opts, ['region', 'repository', 'routerChannel']);
+      },
+
+      displayBiblioWork: function (id) {
+         var _this = this;
+         this.repository.findWork(id).then(function (work) {
+            var workView = new Views.WorkDisplayView({
+               model: work
+            });
+
+            _this.region.show(workView);
+         }).catch(function (err) {
+            console.error('unable to display work');
+            console.log(err);
+         });
       }
    });
 
 
-   var layout = new Layout({
-      el: '#page_body'
+   var Layout = Marionette.LayoutView.extend({
+      regions: {
+         'biblioDisplay': '#biblio-work-display',
+         'basicBiblioSearch': '#biblio-search-basic'
+      }
    });
+
 
    var SearchRouter = Marionette.AppRouter.extend({
       appRoutes: {
@@ -89,6 +106,34 @@ define(function (require) {
       }
    });
 
+
+   var WorkDisplayRouter = Marionette.AppRouter.extend({
+      appRoutes: {
+         'works/:id': 'displayBiblioWork'
+      },
+
+      initialize: function (options) {
+         if (!options.channel) {
+            throw new TypeError('no router command channel supplied');
+         }
+
+         options.channel.comply('work:show', function (uri, navOpts) {
+            this.navigate(uri, navOpts);
+         }, this);
+      }
+   });
+
+
+
+   var repo = new WorkRepository({
+      apiEndpoint: Config.apiEndpoint + '/works'
+   });
+
+
+   var layout = new Layout({
+      el: '#page_body'
+   });
+
    var routerChannel = Radio.channel('router');
 
    var searchRouter = new SearchRouter({
@@ -96,15 +141,19 @@ define(function (require) {
       controller: new SearchController({
          region: layout.getRegion('basicBiblioSearch'),
          repository: repo,
-         router: routerChannel
+         routerChannel: routerChannel
       })
    });
 
-
-   routerChannel.comply('work:show', function (uri) {
-      // trigger appropriate API to show work
-      console.log('showing work: ' + uri);
+   var workDisplayRouter = new WorkDisplayRouter({
+      channel: routerChannel,
+      controller: new WorkDisplayController({
+         region: layout.getRegion('biblioDisplay'),
+         repository: repo,
+         routerChannel: routerChannel
+      })
    });
+
 
    Backbone.history.start();
 
