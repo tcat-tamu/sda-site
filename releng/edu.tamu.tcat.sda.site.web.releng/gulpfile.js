@@ -2,6 +2,7 @@ var gulp = require('gulp');
 
 var gutil = require('gulp-util');
 
+
 var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
@@ -16,7 +17,6 @@ var merge = require('gulp-merge');
 
 var vendorPath = '../../build/vendor';
 
-
 var buildPath = '../../build/web';
 var jsBuildPath = buildPath + '/assets/js';
 var cssBuildPath = buildPath + '/assets/css';
@@ -24,6 +24,8 @@ var fontsBuildPath = buildPath + '/assets/fonts';
 var imgBuildPath = buildPath + '/assets/img';
 
 var srcPath = '../../main/edu.tamu.tcat.sda.site.web/web';
+
+var baseUrl = '-- configure deployment base url here --';
 
 gulp.task('fonts', function () {
    gulp.src(srcPath + '/fonts/**/*')
@@ -46,7 +48,7 @@ gulp.task('html', function () {
    });
    gulp.src(srcPath + '/html/**/*')
       .pipe(nunjucksRender({
-         baseUrl: '/~matt.barry/sda-site/'
+         baseUrl: baseUrl
       }))
       .pipe(gulp.dest(buildPath));
 });
