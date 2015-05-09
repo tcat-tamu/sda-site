@@ -23,13 +23,22 @@ define(function (require) {
 
       events: {
          'click ol.authorList span.author': function(event) {
-            var el = event.target;
+            event.stopPropagation();
+
+            var authorId = event.target.dataset.id;
+            if (!authorId) {
+               return;
+            }
 
             var authors = this.model.get('authors');
             var authorRef = _.findWhere(authors, {
-               authorId: el.dataset.id
+               authorId: authorId
             });
-            event.stopPropagation();
+
+            if (!authorRef) {
+               return;
+            }
+
             this.trigger('author:click', authorRef);
          },
 
@@ -93,7 +102,8 @@ define(function (require) {
          var _this = this;
          this.repository.findWork(id).then(function (work) {
             var workView = new Views.WorkDisplayView({
-               model: work
+               model: work,
+               routerChannel: _this.routerChannel
             });
 
             _this.region.show(workView);

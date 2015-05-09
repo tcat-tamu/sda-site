@@ -265,6 +265,13 @@ nav[role=navigation] li a {
     }
 }
 
+
+// HACK nowhere better to put this...
+@mixin link-disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
 @import 'author';
 @import 'comp';
 @import 'bookreader-page';      // TODO make this its own top-level .css

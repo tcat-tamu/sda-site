@@ -44,6 +44,12 @@
     font-size: 0.9em;
     text-decoration: none;
     text-transform: uppercase;
+
+    cursor: pointer;
+
+    &.disabled {
+        @include link-disabled;
+    }
 }
 
 .work {

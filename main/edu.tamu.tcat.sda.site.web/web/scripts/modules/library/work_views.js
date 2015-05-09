@@ -16,16 +16,49 @@ define(function (require) {
 
    var AuthorView = Marionette.ItemView.extend({
       template: function (ctx) {
-         return ctx.lastName  + ', ' + ctx.firstName;
+         return ctx.lastName  + ', ' + ctx.firstName + ' ';
       },
+
       tagName: 'a',
-      className: 'author'
+
+      className: 'author',
+
+      events: {
+         click: function (evt) {
+            evt.preventDefault();
+            var authorId = this.model.get('authorId');
+
+            if (authorId) {
+               this.routerChannel.command('author:show', authorId);
+            }
+         }
+      },
+
+      initialize: function (options) {
+         this.mergeOptions(options, ['routerChannel']);
+      },
+
+      onShow: function () {
+         if (!this.model.get('authorId')) {
+            this.$el.addClass('disabled');
+         }
+      }
    });
 
    var AuthorsView = Marionette.CollectionView.extend({
       tagName: 'span',
       className: 'authors',
-      childView: AuthorView
+      childView: AuthorView,
+
+      childViewOptions: function () {
+         return {
+            routerChannel: this.routerChannel
+         };
+      },
+
+      initialize: function (options) {
+         this.mergeOptions(options, ['routerChannel']);
+      }
    });
 
    var PublicationInfoView = Marionette.ItemView.extend({
@@ -36,12 +69,53 @@ define(function (require) {
    var VolumeView = Marionette.LayoutView.extend({
       template: _.partial(nunjucks.render, 'biblio/volume.html'),
       tagName: 'section',
-      className: 'volume'
+      className: 'volume acc-segment',
+
+      regions: {
+         authors: '> .citation > .authors',
+         pubInfo: '> .citation > .pubinfo'
+      },
+
+      templateHelpers: function () {
+         return {
+            title: 'Hello, world!'
+         };
+      },
+
+      initialize: function (options) {
+         this.mergeOptions(options, ['routerChannel']);
+      },
+
+      onShow: function () {
+         var authorsView = new AuthorsView({
+            collection: this.model.get('authors'),
+            routerChannel: this.routerChannel
+         });
+
+         this.getRegion('authors').show(authorsView);
+
+
+         var pubInfoView = new PublicationInfoView({
+            model: this.model.get('publicationInfo')
+         });
+
+         this.getRegion('pubInfo').show(pubInfoView);
+      }
    });
 
 
    var VolumesView = Marionette.CollectionView.extend({
-      childView: VolumeView
+      childView: VolumeView,
+
+      childViewOptions: function () {
+         return {
+            routerChannel: this.routerChannel
+         };
+      },
+
+      initialize: function (options) {
+         this.mergeOptions(options, ['routerChannel']);
+      }
    });
 
 
@@ -61,9 +135,14 @@ define(function (require) {
          pubInfo: '> .partition > .partition-body > .citation > .pubinfo'
       },
 
+      initialize: function (options) {
+         this.mergeOptions(options, ['routerChannel']);
+      },
+
       onShow: function () {
          var authorsView = new AuthorsView({
-            collection: this.model.get('authors')
+            collection: this.model.get('authors'),
+            routerChannel: this.routerChannel
          });
 
          this.getRegion('authors').show(authorsView);
@@ -78,7 +157,8 @@ define(function (require) {
 
          if (this.model.has('volumes') &&  !this.model.get('volumes').isEmpty()) {
             var volumesView = new VolumesView({
-               collection: this.model.get('volumes')
+               collection: this.model.get('volumes'),
+               routerChannel: this.routerChannel
             });
 
             this.addRegion('volumes', '> .partition > .partition-body > .volumes > div');
@@ -89,7 +169,17 @@ define(function (require) {
 
 
    var EditionsView = Marionette.CollectionView.extend({
-      childView: EditionView
+      childView: EditionView,
+
+      childViewOptions: function () {
+         return {
+            routerChannel: this.routerChannel
+         };
+      },
+
+      initialize: function (options) {
+         this.mergeOptions(options, ['routerChannel']);
+      }
    });
 
 
@@ -108,9 +198,14 @@ define(function (require) {
          authors: '> .citation > .authors'
       },
 
+      initialize: function (options) {
+         this.mergeOptions(options, ['routerChannel']);
+      },
+
       onShow: function () {
          var authorsView = new AuthorsView({
-            collection: this.model.get('authors')
+            collection: this.model.get('authors'),
+            routerChannel: this.routerChannel
          });
 
          this.getRegion('authors').show(authorsView);
@@ -118,7 +213,8 @@ define(function (require) {
 
          if (this.model.has('editions') && !this.model.get('editions').isEmpty()) {
             var editionsView = new EditionsView({
-               collection: this.model.get('editions')
+               collection: this.model.get('editions'),
+               routerChannel: this.routerChannel
             });
 
             this.addRegion('editions', '> .editions > div');

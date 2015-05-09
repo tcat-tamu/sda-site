@@ -182,8 +182,12 @@ form.search-form {
       margin: 0;
       padding: 0;
       border: none;
+
       li {
          display: inline;
+         &.disabled {
+            @include link-disabled;
+         }
       }
    }
 }
