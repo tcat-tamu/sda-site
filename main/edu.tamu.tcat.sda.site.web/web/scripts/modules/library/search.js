@@ -26,14 +26,14 @@ define(function (require) {
             var el = event.target;
 
             var authors = this.model.get('authors');
-            var authorRef = _.where(authors, {
+            var authorRef = _.findWhere(authors, {
                authorId: el.dataset.id
             });
             event.stopPropagation();
             this.trigger('author:click', authorRef);
          },
 
-         'click': function(event) {
+         'click': function() {
             this.trigger('work:click', this.model);
          }
       }
@@ -62,7 +62,7 @@ define(function (require) {
 
          this.listenTo(this.searchForm, 'result:author:click', function(authorRef)
          {
-            alert(authorRef);
+            this.routerChannel.command('author:show', authorRef.authorId, { trigger: true });
          });
 
          this.listenTo(this.searchForm, 'result:work:click', function(workSearchProxy)
@@ -178,6 +178,10 @@ define(function (require) {
       })
    });
 
+
+   routerChannel.comply('author:show', function (authorId) {
+      console.log('showing author: ' + authorId);
+   });
 
    Backbone.history.start();
 
