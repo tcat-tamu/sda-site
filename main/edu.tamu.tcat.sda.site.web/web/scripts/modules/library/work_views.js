@@ -5,6 +5,15 @@ define(function (require) {
    var _ = require('underscore');
 
 
+   var REGEX_STRIP_TAGS = /(<([^>]+)>)/ig;
+
+   var env = nunjucks.configure();
+
+   env.addFilter('striptags', function (str) {
+      return str.replace(REGEX_STRIP_TAGS, '');
+   });
+
+
    var AuthorView = Marionette.ItemView.extend({
       template: function (ctx) {
          return ctx.lastName  + ', ' + ctx.firstName;
@@ -49,8 +58,7 @@ define(function (require) {
 
       regions: {
          authors: '> .partition > .partition-body > .citation > .authors',
-         pubInfo: '> .partition > .partition-body > .citation > .pubinfo',
-         volumes: '> .partition > .partition-body > .volumes > div'
+         pubInfo: '> .partition > .partition-body > .citation > .pubinfo'
       },
 
       onShow: function () {
@@ -68,11 +76,14 @@ define(function (require) {
          this.getRegion('pubInfo').show(pubInfoView);
 
 
-         var volumesView = new VolumesView({
-            collection: this.model.get('volumes')
-         });
+         if (this.model.has('volumes') &&  !this.model.get('volumes').isEmpty()) {
+            var volumesView = new VolumesView({
+               collection: this.model.get('volumes')
+            });
 
-         this.getRegion('volumes').show(volumesView);
+            this.addRegion('volumes', '> .partition > .partition-body > .volumes > div');
+            this.getRegion('volumes').show(volumesView);
+         }
       }
    });
 
@@ -94,8 +105,7 @@ define(function (require) {
       },
 
       regions: {
-         authors: '> .citation > .authors',
-         editions: '> .editions > div'
+         authors: '> .citation > .authors'
       },
 
       onShow: function () {
@@ -106,11 +116,14 @@ define(function (require) {
          this.getRegion('authors').show(authorsView);
 
 
-         var editionsView = new EditionsView({
-            collection: this.model.get('editions')
-         });
+         if (this.model.has('editions') && !this.model.get('editions').isEmpty()) {
+            var editionsView = new EditionsView({
+               collection: this.model.get('editions')
+            });
 
-         this.getRegion('editions').show(editionsView);
+            this.addRegion('editions', '> .editions > div');
+            this.getRegion('editions').show(editionsView);
+         }
       }
    });
 

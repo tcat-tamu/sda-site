@@ -7,16 +7,19 @@
          <span class="pubinfo"></span>
       </section>
 
-      <!-- TODO Handle if not supplied . . . probably supply default summary-->
-      <section class="summary">
-         <h4>Summary</h4>
-         <div class="content">{{ summary }}</div>
-      </section>
+      {% if summary | striptags %}
+         <!-- TODO Handle if not supplied . . . probably supply default summary-->
+         <section class="summary">
+            <h4>Summary</h4>
+            <div class="content">{{ summary }}</div>
+         </section>
+      {% endif %}
 
-      <!-- TODO Do not display if no volumes are present -->
-      <section class="volumes">
-         <h4 class="acc-trigger">Volumes</h4>
-         <div></div>
-      </section>
+      {% if volumes | length > 0 %}
+         <section class="volumes">
+            <h4 class="acc-trigger">Volumes</h4>
+            <div></div>
+         </section>
+      {% endif %}
    </div>
 </div>

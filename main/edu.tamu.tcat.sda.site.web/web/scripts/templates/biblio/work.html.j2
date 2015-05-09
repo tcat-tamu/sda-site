@@ -5,14 +5,18 @@
    <span class="titleinfo">{{ title }}</span>.
 </section>
 
-<section class="summary">
-   <h2>Summary</h2>
-   <div class="content">{{ summary }}</div>
-</section>
+{% if summary | striptags %}
+   <section class="summary">
+      <h2>Summary</h2>
+      <div class="content">{{ summary }}</div>
+   </section>
+{% endif %}
 
-<section class="editions">
-   <h2>Editions</h2>
-   <div></div>
-</section>
+{% if editions | length > 0 %}
+   <section class="editions">
+      <h2>Editions</h2>
+      <div></div>
+   </section>
+{% endif %}
 
 <!-- TODO display relationships? -->
