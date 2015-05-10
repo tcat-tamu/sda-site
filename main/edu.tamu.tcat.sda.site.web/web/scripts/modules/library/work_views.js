@@ -16,7 +16,9 @@ define(function (require) {
 
    var AuthorView = Marionette.ItemView.extend({
       template: function (ctx) {
-         return ctx.lastName  + ', ' + ctx.firstName + ' ';
+         var fname = ctx.firstName ? ctx.firstName : '';
+         var lname = ctx.lastName ? ctx.lastName : '';
+         return fname + ' ' + lname + ' ';
       },
 
       tagName: 'a',
@@ -77,8 +79,9 @@ define(function (require) {
       },
 
       templateHelpers: function () {
+         var title = this.model.getCanonicalTitle();
          return {
-            title: 'Hello, world!'
+            title: title ? title.getFullTitle() : 'Unknown Title'
          };
       },
 
@@ -125,8 +128,9 @@ define(function (require) {
       className: 'edition',
 
       templateHelpers: function () {
+         var title = this.model.getCanonicalTitle();
          return {
-            title: 'Hello, world!'
+            title: title ? title.getFullTitle() : 'Unknown Title'
          };
       },
 
@@ -189,8 +193,9 @@ define(function (require) {
       className: 'work book',
 
       templateHelpers: function () {
+         var title = this.model.getCanonicalTitle();
          return {
-            title: 'Hello, world!'
+            title: title ? title.getFullTitle() : 'Unknown Title'
          };
       },
 
