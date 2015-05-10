@@ -2,9 +2,10 @@ define(function (require) {
 
    var $ = require('jquery');
 
+   var $pgBody;
 
    function initialize(pgBody) {
-      var $pgBody = $(pgBody);
+      $pgBody = $(pgBody);
 
       function resizePageBody() {
         var docHeight = $(window).height();
@@ -12,10 +13,18 @@ define(function (require) {
       }
 
       resizePageBody();
-      $(window).on('resize', resizePageBody);
+      $(window).on('resize.fill_window', resizePageBody);
+   }
+
+   function dispose() {
+      $(window).off('resize.fill_window');
+      $pgBody.height('auto');
    }
 
 
-   return initialize;
+   return {
+      initialize: initialize,
+      dispose: dispose
+   };
 
 });

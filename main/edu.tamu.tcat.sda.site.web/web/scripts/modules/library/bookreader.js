@@ -2,6 +2,8 @@ define(function(require) {
 
    var Marionette = require('marionette');
 
+   var FillWindow = require('layout_behavior/fill_window');
+
    /**
     * Formats a URL to embed a HathiTrust book reader
     *
@@ -14,7 +16,8 @@ define(function(require) {
 
    var HathitrustBookReaderView = Marionette.ItemView.extend({
       template: function(ctx) {
-         return '<iframe class="full" src="' + ctx.src + '"></iframe>';
+         // HACK: see if we can make this thing stretch to fill its parent container...
+         return '<iframe class="full" height="600" src="' + ctx.src + '"></iframe>';
       },
 
       id: 'bookreader',
@@ -33,6 +36,15 @@ define(function(require) {
          }
 
          this.mergeOptions(opts, ['htid']);
+      },
+
+      onShow: function () {
+         // HACK stretch main DOM element to fit larger book reader
+         FillWindow.initialize('main');
+      },
+
+      onDestroy: function () {
+         FillWindow.dispose();
       }
    });
 

@@ -5,11 +5,12 @@
    <span class="pubinfo"></span>
 </section>
 
-
-<div class="readonline icon-only">
-   <i class="fa fa-book"></i>
-   <span class="sr-only">Read Volume {{ volumeNumber }} Online</span>
-</div>
+{% if copyRef %}
+   <div class="volume-copy readonline icon-only">
+      <i class="fa fa-book"></i>
+      <span class="sr-only">Read Volume {{ volumeNumber }} Online</span>
+   </div>
+{% endif %}
 
 {% if summary | striptags %}
    <section class="summary">

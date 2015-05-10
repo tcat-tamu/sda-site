@@ -1,10 +1,12 @@
 <div class="partition partition-default">
    <h3 class="partition-title acc-trigger">{{ editionName }}</h3>
 
-   <div class="readonline icon-only">
-      <i class="fa fa-book"></i>
-      <span class="sr-only">Read {{ editionName }} Online</span>
-   </div>
+   {% if copyRef %}
+      <div class="edition-copy readonline icon-only">
+         <i class="fa fa-book"></i>
+         <span class="sr-only">Read {{ editionName }} Online</span>
+      </div>
+   {% endif %}
 
    <div class="partition-body acc-segment">
       <section class="citation">

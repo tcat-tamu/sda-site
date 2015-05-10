@@ -1,10 +1,12 @@
 <h1>{{ title }}</h1>
 
 <!-- surround with block tags -->
-<div class="cta readonline">
-   <i class="fa fa-book"></i>
-   <span>Read Online</span>
-</div>
+{% if copyRef %}
+   <div class="cta work-copy readonline">
+      <i class="fa fa-book"></i>
+      <span>Read Online</span>
+   </div>
+{% endif %}
 
 <section class="citation">
    by <span class="authors"></span>

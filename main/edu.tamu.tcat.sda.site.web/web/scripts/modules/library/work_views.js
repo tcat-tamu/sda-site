@@ -4,7 +4,6 @@ define(function (require) {
    var nunjucks = require('nunjucks');
    var _ = require('underscore');
 
-
    var REGEX_STRIP_TAGS = /(<([^>]+)>)/ig;
 
    var env = nunjucks.configure();
@@ -12,7 +11,6 @@ define(function (require) {
    env.addFilter('striptags', function (str) {
       return str.replace(REGEX_STRIP_TAGS, '');
    });
-
 
    var AuthorView = Marionette.ItemView.extend({
       template: function (ctx) {
@@ -81,12 +79,24 @@ define(function (require) {
       templateHelpers: function () {
          var title = this.model.getCanonicalTitle();
          return {
-            title: title ? title.getFullTitle() : 'Unknown Title'
+            title: title ? title.getFullTitle() : 'Unknown Title',
+            copyRef: this.copyRef
          };
       },
 
+      events: {
+         'click .volume-copy.readonline': function () {
+            var copyId = this.copyRef.get('copyId');
+            this.routerChannel.command('bookreader:show', copyId, { trigger: true });
+         }
+      },
+
       initialize: function (options) {
-         this.mergeOptions(options, ['routerChannel']);
+         this.mergeOptions(options, ['routerChannel', 'copyRefs']);
+
+         this.copyRef = this.copyRefs.findWhere({
+            associatedEntry: this.model.getUri()
+         });
       },
 
       onShow: function () {
@@ -111,12 +121,13 @@ define(function (require) {
 
       childViewOptions: function () {
          return {
-            routerChannel: this.routerChannel
+            routerChannel: this.routerChannel,
+            copyRefs: this.copyRefs
          };
       },
 
       initialize: function (options) {
-         this.mergeOptions(options, ['routerChannel']);
+         this.mergeOptions(options, ['routerChannel', 'copyRefs']);
       }
    });
 
@@ -128,8 +139,16 @@ define(function (require) {
       templateHelpers: function () {
          var title = this.model.getCanonicalTitle();
          return {
-            title: title ? title.getFullTitle() : 'Unknown Title'
+            title: title ? title.getFullTitle() : 'Unknown Title',
+            copyRef: this.copyRef
          };
+      },
+
+      events: {
+         'click .edition-copy.readonline': function () {
+            var copyId = this.copyRef.get('copyId');
+            this.routerChannel.command('bookreader:show', copyId, { trigger: true });
+         }
       },
 
       regions: {
@@ -138,7 +157,11 @@ define(function (require) {
       },
 
       initialize: function (options) {
-         this.mergeOptions(options, ['routerChannel']);
+         this.mergeOptions(options, ['routerChannel', 'copyRefs']);
+
+         this.copyRef = this.copyRefs.findWhere({
+            associatedEntry: this.model.getUri()
+         });
       },
 
       onShow: function () {
@@ -160,6 +183,7 @@ define(function (require) {
          if (this.model.has('volumes') &&  !this.model.get('volumes').isEmpty()) {
             var volumesView = new VolumesView({
                collection: this.model.get('volumes'),
+               copyRefs: this.copyRefs,
                routerChannel: this.routerChannel
             });
 
@@ -169,21 +193,20 @@ define(function (require) {
       }
    });
 
-
    var EditionsView = Marionette.CollectionView.extend({
       childView: EditionView,
 
       childViewOptions: function () {
          return {
-            routerChannel: this.routerChannel
+            routerChannel: this.routerChannel,
+            copyRefs: this.copyRefs
          };
       },
 
       initialize: function (options) {
-         this.mergeOptions(options, ['routerChannel']);
+         this.mergeOptions(options, ['routerChannel', 'copyRefs']);
       }
    });
-
 
    var WorkDisplayView = Marionette.LayoutView.extend({
       template: _.partial(nunjucks.render, 'biblio/work.html'),
@@ -193,8 +216,16 @@ define(function (require) {
       templateHelpers: function () {
          var title = this.model.getCanonicalTitle();
          return {
-            title: title ? title.getFullTitle() : 'Unknown Title'
+            title: title ? title.getFullTitle() : 'Unknown Title',
+            copyRef: this.copyRef
          };
+      },
+
+      events: {
+         'click .work-copy.readonline': function () {
+            var copyId = this.copyRef.get('copyId');
+            this.routerChannel.command('bookreader:show', copyId, { trigger: true });
+         }
       },
 
       regions: {
@@ -202,7 +233,11 @@ define(function (require) {
       },
 
       initialize: function (options) {
-         this.mergeOptions(options, ['routerChannel']);
+         this.mergeOptions(options, ['copyRefs', 'routerChannel']);
+
+         this.copyRef = this.copyRefs.findWhere({
+            associatedEntry: this.model.getUri()
+         });
       },
 
       onShow: function () {
@@ -217,6 +252,7 @@ define(function (require) {
          if (this.model.has('editions') && !this.model.get('editions').isEmpty()) {
             var editionsView = new EditionsView({
                collection: this.model.get('editions'),
+               copyRefs: this.copyRefs,
                routerChannel: this.routerChannel
             });
 
@@ -225,7 +261,6 @@ define(function (require) {
          }
       }
    });
-
 
    return {
       WorkDisplayView: WorkDisplayView

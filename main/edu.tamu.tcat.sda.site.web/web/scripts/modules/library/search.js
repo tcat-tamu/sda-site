@@ -8,6 +8,7 @@ define(function (require) {
    var _ = require('underscore');
    var Marionette = require('marionette');
    var nunjucks = require('nunjucks');
+   var Promise = require('promise');
 
    var Widgets = require('trc-ui-widgets');
    var WorkRepository = require('trc-entries-biblio');
@@ -15,6 +16,7 @@ define(function (require) {
    var Config = require('config');
 
    var Views = require('./work_views');
+   var HathitrustBookReaderView = require('./bookreader');
 
 
    var WorkSearchResultView = Marionette.ItemView.extend({
@@ -51,7 +53,7 @@ define(function (require) {
    var BookSearchController = Marionette.Controller.extend({
 
       initialize: function (opts) {
-         this.mergeOptions(opts, ['region', 'repository', 'routerChannel']);
+         this.mergeOptions(opts, ['region', 'worksRepository', 'routerChannel']);
 
          var _this = this;
          this.searchForm = new Widgets.Controls.SearchForm({
@@ -60,7 +62,7 @@ define(function (require) {
             searchProvider: function (q, limit) {
                _this.routerChannel.command('work:search', q);
 
-               return _this.repository.search(q, { limit: limit })
+               return _this.worksRepository.search(q, { limit: limit })
                   .filter(function (workSearchProxy) {
                      return workSearchProxy.uri.match(/^works\/\d+$/);
                   });
@@ -95,14 +97,23 @@ define(function (require) {
    var WorkDisplayController = Marionette.Controller.extend({
 
       initialize: function (opts) {
-         this.mergeOptions(opts, ['region', 'repository', 'routerChannel']);
+         this.mergeOptions(opts, ['region', 'worksRepository', 'copiesRepository', 'routerChannel']);
       },
 
       displayBiblioWork: function (id) {
          var _this = this;
-         this.repository.findWork(id).then(function (work) {
+         // TODO start spinner
+
+         var workPromise = this.worksRepository.findWork(id);
+
+         var copyRefsPromise = workPromise.then(function (work) {
+            return _this.copiesRepository.findAll(work.getUri());
+         });
+
+         Promise.join(workPromise, copyRefsPromise, function (work, copyRefs) {
             var workView = new Views.WorkDisplayView({
                model: work,
+               copyRefs: copyRefs,
                routerChannel: _this.routerChannel
             });
 
@@ -114,6 +125,28 @@ define(function (require) {
       }
    });
 
+   var BookReaderController = Marionette.Controller.extend({
+      initialize: function(opts) {
+         this.mergeOptions(opts, ['region', 'copiesRepository', 'routerChannel']);
+      },
+
+      displayBookReader: function(copyId) {
+         // HACK: parse HTID from copyId and display book reader
+         var idParts = copyId.match(/^htid:(\d{9})#(.+)$/);
+         if (!idParts) {
+            throw new Error('expected HathiTrust resource identifier, received {' + copyId + '}');
+         }
+
+         var htid = idParts[2];
+         var bookReaderView = new HathitrustBookReaderView({
+            // HACK HACK HACK to get styling on page
+            className: 'work book',
+            htid: htid
+         });
+
+         this.region.show(bookReaderView);
+      }
+   });
 
    var Layout = Marionette.LayoutView.extend({
       regions: {
@@ -158,9 +191,30 @@ define(function (require) {
    });
 
 
+   var BookReaderRouter = Marionette.AppRouter.extend({
+      appRoutes: {
+         'read/:id': 'displayBookReader'
+      },
 
-   var repo = new WorkRepository({
+      initialize: function (options) {
+         if (!options.channel) {
+            throw new TypeError('no router command channel supplied');
+         }
+
+         options.channel.comply('bookreader:show', function (copyId, navOpts) {
+            this.navigate('read/' + encodeURIComponent(copyId), navOpts);
+         }, this);
+      }
+   });
+
+
+
+   var worksRepo = new WorkRepository({
       apiEndpoint: Config.apiEndpoint + '/works'
+   });
+
+   var copyRefsRepo = new WorkRepository.CopyReferences({
+      apiEndpoint: Config.apiEndpoint + '/copies'
    });
 
 
@@ -174,7 +228,7 @@ define(function (require) {
       channel: routerChannel,
       controller: new BookSearchController({
          region: layout.getRegion('basicBiblioSearch'),
-         repository: repo,
+         worksRepository: worksRepo,
          routerChannel: routerChannel
       })
    });
@@ -183,7 +237,17 @@ define(function (require) {
       channel: routerChannel,
       controller: new WorkDisplayController({
          region: layout.getRegion('biblioDisplay'),
-         repository: repo,
+         worksRepository: worksRepo,
+         copiesRepository: copyRefsRepo,
+         routerChannel: routerChannel
+      })
+   });
+
+   var bookReaderRouter = new BookReaderRouter({
+      channel: routerChannel,
+      controller: new BookReaderController({
+         region: layout.getRegion('biblioDisplay'),
+         copiesRepository: copyRefsRepo,
          routerChannel: routerChannel
       })
    });
