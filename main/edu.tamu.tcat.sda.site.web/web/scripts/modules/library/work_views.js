@@ -71,7 +71,7 @@ define(function (require) {
    var VolumeView = Marionette.LayoutView.extend({
       template: _.partial(nunjucks.render, 'biblio/volume.html'),
       tagName: 'section',
-      className: 'volume acc-segment',
+      className: 'volume',
 
       regions: {
          authors: '> .citation > .authors',
@@ -106,7 +106,6 @@ define(function (require) {
       }
    });
 
-
    var VolumesView = Marionette.CollectionView.extend({
       childView: VolumeView,
 
@@ -120,7 +119,6 @@ define(function (require) {
          this.mergeOptions(options, ['routerChannel']);
       }
    });
-
 
    var EditionView = Marionette.LayoutView.extend({
       template: _.partial(nunjucks.render, 'biblio/edition.html'),

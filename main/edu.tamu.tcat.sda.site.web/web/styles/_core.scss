@@ -35,6 +35,8 @@ $lightBrown: #b88554;
 $text: #2e2e2e;
 $textGrey: #acaaa3;
 $textBlack: #292626;
+$copper: #a47140;
+$cream: #eee8de;
 
 // Utility
 
@@ -276,7 +278,7 @@ main, .main {
 
 
    .submit {
-     background-color: #a47140;
+     background-color: $copper;
      border: 0;
      border-radius: 0;
      color: white;

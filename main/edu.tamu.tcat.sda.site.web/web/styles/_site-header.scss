@@ -46,7 +46,7 @@
    }
    // The email signeup form
    .signup-form {
-      color: #eee8de;
+      color: $cream;
       float: right;
       max-width: 400px;
       width: 100%;
@@ -63,33 +63,33 @@
          background: transparent;
          border: 1px solid #4e534d;
          border-radius: 8px;
-         color: #eee8de;
+         color: $cream;
          height: 50px;
          outline: 0;
          padding: 12px;
          width: 100%;
          &::-webkit-input-placeholder {
-            color: #eee8de;
+            color: $cream;
          }
       }
       input[type="text"] {
          background: transparent;
          border: 1px solid #4e534d;
          border-radius: 8px;
-         color: #eee8de;
+         color: $cream;
          height: 50px;
          outline: 0;
          padding: 12px;
          width: 100%;
          &::-webkit-input-placeholder {
-            color: #eee8de;
+            color: $cream;
          }
       }
       .submit {
          background-color: #212221;
          border: 1px solid #4e534d;
          border-radius: 0 8px 8px 0;
-         color: #eee8de;
+         color: $cream;
          font-size: 11px;
          height: 50px;
          letter-spacing: 1px;

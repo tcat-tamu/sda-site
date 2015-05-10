@@ -1,5 +1,11 @@
 <div class="partition partition-default">
    <h3 class="partition-title acc-trigger">{{ editionName }}</h3>
+
+   <div class="readonline icon-only">
+      <i class="fa fa-book"></i>
+      <span class="sr-only">Read {{ editionName }} Online</span>
+   </div>
+
    <div class="partition-body acc-segment">
       <section class="citation">
          <span class="authors"></span>
@@ -18,7 +24,7 @@
       {% if volumes | length > 0 %}
          <section class="volumes">
             <h4 class="acc-trigger">Volumes</h4>
-            <div></div>
+            <div class="partition-body acc-segment"></div>
          </section>
       {% endif %}
    </div>
