@@ -25,7 +25,7 @@ var imgBuildPath = buildPath + '/assets/img';
 
 var srcPath = '../../main/edu.tamu.tcat.sda.site.web/web';
 
-var baseUrl = '-- configure deployment base url here --';
+var baseUrl = '' // -- configure deployment base url here --';
 
 gulp.task('fonts', function () {
    gulp.src(srcPath + '/fonts/**/*')
@@ -137,7 +137,7 @@ gulp.task('stylesheets', function () {
       .pipe(sass())
       .pipe(autoprefixer())
       .pipe(concat('main.css')).on('error', gutil.log)
-      // .pipe(uglifyCSS())
+      .pipe(uglifyCSS())
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest(cssBuildPath));
 });
