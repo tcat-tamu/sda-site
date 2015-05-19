@@ -103,13 +103,17 @@
 
 .work {
     font-size: 0.9375em;
-    .citation, &>.summary, .editions {
+    .citation, &>.summary, .editions, .relationships {
         margin-left: 0;
     }
 
     .editions {
         @extend %clearfix;
-     }
+    }
+
+    .relationships .relationship .titleinfo {
+        cursor: pointer;
+    }
 }
 
 .work section {

@@ -208,6 +208,66 @@ define(function (require) {
       }
    });
 
+   var RelationshipView = Marionette.LayoutView.extend({
+      template: _.partial(nunjucks.render, 'biblio/reln.html'),
+      tagName: 'li',
+      className: 'relationship',
+
+      regions: {
+         authors: '> .authors'
+      },
+
+      templateHelpers: function () {
+         var title = this.model.get('target').getCanonicalTitle();
+         return {
+            title: title ? title.getFullTitle() : 'Unknown Title'
+         };
+      },
+
+      events: {
+         'click .titleinfo': function (e) {
+            e.preventDefault();
+            var entry = this.model.get('target');
+            if (entry) {
+               var entryUri = entry.getUri();
+               this.routerChannel.command('work:show', entryUri, { trigger: true });
+            }
+         }
+      },
+
+      initialize: function (options) {
+         this.mergeOptions(options, ['routerChannel']);
+      },
+
+      onShow: function () {
+         var entry = this.model.get('target');
+         if (entry && entry.has('authors')) {
+            var authorsView = new AuthorsView({
+               collection: entry.get('authors'),
+               routerChannel: this.routerChannel
+            });
+
+            this.getRegion('authors').show(authorsView);
+         }
+      }
+   });
+
+   var RelationshipsView = Marionette.CollectionView.extend({
+      childView: RelationshipView,
+      tagName: 'ul',
+      className: 'relationships',
+
+      childViewOptions: function () {
+         return {
+            routerChannel: this.routerChannel
+         };
+      },
+
+      initialize: function (options) {
+         this.mergeOptions(options, ['routerChannel']);
+      }
+   });
+
    var WorkDisplayView = Marionette.LayoutView.extend({
       template: _.partial(nunjucks.render, 'biblio/work.html'),
       tagName: 'article',
@@ -217,7 +277,8 @@ define(function (require) {
          var title = this.model.getCanonicalTitle();
          return {
             title: title ? title.getFullTitle() : 'Unknown Title',
-            copyRef: this.copyRef
+            copyRef: this.copyRef,
+            relationships: this.relationships
          };
       },
 
@@ -233,7 +294,7 @@ define(function (require) {
       },
 
       initialize: function (options) {
-         this.mergeOptions(options, ['copyRefs', 'routerChannel']);
+         this.mergeOptions(options, ['copyRefs', 'relationships', 'routerChannel']);
 
          this.copyRef = this.copyRefs.findWhere({
             associatedEntry: this.model.getUri()
@@ -258,6 +319,17 @@ define(function (require) {
 
             this.addRegion('editions', '> .editions > div');
             this.getRegion('editions').show(editionsView);
+         }
+
+
+         if (!this.relationships.isEmpty()) {
+            var relationshipsView = new RelationshipsView({
+               collection: this.relationships,
+               routerChannel: this.routerChannel
+            });
+
+            this.addRegion('relationships', '> .relationships > div');
+            this.getRegion('relationships').show(relationshipsView);
          }
       }
    });
