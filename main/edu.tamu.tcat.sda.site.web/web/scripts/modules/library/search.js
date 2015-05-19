@@ -19,6 +19,9 @@ define(function (require) {
    var Views = require('./work_views');
    var HathitrustBookReaderView = require('./bookreader');
 
+   var ViewModels = require('./view_models');
+   var SimpleRelationshipCollection = ViewModels.SimpleRelationships;
+
 
    var WorkSearchResultView = Marionette.ItemView.extend({
       template: _.partial(nunjucks.render, 'trc/entries/ui/biblio/simple_search_result.html'),
@@ -113,10 +116,64 @@ define(function (require) {
             return _this.copiesRepository.findAll(work.getUri());
          });
 
-         Promise.join(workPromise, copyRefsPromise, function (work, copyRefs) {
+         var relationshipsPromise = workPromise.then(function (work) {
+            return _this.relationshipsRepository.findAllByUri(work.getUri());
+         });
+
+         /**
+          * Transform a collection of anchors into attributes for simple relationships,
+          * each containing a relationship type name and a target work object.
+          *
+          * @param  {string}              typeName Name of relationship type already normalized for reverse relationships
+          * @param  {Backbone.Collection} anchors  Collection of anchors to transform
+          * @return {array}                        An array of promises that resolve to simple relationship attributes.
+          */
+         function getSimpleRelationshipsPromise(typeName, anchors) {
+            return anchors.chain()
+               .invoke('get', 'entryUris')
+               .flatten(true)
+               .map(function (uri) {
+                  return _this.worksRepository.find(uri).then(function (relatedEntry) {
+                     return {
+                        type: typeName,
+                        target: relatedEntry.model,
+                        targetType: relatedEntry.type
+                     };
+                  });
+               })
+               .value();
+         }
+
+         var typedRelationshipsPromise = Promise
+            .join(workPromise, this.relnTypesPromise, relationshipsPromise, function (work, relnTypes, relationships) {
+               var workUri = work.getUri();
+
+               return relationships.chain()
+                  .map(function (relationship) {
+                     var typeId = relationship.get('typeId');
+                     var type = relnTypes.get(typeId);
+
+                     var isReverse = relationship.get('targetEntities').any(function (target) {
+                        return _.contains(target.get('entryUris'), workUri);
+                     });
+
+                     var typeName = type.getTitle(isReverse);
+                     var anchors = relationship.get(isReverse ? 'relatedEntities' : 'targetEntities');
+                     return getSimpleRelationshipsPromise(typeName, anchors);
+                  })
+                  .flatten(true)
+                  .value();
+            })
+            .all()
+            .then(function (models) {
+               return new SimpleRelationshipCollection(models);
+            });
+
+         Promise.join(workPromise, copyRefsPromise, typedRelationshipsPromise, function (work, copyRefs, relationships) {
             var workView = new Views.WorkDisplayView({
                model: work,
                copyRefs: copyRefs,
+               relationships: relationships,
                routerChannel: _this.routerChannel
             });
 
