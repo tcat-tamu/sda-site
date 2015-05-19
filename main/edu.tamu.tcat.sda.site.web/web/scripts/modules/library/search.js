@@ -12,6 +12,7 @@ define(function (require) {
 
    var Widgets = require('trc-ui-widgets');
    var WorkRepository = require('trc-entries-biblio');
+   var RelationshipRepository = require('trc-entries-reln');
 
    var Config = require('config');
 
@@ -97,7 +98,9 @@ define(function (require) {
    var WorkDisplayController = Marionette.Controller.extend({
 
       initialize: function (opts) {
-         this.mergeOptions(opts, ['region', 'worksRepository', 'copiesRepository', 'routerChannel']);
+         this.mergeOptions(opts, ['region', 'worksRepository', 'copiesRepository', 'relationshipsRepository', 'routerChannel']);
+
+         this.relnTypesPromise = this.relationshipsRepository.findTypes();
       },
 
       displayBiblioWork: function (id) {
@@ -217,6 +220,10 @@ define(function (require) {
       apiEndpoint: Config.apiEndpoint + '/copies'
    });
 
+   var relnRepo = new RelationshipRepository({
+       apiEndpoint: Config.apiEndpoint + '/relationships'
+   });
+
 
    var layout = new Layout({
       el: '#page_body'
@@ -239,6 +246,7 @@ define(function (require) {
          region: layout.getRegion('biblioDisplay'),
          worksRepository: worksRepo,
          copiesRepository: copyRefsRepo,
+         relationshipsRepository: relnRepo,
          routerChannel: routerChannel
       })
    });
