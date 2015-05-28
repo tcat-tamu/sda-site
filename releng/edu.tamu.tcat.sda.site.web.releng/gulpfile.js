@@ -2,7 +2,6 @@ var gulp = require('gulp');
 
 var gutil = require('gulp-util');
 
-
 var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
@@ -14,6 +13,8 @@ var nunjucksCompile = require('gulp-nunjucks');
 var nunjucksRender = require('gulp-nunjucks-render');
 var merge = require('gulp-merge');
 // var tap = require('gulp-tap');
+
+var slides = require('./slides');
 
 var vendorPath = '../../build/vendor';
 
@@ -48,7 +49,8 @@ gulp.task('html', function () {
    });
    gulp.src(srcPath + '/html/**/*')
       .pipe(nunjucksRender({
-         baseUrl: baseUrl
+         baseUrl: baseUrl,
+         slides : slides
       }))
       .pipe(gulp.dest(buildPath));
 });
@@ -120,7 +122,7 @@ gulp.task('js', ['templates'], function () {
       .pipe(concat('vendors.js'));
 
    var minified = merge(vendors, javascripts)
-      // .pipe(uglifyJS())
+      // .pipe(uglifyJS()) FIXME removed for testing purposes
       .pipe(sourcemaps.write('.'));
 
    var config = gulp.src([
