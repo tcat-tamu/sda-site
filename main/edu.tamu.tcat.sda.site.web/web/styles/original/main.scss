@@ -934,7 +934,7 @@ h1 {
     @extend %AvenirLTStd-Heavy;
     text-transform: uppercase;
 
-    font-size: 1em;
+    font-size: .9em;
     padding: 2rem 1.5rem;
 }
 
@@ -1394,7 +1394,7 @@ nav[role=navigation] li a {
             padding-right: 2rem;
         }
     }
-    .brow, .portal, .bucket, .control-area li, .resources, .content-panel, .controls {
+    .brow, .portal, .bucket, .control-area li, .resources, .content-panel {
         padding-left: 2rem;
         padding-right: 2rem;
     }
@@ -1440,7 +1440,7 @@ nav[role=navigation] li a {
             padding-right: 3rem;
         }
     }
-    .portal, .bucket, .resources, .content-panel, .controls {
+    .portal, .bucket, .resources, .content-panel {
         padding-left: 3rem;
         padding-right: 3rem;
     }
