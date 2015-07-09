@@ -550,72 +550,274 @@ main, .main {
 }
 
 /*  Home Page - Resources */
+// ############################
+// START MAIN NAV HERE
+// ############################
 
 .controls {
     background-color: #e8e7e3;
     @extend %AvenirLTStd-Heavy;
     text-transform: uppercase;
 
-    font-size: 1em;
-    padding: 2rem 1.5rem;
+    font-size: .9em;
+
+    @media only all and (min-width: 50em) {
+      display: table;
+      width: 100%;
+    }
 }
 
-@media only all and (min-width: 50em) {
-    .controls {
-        display: table;
-        width: 100%;
+.control-area {
+  border-bottom: 4px solid #dfddd5;
+  vertical-align: bottom;
+
+  ul {
+    list-style: none;
+    margin-left: 0;
+    margin: 0;
+    padding-left: 0;
+  }
+
+  li {
+    border: 1px solid #dfddd5;
+    float: left;
+    padding: 1rem 1.5rem;
+    position: relative;
+    width: 50%;
+    &.active a {
+      color: #b88554;
     }
+    &.full {
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  a {
+    color: #acaaa3;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+
+    &:hover, &:focus, &:active {
+      color: #b88554;
+    }
+  }
+
+  @media only all and (min-width: 50em) {
+    display: table-cell;
+    padding-top: 3rem;
+    text-align: center;
+    vertical-align: bottom;
+
+    ul {
+      display: table;
+      width: 100%;
+    }
+
+    li {
+      border: 0;
+      line-height: 1.2;
+      margin: 0 2.5rem 0 0;
+      padding: 0 0 1.25rem;
+      width: auto;
+      display: table-cell;
+      float: none;
+
+      &.full {
+        clear: none;
+        width: auto;
+      }
+
+      &.active a {
+        color: #b88554;
+
+        &:before {
+          background-color: white;
+          bottom: -1.5rem;
+          content: '';
+          display: block;
+          height: 4px;
+          position: absolute;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @media only all and (min-width: 60em) {
+    li {
+      border: 0;
+      line-height: 1.2;
+      margin: 0 2rem 0 0;
+      width: auto;
+    }
+  }
 }
 
 .buckets {
     @extend %clearfix;
-}
 
-.bucket {
-    background-size: cover !important;
-    color: #fff;
-    display: block;
-    line-height: 1.8;
-    overflow: hidden;
-    padding: 10% 1.5rem;
-    &--video {
-        background: transparent url(../img/bg-clock.jpg) no-repeat 0 0;
-    }
-    &--historical {
-        background: transparent url(../img/bg-sculpture.jpg) no-repeat 0 0;
-    }
-    h3 {
+    .bucket {
+      background-color: #b88554;
+      background-size: cover !important;
+      border-bottom: 1px solid #a47140;
+
+      color: #fff;
+      cursor: pointer;
+      display: block;
+      line-height: 1.8;
+      overflow: hidden;
+      padding: 1.5rem;
+      text-decoration: none;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+      &:hover, &:focus, &:active {
+        text-decoration: none;
+      }
+      &.flex-active {
+        background-color: #a47140;
+      }
+
+      h3 {
         color: #fff;
         @extend %AvenirLTStd-Heavy;
         font-size: 1em;
         line-height: 1.2;
         text-transform: uppercase;
-    }
-    p {
-        font-size: 0.9em;
-    }
-    .more {
-        margin-top: 2rem;
-    }
-    .more-link {
+        margin-bottom: 0;
+      }
+
+      p { font-size: 0.9em; }
+      .more { margin-top: 2rem; }
+      .more-link {
         background: transparent url(../img/arrow-long-white.png) no-repeat 0 0;
         display: block;
         height: 7px;
-        @include hide-text;
+        overflow: hidden;
+        text-indent: 100%;
+        white-space: nowrap;
         width: 84px;
+      }
+
+      @media only all and (min-width: 31em) {
+        border: 0;
+        border-right: 1px solid #a47140;
+        display: table-cell;
+        vertical-align: middle;
+        &:last-child {
+          border-right: 0;
+        }
+      }
+
+      @media only all and (min-width: 40em) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+
+      @media only all and (min-width: 60em) {
+        padding-left: 3rem;
+        padding-right: 3rem;
+      }
+    }
+
+    @media only all and (min-width: 31em) {
+      .wrapper {
+        display: table;
+        width: 100%;
+      }
+    }
+
+    @media only all and (min-width: 64em) {
+      display: table-cell;
+      position: relative;
+      vertical-align: top;
+      width: 300px;
+
+      .wrapper {
+        align-content: center;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+      }
+
+      .bucket {
+        border-bottom: 1px solid #a47140;
+        border-right: 0;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        &:last-child {
+          border-bottom: 0;
+        }
+      }
     }
 }
 
-@media only all and (min-width: 31em) {
-    .buckets {
-        display: table;
-        width: 100%;
+.panel-set {
+  margin: 0 0 2rem;
+  &:last-child {
+    margin: 0;
+  }
+
+  @media only all and (min-width: 40em) {
+    display: table;
+    padding: 2rem 0 2rem;
+    width: 100%;
+
+    .hemi {
+      background: transparent url(../img/dotted-border-dark-vertical.png) repeat-y right 0;
+      display: table-cell;
+      padding: 0 2rem;
+      vertical-align: top;
+      width: 50%;
+      &:last-child {
+        background: none;
+      }
     }
-    .bucket {
-        display: table-cell;
-        vertical-align: middle;
-        width: 50%;
+
+  }
+
+  @media only all and (min-width: 64em) {
+    .hemi {
+        padding: 0 3.5rem;
     }
+  }
+
+  .panel {
+    background: transparent url(../img/dotted-border-dark-horizontal.png) repeat-x 0 bottom;
+    line-height: 2;
+    overflow: hidden;
+    padding: 2rem 1.5rem 1rem;
+    h3 {
+      font-size: 1.8em;
+      line-height: 1.2;
+      margin: 0 0 1rem;
+    }
+    p {
+      font-size: 0.9em;
+      margin-top: 0;
+    }
+    a {
+      text-decoration: none;
+    }
+
+    @media only all and (min-width: 40em) {
+      margin: 0;
+      padding: 3rem 1rem 3rem;
+      &:first-child {
+        background: transparent url(../img/dotted-border-dark-horizontal.png) repeat-x 0 bottom;
+      }
+      &:last-child {
+        background: 0;
+      }
+    }
+  }
 }
 
 .content-panel {
@@ -624,6 +826,33 @@ main, .main {
     padding: 2.5rem 1.5rem 1.5rem;
     p, ol, ul {
         margin-top: 0;
+    }
+}
+
+// FIXME break this media query into it's appropriate styles
+@media only all and (min-width: 64em) {
+    .section--resources {
+        .container {
+            display: table;
+            height: 100%;
+            table-layout: fixed;
+            width: 100%;
+        }
+    }
+    .module-wrapper {
+        display: table-row;
+        height: 100%;
+    }
+
+    .modules {
+        display: table-cell;
+        vertical-align: top;
+    }
+    .view-more {
+        display: block;
+    }
+    #content--more {
+        display: block;
     }
 }
 
@@ -645,6 +874,19 @@ main, .main {
     transition: 400ms;
     &:hover, &:focus, &:active {
         background-color: darken(#82817c, 5%);
+        text-decoration: none;
+    }
+    &--light {
+      background-color: #e8e7e3;
+      color: #acaaa3;
+    }
+    &--light:hover, &--light:focus, &--light:active {
+      background-color: #e1e0db;
+      text-decoration: none;
+    }
+
+    @media only all and (min-width: 64em) {
+      display:block;
     }
 }
 
@@ -891,8 +1133,5 @@ main, .main {
                 padding-top: 3rem;
             }
         }
-    }
-    .hemi {
-        padding: 0 3.5rem;
     }
 }

@@ -73,6 +73,61 @@ define(function(require) {
          e.preventDefault();
       });
 
+      $('#modules').flexslider({
+      		directionNav: false,
+      		manualControls: '.bucket',
+      		selector: '.module',
+      		slideshow: false,
+      		touch: false
+      	});
+        
+      // Main nav panels
+      	$('#panels-1').flexslider({
+      		after: function() {
+      			$('#control-area-1 li.active').removeClass('active');
+      			$('#control-area-1 .flex-active').parent().addClass('active');
+      		},
+      		directionNav: false,
+      		manualControls: '#control-area-1 li a',
+      		slideshow: false,
+      		start: function() {
+      			$('#control-area-1 .flex-active').parent().addClass('active');
+      		}
+      	});
+
+      	$('#panels-2').flexslider({
+      		after: function() {
+      			$('#control-area-2 li.active').removeClass('active');
+      			$('#control-area-2 .flex-active').parent().addClass('active');
+      		},
+      		directionNav: false,
+      		manualControls: '#control-area-2 li a',
+      		slideshow: false,
+      		start: function() {
+      			$('#control-area-2 .flex-active').parent().addClass('active');
+      		}
+      	});
+
+      	$('#panels-3').flexslider({
+      		after: function() {
+      			$('#control-area-3 li.active').removeClass('active');
+      			$('#control-area-3 .flex-active').parent().addClass('active');
+      		},
+      		directionNav: false,
+      		manualControls: '#control-area-3 li a',
+      		slideshow: false,
+      		start: function() {
+      			$('#control-area-3 .flex-active').parent().addClass('active');
+      		}
+      	});
+
+      	$('#intro-text').flexslider({
+      		controlNav: false,
+      		directionNav: false,
+      		slideshow: false,
+      		touch: false,
+      	});
+
       // HACK: Fixing the height of the banner slider to be the height of the tallest slide
       fixHeight($('#banners'));
       // $(window).load(function() {
@@ -87,6 +142,12 @@ define(function(require) {
    {
       initBanners();
    }
+
+   // Pagelinks
+   $('.pagelink').on('click', function(event) {
+      $('html,body').animate({scrollTop: $(this.hash).offset().top}, 800);
+      event.preventDefault();
+   });
 
    // Home - Signup for Email Updates (Mobile)
    $('#signup-trigger').on('click', function() {
@@ -152,5 +213,14 @@ define(function(require) {
 
    });
 
+   // Table of Contents
+   // 	$("#table-of-contents").stick_in_parent();
+     //
+   // 	// View More Buttons
+   // 	  $('.view-more').on('click', function(e) {
+   // 	    $(this).hide();
+   // 	    $($(this).attr('href')).slideDown();
+   // 	    e.preventDefault();
+   // 	  });
    $(document).ready(onPageLoad);
 });

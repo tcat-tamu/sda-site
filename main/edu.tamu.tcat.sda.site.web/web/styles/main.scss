@@ -1,13 +1,18 @@
 @import url("//hello.myfonts.net/count/2b8bdf");
-@import "normalize";
-@import "flexslider";
-@import "font-awesome";
-@import "magnific-popup";
-@import "core";
+@import "libs/normalize";
+@import "libs/flexslider";
+@import "libs/font-awesome";
+@import "libs/magnific-popup";
 
+@import "core";
 @import "site-header";
 @import "home-page";
 @import "site-footer";
+
+@import 'comp';
+@import 'library/author';
+@import 'library/bookreader-page';      // TODO make this its own top-level .css
+@import 'library/bibliography';
 
 // TODO need to break this into more appropriate structures
 //      focus on page templates and various components
@@ -81,7 +86,9 @@ nav[role=navigation] li a {
             padding-right: 2rem;
         }
     }
-    .brow, .portal, .bucket, .control-area li, .resources, .content-panel, .controls {
+
+    // FIXME move .control-area into main nav (Resources) section
+    .brow, .portal, .control-area li, .resources, .content-panel {
         padding-left: 2rem;
         padding-right: 2rem;
     }
@@ -127,7 +134,7 @@ nav[role=navigation] li a {
             padding-right: 3rem;
         }
     }
-    .portal, .bucket, .resources, .content-panel, .controls {
+    .portal, .bucket, .resources, .content-panel {
         padding-left: 3rem;
         padding-right: 3rem;
     }
@@ -151,62 +158,6 @@ nav[role=navigation] li a {
             padding-bottom: 4rem;
             padding-top: 4rem;
         }
-    }
-}
-
-
-
-@media only all and (min-width: 64em) {
-    .section--resources {
-        .container {
-            display: table;
-            height: 100%;
-            table-layout: fixed;
-            width: 100%;
-        }
-    }
-    .module-wrapper {
-        display: table-row;
-        height: 100%;
-    }
-    .buckets {
-        display: table-cell;
-        position: relative;
-        vertical-align: top;
-        width: 300px;
-        .wrapper {
-            align-content: center;
-            display: -webkit-box;
-            display: -moz-box;
-            display: -webkit-flex;
-            display: flex;
-            flex: 1;
-            flex-direction: column;
-            height: 100%;
-            justify-content: center;
-
-        }
-        .bucket {
-            display: flex;
-            flex: 1;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 224px;
-        }
-    }
-    .bucket {
-        display: block;
-        width: 100%;
-    }
-    .modules {
-        display: table-cell;
-        vertical-align: top;
-    }
-    .view-more {
-        display: none;
-    }
-    #content--more {
-        display: block;
     }
 }
 
@@ -264,15 +215,3 @@ nav[role=navigation] li a {
         margin: 2rem 0 0;
     }
 }
-
-
-// HACK nowhere better to put this...
-@mixin link-disabled {
-    cursor: not-allowed;
-    opacity: 0.6;
-}
-
-@import 'author';
-@import 'comp';
-@import 'bookreader-page';      // TODO make this its own top-level .css
-@import 'bibliography';

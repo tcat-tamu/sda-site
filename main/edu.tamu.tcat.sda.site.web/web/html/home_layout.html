@@ -75,8 +75,6 @@
 {% endblock %}
 
 {% block page_body %}
-
-
 <section class="section section--intro">
    <div id="banners" class="flexslider">
         <ul class="slides">
@@ -106,10 +104,106 @@
                       {% for slide in slides %}
                         {{ slideText(slide) }}
                       {% endfor %}
+                    </ul>
                 </div>
            </div>
         </div>
    </div>
+</section>
+
+<section class="section section--resources">
+  {% include 'home_main_nav.html' %}
+</section>
+
+<section class="section section--board">
+    <div class="container">
+        <header class="section-header">
+            <h2>Advisory Board</h2>
+        </header>
+        <div class="content">
+            <a href="" class="reveal cta" id="reveal-advisors">View Our Advisors</a>
+            <div class="advisors" id="advisors">
+                <div class="col col--left">
+                    <div class="member">
+                        <div class="name">Craig Keener</div>
+                        <p>Professor of New Testament, Asbury Theological Seminary</p>
+                    </div>
+                    <div class="member">
+                        <div class="name">Lenn Goodman</div>
+                        <p>Professor of Philosophy and Andrew W. Mellon Professor in the Humanities, Vanderbilt University</p>
+                    </div>
+                    <div class="member">
+                        <div class="name">Peter Harrison</div>
+                        <p>Research Professor and Director of the Centre for the History of European Discourses, Queensland University</p>
+                    </div>
+                    <div class="member">
+                        <div class="name">Christine Madsen</div>
+                        <p>Head of Digital Programmes, Bodleian Libraries, Oxford University</p>
+                    </div>
+                    <div class="member">
+                        <div class="name">Timothy Mawson</div>
+                        <p>Fellow and Tutor in Philosophy, Oxford University</p>
+                    </div>
+                </div>
+                <div class="col col--right">
+                    <div class="member">
+                        <div class="name">Richard Swinburne</div>
+                        <p>Nolloth Professor Emeritus of the Philosophy of the Christian Religion, Oxford University</p>
+                    </div>
+                    <div class="member">
+                        <div class="name">Raymond Tallis</div>
+                        <p>Professor Emeritus, Manchester University and St George's Hospital Medical School</p>
+                    </div>
+                    <div class="member">
+                        <div class="name">Graham Twelftree</div>
+                        <p>Charles L. Holman Professor of New Testament and Early Christianity, Regent University</p>
+                    </div>
+                    <div class="member">
+                        <div class="name">Johannes Zachhuber</div>
+                        <p>Chair, Theology and Religion Faculty, Oxford University</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section--explore">
+    <div class="container">
+        <div class="content">
+            <div class="interior">
+                <h3>Explore one of the most profound influences on ideas, culture and civilisation.</h3>
+                <div class="body-content">
+                    <p>The Special Divine Action Project brings together enduring historical resources and contemporary scholarship to help you explore the full scope of this debate and reach your own conclusions.</p>
+                </div>
+            </div>
+        </div>
+        <div class="portal">
+            <div class="listing">
+                <h3>Recent News</h3>
+                <div class="article-list">
+                    <div class="entry">
+                        <a href="" class="title">SDA Project Technology Presented</a>
+                        <p>Dr. Neal Audenaert presents at ASIS&amp;T and INKE-ID.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="listing listing--proposals">
+                <h3>Call For Proposals</h3>
+                <div class="article-list">
+                    <div class="entry">
+                        <a href="course.html" class="title">Course development grants to integrate topics on Special Divine Action.</a>
+                    </div>
+                    <div class="entry">
+                        <a href="cluster.html" class="title">Research grants available to support focused study groups.</a>
+                    </div>
+                    <div class="entry">
+                        <a href="" class="title">Comming Soon. CFP for SDA 2015. Science and Personal Action: Human and Divine.</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 {% endblock %}
 
