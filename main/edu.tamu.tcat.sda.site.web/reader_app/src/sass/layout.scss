@@ -76,7 +76,7 @@ main {
    box-sizing: border-box;
    display: flex;
    flex-direction: column;
-   margin: 2rem 3rem;
+   margin: 2em 3em;
 
    @media (min-width: $screen-small) {
       flex-direction: row;
