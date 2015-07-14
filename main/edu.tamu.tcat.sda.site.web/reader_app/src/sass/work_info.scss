@@ -79,13 +79,23 @@
 }
 
 aside .work {
-   font-size: 0.8em;
+   font-size: 0.875em;
+   line-height: 1.6em;
 
    h1, h2, h3, h4, h5, h6 {
       text-transform: none;
+      line-height: inherit;
+   }
+
+   h1 {
+      font-size: 1.5em;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 0.2em;
    }
 
    h2 {
+      font-size: 1.25em;
+      margin-bottom: 0.2em;
       border-bottom: 1px solid #ccc;
    }
 
@@ -95,17 +105,23 @@ aside .work {
       margin-bottom: 0.3em;
    }
 
-   section.summary > .content {
-      padding-left: 0;
+   > .authors {
+      line-height: 1.2em;
+      margin-left: 1em;
+      margin-top: 1em;
+      list-style: none;
    }
 
-   .readonline {
-      width: 24px;
-      height: 24px;
+   > .summary {
+      margin: 1em 0;
    }
 
-   .edition, .volume {
-      padding-left: 2em;
-      margin-left: -2em;
+   ol.editions, ol.relationships {
+      margin: 1em 0 1em 2em;
+      padding: 0;
+
+      li {
+         margin-bottom: 1em;
+      }
    }
 }

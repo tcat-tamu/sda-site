@@ -9,6 +9,7 @@ define(function (require) {
    var RelationshipCollection = RelationshipViewTypes.RelationshipCollection;
 
    var WorkDisplayView = require('./views/work_display_view');
+   var WorkSideView = require('./views/work_side_view');
 
 
    var WorkInfoController = Marionette.Controller.extend({
@@ -130,7 +131,7 @@ define(function (require) {
             return;
          }
 
-         var workView = new WorkDisplayView(this.focusedWorkViewOpts);
+         var workView = new WorkSideView(this.focusedWorkViewOpts);
          this.sideRegion.show(workView);
       }
    });
