@@ -1,0 +1,21 @@
+@import 'layout';
+@import 'search';
+@import 'work_info';
+
+@import 'vars';
+
+.form-control:focus {
+   box-shadow: none;
+   border-color: lighten($copper, 5%);
+}
+
+a {
+   color: $fg-link;
+   text-decoration: none;
+   cursor: pointer;
+
+   &:hover {
+      color: $fg-link;
+      text-decoration: none;
+   }
+}

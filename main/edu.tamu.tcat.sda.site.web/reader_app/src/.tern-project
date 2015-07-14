@@ -1,0 +1,34 @@
+{
+   "libs": [
+      "browser",
+      "ecma5",
+      "jquery"
+   ],
+   "loadEagerly": [
+      "js/**/*.js"
+   ],
+   "plugins": {
+      "complete_strings": {},
+      "requirejs": {
+         "paths": {
+            "backbone": "build/vendor/backbone/backbone",
+            "backbone.babysitter": "build/vendor/backbone.babysitter/lib/backbone.babysitter",
+            "backbone.radio": "build/vendor/backbone.radio/build/backbone.radio",
+            "backbone.wreqr": "build/vendor/backbone.wreqr/lib/backbone.wreqr",
+            "bootstrap": "build/vendor/bootstrap/dist/js/bootstrap",
+            "jquery": "build/vendor/jquery/dist/jquery",
+            "marionette": "build/vendor/marionette/lib/backbone.marionette",
+            "moment": "build/vendor/moment/moment",
+            "nunjucks": "build/vendor/nunjucks/browser/nunjucks-slim",
+            "promise": "build/vendor/bluebird/js/browser/bluebird",
+            "quill": "build/vendor/quill/dist/quill",
+            "underscore": "build/vendor/underscore/underscore",
+            "trc-entries-reln": "build/vendor/trc-js-core/modules/trc-entries-reln/dist/trc-entries-reln",
+            "trc-ui-widgets": "build/vendor/trc-js-core/modules/trc-ui-widgets/dist/trc-ui-widgets"
+         }
+      },
+      "doc_comment": {
+         "fullDocs": true
+      }
+   }
+}

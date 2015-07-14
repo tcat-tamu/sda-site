@@ -1,0 +1,148 @@
+@import 'fonts';
+@import 'vars';
+@import 'mixins';
+
+@mixin dark-bg {
+   background-color: $dark-bg;
+   color: $dark-fg;
+
+   a {
+      color: $dark-fg-link;
+      text-decoration: underline;
+   }
+}
+
+body {
+   font-family: AvenirLTStd;
+   font-size: 16px;
+   line-height: 20px;
+   padding: 0;
+   margin: 0;
+   color: $fg;
+}
+
+header {
+   @include dark-bg;
+   @include clearfix;
+   padding: 1em 3em;
+
+   img.site-logo {
+      max-height: 32px;
+   }
+
+   form.search {
+      float: right;
+
+      .form-group {
+         margin: 0;
+      }
+
+      input.form-control {
+         @include dark-bg;
+         border: 1px solid #4e534d;
+         border-radius: 8px;
+         height: 32px;
+
+         &::placeholder {
+            color: $dark-fg-muted;
+            opacity: 1;
+         }
+      }
+
+      button.submit {
+         border: 1px solid #4e534d;
+         border-radius: 8px;
+         background-color: #212221;
+         height: 32px;
+         font-size: 11px;
+         padding: 0 24px;
+         text-transform: uppercase;
+         letter-spacing: 1px;
+         transition: background-color 400ms;
+
+         &:hover, &:focus {
+            background-color: #2e2f2e;
+            color: inherit;
+         }
+
+         &:focus {
+            outline: 0;
+         }
+      }
+   }
+}
+
+main {
+   box-sizing: border-box;
+   display: flex;
+   flex-direction: column;
+   margin: 2rem 3rem;
+
+   @media (min-width: $screen-small) {
+      flex-direction: row;
+
+      > aside {
+         width: 34%;
+         padding-right: 2.5%;
+      }
+
+      > article {
+         width: 66%;
+         padding-left: 2.5%;
+      }
+
+   }
+}
+
+footer {
+   text-align: center;
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   right: 0;
+
+   > a.toggle {
+      display: inline-block;
+      position: absolute;
+      right: 10%;
+      background-color: $dark-bg;
+      color: $dark-fg-link;
+      padding: 0.3em 1em;
+      line-height: 1em;
+      top: -1.6em;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      text-decoration: none;
+
+      &:focus {
+         outline: 0;
+      }
+   }
+
+   > .container {
+      @include dark-bg;
+      color: $dark-fg-muted;
+      display: none;
+      padding: 0;
+      width: 100%;
+
+      .content {
+         font-size: 0.9em;
+         line-height: 1.5em;
+         padding: 2em 3em;
+         margin: 0 auto;
+         max-width: 51em;
+      }
+
+      ul.logos {
+         border-top: 1px solid #272927;
+         margin: 0;
+         padding: 0 2em 3em;
+
+         li {
+            display: inline-block;
+            margin: 3em 2em 0;
+         }
+      }
+   }
+}
