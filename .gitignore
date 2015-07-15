@@ -1,7 +1,7 @@
-/releng/*/build
-/main/*/vendor
-/build
-/dist
+/releng/**/build
+/main/**/vendor
+build
+dist
 
 node_modules
 *~
