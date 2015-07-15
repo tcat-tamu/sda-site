@@ -23,6 +23,8 @@
             "promise": "build/vendor/bluebird/js/browser/bluebird",
             "quill": "build/vendor/quill/dist/quill",
             "underscore": "build/vendor/underscore/underscore",
+            "trc-entries-biblio": "build/vendor/trc-js-core/modules/trc-entries-biblio/dist/trc-entries-biblio",
+            "trc-entries-bio": "build/vendor/trc-js-core/modules/trc-entries-bio/dist/trc-entries-bio",
             "trc-entries-reln": "build/vendor/trc-js-core/modules/trc-entries-reln/dist/trc-entries-reln",
             "trc-ui-widgets": "build/vendor/trc-js-core/modules/trc-ui-widgets/dist/trc-ui-widgets"
          }
