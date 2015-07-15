@@ -1,0 +1,21 @@
+<h1>{{ title }}</h1>
+
+<div class="authors"></div>
+
+{% if summary | striptags %}
+   <div class="summary">{{ summary }}</div>
+{% endif %}
+
+{% if editions | length > 0 %}
+   <section class="editions">
+      <h2>Editions</h2>
+      <div></div>
+   </section>
+{% endif %}
+
+{% if relationships | length > 0 %}
+   <section class="relationships">
+      <h2>Related Works</h2>
+      <div></div>
+   </section>
+{% endif %}

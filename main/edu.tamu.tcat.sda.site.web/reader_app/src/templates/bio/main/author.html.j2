@@ -1,0 +1,93 @@
+{% macro full_name(name) %}
+   <span class="full-name">
+      {% if name.title %}
+         <span class="title">{{ name.title }}</span>
+      {% endif %}
+      {% if name.givenName %}
+         <span class="first">{{ name.givenName }}</span>
+      {% endif %}
+      {% if name.middleName %}
+         <span class="middle">{{ name.middleName }}</span>
+      {% endif %}
+      {% if name.familyName %}
+         <span class="last">{{ name.familyName }}</span>
+      {%- endif -%}
+      {%- if name.suffix -%}
+         ,
+         <span class="suffix">{{ name.suffix }}</span>
+      {%- endif -%}
+   </span>
+{% endmacro %}
+
+{% macro date_display(date) %}
+   <span class="date-location">
+      {% if date.date %}
+         <time class="date" datetime="{{ date.date.calendar }}">{{ date.date.description }}</time>
+      {% endif %}
+      {% if date.location %}
+         in <span class="location">{{ date.location }}</span>
+      {% endif %}
+   </span>
+{% endmacro %}
+
+<h1>
+   {{ displayName.displayName }}
+   {% if (birth and birth.date and birth.date.calendar) or (death and death.date and death.date.calendar) %}
+      (
+      {%- if birth and birth.date and birth.date.calendar -%}
+         <time class="birth-date" datetime="{{ birth.date.calendar }}">{{ birth.date.calendar | date('YYYY') }}</time>
+      {%- else -%}
+         ?
+      {%- endif %}
+      &ndash;
+      {% if death and death.date and death.date.calendar -%}
+         <time class="death-date" datetime="{{ death.date.calendar }}">{{ death.date.calendar | date('YYYY') }}</time>
+      {%- else -%}
+         ?
+      {%- endif -%}
+      )
+   {% endif %}
+</h1>
+
+<p>
+   <strong>Full name:</strong>
+   {{ full_name(displayName) }}
+</p>
+
+{% if birth or death %}
+   {% if birth %}
+      <p class="birth">
+         <strong>Born:</strong>
+         {{ date_display(birth) }}
+      </p>
+   {% endif %}
+   {% if death %}
+      <p class="death">
+         <strong>Died:</strong>
+         {{ date_display (death) }}
+      </p>
+   {% endif %}
+{% endif %}
+
+
+{% if summary | striptags %}
+   <section class="summary">{{ summary }}</section>
+{% endif %}
+
+{% if names | length > 0 %}
+   <section class="other-names">
+      <h2>Other Names</h2>
+      <ul>
+         {% for name in names %}
+            <li>{{ full_name(name) }}</li>
+         {% endfor %}
+      </ul>
+   </section>
+{% endif %}
+
+{% if works | length > 0 %}
+   <section class="related-works">
+      <h2>Books by {{ displayName.displayName }}</h2>
+      <div></div>
+   </section>
+{% endif %}

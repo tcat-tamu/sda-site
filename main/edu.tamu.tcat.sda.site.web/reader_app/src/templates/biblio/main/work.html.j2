@@ -1,0 +1,35 @@
+<h1>{{ title }}</h1>
+
+<!-- surround with block tags -->
+{% if copyRef %}
+   <div class="cta work-copy readonline">
+      <i class="fa fa-book"></i>
+      <span>Read Online</span>
+   </div>
+{% endif %}
+
+<section class="citation">
+   by <span class="authors"></span>
+   {# <span class="titleinfo">{{ title }}</span>. #}
+</section>
+
+{% if summary | striptags %}
+   <section class="summary">
+      <h2>Summary</h2>
+      <div class="content">{{ summary }}</div>
+   </section>
+{% endif %}
+
+{% if editions | length > 0 %}
+   <section class="editions">
+      <h2>Editions</h2>
+      <div></div>
+   </section>
+{% endif %}
+
+{% if relationships | length > 0 %}
+   <section class="relationships">
+      <h2>Related Works</h2>
+      <div></div>
+   </section>
+{% endif %}
