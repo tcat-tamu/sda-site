@@ -41,7 +41,7 @@ define(function (require) {
       },
 
       onShow: function () {
-         if (this.works && this.works.length > 0) {
+         if (this.works && !this.works.isEmpty()) {
             var relatedWorksView = new RelatedWorksView({
                channel: this.channel
             });

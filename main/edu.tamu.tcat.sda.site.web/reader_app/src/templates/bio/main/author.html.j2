@@ -32,15 +32,15 @@
 
 <h1>
    {{ displayName.displayName }}
-   {% if birth or death %}
+   {% if (birth and birth.date and birth.date.calendar) or (death and death.date and death.date.calendar) %}
       (
-      {%- if birth and birth.date -%}
+      {%- if birth and birth.date and birth.date.calendar -%}
          <time class="birth-date" datetime="{{ birth.date.calendar }}">{{ birth.date.calendar | date('YYYY') }}</time>
       {%- else -%}
          ?
       {%- endif %}
       &ndash;
-      {% if death and death.date -%}
+      {% if death and death.date and death.date.calendar -%}
          <time class="death-date" datetime="{{ death.date.calendar }}">{{ death.date.calendar | date('YYYY') }}</time>
       {%- else -%}
          ?

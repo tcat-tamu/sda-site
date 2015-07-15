@@ -29,7 +29,7 @@ define(function (require) {
             throw new TypeError('no channel provided');
          }
 
-         this.mergeOptions(opts, ['region', 'repo', 'channel']);
+         this.mergeOptions(opts, ['region', 'repo', 'workRepo', 'channel']);
       },
 
       displayAuthor: function (id) {
