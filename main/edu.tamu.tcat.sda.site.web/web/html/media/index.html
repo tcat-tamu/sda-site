@@ -1,0 +1,285 @@
+
+{% extends 'condensed_page_layout.html' %}
+
+{% macro videoTile(slide) %}
+   <li>
+     <div class="banner" style="background-image: url({{ baseUrl }}/assets/img/{{ slide.banner.image }});">
+         <div class="interior">
+            <aside class="content {{ slide.banner.style }}">
+               {{ slide.banner.content }}
+            </aside>
+         </div>
+     </div>
+  </li>
+{% endmacro %}
+
+{% block meta_description -%}
+Explore videos and other resources from the Special Devine Action (SDA) project.
+{%- endblock %}
+
+{% block title -%}
+   Media Center | Special Divine Action
+{%- endblock %}
+
+{% block page_body %}
+  <div class="" id="overview">
+       <div class="conf-introduction">
+          <div class="container no-vert">
+              <h1>Media Center</h1>
+          </div>
+      </div>
+  </div>
+  <section id="page_body" class="section">
+      <div class="container">
+          <div class="introduction">
+              <p>We are the sole owners of the information collected on this site. We only have access to/collect information that you voluntarily give us via email or other direct contact from you. We will not sell or rent this information to anyone.</p>
+          </div>
+          <div class="section section--search">
+              <div class="header">
+                  <h2>Find Media by</h2>
+              </div>
+              <div class="body">
+                  <div class="methods">
+                      <div class="method method--search">
+                          <form action="" method="get" class="form">
+                              <div class="form-field">
+                                  <label for="">Search</label>
+                                  <div class="compact">
+                                      <input id="tmp" type="text" placeholder="Search Term" id="">
+                                      <button type="submit" class="submit"><i class="fa fa-search"></i></button>
+                                  </div>
+                              </div>
+                          </form>
+                      </div>
+                      <div class="method method--topic">
+                          <form action="" class="form">
+                              <div class="form-field">
+                                  <label for="">Topic</label>
+                                  <select name="" id="">
+                                      <option value="">Topic 1</option>
+                                      <option value="">Topic 2</option>
+                                  </select>
+                              </div>
+                          </form>
+                      </div>
+                      <div class="method method--theme">
+                          <form action="" class="form">
+                              <div class="form-field">
+                                  <label for="">Theme</label>
+                                  <select name="" id="">
+                                      <option value="">Keynotes from SDA 2014</option>
+                                      <option value="">Lectures on God as the First Cause</option>
+                                  </select>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="section section--assortment">
+              <div class="section-header">
+                  <h2>Videos</h2>
+              </div>
+              <div class="columns">
+                  <div class="column">
+                      <div class="resource">
+                          <a href="single-item.html">
+                              <img src="http://placehold.it/300x300" alt="">
+                          </a>
+                          <div class="item-info">
+                              <div class="item-header">
+                                  <span class="item-title">Video Title</span>
+                              </div>
+                              <div class="item-body">
+                                  <p>Brief description of what this resource can offer viewers</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="column">
+                      <div class="resource">
+                          <a href="single-item.html">
+                              <img src="http://placehold.it/300x300" alt="">
+                          </a>
+                          <div class="item-info">
+                              <div class="item-header">
+                                  <span class="item-title">Video Title</span>
+                              </div>
+                              <div class="item-body">
+                                  <p>Brief description of what this resource can offer viewers</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="column">
+                      <div class="resource">
+                          <a href="single-item.html">
+                              <img src="http://placehold.it/300x300" alt="">
+                          </a>
+                          <div class="item-info">
+                              <div class="item-header">
+                                  <span class="item-title">Video Title</span>
+                              </div>
+                              <div class="item-body">
+                                  <p>Brief description of what this resource can offer viewers</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="column">
+                      <div class="resource">
+                          <a href="single-item.html">
+                              <img src="http://placehold.it/300x300" alt="">
+                          </a>
+                          <div class="item-info">
+                              <div class="item-header">
+                                  <span class="item-title">Video Title</span>
+                              </div>
+                              <div class="item-body">
+                                  <p>Brief description of what this resource can offer viewers</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="section section--assortment">
+              <div class="section-header">
+                  <h2>Animations</h2>
+              </div>
+              <div class="columns">
+                  <div class="column">
+                      <div class="resource">
+                          <a href="single-item.html">
+                              <img src="http://placehold.it/300x300" alt="">
+                          </a>
+                          <div class="item-info">
+                              <div class="item-header">
+                                  <span class="item-title">Animation Title</span>
+                              </div>
+                              <div class="item-body">
+                                  <p>Brief description of what this resource can offer viewers</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="column">
+                      <div class="resource">
+                          <a href="single-item.html">
+                              <img src="http://placehold.it/300x300" alt="">
+                          </a>
+                          <div class="item-info">
+                              <div class="item-header">
+                                  <span class="item-title">Animation Title</span>
+                              </div>
+                              <div class="item-body">
+                                  <p>Brief description of what this resource can offer viewers</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="column">
+                      <div class="resource">
+                          <a href="single-item.html">
+                              <img src="http://placehold.it/300x300" alt="">
+                          </a>
+                          <div class="item-info">
+                              <div class="item-header">
+                                  <span class="item-title">Animation Title</span>
+                              </div>
+                              <div class="item-body">
+                                  <p>Brief description of what this resource can offer viewers</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="column">
+                      <div class="resource">
+                          <a href="single-item.html">
+                              <img src="http://placehold.it/300x300" alt="">
+                          </a>
+                          <div class="item-info">
+                              <div class="item-header">
+                                  <span class="item-title">Animation Title</span>
+                              </div>
+                              <div class="item-body">
+                                  <p>Brief description of what this resource can offer viewers</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="section section--assortment">
+              <div class="section-header">
+                  <h2>Audio</h2>
+              </div>
+              <div class="columns">
+                  <div class="column">
+                      <div class="resource">
+                          <a href="single-item.html">
+                              <img src="http://placehold.it/300x300" alt="">
+                          </a>
+                          <div class="item-info">
+                              <div class="item-header">
+                                  <span class="item-title">Audio Title</span>
+                              </div>
+                              <div class="item-body">
+                                  <p>Brief description of what this resource can offer viewers</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="column">
+                      <div class="resource">
+                          <a href="single-item.html">
+                              <img src="http://placehold.it/300x300" alt="">
+                          </a>
+                          <div class="item-info">
+                              <div class="item-header">
+                                  <span class="item-title">Audio Title</span>
+                              </div>
+                              <div class="item-body">
+                                  <p>Brief description of what this resource can offer viewers</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="column">
+                      <div class="resource">
+                          <a href="single-item.html">
+                              <img src="http://placehold.it/300x300" alt="">
+                          </a>
+                          <div class="item-info">
+                              <div class="item-header">
+                                  <span class="item-title">Audio Title</span>
+                              </div>
+                              <div class="item-body">
+                                  <p>Brief description of what this resource can offer viewers</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="column">
+                      <div class="resource">
+                          <a href="single-item.html">
+                              <img src="http://placehold.it/300x300" alt="">
+                          </a>
+                          <div class="item-info">
+                              <div class="item-header">
+                                  <span class="item-title">Audio Title</span>
+                              </div>
+                              <div class="item-body">
+                                  <p>Brief description of what this resource can offer viewers</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+
+{%- endblock %}
