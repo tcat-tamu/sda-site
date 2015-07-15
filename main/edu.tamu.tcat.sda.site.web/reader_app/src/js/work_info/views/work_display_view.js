@@ -189,8 +189,7 @@ define(function (require) {
             e.preventDefault();
             var entry = this.model.get('target');
             if (entry) {
-               var entryUri = entry.getUri();
-               this.channel.trigger('work:show', entryUri);
+               this.channel.trigger('work:show', entry.id);
             }
          }
       },

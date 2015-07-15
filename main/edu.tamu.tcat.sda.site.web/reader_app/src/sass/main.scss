@@ -1,6 +1,7 @@
 @import 'layout';
 @import 'search';
 @import 'work_info';
+@import 'author_info';
 
 @import 'vars';
 
@@ -51,6 +52,10 @@ a {
 
 article {
    font-size: 0.9375em;
+
+   section {
+      margin: 2em 0;
+   }
 }
 
 aside {

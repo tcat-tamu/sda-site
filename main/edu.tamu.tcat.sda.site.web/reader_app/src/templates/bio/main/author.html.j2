@@ -11,7 +11,7 @@
       {% endif %}
       {% if name.familyName %}
          <span class="last">{{ name.familyName }}</span>
-      {% endif %}
+      {%- endif -%}
       {%- if name.suffix -%}
          ,
          <span class="suffix">{{ name.suffix }}</span>
@@ -75,17 +75,19 @@
 {% endif %}
 
 {% if names | length > 0 %}
-   <h2>Also Known As</h2>
-   <ul>
-      {% for name in names %}
-         <li>{{ full_name(name) }}</li>
-      {% endfor %}
-   </ul>
+   <section class="other-names">
+      <h2>Other Names</h2>
+      <ul>
+         {% for name in names %}
+            <li>{{ full_name(name) }}</li>
+         {% endfor %}
+      </ul>
+   </section>
 {% endif %}
 
 {% if works | length > 0 %}
    <section class="related-works">
-      <h2>Related Works</h2>
+      <h2>Books by {{ displayName.displayName }}</h2>
       <div></div>
    </section>
 {% endif %}
