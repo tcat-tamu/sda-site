@@ -892,13 +892,12 @@ main, .main {
 
 
 /*  Home Page - Advisory Board  */
-
 .section-header {
     border-bottom: 1px solid #dfddd5;
     color: #68665f;
     @extend %CenturyStd-Book;
     font-size: 1.3em;
-    padding-bottom: 2rem;
+    margin-bottom: 3rem;
     p {
         font-size: 0.9em;
         line-height: 1.5;
