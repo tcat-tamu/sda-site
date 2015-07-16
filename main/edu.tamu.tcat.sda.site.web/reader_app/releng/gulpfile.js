@@ -20,7 +20,7 @@ var stagingPath = '../build';
 var vendorPath = stagingPath + '/vendor';
 var distPath = '../dist';
 
-var baseUrl = '/~matthew.barry/reader-app';
+var baseUrl = '/library';
 
 gulp.task('fonts', function () {
    var vendors = gulp.src([
