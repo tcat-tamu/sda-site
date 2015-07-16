@@ -11,8 +11,8 @@ var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 // var tap = require('gulp-tap');
-// var uglifyJS = require('gulp-uglify');
-// var uglifyCSS = require('gulp-cssmin');
+var uglifyJS = require('gulp-uglify');
+var uglifyCSS = require('gulp-cssmin');
 
 
 var srcPath = '../src';
@@ -136,7 +136,7 @@ gulp.task('javascripts', function () {
       }));
 
    var minified = merge(modernizr, ieVendors, vendors, javascripts)
-      // .pipe(uglifyJS())
+      .pipe(uglifyJS())
       .pipe(sourcemaps.write('.'));
 
 
@@ -164,7 +164,7 @@ gulp.task('stylesheets', function () {
 
    return merge(vendors, sassStylesheets)
       .pipe(concat('style.css'))
-      // .pipe(uglifyCSS())
+      .pipe(uglifyCSS())
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest(distPath + '/css'));
 });
