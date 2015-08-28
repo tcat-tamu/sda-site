@@ -13,6 +13,7 @@ define(function (require) {
    var WorkInfoApp = require('./work_info/work_info_app');
    var BookReaderApp = require('./book_reader/book_reader_app');
    var AuthorInfoApp = require('./author_info/author_info_app');
+   var ArticleReaderApp = require('./article_reader/article_reader_app');
 
 
    function initialize(el, config) {
@@ -86,6 +87,13 @@ define(function (require) {
          region: layout.getRegion('main'),
          repo: personRepo,
          workRepo: workRepo,
+         channel: channel
+      });
+
+      ArticleReaderApp.initialize({
+         mainRegion: layout.getRegion('main'),
+         navRegion: layout.getRegion('sidebar'),
+         repo: articlesRepo,
          channel: channel
       });
 
