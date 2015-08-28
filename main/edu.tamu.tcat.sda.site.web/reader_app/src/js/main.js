@@ -2,9 +2,10 @@ define(function (require) {
 
    var Backbone = require('backbone');
    var Radio = require('backbone.radio');
-   var WorkRepository = require('trc-entries-biblio');
-   var RelationshipRepository = require('trc-entries-reln');
-   var PersonRepository = require('trc-entries-bio');
+   var TrcBiblioPod = require('trc-entries-biblio');
+   var TrcRelnPod = require('trc-entries-reln');
+   var TrcBioPod = require('trc-entries-bio');
+   var TrcArticlesPod = require('trc-entries-articles');
 
    var LayoutView = require('./views/layout_view');
 
@@ -19,21 +20,41 @@ define(function (require) {
       var layout = new LayoutView({ el: el });
       layout.render();
 
-      var workRepo = new WorkRepository({
-         apiEndpoint: config.apiEndpoint + '/works'
+      var TrcBiblioModule = TrcBiblioPod.factory();
+      var TrcRelnModule = TrcRelnPod.factory();
+      var TrcBioModule = TrcBioPod.factory();
+      var TrcArticlesModule = TrcArticlesPod.factory();
+
+      TrcBiblioModule.initialize({
+         rest: {
+            works: config.apiEndpoint + '/works',
+            references: config.apiEndpoint + '/copies'
+         }
       });
 
-      var copyRefRepo = new WorkRepository.CopyReferences({
-         apiEndpoint: config.apiEndpoint + '/copies'
+      TrcRelnModule.initialize({
+         rest: {
+            relationships: config.apiEndpoint + '/relationships'
+         }
       });
 
-      var relnRepo = new RelationshipRepository({
-          apiEndpoint: config.apiEndpoint + '/relationships'
+      TrcBioModule.initialize({
+         rest: {
+            people: config.apiEndpoint + '/people'
+         }
       });
 
-      var personRepo = new PersonRepository({
-         apiEndpoint: config.apiEndpoint + '/people'
+      TrcArticlesModule.initialize({
+         rest: {
+            articles: config.apiEndpoint + '/articles'
+         }
       });
+
+      var workRepo = TrcBiblioModule.createWorksRepository();
+      var copyRefRepo = TrcBiblioModule.createReferencesRepository();
+      var relnRepo = TrcRelnModule.createRelationshipsRepository();
+      var personRepo = TrcBioModule.createPeopleRepository();
+      var articlesRepo = TrcArticlesModule.createArticlesRepository();
 
       var channel = Radio.channel('reader');
 

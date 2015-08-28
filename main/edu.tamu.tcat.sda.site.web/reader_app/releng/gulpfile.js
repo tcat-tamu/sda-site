@@ -82,7 +82,14 @@ gulp.task('templates', function () {
 
 
 gulp.task('javascripts', function () {
-   var javascripts = gulp.src(srcPath + '/js/**/*.js')
+   var javascripts = gulp.src([
+         srcPath + '/js/**/*.js',
+         vendorPath + '/trc-js-core/modules/trc-entries-articles/dist/trc-entries-articles.js',
+         vendorPath + '/trc-js-core/modules/trc-entries-biblio/dist/trc-entries-biblio.js',
+         vendorPath + '/trc-js-core/modules/trc-entries-bio/dist/trc-entries-bio.js',
+         vendorPath + '/trc-js-core/modules/trc-entries-reln/dist/trc-entries-reln.js',
+         vendorPath + '/trc-js-core/modules/trc-ui-widgets/dist/trc-ui-widgets.js'
+      ])
       .pipe(amdOptimize('main', {
          findNestedDependencies: true,
          paths: {
@@ -96,12 +103,7 @@ gulp.task('javascripts', function () {
             'moment': vendorPath + '/moment/moment',
             'nunjucks': vendorPath + '/nunjucks/browser/nunjucks-slim',
             'promise': vendorPath + '/bluebird/js/browser/bluebird',
-            'underscore': vendorPath + '/underscore/underscore',
-
-            'trc-entries-biblio': vendorPath + '/trc-js-core/modules/trc-entries-biblio/dist/trc-entries-biblio',
-            'trc-entries-bio': vendorPath + '/trc-js-core/modules/trc-entries-bio/dist/trc-entries-bio',
-            'trc-entries-reln': vendorPath + '/trc-js-core/modules/trc-entries-reln/dist/trc-entries-reln',
-            'trc-ui-widgets': vendorPath + '/trc-js-core/modules/trc-ui-widgets/dist/trc-ui-widgets'
+            'underscore': vendorPath + '/underscore/underscore'
          },
          shim: {
             'bootstrap': ['jquery']
