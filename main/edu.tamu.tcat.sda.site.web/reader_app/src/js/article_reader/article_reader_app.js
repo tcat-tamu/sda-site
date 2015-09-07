@@ -5,6 +5,7 @@ define(function (require) {
 
    var ArticleReaderView = require('./views/article_reader_view');
    var TableOfContentsView = require('./views/table_of_contents_view');
+   var MathJaxLoader = require('mathjax');
 
 
    var dummyData = require('./dummy_data');
@@ -35,6 +36,11 @@ define(function (require) {
       },
 
       displayArticle: function (id) {
+         MathJaxLoader.load()
+            .catch(function (err) {
+               console.error('Unable to load MathJax. LaTeX Equations will not be rendered.', err);
+            });
+
          // this.repo.find(id)
          this.repo.create()
             .then(function (article) {
