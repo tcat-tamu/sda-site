@@ -12,6 +12,10 @@ define(function (require) {
 
       template: _.partial(nunjucks.render, 'article/toc.html'),
 
+      id: function () {
+         return this.cid;
+      },
+
       ui: {
          tocArea: '> .toc'
       },
@@ -58,10 +62,6 @@ define(function (require) {
       },
 
       onShow: function () {
-         // $('body').scrollspy({
-         //    target: this.el
-         // });
-
          this.$el.affix({
             offset: {
                top: this.$el.offset().top
@@ -69,7 +69,12 @@ define(function (require) {
          });
 
          var tocDom = TOC.render(this.toc);
+         $(tocDom).addClass('nav');
          this.ui.tocArea.append(tocDom);
+
+         $('body').scrollspy({
+            target: '#' + this.cid + ' > .toc'
+         });
       }
 
    });
