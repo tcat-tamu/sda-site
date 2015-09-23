@@ -8,7 +8,7 @@ define(function (require) {
 
 
    var RelationshipView = Marionette.LayoutView.extend({
-      template: _.partial(nunjucks.render, 'biblio/side/reln.html'),
+      template: _.partial(nunjucks.render, 'reader/biblio/side/reln.html'),
       tagName: 'li',
       className: 'relationship',
 
@@ -76,7 +76,7 @@ define(function (require) {
    });
 
    var EditionView = Marionette.LayoutView.extend({
-      template: _.partial(nunjucks.render, 'biblio/side/edition.html'),
+      template: _.partial(nunjucks.render, 'reader/biblio/side/edition.html'),
       tagName: 'li',
 
       templateHelpers: function () {
@@ -132,7 +132,7 @@ define(function (require) {
 
 
    var WorkSideView = Marionette.LayoutView.extend({
-      template: _.partial(nunjucks.render, 'biblio/side/work.html'),
+      template: _.partial(nunjucks.render, 'reader/biblio/side/work.html'),
       className: 'work',
 
       templateHelpers: function () {

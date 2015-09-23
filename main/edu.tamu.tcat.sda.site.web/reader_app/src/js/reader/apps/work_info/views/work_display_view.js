@@ -17,13 +17,13 @@ define(function (require) {
 
 
    var PublicationInfoView = Marionette.ItemView.extend({
-      template: _.partial(nunjucks.render, 'biblio/main/pubinfo.html'),
+      template: _.partial(nunjucks.render, 'reader/biblio/main/publication_info.html'),
       tagName: 'span'
    });
 
 
    var VolumeView = Marionette.LayoutView.extend({
-      template: _.partial(nunjucks.render, 'biblio/main/volume.html'),
+      template: _.partial(nunjucks.render, 'reader/biblio/main/volume.html'),
       tagName: 'section',
       className: 'volume',
 
@@ -90,7 +90,7 @@ define(function (require) {
 
 
    var EditionView = Marionette.LayoutView.extend({
-      template: _.partial(nunjucks.render, 'biblio/main/edition.html'),
+      template: _.partial(nunjucks.render, 'reader/biblio/main/edition.html'),
       tagName: 'section',
       className: 'edition',
 
@@ -169,7 +169,7 @@ define(function (require) {
 
 
    var RelationshipView = Marionette.LayoutView.extend({
-      template: _.partial(nunjucks.render, 'biblio/main/reln.html'),
+      template: _.partial(nunjucks.render, 'reader/biblio/main/relationship.html'),
       tagName: 'li',
       className: 'relationship',
 
@@ -229,7 +229,7 @@ define(function (require) {
 
 
    var WorkDisplayView = Marionette.LayoutView.extend({
-      template: _.partial(nunjucks.render, 'biblio/main/work.html'),
+      template: _.partial(nunjucks.render, 'reader/biblio/main/work.html'),
       tagName: 'article',
       className: 'work',
 

@@ -9,12 +9,12 @@ define(function (require) {
 
    var ReaderLayoutView = require('./views/reader_layout_view');
 
-   var BookSearchApp = require('./book_search/book_search_app');
-   var WorkInfoApp = require('./work_info/work_info_app');
-   var BookReaderApp = require('./book_reader/book_reader_app');
-   var AuthorInfoApp = require('./author_info/author_info_app');
-   var ArticleSearchApp = require('./article_search/article_search_app');
-   var ArticleReaderApp = require('./article_reader/article_reader_app');
+   var BookSearchApp = require('./apps/book_search/book_search_app');
+   var WorkInfoApp = require('./apps/work_info/work_info_app');
+   var BookReaderApp = require('./apps/book_reader/book_reader_app');
+   var AuthorInfoApp = require('./apps/author_info/author_info_app');
+   var ArticleSearchApp = require('./apps/article_search/article_search_app');
+   var ArticleReaderApp = require('./apps/article_reader/article_reader_app');
 
 
    function initialize(el, config) {

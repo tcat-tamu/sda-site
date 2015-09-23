@@ -8,7 +8,7 @@ define(function (require) {
 
    var ArticleReaderView = Marionette.ItemView.extend({
 
-      template: _.partial(nunjucks.render, 'article/content.html'),
+      template: _.partial(nunjucks.render, 'reader/article/content.html'),
 
       ui: {
          contentArea: '> article > .content'

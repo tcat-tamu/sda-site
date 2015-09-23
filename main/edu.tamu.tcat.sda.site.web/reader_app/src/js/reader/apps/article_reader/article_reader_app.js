@@ -8,9 +8,6 @@ define(function (require) {
    var MathJaxLoader = require('mathjax');
 
 
-   var dummyData = require('./dummy_data');
-
-
    var ArticleReaderController = Marionette.Controller.extend({
 
       initialize: function (options) {

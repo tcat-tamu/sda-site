@@ -4,11 +4,11 @@ define(function (require) {
    var nunjucks = require('nunjucks');
    var _ = require('underscore');
 
-   var AuthorsView = require('work_info/views/authors_view');
+   var AuthorsView = require('reader/apps/work_info/views/authors_view');
 
 
    var RelatedWorkView = Marionette.LayoutView.extend({
-      template: _.partial(nunjucks.render, 'biblio/side/reln.html'),
+      template: _.partial(nunjucks.render, 'reader/biblio/side/related_work.html'),
       tagName: 'li',
 
       regions: {

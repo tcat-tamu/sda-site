@@ -10,7 +10,7 @@ define(function (require) {
 
    var TableOfContentsView = Marionette.ItemView.extend({
 
-      template: _.partial(nunjucks.render, 'article/toc.html'),
+      template: _.partial(nunjucks.render, 'reader/article/toc.html'),
 
       id: function () {
          return this.cid;

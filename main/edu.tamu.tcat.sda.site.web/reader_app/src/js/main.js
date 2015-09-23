@@ -1,4 +1,4 @@
 // placeholder for build management
 define([
-   'reader_main'
+   'reader/reader_main'
 ], {});

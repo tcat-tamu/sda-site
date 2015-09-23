@@ -21,7 +21,7 @@ define(function (require) {
 
 
    var AuthorDisplayView = Marionette.LayoutView.extend({
-      template: _.partial(nunjucks.render, 'bio/main/author.html'),
+      template: _.partial(nunjucks.render, 'reader/bio/author_display.html'),
       className: 'author',
 
       templateHelpers: function () {
