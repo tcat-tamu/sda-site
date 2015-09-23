@@ -1,3 +1,4 @@
 define('config', {
-   apiEndpoint: '/api/catalog'
+   apiEndpoint: '/api/catalog',
+   articleReaderPrefix: 'reader.html#article/read/'
 });

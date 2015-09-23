@@ -1,6 +1,6 @@
 {% extends '_base.html.j2' %}
 
-{% block title %}Book Reader | {{ super() }}{% endblock %}
+{% block title %}SDA Reader | {{ super() }}{% endblock %}
 
 {% block stylesheets %}
    {{ super() }}
@@ -17,7 +17,7 @@
    <script src="{{ baseUrl }}/js/main.js"></script>
    <script src="{{ baseUrl }}/js/config.js"></script>
    <script>
-      require(['main', 'config'], function (app, config) {
+      require(['landing/landing_main', 'config'], function (app, config) {
          app.initialize('div.app', config);
       });
    </script>

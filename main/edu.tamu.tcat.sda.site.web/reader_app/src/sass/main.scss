@@ -1,3 +1,4 @@
+@import 'landing';
 @import 'layout';
 @import 'search';
 @import 'work_info';
@@ -92,6 +93,10 @@ aside {
 
       li {
          margin-bottom: 1em;
+      }
+
+      &.compact li {
+         margin-bottom: 0;
       }
    }
 }
