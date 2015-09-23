@@ -41,16 +41,7 @@ define(function (require) {
                console.error('Unable to load MathJax. LaTeX Equations will not be rendered.', err);
             });
 
-         // this.repo.find(id)
-         this.repo.create()
-            .then(function (article) {
-               article.set({
-                  title: 'Miracles',
-                  content: dummyData
-               });
-
-               return article;
-            })
+         this.repo.find(id)
             .bind(this)
             .then(function (article) {
                var articleView = new ArticleReaderView({
@@ -76,7 +67,7 @@ define(function (require) {
 
    var ArticleReaderRouter = Marionette.AppRouter.extend({
       appRoutes: {
-         'article/:id': 'displayArticle'
+         'article/read/:id': 'displayArticle'
       }
    });
 
@@ -101,8 +92,8 @@ define(function (require) {
          }
 
          opts.channel.on('article:show', function (id) {
-            router.navigate('article/' + id);
-            controller.displayAuthor(id);
+            router.navigate('article/read/' + id);
+            controller.displayArticle(id);
          });
 
          return router;

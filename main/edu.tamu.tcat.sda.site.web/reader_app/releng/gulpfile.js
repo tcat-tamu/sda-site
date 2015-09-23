@@ -48,7 +48,7 @@ gulp.task('html', function () {
    });
 
    return gulp.src([
-         srcPath + '/html/index.html.j2'
+         srcPath + '/html/reader.html.j2'
       ])
       .pipe(nunjucksRender({
          baseUrl: baseUrl

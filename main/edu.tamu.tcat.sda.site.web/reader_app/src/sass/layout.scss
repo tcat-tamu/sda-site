@@ -12,8 +12,12 @@
    }
 }
 
-body {
+html {
    position: relative;
+   min-height: 100%;
+}
+
+body {
    font-family: AvenirLTStd;
    font-size: 16px;
    line-height: 20px;
@@ -74,10 +78,13 @@ header {
 }
 
 main {
+   margin: 2em 3em;
    box-sizing: border-box;
+}
+
+main.twocol {
    display: flex;
    flex-direction: column;
-   margin: 2em 3em;
 
    @media (min-width: $screen-small) {
       flex-direction: row;
@@ -144,6 +151,41 @@ footer {
             display: inline-block;
             margin: 3em 2em 0;
          }
+      }
+   }
+
+   &.sticky {
+      position: absolute;
+      bottom: 0;
+      z-index: -1;
+   }
+
+   &.toggleable {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      > a.toggle {
+         display: inline-block;
+         position: absolute;
+         right: 10%;
+         background-color: $dark-bg;
+         color: $dark-fg-link;
+         padding: 0.3em 1em;
+         line-height: 1em;
+         top: -1.6em;
+         border-top-left-radius: 8px;
+         border-top-right-radius: 8px;
+         text-decoration: none;
+
+         &:focus {
+            outline: 0;
+         }
+      }
+
+      > .container {
+         display: none;
       }
    }
 }

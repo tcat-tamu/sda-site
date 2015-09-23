@@ -5,9 +5,9 @@ define(function (require) {
    var _ = require('underscore');
 
 
-   var LayoutView = Marionette.LayoutView.extend({
+   var ReaderLayoutView = Marionette.LayoutView.extend({
 
-      template: _.partial(nunjucks.render, 'layout.html'),
+      template: _.partial(nunjucks.render, 'reader.html'),
 
       ui: {
          sidebar: '> main > aside',
@@ -30,6 +30,6 @@ define(function (require) {
 
    });
 
-   return LayoutView;
+   return ReaderLayoutView;
 
 });
