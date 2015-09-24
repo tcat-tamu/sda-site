@@ -29,7 +29,7 @@ define(function (require) {
             placeholder: 'Search Articles',
             searchProvider: function (q, limit) {
                return _this.repo.search(q, { limit: limit }).then(function (results) {
-                  return results.map(function (article) {
+                  return results.articles.map(function (article) {
                      return {
                         title: article.get('title'),
                         obj: article

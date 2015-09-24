@@ -63,7 +63,7 @@ define(function (require) {
                .bind(this)
                .then(function (results) {
                   var resultsView = new ResultsView({
-                     collection: results
+                     collection: results.articles
                   });
 
                   resultsView.on('read:more', function (article) {
