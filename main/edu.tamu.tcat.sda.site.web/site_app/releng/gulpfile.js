@@ -20,7 +20,7 @@ var stagingPath = '../build';
 var vendorPath = stagingPath + '/vendor';
 var distPath = '../dist';
 
-var baseUrl = '/library';
+var baseUrl = '';
 
 gulp.task('fonts', function () {
    var vendors = gulp.src([
@@ -48,8 +48,8 @@ gulp.task('html', function () {
    });
 
    return gulp.src([
-         srcPath + '/html/index.html.j2',
-         srcPath + '/html/reader.html.j2'
+         srcPath + '/html/articles.html.j2',
+         srcPath + '/html/library.html.j2'
       ])
       .pipe(nunjucksRender({
          baseUrl: baseUrl

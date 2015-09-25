@@ -1,5 +1,5 @@
 // placeholder for build management
 define([
-   'landing/landing_main',
-   'reader/reader_main'
+   'articles/articles_main',
+   'library/library_main'
 ], {});
