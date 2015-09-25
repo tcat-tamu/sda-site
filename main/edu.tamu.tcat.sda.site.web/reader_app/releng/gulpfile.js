@@ -10,9 +10,8 @@ var nunjucksRender = require('gulp-nunjucks-render');
 var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
-// var tap = require('gulp-tap');
-// var uglifyJS = require('gulp-uglify');
-// var uglifyCSS = require('gulp-cssmin');
+var uglifyJS = require('gulp-uglify');
+var uglifyCSS = require('gulp-cssmin');
 
 
 var srcPath = '../src';
@@ -20,12 +19,11 @@ var stagingPath = '../build';
 var vendorPath = stagingPath + '/vendor';
 var distPath = '../dist';
 
-var baseUrl = '/sda/reader';
+var baseUrl = '/reader';
 
 gulp.task('fonts', function () {
    var vendors = gulp.src([
-         vendorPath + '/bootstrap/dist/fonts/*',
-         vendorPath + '/font-awesome/fonts/*'
+         vendorPath + '/bootstrap/dist/fonts/*'
       ]);
 
    var customFonts = gulp.src(srcPath + '/fonts/**/*')
@@ -84,11 +82,7 @@ gulp.task('templates', function () {
 gulp.task('javascripts', function () {
    var javascripts = gulp.src([
          srcPath + '/js/**/*.js',
-         vendorPath + '/trc-js-core/modules/trc-entries-articles/dist/trc-entries-articles.js',
-         vendorPath + '/trc-js-core/modules/trc-entries-biblio/dist/trc-entries-biblio.js',
-         vendorPath + '/trc-js-core/modules/trc-entries-bio/dist/trc-entries-bio.js',
-         vendorPath + '/trc-js-core/modules/trc-entries-reln/dist/trc-entries-reln.js',
-         vendorPath + '/trc-js-core/modules/trc-ui-widgets/dist/trc-ui-widgets.js'
+         vendorPath + '/trc-js-core/modules/trc-entries-articles/dist/trc-entries-articles.js'
       ])
       .pipe(amdOptimize('main', {
          findNestedDependencies: true,
@@ -100,7 +94,6 @@ gulp.task('javascripts', function () {
             'bootstrap': vendorPath + '/bootstrap/dist/js/bootstrap',
             'jquery': vendorPath + '/jquery/dist/jquery',
             'marionette': vendorPath + '/marionette/lib/core/backbone.marionette',
-            'moment': vendorPath + '/moment/moment',
             'nunjucks': vendorPath + '/nunjucks/browser/nunjucks-slim',
             'promise': vendorPath + '/bluebird/js/browser/bluebird',
             'underscore': vendorPath + '/underscore/underscore'
@@ -117,7 +110,6 @@ gulp.task('javascripts', function () {
       .pipe(concat('main.js'));
 
    var vendors = gulp.src([
-         vendorPath + '/quill/dist/quill.js',
          vendorPath + '/almond/almond.js'
       ])
       .pipe(sourcemaps.init({
@@ -125,20 +117,8 @@ gulp.task('javascripts', function () {
       }))
       .pipe(concat('vendors.js'));
 
-   var ieVendors = gulp.src([
-         vendorPath + '/selectivizr/selectivizr.js',
-         vendorPath + '/respond/dest/respond.src.js'
-      ])
-      .pipe(concat('vendors-ie.js'));
-
-   // modernizr likes to be loaded in the <head> of the HTML document, so it has to be a separate script
-   var modernizr = gulp.src(vendorPath + '/modernizr/modernizr.js')
-      .pipe(sourcemaps.init({
-         loadMaps: true
-      }));
-
-   var minified = merge(modernizr, ieVendors, vendors, javascripts)
-      // .pipe(uglifyJS())
+   var minified = merge(vendors, javascripts)
+      .pipe(uglifyJS())
       .pipe(sourcemaps.write('.'));
 
 
@@ -152,8 +132,7 @@ gulp.task('javascripts', function () {
 
 gulp.task('stylesheets', function () {
    var vendors = gulp.src([
-         vendorPath + '/bootstrap/dist/css/bootstrap.css',
-         vendorPath + '/font-awesome/css/font-awesome.css'
+         vendorPath + '/bootstrap/dist/css/bootstrap.css'
       ])
       .pipe(sourcemaps.init({
          loadMaps: true
@@ -166,7 +145,7 @@ gulp.task('stylesheets', function () {
 
    return merge(vendors, sassStylesheets)
       .pipe(concat('style.css'))
-      // .pipe(uglifyCSS())
+      .pipe(uglifyCSS())
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest(distPath + '/css'));
 });
