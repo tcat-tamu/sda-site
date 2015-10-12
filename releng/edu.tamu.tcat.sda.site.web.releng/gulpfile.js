@@ -77,7 +77,13 @@ gulp.task('js', ['templates'], function () {
    gulp.src(srcPath + '/vendor/*.js')
       .pipe(gulp.dest(jsBuildPath + '/vendor'));
 
-   var javascripts = gulp.src(srcPath + '/scripts/**/*.js')
+   var javascripts = gulp.src([
+         srcPath + '/scripts/**/*.js',
+         vendorPath + '/trc.js.core/modules/trc-entries-biblio/dist/trc-entries-biblio.js',
+         vendorPath + '/trc.js.core/modules/trc-entries-bio/dist/trc-entries-bio.js',
+         vendorPath + '/trc.js.core/modules/trc-entries-reln/dist/trc-entries-reln.js',
+         vendorPath + '/trc.js.core/modules/trc-ui-widgets/dist/trc-ui-widgets.js'
+      ])
       .pipe(amdOptimize('main', {
          findNestedDependencies: true,
          paths: {
@@ -93,12 +99,6 @@ gulp.task('js', ['templates'], function () {
             'promise': vendorPath + '/bluebird/js/browser/bluebird',
             // NOTE: quill cannot be shimmed; see src/quill.js
             'underscore': vendorPath + '/underscore/underscore',
-
-            'trc-entries-biblio': vendorPath + '/trc-js-core/modules/trc-entries-biblio/dist/trc-entries-biblio',
-            'trc-entries-bio': vendorPath + '/trc-js-core/modules/trc-entries-bio/dist/trc-entries-bio',
-            'trc-entries-reln': vendorPath + '/trc-js-core/modules/trc-entries-reln/dist/trc-entries-reln',
-            // NOTE default templates are included in the 'templates' task
-            'trc-ui-widgets': vendorPath + '/trc-js-core/modules/trc-ui-widgets/dist/trc-ui-widgets'
          },
          shim: {
             'bootstrap': ['jquery']
