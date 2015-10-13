@@ -3,6 +3,39 @@ define(function(require) {
    require('plugins');
    var $ = require('jquery');
 
+
+   // main navigation
+   $(function () {
+      $('.section--resources .buckets a').on('click', function (evt) {
+         evt.preventDefault();
+
+         $(this).parent().addClass('active')
+            .siblings().removeClass('active');
+
+         $($(this).attr('href'))
+            .addClass('active')
+            .siblings().removeClass('active');
+      });
+
+      $('.section--resources .modules .controls a').on('click', function (evt) {
+         evt.preventDefault();
+
+         $(this).parent().addClass('active')
+            .siblings().removeClass('active');
+
+         $($(this).attr('href'))
+            .addClass('active')
+            .siblings().removeClass('active');
+      });
+   });
+
+
+
+
+
+
+   // legacy code
+
    function fixHeight(el) {
       var maxHeight = 0,
          slides = el.find('.slides'),
@@ -81,46 +114,6 @@ define(function(require) {
       		touch: false
       	});
         
-      // Main nav panels
-      	$('#panels-1').flexslider({
-      		after: function() {
-      			$('#control-area-1 li.active').removeClass('active');
-      			$('#control-area-1 .flex-active').parent().addClass('active');
-      		},
-      		directionNav: false,
-      		manualControls: '#control-area-1 li a',
-      		slideshow: false,
-      		start: function() {
-      			$('#control-area-1 .flex-active').parent().addClass('active');
-      		}
-      	});
-
-      	$('#panels-2').flexslider({
-      		after: function() {
-      			$('#control-area-2 li.active').removeClass('active');
-      			$('#control-area-2 .flex-active').parent().addClass('active');
-      		},
-      		directionNav: false,
-      		manualControls: '#control-area-2 li a',
-      		slideshow: false,
-      		start: function() {
-      			$('#control-area-2 .flex-active').parent().addClass('active');
-      		}
-      	});
-
-      	$('#panels-3').flexslider({
-      		after: function() {
-      			$('#control-area-3 li.active').removeClass('active');
-      			$('#control-area-3 .flex-active').parent().addClass('active');
-      		},
-      		directionNav: false,
-      		manualControls: '#control-area-3 li a',
-      		slideshow: false,
-      		start: function() {
-      			$('#control-area-3 .flex-active').parent().addClass('active');
-      		}
-      	});
-
       	$('#intro-text').flexslider({
       		controlNav: false,
       		directionNav: false,
