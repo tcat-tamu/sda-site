@@ -1,0 +1,501 @@
+.billboard {
+   display: flex;
+   flex-direction: column;
+   height: 100vh;
+
+   .banners {
+      flex: 2;
+      position: relative;
+
+      .prev, .next {
+         color: #fff;
+         text-decoration: none;
+         position: absolute;
+         top: 0;
+         bottom: 0;
+         width: 20%;
+         z-index: 2;
+         opacity: 0.3;
+         transition: 400ms;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         padding: 0.5em;
+         font-size: 300%;
+
+         &:hover {
+            opacity: 1;
+         }
+
+         &:active, &:focus {
+            outline: 0;
+         }
+      }
+
+      .prev {
+         left: 0;
+         background-image: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0));
+         align-items: flex-start;
+      }
+
+      .next {
+         right: 0;
+         background-image: linear-gradient(to left, rgba(0,0,0,0.8), rgba(0,0,0,0));
+         align-items: flex-end;
+      }
+
+      .banner {
+         position: absolute;
+         top: 0;
+         bottom: 0;
+         left: 0;
+         right: 0;
+         overflow: hidden;
+         z-index: 1;
+
+         @extend %clearfix;
+         background: transparent url(../assets/images/banners/intro-bg.jpg) no-repeat 0 0;
+         background-size: cover;
+
+         .content {
+            position: absolute;
+            color: white;
+            padding: 1rem;
+            bottom: 10%;
+
+            /* Slide content is implemented using several different core templates.
+               * Each template provides slots for different textual elements and lays
+               * that text out appropriately to handle different page-widths. This is
+               * designed to accomodate different image types and content needs flexibly
+               * without requiring CSS to tailor the experience for each new slide.
+               */
+            /* A slide with a simple title and sub-title approximately 2/3 down the image.
+               * This template provide for two main content elements
+               *  - title:    Typically 2 to 5 words, large font
+               *  - subtitle  Smaller font, about 80-120 characters. May be manually split
+               *              over two or three lines.
+               *
+               * Class: basic-title
+               * Variants
+               *  - .right    Display the text on the right-hand edge of the slide
+               *  - .textbg   Add a background shading under the text to improve legibility
+               */
+            &.basic-title {
+               p.subtitle {
+                  @extend %AvenirLTStd-Roman;
+                  font-size: 0.9em;
+                  margin: 1em 0 0;
+
+                  p.subtitle {
+                     display: none;
+                  }
+               }
+
+               &.right {
+                  right: 0;
+                  text-align: left;
+               }
+
+               &.textbg {
+                  background-color: rgba($darkBrown, .5);
+               }
+
+               @media only all and (min-width: 20em) {
+                  font-size: 1.125em;
+                  // padding-top: 37.5%;
+               }
+
+               @media only all and (min-width: 30em) {
+                  // padding-bottom: 12%;
+                  // padding-top: 35%;
+               }
+
+               @media only all and (min-width: 40em) {
+                  font-size: 1.25em;
+                  // padding-top: 32.5%;
+               }
+
+               @media only all and (min-width: 50em) {
+                  // padding-bottom: 10%;
+                  // padding-top: 30%;
+               }
+
+               @media only all and (min-width: 60em) {
+                  font-size: 1.5em;
+                  // padding-top: 27.5%;
+               }
+
+               @media only all and (min-width: 70em) {
+                  // padding-bottom: 8%;
+                  // padding-top: 25%;
+               }
+
+               @media only all and (min-width: 80em) {
+                  font-size: 1.75em;
+                  // padding-top: 22.5%;
+               }
+
+               @media only all and (min-width: 90em) {
+                  // padding-top: 22.5%;
+               }
+
+               @media only all and (min-width: 100em) {
+                  // padding-bottom: 10rem;
+                  // padding-top: 23rem;
+               }
+            }
+
+            &.upper-box {
+               color: white;
+               margin: 0;
+               margin-top: 0;
+               margin-left: 1rem;
+               padding-bottom: 1em;
+               padding-left: 1rem;
+               padding-right: 1rem;
+               padding-top: 5%;
+               display: inline-block;
+
+               h2 {
+                  font-size: 1.5em;
+               }
+
+               h3 {
+                  color: white;
+                  font-size: 1.1em;
+                  margin-left: 1em;
+                  margin-top: 0.25em;
+                  margin-bottom: 1em;
+               }
+
+               p.blurb {
+                  color: white;
+                  @extend %AvenirLTStd-Roman;
+                  font-size: 0.8em;
+                  margin: 0;
+                  margin-top: 0.5em;
+                  padding-right: 3em;
+               }
+
+               &.right {
+                  float: right;
+                  text-align: left;
+               }
+
+               &.textbg {
+                  background-color: rgba($darkBrown, .35);
+
+                  &-copper {
+                     background-color: rgba($lightBrown, .50);
+                  }
+               }
+
+               @media only all and (min-width: 20em) {
+                  max-width: 80%;
+                  font-size: 1.125em;
+                  padding-top: 7.5%;
+               }
+
+               @media only all and (min-width: 30em) {
+                  //  max-width: 70%;
+                  padding-top: 2rem;
+
+                  p.blurb {
+                     display: block;
+                  }
+               }
+
+               @media only all and (min-width: 40em) {
+                  // max-width: 60%;
+                  font-size: 1.25em;
+               }
+
+               @media only all and (min-width: 50em) {
+                  // max-width: 57.5%;
+               }
+
+               @media only all and (min-width: 60em) {
+                  //max-width: 55%;
+                  font-size: 1.5em;
+               }
+
+               @media only all and (min-width: 70em) {
+                  //max-width: 52.5%;
+               }
+
+               @media only all and (min-width: 80em) {
+                  // max-width: 50%;
+                  font-size: 1.75em;
+               }
+
+               @media only all and (min-width: 90em) {
+                  //max-width: 47.5%;
+               }
+
+               @media only all and (min-width: 100em) {
+                  //max-width: 45%;
+               }
+            }
+
+            &.showsize h2:before {
+               content: 'sm ';
+
+               @media only all and (min-width: 20em) {
+                  content: '20 ';
+               }
+
+               @media only all and (min-width: 30em) {
+                  content: '30 ';
+               }
+
+               @media only all and (min-width: 40em) {
+                  content: '40 ';
+               }
+
+               @media only all and (min-width: 50em) {
+                  content: '50 ';
+               }
+
+               @media only all and (min-width: 60em) {
+                  content: '60 ';
+               }
+
+               @media only all and (min-width: 70em) {
+                  content: '70 ';
+               }
+
+               @media only all and (min-width: 80em) {
+                  content: '80 ';
+               }
+
+               @media only all and (min-width: 90em) {
+                  content: '90 ';
+               }
+
+               @media only all and (min-width: 100em) {
+                  content: '100 ';
+               }
+            }
+
+            h2 {
+               color: white;
+               @extend %CenturyStd-Book;
+               font-size: 2.1em;
+               line-height: 1;
+               margin: 0;
+
+               @media only all and (min-width: 40em) {
+                  font-size: 2.4em;
+               }
+            }
+         }
+      }
+   }
+
+   .brow {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+
+      background-color: rgba(164,113,64,1);
+      border-bottom: 4px solid #dcc3ab;
+      max-height: 50px;
+      min-height: 50px;
+      overflow: hidden;
+      padding: 0.5rem 0.5rem 0;
+      justify-content: space-between;
+
+      @media only all and (min-width: 51em) {
+         justify-content: flex-end;
+         background: transparent;
+         border-bottom: 0;
+         padding: 0;
+      }
+
+      a.play-video {
+         color: inherit;
+         display: block;
+         text-decoration: none;
+
+         color: white;
+         float: left;
+         font-size: 0.9em;
+         overflow: hidden;
+
+         @media only all and (min-width: 35em) {
+            display: table-cell;
+            vertical-align: middle;
+         }
+
+         @media only all and (min-width: 51em) {
+            background-color: rgba(164,113,64,1);
+            border-bottom: 4px solid #dcc3ab;
+            float: none;
+            margin-bottom: 0;
+            padding-left: 20px;
+            padding-right: 3em;
+         }
+
+         img {
+            vertical-align: middle;
+         }
+
+         .video-details {
+            padding-left: 0.5em;
+
+            .title {
+               font-size: 0.7em;
+               text-transform: uppercase;
+
+               @media only all and (min-width: 35em) {
+                  font-size: 1em;
+               }
+
+               @media only all and (min-width: 40em) {
+                  font-size: 0.9em;
+               }
+            }
+
+            .length {
+               color: darken($lightBrown, 30%);
+               @extend %CenturyStd-Book;
+               display: none;
+
+               @media only all and (min-width: 51em) {
+                  color: darken($lightBrown, 25%);
+                  display: inline-block;
+               }
+            }
+         }
+      }
+
+      ol.control-nav {
+         margin: 0;
+         padding: 0;
+         list-style: none;
+         display: table-cell;
+         vertical-align: middle;
+         position: static;
+
+         @media only all and (min-width: 51em) {
+            background-color: rgba(164,113,64,1);
+            border-bottom: 4px solid #dcc3ab;
+            float: none;
+            height: 50px;
+            padding-right: 16px;
+            padding-top: 4px;
+            text-align: right;
+         }
+
+         > li {
+            display: inline-block;
+            margin: 0 5px;
+
+            &:last-child {
+               margin-right: 0;
+            }
+
+            a {
+               @include hide-text;
+               background: #b88554;
+               border-radius: 50%;
+               display: block;
+               height: 20px;
+               width: 20px;
+               transition: 400ms;
+
+               &.active {
+                  cursor: default;
+               }
+
+               &.active, &:hover, &:focus, &:active {
+                  background-color: white;
+               }
+
+               @media only all and (min-width: 51em) {
+                  background: #b88554;
+                  position: relative;
+                  z-index: 2;
+               }
+            }
+         }
+      }
+   }
+
+   .intro-text {
+      flex: 1;
+      display: flex;
+
+      color: #484b47;
+      line-height: 2;
+      max-width: 40em;
+      padding: 2rem 1.5rem;
+
+      @media only all and (min-width: 51em) {
+         clear: both;
+         max-width: none;
+         padding-bottom: 0;
+         padding: 0;
+      }
+
+      .slide {
+         flex: 1;
+         display: flex;
+         flex-direction: column;
+
+         @media only all and (min-width: 51em) {
+            flex-direction: row;
+         }
+
+         .leadin {
+            flex: 1;
+
+            @extend %CenturyStd-Book;
+            background-color: white;
+            color: #20251f;
+            font-size: 1.2em;
+            line-height: 1.6;
+            overflow: hidden;
+
+            p {
+               margin: 0;
+            }
+
+            @media only all and (min-width: 40em) {
+               font-size: 1.35em;
+            }
+
+            @media only all and (min-width: 50em) {
+               font-size: 1.5em;
+            }
+
+            @media only all and (min-width: 51em) {
+               padding: 1rem 2rem;
+            }
+
+            @media only all and (min-width: 60em) {
+               font-size: 1.65em;
+               padding-top: 2rem;
+            }
+         }
+
+         .text {
+            flex: 1.5;
+
+            @media only all and (min-width: 51em) {
+               padding: 1rem 3rem;
+            }
+
+            .read-more {
+               @extend %AvenirLTStd-Heavy;
+               @extend %activeUnderline;
+               font-size: 0.75em;
+               letter-spacing: 2px;
+               text-decoration: none;
+               text-transform: uppercase;
+               white-space: nowrap;
+            }
+         }
+      }
+   }
+}

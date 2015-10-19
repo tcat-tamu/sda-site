@@ -1,0 +1,36 @@
+<section class="billboard">
+   <div class="banners">
+      <a href="" class="prev" ng-click="vm.prevSlide()">
+         <i class="fa fa-chevron-left"></i>
+      </a>
+      <a href="" class="next" ng-click="vm.nextSlide()">
+         <i class="fa fa-chevron-right"></i>
+      </a>
+      <div ng-repeat="slide in vm.slides" ng-show="slide.active" class="banner" bg-image="assets/images/banners/{{slide.banner.image}}">
+         <aside class="content" ng-class="slide.banner.style" ng-bind-html="slide.banner.content"></aside>
+      </div>
+   </div>
+   <div class="brow">
+      <a href="https://www.youtube.com/watch?v=HmSKMbq7Fk8" class="play-video">
+         <img src="assets/images/icon-video-play.png" alt="play video">
+         <span class="video-details">
+            <span class="title">Introducing the Project</span>
+            <span class="length">(3:40)</span>
+         </span>
+      </a>
+      <ol class="control-nav">
+         <li ng-repeat="slide in vm.slides"><a href="" ng-class="{'active': slide.active}" ng-click="vm.setActive(slide)">{{$index+1}}</a></li>
+      </ol>
+   </div>
+   <div class="intro-text">
+      <section class="slide" ng-repeat="slide in vm.slides" ng-show="slide.active">
+         <div class="leadin">
+            <p>{{slide.leadin}}</p>
+         </div>
+         <div class="text">
+            <p>{{slide.content}}</p>
+            <a ng-if="slide.more" href="{{slide.more.url}}" class="read-more">{{slide.more.label}}</a>
+         </div>
+      </section>
+   </div>
+</section>

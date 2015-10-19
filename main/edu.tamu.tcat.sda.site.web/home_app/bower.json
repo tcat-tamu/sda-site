@@ -1,22 +1,22 @@
 {
-   "name": "sda.site",
-   "dependencies": {
-      "angular-animate": "~1.4.0",
-      "angular-cookies": "~1.4.0",
-      "angular-touch": "~1.4.0",
-      "angular-sanitize": "~1.4.0",
-      "jquery": "~2.1.4",
-      "angular-resource": "~1.4.0",
-      "angular-ui-router": "~0.2.15",
-      "bootstrap-sass-official": "~3.3.4",
-      "animate.css": "~3.3.0",
-      "angular": "~1.4.0"
-   },
-   "devDependencies": {
-      "angular-mocks": "~1.4.0"
-   },
-   "resolutions": {
-      "jquery": "~2.1.4",
-      "angular": "~1.4.0"
-   }
+  "name": "sda.site",
+  "dependencies": {
+    "angular-animate": "~1.4.0",
+    "angular-cookies": "~1.4.0",
+    "angular-touch": "~1.4.0",
+    "angular-sanitize": "~1.4.0",
+    "jquery": "~2.1.4",
+    "angular-resource": "~1.4.0",
+    "angular-ui-router": "~0.2.15",
+    "animate.css": "~3.3.0",
+    "angular": "~1.4.0",
+    "font-awesome": "fontawesome#~4.4.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.0"
+  },
+  "resolutions": {
+    "jquery": "~2.1.4",
+    "angular": "~1.4.0"
+  }
 }
