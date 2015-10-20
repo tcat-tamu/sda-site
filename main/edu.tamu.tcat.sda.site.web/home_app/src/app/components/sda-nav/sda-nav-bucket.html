@@ -1,0 +1,8 @@
+<div class="module" ng-show="vm.active">
+   <ul class="controls">
+      <li ng-repeat="section in vm.sections" ng-class="{active:section.active}">
+         <a href="" ng-click="vm.setActive(section)">{{section.title}}</a>
+      </li>
+   </ul>
+   <div class="panels" ng-transclude></div>
+</div>
