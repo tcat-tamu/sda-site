@@ -3,13 +3,13 @@
 
    angular
       .module('sda.site')
-      .directive('billboard', billboard);
+      .directive('sdaBillboard', sdaBillboard);
 
    /** @ngInject */
-   function billboard() {
+   function sdaBillboard() {
       var directive = {
          restrict: 'E',
-         templateUrl: 'app/components/billboard/billboard.html',
+         templateUrl: 'app/components/sda-billboard/sda-billboard.html',
          transclude: true,
          replace: true,
          scope: {

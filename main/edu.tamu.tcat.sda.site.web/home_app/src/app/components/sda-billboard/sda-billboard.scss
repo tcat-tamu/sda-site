@@ -411,13 +411,13 @@
       color: #484b47;
       line-height: 2;
       max-width: 40em;
-      padding: 2rem 1.5rem;
+      padding: 2rem 1.5rem 3rem;
 
       @media only all and (min-width: 51em) {
          clear: both;
          max-width: none;
          padding-bottom: 0;
-         padding: 0;
+         padding: 0 0 3rem;
       }
 
       .slide {
