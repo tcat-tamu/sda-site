@@ -293,48 +293,32 @@
    }
 
    .brow {
-      flex: 1;
       display: flex;
       flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      align-content: stretch;
 
       background-color: rgba(164,113,64,1);
       border-bottom: 4px solid #dcc3ab;
       max-height: 50px;
       min-height: 50px;
       overflow: hidden;
-      padding: 0.5rem 0.5rem 0;
-      justify-content: space-between;
+      padding: 0 0.5rem;
 
       @media only all and (min-width: 51em) {
-         justify-content: flex-end;
-         background: transparent;
-         border-bottom: 0;
-         padding: 0;
+         width: 60%;
+         align-self: flex-end;
       }
 
       a.play-video {
          color: inherit;
-         display: block;
          text-decoration: none;
+         display: block;
 
          color: white;
-         float: left;
          font-size: 0.9em;
          overflow: hidden;
-
-         @media only all and (min-width: 35em) {
-            display: table-cell;
-            vertical-align: middle;
-         }
-
-         @media only all and (min-width: 51em) {
-            background-color: rgba(164,113,64,1);
-            border-bottom: 4px solid #dcc3ab;
-            float: none;
-            margin-bottom: 0;
-            padding-left: 20px;
-            padding-right: 3em;
-         }
 
          img {
             vertical-align: middle;
@@ -370,22 +354,12 @@
       }
 
       ol.control-nav {
+         flex: 1;
          margin: 0;
          padding: 0;
          list-style: none;
-         display: table-cell;
-         vertical-align: middle;
-         position: static;
-
-         @media only all and (min-width: 51em) {
-            background-color: rgba(164,113,64,1);
-            border-bottom: 4px solid #dcc3ab;
-            float: none;
-            height: 50px;
-            padding-right: 16px;
-            padding-top: 4px;
-            text-align: right;
-         }
+         line-height: 1;
+         text-align: right;
 
          > li {
             display: inline-block;
@@ -423,7 +397,6 @@
    }
 
    .intro-text {
-      flex: 1;
       display: flex;
 
       color: #484b47;
@@ -439,7 +412,6 @@
       }
 
       .slide {
-         flex: 1;
          display: flex;
          flex-direction: column;
 
@@ -481,9 +453,11 @@
 
          .text {
             flex: 1.5;
+            display: none;
 
             @media only all and (min-width: 51em) {
                padding: 1rem 3rem;
+               display: block;
             }
 
             .read-more {
