@@ -11,11 +11,11 @@
       </div>
    </div>
    <div class="brow">
-      <a href="https://www.youtube.com/watch?v=HmSKMbq7Fk8" class="play-video">
+      <a ng-repeat="slide in vm.slides" href="{{slide.video.url}}" class="play-video" ng-show="slide.active" ng-if="slide.video">
          <img src="assets/images/icon-video-play.png" alt="play video">
          <span class="video-details">
-            <span class="title">Introducing the Project</span>
-            <span class="length">(3:40)</span>
+            <span class="title">{{slide.video.label}}</span>
+            <span class="length" ng-if="slide.video.length">({{slide.video.length}})</span>
          </span>
       </a>
       <ol class="control-nav">
