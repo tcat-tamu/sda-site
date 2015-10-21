@@ -146,73 +146,79 @@ header.site-header {
          color: #fff;
       }
    }
-}
 
-.scroll-indicator {
-   position: absolute;
-   display: block;
-   bottom: 1rem;
-   right: 1rem;
-   text-decoration: none;
-   outline: 0;
+   .scroll-indicator {
+      position: absolute;
+      display: block;
+      bottom: 1rem;
+      right: 1rem;
+      text-decoration: none;
+      outline: 0;
 
-   .label {
-      opacity: 0;
-      transition: opacity 400ms;
-   }
-
-   .icon {
-      text-align: center;
-   }
-
-   &:hover, &:focus {
       .label {
-         opacity: 1;
+         opacity: 0;
+         transition: opacity 400ms;
+      }
+
+      .icon {
+         text-align: center;
+      }
+
+      &:hover, &:focus {
+         .label {
+            opacity: 1;
+         }
       }
    }
 }
 
 
 
-.advisors {
-   display: flex;
-   flex-direction: column;
-   flex-wrap: wrap;
-
-   @media only screen and (min-width: 35em) {
-      flex-direction: row;
+section.about-project {
+   .container {
+      padding: 2rem 3rem;
    }
 
-   .member {
-      padding: 1em;
+   .advisors {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
 
       @media only screen and (min-width: 35em) {
-         width: 50%;
+         flex-direction: row;
       }
 
-      @media only screen and (min-width: 51em) {
-         width: 33%;
-      }
+      .member {
+         padding: 1em;
 
-      @media only screen and (min-width: 70em) {
-         width: 25%;
-      }
+         @media only screen and (min-width: 35em) {
+            width: 50%;
+         }
 
-      .name {
-         color: $textBrown;
-         font-weight: bold;
-         display: block;
-      }
+         @media only screen and (min-width: 51em) {
+            width: 33%;
+         }
 
-      .position {
-         font-size: 0.9em;
-         color: $textGrey;
-         display: block;
+         @media only screen and (min-width: 70em) {
+            width: 25%;
+         }
+
+         .name {
+            color: $textBrown;
+            font-weight: bold;
+            display: block;
+         }
+
+         .position {
+            font-size: 0.9em;
+            color: $textGrey;
+            display: block;
+         }
       }
    }
 }
 
-.content-news {
+section.content-news {
    display: flex;
    flex-direction: column;
 
@@ -271,7 +277,6 @@ header.site-header {
       font-size: 1.3em;
    }
 }
-
 
 footer.site-footer {
    background-color: $darkBrown;
