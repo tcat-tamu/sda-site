@@ -232,27 +232,18 @@ header.site-header {
       }
    }
 
-   .container {
-      flex: 2;
-      padding: 2rem 1rem;
+   .content {
+      padding: 2rem 3rem;
 
+      flex: 2;
       display: flex;
       flex-direction: column;
 
-      @media only screen and (min-width: 70em) {
-         flex-direction: row;
-      }
-
-      .content {
-         padding: 0 2rem;
-         flex: 1;
-
-         > h1, > h2, > h3, > h4, > h5, > h6 {
-            line-height: 1.8;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            border-bottom: 2px dotted #353635;
-         }
+      h1, h2, h3, h4, h5, h6 {
+         line-height: 1.8;
+         text-transform: uppercase;
+         letter-spacing: 3px;
+         border-bottom: 2px dotted #353635;
       }
    }
 
