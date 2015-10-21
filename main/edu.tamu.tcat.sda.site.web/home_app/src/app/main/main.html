@@ -249,7 +249,17 @@
       </sda-nav>
    </div>
 
-   <div class="section">About the Project</div>
+   <div class="section">
+      <div class="container">
+         <h1>Advisory Board</h1>
+         <div class="advisors">
+            <div class="member" ng-repeat="advisor in vm.advisors">
+               <span class="name">{{advisor.name}}</span>
+               <span class="position">{{advisor.position}}</span>
+            </div>
+         </div>
+      </div>
+   </div>
 
    <div class="section">News</div>
 

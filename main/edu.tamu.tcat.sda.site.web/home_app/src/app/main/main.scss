@@ -135,6 +135,15 @@ header.site-header {
 
 .section {
    position: relative;
+
+   &.dark {
+      background: $textBrown;
+      color: #d2cfc3;
+
+      h1, h2, h3, h4, h5, h6 {
+         color: #fff;
+      }
+   }
 }
 
 .scroll-indicator {
@@ -157,6 +166,46 @@ header.site-header {
    &:hover, &:focus {
       .label {
          opacity: 1;
+      }
+   }
+}
+
+
+
+.advisors {
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+
+   @media only screen and (min-width: 35em) {
+      flex-direction: row;
+   }
+
+   .member {
+      padding: 1em;
+
+      @media only screen and (min-width: 35em) {
+         width: 50%;
+      }
+
+      @media only screen and (min-width: 51em) {
+         width: 33%;
+      }
+
+      @media only screen and (min-width: 70em) {
+         width: 25%;
+      }
+
+      .name {
+         color: $textBrown;
+         font-weight: bold;
+         display: block;
+      }
+
+      .position {
+         font-size: 0.9em;
+         color: $textGrey;
+         display: block;
       }
    }
 }

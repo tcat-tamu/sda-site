@@ -10,6 +10,7 @@
       var vm = this;
 
       vm.slides = [];
+      vm.advisors = [];
       vm.isSearchFormVisible = false;
       vm.toggleSearchForm = toggleSearchForm;
 
@@ -17,6 +18,7 @@
 
       function activate() {
          vm.slides = getSlides();
+         vm.advisors = getAdvisors();
       }
 
       function toggleSearchForm() {
@@ -27,6 +29,47 @@
          }, 100);
       }
 
+      function getAdvisors() {
+         return [
+            {
+               name: 'Craig Keener',
+               position: 'Professor of New Testament, Asbury Theological Seminary'
+            },
+            {
+               name: 'Lenn Goodman',
+               position: 'Professor of Philosophy and Andrew W. Mellon Professor in the Humanities, Vanderbilt University'
+            },
+            {
+               name: 'Peter Harrison',
+               position: 'Research Professor and Director of the Centre for the History of European Discourses, Queensland University'
+            },
+            {
+               name: 'Christine Madsen',
+               position: 'Head of Digital Programmes, Bodleian Libraries, Oxford University'
+            },
+            {
+               name: 'Timothy Mawson',
+               position: 'Fellow and Tutor in Philosophy, Oxford University'
+            },
+            {
+               name: 'Richard Swinburne',
+               position: 'Nolloth Professor Emeritus of the Philosophy of the Christian Religion, Oxford University'
+            },
+            {
+               name: 'Raymond Tallis',
+               position: 'Professor Emeritus, Manchester University and St. George\'s Hospital Medical School'
+            },
+            {
+               name: 'Graham Twelftree',
+               position: 'Charles L. Holman Professor of New Testament and Early Christianity, Regent University'
+            },
+            {
+               name: 'Johannes Zachhuber',
+               position: 'Chair, Theology and Religion Faculty, Oxford University'
+            }
+         ];
+
+      }
 
       function getSlides() {
          var doesGodAct = {
