@@ -6,15 +6,25 @@
       .controller('MainController', MainController);
 
    /** @ngInject */
-   function MainController() {
+   function MainController($timeout) {
       var vm = this;
 
       vm.slides = [];
+      vm.isSearchFormVisible = false;
+      vm.toggleSearchForm = toggleSearchForm;
 
       activate();
 
       function activate() {
          vm.slides = getSlides();
+      }
+
+      function toggleSearchForm() {
+         vm.isSearchFormVisible = !vm.isSearchFormVisible;
+         $timeout(function () {
+            // HACK: give element time to display before focusing
+            angular.element('input#search').focus();
+         }, 100);
       }
 
 

@@ -16,7 +16,7 @@
 
 .main-nav {
    @include reset-box-model;
-   height: 100vh;
+   height: 100%;
 
    display: flex;
    flex-direction: column;

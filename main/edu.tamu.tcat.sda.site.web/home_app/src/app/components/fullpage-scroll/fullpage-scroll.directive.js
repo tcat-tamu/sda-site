@@ -17,8 +17,9 @@
       return directive;
 
       function linkFunc(scope, el) {
-         scope.vm.fullpage = el.fullpage({
-            scrollOverflow: true
+         el.fullpage({
+            scrollOverflow: true,
+            paddingTop: '4rem' // HACK
          });
       }
 
