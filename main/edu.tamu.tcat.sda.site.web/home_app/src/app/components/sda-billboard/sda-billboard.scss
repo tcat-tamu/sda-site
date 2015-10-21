@@ -101,7 +101,7 @@
                }
 
                &.right {
-                  right: 0;
+                  right: 1rem;
                   text-align: left;
                }
 
@@ -156,13 +156,10 @@
 
             &.upper-box {
                color: white;
-               margin: 0;
-               margin-top: 0;
-               margin-left: 1rem;
-               padding-bottom: 1em;
-               padding-left: 1rem;
-               padding-right: 1rem;
-               padding-top: 5%;
+               top: 1rem;
+               left: 1rem;
+               bottom: auto;
+               padding: 5% 1rem 1em;
                display: inline-block;
 
                h2 {
@@ -187,7 +184,8 @@
                }
 
                &.right {
-                  float: right;
+                  right: 1rem;
+                  left: auto;
                   text-align: left;
                }
 
