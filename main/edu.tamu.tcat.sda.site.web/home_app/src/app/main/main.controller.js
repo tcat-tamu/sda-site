@@ -11,6 +11,8 @@
 
       vm.slides = [];
       vm.advisors = [];
+      vm.recentNews = [];
+      vm.callForProposals = [];
       vm.isSearchFormVisible = false;
       vm.toggleSearchForm = toggleSearchForm;
 
@@ -19,6 +21,8 @@
       function activate() {
          vm.slides = getSlides();
          vm.advisors = getAdvisors();
+         vm.recentNews = getRecentNews();
+         vm.callForProposals = getCallForProposals();
       }
 
       function toggleSearchForm() {
@@ -27,6 +31,29 @@
             // HACK: give element time to display before focusing
             angular.element('input#search').focus();
          }, 100);
+      }
+
+      function getCallForProposals() {
+         return [
+            {
+               title: 'Course development grants to integrate topics on Special Divine Action.'
+            },
+            {
+               title: 'Research grants available to support focused study groups.'
+            },
+            {
+               title: 'Coming Soon. CFP for SDA 2015. Science and Personal Action: Human and Divine.'
+            }
+         ];
+      }
+
+      function getRecentNews() {
+         return [
+            {
+               title: 'SDA Project Technology Presented',
+               description: 'Dr. Neal Audenaert presents at ASIS&T and INKE-ID.'
+            }
+         ];
       }
 
       function getAdvisors() {

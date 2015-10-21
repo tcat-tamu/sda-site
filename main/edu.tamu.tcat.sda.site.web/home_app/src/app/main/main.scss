@@ -209,3 +209,72 @@ header.site-header {
       }
    }
 }
+
+.content-news {
+   display: flex;
+   flex-direction: column;
+
+   font-size: 0.9em;
+
+   @media only screen and (min-width: 51em) {
+      flex-direction: row;
+   }
+
+   aside {
+      padding: 2rem 3rem;
+
+      flex: 1;
+      border-bottom: 1px solid #353635;
+
+      @media only screen and (min-width: 51em) {
+         border-bottom: 0;
+         border-right: 1px solid #353635;
+      }
+   }
+
+   .container {
+      flex: 2;
+      padding: 2rem 1rem;
+
+      display: flex;
+      flex-direction: column;
+
+      @media only screen and (min-width: 70em) {
+         flex-direction: row;
+      }
+
+      .content {
+         padding: 0 2rem;
+         flex: 1;
+
+         > h1, > h2, > h3, > h4, > h5, > h6 {
+            line-height: 1.8;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-bottom: 2px dotted #353635;
+         }
+      }
+   }
+
+   ol {
+      margin: 0 0 2em;
+      padding: 0;
+      list-style: none;
+
+      li {
+         margin: 1rem 0;
+         padding: 0 0 1rem;
+         border-bottom: 1px solid #353635;
+
+         &:last-child {
+            border-bottom: 0;
+         }
+      }
+   }
+
+   .title {
+      display: block;
+      text-decoration: none;
+      font-size: 1.3em;
+   }
+}
