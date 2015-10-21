@@ -7,4 +7,21 @@
    display: block;
    bottom: 1rem;
    right: 1rem;
+   text-decoration: none;
+   outline: 0;
+
+   .label {
+      opacity: 0;
+      transition: opacity 400ms;
+   }
+
+   .icon {
+      text-align: center;
+   }
+
+   &:hover, &:focus {
+      .label {
+         opacity: 1;
+      }
+   }
 }

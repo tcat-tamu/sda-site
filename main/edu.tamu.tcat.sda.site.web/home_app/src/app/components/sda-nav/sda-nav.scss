@@ -1,9 +1,6 @@
 @mixin ng-fade {
    opacity: 1;
-
-   &.ng-hide-remove, &.ng-hide-add {
-      // transition: opacity 1s;
-   }
+   transition: opacity 0.4s;
 
    &.ng-hide {
       opacity: 0;
