@@ -1,3 +1,5 @@
+$header-height: 4rem;
+
 header.site-header {
    position: fixed;
    top: 0;
@@ -5,7 +7,7 @@ header.site-header {
    right: 0;
    z-index: 9999;
    background-color: $darkBrown;
-   max-height: 4rem;
+   max-height: $header-height;
 
    display: flex;
    flex-direction: row;
@@ -13,24 +15,27 @@ header.site-header {
    align-items: center;
 
    .site-logo {
-      padding: 1rem 2rem;
-
+      padding: (3/16 * $header-height);
       img {
          display: block;
-         max-height: 2rem;
+         max-height: (5/8 * $header-height);
       }
    }
 
    .search {
       flex: 1;
       text-align: right;
-      height: 4rem;
+      height: $header-height;
+
+      @media only screen and (min-width: 51em) {
+         height: auto;
+      }
 
       .toggle {
          display: inline-block;
          text-align: center;
-         width: 4rem;
-         height: 4rem;
+         width: $header-height;
+         height: $header-height;
          font-size: 2rem;
 
          @media only screen and (min-width: 51em) {
@@ -44,20 +49,21 @@ header.site-header {
       }
 
       form {
-         padding: 1rem;
+         padding: (3/16 * $header-height);
          background: lighten($darkBrown, 5%);
 
          display: none;
          position: absolute;
          left: 0;
          right: 0;
-         top: 4rem;
+         top: $header-height;
 
          &.active {
             display: block;
          }
 
          @media only screen and (min-width: 51em) {
+            padding: 0;
             display: block;
             position: static;
             background: transparent;
@@ -76,7 +82,7 @@ header.site-header {
                border-right: none;
                border-radius: 8px 0 0 8px;
                color: $cream;
-               height: 2rem;
+               height: (5/8 * $header-height);
                padding: 0 0.5rem;
 
                @media only screen and (min-width: 51em) {
@@ -89,7 +95,7 @@ header.site-header {
                border: 1px solid #4e534d;
                border-radius: 0 8px 8px 0;
                color: $cream;
-               height: 2rem;
+               height: (5/8 * $header-height);
                transition: background-color 0.4s;
 
                &:hover, &:focus, &:active {
@@ -116,9 +122,10 @@ header.site-header {
       }
    }
 
-   img.oxford {
-      max-height: 4rem;
+   .oxford {
       display: none;
+      max-height: (10/16 * $header-height);
+      margin: (3/16 * $header-height);
 
       @media only screen and (min-width: 51em) {
          display: block;
