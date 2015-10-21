@@ -1,21 +1,23 @@
 <header class="site-header">
-   <div class="site-logo">
-      <a href=""><img src="assets/images/sda-logo-light.png" alt="SDA Logo"></a>
+   <div class="container">
+      <div class="site-logo">
+         <a href=""><img src="assets/images/sda-logo-light.png" alt="SDA Logo"></a>
+      </div>
+      <div class="search">
+         <a href="" class="toggle" ng-class="{active: vm.isSearchFormVisible}" ng-click="vm.toggleSearchForm()"><i class="fa fa-search"></i></a>
+         <form ng-class="{active: vm.isSearchFormVisible}">
+            <label class="sr-only" for="search">Search</label>
+            <div class="search-input-group">
+               <input id="search" name="q" type="search" placeholder="search">
+               <button type="submit">
+                  <i class="fa fa-search"></i>
+                  <span class="label">search</span>
+               </button>
+            </div>
+         </form>
+      </div>
+      <img class="oxford" src="assets/images/ox-brand-rect.png" alt="University of Oxford">
    </div>
-   <div class="search">
-      <a href="" class="toggle" ng-class="{active: vm.isSearchFormVisible}" ng-click="vm.toggleSearchForm()"><i class="fa fa-search"></i></a>
-      <form ng-class="{active: vm.isSearchFormVisible}">
-         <label class="sr-only" for="search">Search</label>
-         <div class="search-input-group">
-            <input id="search" name="q" type="search" placeholder="search">
-            <button type="submit">
-               <i class="fa fa-search"></i>
-               <span class="label">search</span>
-            </button>
-         </div>
-      </form>
-   </div>
-   <img class="oxford" src="assets/images/ox-brand-rect.png" alt="University of Oxford">
 </header>
 
 <main fullpage-scroll>

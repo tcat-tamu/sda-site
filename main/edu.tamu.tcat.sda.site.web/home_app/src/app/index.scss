@@ -146,27 +146,8 @@ fieldset {
 }
 
 .container {
-   padding: 1.5rem;
    margin: 0 auto;
    max-width: 1600px;
-
-   @media only all and (min-width: 40em) {
-      padding: 2rem;
-   }
-
-   @media only all and (min-width: 40em) {
-      padding: 2rem 3rem;
-   }
-
-   &.no-vert {
-      padding-bottom: 0;
-      padding-top: 0;
-   }
-
-   &.no-horiz {
-      padding-left: 0;
-      padding-right: 0;
-   }
 }
 
 h1, h2, h3, h4, h5, h6 {
