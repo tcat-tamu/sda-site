@@ -28,10 +28,10 @@ $cream: #eee8de;
 @import 'mixins';
 
 // Fonts
-@include font-face('CenturyStd-BookItalic', '#{$local-font-path}/2B8BDF_0_0');
-@include font-face('CenturyStd-Book', '#{$local-font-path}/2B8BDF_1_0');
-@include font-face('AvenirLTStd-Heavy', '#{$local-font-path}/2B8BDF_2_0');
-@include font-face('AvenirLTStd-Roman', '#{$local-font-path}/2B8BDF_3_0');
+@include font-face('CenturyStd-BookItalic', '#{$local-font-path}/CenturyStd-BookItalic');
+@include font-face('CenturyStd-Book', '#{$local-font-path}/CenturyStd-Book');
+@include font-face('AvenirLTStd-Heavy', '#{$local-font-path}/AvenirLTStd-Heavy');
+@include font-face('AvenirLTStd-Roman', '#{$local-font-path}/AvenirLTStd-Roman');
 
 
 // Utility
