@@ -6,7 +6,7 @@
       .directive('fullpageScroll', fullpageScroll);
 
    /** @ngInject */
-   function fullpageScroll($window) {
+   function fullpageScroll() {
       var directive = {
          restrict: 'AC',
          link: linkFunc,
@@ -17,20 +17,54 @@
       return directive;
 
       function linkFunc(scope, el) {
-         el.fullpage({
+         scope.fullpageScroll.el = el;
+         scope.fullpageScroll.options = {
             scrollOverflow: true,
+            sectionSelector: '.fullpage-scroll-section',
+            slideSelector: '.fullpage-scroll-slide',
             paddingTop: '4rem' // HACK
-         });
+         };
+         scope.fullpageScroll.init();
       }
 
       /** @ngInject */
-      function FullpageScrollController() {
-         var vm = this;
+      function FullpageScrollController($window, debounce) {
+         var fullpageScroll = this;
 
-         vm.nextSection = nextSection;
+         fullpageScroll.init = init;
+         fullpageScroll.rebuild = debounce(100, rebuild);
+         fullpageScroll.nextSection = nextSection;
+         fullpageScroll.destroy = destroy;
+
+         function init() {
+            if (fullpageScroll.initialized) {
+               return;
+            }
+
+            fullpageScroll.el.fullpage(fullpageScroll.options);
+            fullpageScroll.initialized = true;
+         }
+
+         function rebuild() {
+            if (!fullpageScroll.initialized) {
+               return;
+            }
+
+            fullpageScroll.destroy();
+            fullpageScroll.init();
+         }
 
          function nextSection() {
             $window.jQuery.fn.fullpage.moveSectionDown();
+         }
+
+         function destroy() {
+            if (!fullpageScroll.initialized) {
+               return;
+            }
+
+            $window.jQuery.fn.fullpage.destroy('all');
+            fullpageScroll.initialized = false;
          }
       }
    }

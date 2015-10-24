@@ -1,6 +1,6 @@
 $header-height: 4rem;
 
-header.site-header {
+.site-header {
    position: fixed;
    top: 0;
    left: 0;
@@ -135,7 +135,7 @@ header.site-header {
    }
 }
 
-.section {
+.fullpage-scroll-section {
    position: relative;
 
    &.dark {
@@ -154,6 +154,7 @@ header.site-header {
       right: 1rem;
       text-decoration: none;
       outline: 0;
+      z-index: 3;
 
       .label {
          opacity: 0;
@@ -174,9 +175,17 @@ header.site-header {
 
 
 
-section.about-project {
+.about-project {
    .container {
       padding: 2rem 3rem;
+   }
+
+   .fp-controlArrow.fp-prev {
+      border-right-color: $textGrey;
+   }
+
+   .fp-controlArrow.fp-next {
+      border-left-color: $textGrey;
    }
 
    .advisors {
@@ -218,7 +227,7 @@ section.about-project {
    }
 }
 
-section.content-news {
+.content-news {
    font-size: 0.9em;
 
    .container {
@@ -280,7 +289,7 @@ section.content-news {
    }
 }
 
-footer.site-footer {
+.site-footer {
    background-color: $darkBrown;
    text-align: center;
    width: 100%;
