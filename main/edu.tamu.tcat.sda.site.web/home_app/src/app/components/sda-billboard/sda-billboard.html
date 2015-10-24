@@ -7,20 +7,24 @@
          <i class="fa fa-chevron-right"></i>
       </a>
       <div ng-repeat="slide in vm.slides" ng-show="slide.active" class="banner" bg-image="assets/images/banners/{{slide.banner.image}}">
-         <aside class="content" ng-class="slide.banner.style" ng-bind-html="slide.banner.content"></aside>
+         <div class="container">
+            <aside class="content" ng-class="slide.banner.style" ng-bind-html="slide.banner.content"></aside>
+         </div>
       </div>
    </div>
-   <div class="brow">
-      <a ng-repeat="slide in vm.slides" href="{{slide.video.url}}" class="play-video" ng-show="slide.active" ng-if="slide.video">
-         <img src="assets/images/icon-video-play.png" alt="play video">
-         <span class="video-details">
-            <span class="title">{{slide.video.label}}</span>
-            <span class="length" ng-if="slide.video.length">({{slide.video.length}})</span>
-         </span>
-      </a>
-      <ol class="control-nav">
-         <li ng-repeat="slide in vm.slides"><a href="" ng-class="{'active': slide.active}" ng-click="vm.setActive(slide)">{{$index+1}}</a></li>
-      </ol>
+   <div class="brow-container">
+      <div class="brow">
+         <a ng-repeat="slide in vm.slides" href="{{slide.video.url}}" class="play-video" ng-show="slide.active" ng-if="slide.video">
+            <img src="assets/images/icon-video-play.png" alt="play video">
+            <span class="video-details">
+               <span class="title">{{slide.video.label}}</span>
+               <span class="length" ng-if="slide.video.length">({{slide.video.length}})</span>
+            </span>
+         </a>
+         <ol class="control-nav">
+            <li ng-repeat="slide in vm.slides"><a href="" ng-class="{'active': slide.active}" ng-click="vm.setActive(slide)">{{$index+1}}</a></li>
+         </ol>
+      </div>
    </div>
    <div class="intro-text">
       <section class="slide container" ng-repeat="slide in vm.slides" ng-show="slide.active">
