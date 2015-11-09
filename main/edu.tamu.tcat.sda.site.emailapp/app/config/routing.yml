@@ -1,3 +1,0 @@
-sda_subscription:
-    resource: "@SDASubscriptionBundle/Resources/config/routing.yml"
-    prefix:   /
