@@ -1,24 +1,4 @@
-<header class="site-header">
-   <div class="container">
-      <div class="site-logo">
-         <a href=""><img src="assets/images/sda-logo-light.png" alt="SDA Logo"></a>
-      </div>
-      <div class="search">
-         <a href="" class="toggle" ng-class="{active: vm.isSearchFormVisible}" ng-click="vm.toggleSearchForm()"><i class="fa fa-search"></i></a>
-         <form ng-class="{active: vm.isSearchFormVisible}">
-            <label class="sr-only" for="search">Search</label>
-            <div class="search-input-group">
-               <input id="search" name="q" type="search" placeholder="search">
-               <button type="submit">
-                  <i class="fa fa-search"></i>
-                  <span class="label">search</span>
-               </button>
-            </div>
-         </form>
-      </div>
-      <img class="oxford" src="assets/images/ox-brand-rect.png" alt="University of Oxford">
-   </div>
-</header>
+<header sda-site-header></header>
 
 <main fullpage-scroll>
    <fullpage-scroll-section>
@@ -307,23 +287,6 @@
    </fullpage-scroll-section>
 
    <fullpage-scroll-section class="site-footer">
-      <div class="container">
-         <div class="content">
-            <p>
-               The Special Divine Action project is hosted by Oxford University’s Bodleian Library. Please see the
-               University’s standard policies on <a href="http://www.ox.ac.uk/copyright.html" target="_blank">Copyright</a>,
-               <a href="http://www.admin.ox.ac.uk/dataprotection/privacypolicy" target="_blank">Privacy</a> and
-               <a href="http://www.admin.ox.ac.uk/dataprotection/cookies" target="_blank">Cookies</a>.
-               As the project grows and adds more content, we will provide more detail specific to the Special Divine Action Project.
-            </p>
-         </div>
-         <ul class="logos">
-             <li><img src="assets/images/footer-logo-irc.png" alt=""></li>
-             <li><img src="assets/images/footer-logo-bodleian-libraries.png" alt=""></li>
-             <li><img src="assets/images/footer-logo-tees.png" alt=""></li>
-             <li><img src="assets/images/footer-logo-wmu.png" alt=""></li>
-             <li><img src="assets/images/footer-logo-jtf.png" alt=""></li>
-         </ul>
-      </div>
+      <footer sda-site-footer></footer>
    </fullpage-scroll-section>
 </main>

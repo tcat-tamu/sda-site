@@ -1,0 +1,140 @@
+$header-height: 4rem;
+
+body {
+   padding-top: $header-height;
+}
+
+.site-header {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   z-index: 9999;
+   background-color: $darkBrown;
+   max-height: $header-height;
+
+   > .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      .site-logo {
+         padding: (3/16 * $header-height);
+         img {
+            display: block;
+            max-height: (5/8 * $header-height);
+         }
+      }
+
+      .search {
+         flex: 1;
+         text-align: right;
+         height: $header-height;
+
+         @media only screen and (min-width: 51em) {
+            height: auto;
+         }
+
+         .toggle {
+            display: inline-block;
+            text-align: center;
+            width: $header-height;
+            height: $header-height;
+            font-size: 2rem;
+
+            @media only screen and (min-width: 51em) {
+               display: none;
+            }
+
+            &:hover, &:active, &:focus, &.active {
+               background-color: lighten($darkBrown, 5%);
+               outline: 0;
+            }
+         }
+
+         form {
+            padding: (3/16 * $header-height);
+            background: lighten($darkBrown, 5%);
+
+            display: none;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: $header-height;
+
+            &.active {
+               display: block;
+            }
+
+            @media only screen and (min-width: 51em) {
+               padding: 0;
+               display: block;
+               position: static;
+               background: transparent;
+            }
+
+            .search-input-group {
+               display: flex;
+               flex-direction: row;
+               justify-content: flex-end;
+
+               input {
+                  flex: 1;
+                  background: transparent;
+                  color: inherit;
+                  border: 1px solid #4e534d;
+                  border-right: none;
+                  border-radius: 8px 0 0 8px;
+                  color: $cream;
+                  height: (5/8 * $header-height);
+                  padding: 0 0.5rem;
+
+                  @media only screen and (min-width: 51em) {
+                     max-width: 200px;
+                  }
+               }
+
+               button[type='submit'] {
+                  background: transparent;
+                  border: 1px solid #4e534d;
+                  border-radius: 0 8px 8px 0;
+                  color: $cream;
+                  height: (5/8 * $header-height);
+                  transition: background-color 0.4s;
+
+                  &:hover, &:focus, &:active {
+                     background-color: lighten($darkBrown, 10%)
+                  }
+
+                  .label {
+                     font-size: 11px;
+                     letter-spacing: 1px;
+                     text-transform: uppercase;
+                     display: none;
+
+                     @media only screen and (min-width: 35em) {
+                        display: inline;
+                     }
+                  }
+               }
+            }
+
+            @include placeholder {
+               color: $cream;
+            }
+
+         }
+      }
+
+      .oxford {
+         display: none;
+         max-height: (10/16 * $header-height);
+         margin: (3/16 * $header-height);
+
+         @media only screen and (min-width: 51em) {
+            display: block;
+         }
+      }
+   }
+}
