@@ -1,0 +1,34 @@
+<header sda-site-header></header>
+
+<main class="section--item">
+   <div class="container">
+      <section class="video">
+         <iframe ng-src="{{vm.getYoutubeVideoUrl(vm.item.videoId)}}" allowfullscreen="" frameborder="0" height="315" width="560"></iframe>
+      </section>
+
+      <section class="metadata">
+         <h1>{{vm.item.title}}</h1>
+         <p ng-if="vm.item.speaker.name">
+            <strong>Speaker:</strong>
+            <span>{{vm.item.speaker.name}}</span>
+         </p>
+         <p ng-if="vm.item.respondent.name">
+            <strong>Respondent:</strong>
+            <span>{{vm.item.respondent.name}}</span>
+         </p>
+      </section>
+
+      <section class="abstract" ng-if="vm.item.abstract">
+         <h2>Abstract</h2>
+         <div ng-bind-html="vm.item.abstract"></div>
+      </section>
+
+   </div>
+
+   <section class="container bio" ng-if="vm.speaker.bio">
+      <h2>Speaker Bio</h2>
+      <div ng-bind-html="vm.speaker.bio"></div>
+   </section>
+</main>
+
+<footer sda-site-footer collapsible="true"></footer>

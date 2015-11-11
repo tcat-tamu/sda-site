@@ -1,0 +1,27 @@
+<header sda-site-header></header>
+
+<div class="banner">
+   <div class="container">
+      <h1>Media Centre</h1>
+   </div>
+</div>
+
+<main class="section--media">
+   <div class="container">
+      <section class="playlist" ng-repeat="playlist in vm.playlists">
+         <h2>{{playlist.title}}</h2>
+         <ol class="media">
+            <li ng-repeat="item in playlist.items">
+               <a ui-sref="item({ id: item.id })">
+                  <img ng-src="{{item.image}}" alt="" />
+                  <h3>{{item.title}}</h3>
+                  <span class="meta time">{{item.time}}</span>
+                  <span class="meta speaker">{{item.speaker.name}}</span>
+               </a>
+            </li>
+         </ol>
+      </section>
+   </div>
+</main>
+
+<footer sda-site-footer collapsible="true"></footer>

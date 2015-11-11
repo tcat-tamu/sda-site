@@ -1,0 +1,38 @@
+.section--item {
+   > .container {
+      padding: 3rem 5rem;
+   }
+
+   section {
+      margin-bottom: 2rem;
+
+      &:last-child {
+         margin-bottom: 0;
+      }
+   }
+
+   .video {
+      position: relative;
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      padding-bottom: 56.25%;
+
+      iframe {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+      }
+   }
+
+   .bio {
+      background: $copper;
+      color: $cream;
+
+      h2 {
+         color: $cream;
+      }
+   }
+}
