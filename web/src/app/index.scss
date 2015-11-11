@@ -254,6 +254,20 @@ form {
    background-color: #926439;
 }
 
+.page-banner {
+   padding: 9rem 0;
+
+   background-image: url('../assets/images/banners/slider-people.jpg');
+   background-size: cover;
+   background-position: center center;
+
+   h1 {
+      text-align: center;
+      margin: 0;
+      color: #fff;
+   }
+}
+
 /**
  *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
  *  all your sass files automatically
