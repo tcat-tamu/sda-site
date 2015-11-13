@@ -13,6 +13,13 @@ $textBlack: #292626;
 $copper: #a47140;
 $cream: #eee8de;
 
+// Media query breakpoints (bootstrap naming conventions)
+$screen-sm-min: 35em;
+$screen-md-min: 51em;
+$screen-lg-min: 70em;
+
+$container-max-width: 1600px;
+
 
 /**
  *  Do not remove this comments bellow. It's the markers used by wiredep to inject
@@ -147,7 +154,7 @@ fieldset {
 
 .container {
    margin: 0 auto;
-   max-width: 1600px;
+   max-width: $container-max-width;
 }
 
 h1, h2, h3, h4, h5, h6 {
