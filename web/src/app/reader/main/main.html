@@ -1,0 +1,90 @@
+<header sda-site-header></header>
+
+<div class="page-banner">
+   <div class="container">
+      <h1>Library</h1>
+   </div>
+</div>
+
+<main class="section--library">
+   <div class="container">
+      <section class="search">
+         <form ng-submit="vm.search()">
+            <div class="input-group">
+               <input type="search" ng-model="vm.query" name="query" id="query" placeholder="search articles..."/>
+               <button type="submit">
+                  <i class="fa fa-search"></i>
+                  <span class="sr-only">Search</span>
+               </button>
+            </div>
+            <div class="checkbox-list">
+               <label ng-repeat="facet in vm.facets">
+                  <input type="checkbox" name="facet[]" value="{{facet.field}}" ng-model="facet.selected">
+                  {{ facet.label }}
+               </label>
+            </div>
+         </form>
+      </section>
+      <div class="content" ui-view>
+         <div class="landing">
+            <section class="overview">
+               <h1>Thematic Overview Articles</h1>
+
+               <div class="blocks">
+                  <div class="block">
+                     <h2>Meaning</h2>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, facere est necessitatibus doloremque. In quidem voluptatibus eos praesentium, adipisci officia!</p>
+                     <a href="#" class="read-more">Read More »</a>
+                  </div>
+                  <div class="block">
+                     <h2>Assessment</h2>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut nemo recusandae mollitia, quae ea provident eveniet in aliquid ab voluptates!</p>
+                     <a href="#" class="read-more">Read More »</a>
+                  </div>
+                  <div class="block">
+                     <h2>Narrative</h2>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam ab molestias dolor eligendi voluptas ullam quibusdam illo, amet suscipit dolore.</p>
+                     <a href="#" class="read-more">Read More »</a>
+                  </div>
+                  <div class="block">
+                     <h2>Imagination</h2>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo aspernatur animi cupiditate, consectetur tempora libero ut cumque, quo atque ad!</p>
+                     <a href="#" class="read-more">Read More »</a>
+                  </div>
+               </div>
+            </section>
+            <section class="key-items">
+               <div class="list">
+                  <h2>Thematic Overviews</h2>
+                  <ul>
+                     <li ng-repeat="overview in vm.overviews"><a href="">{{overview.title}}</a></li>
+                  </ul>
+               </div>
+
+               <div class="list">
+                  <h2>Articles</h2>
+                  <ul>
+                     <li ng-repeat="article in vm.articles"><a href="">{{article.title}}</a></li>
+                  </ul>
+               </div>
+
+               <div class="list">
+                  <h2>Book Reviews</h2>
+                  <ul>
+                     <li ng-repeat="bookReview in vm.bookReviews"><a href="">{{bookReview.title}}</a></li>
+                  </ul>
+               </div>
+
+               <div class="list">
+                  <h2>Biographies</h2>
+                  <ul>
+                     <li ng-repeat="biography in vm.biographies"><a href="">{{biography.title}}</a></li>
+                  </ul>
+               </div>
+            </section>
+         </div>
+      </div>
+   </div>
+</main>
+
+<footer sda-site-footer collapsible="true"></footer>
