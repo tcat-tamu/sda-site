@@ -289,7 +289,7 @@
       }
 
       function getYoutubeInfo(youtubeIds) {
-         if (!Array.isArray(youtubeIds)) {
+         if (!angular.isArray(youtubeIds)) {
             youtubeIds = [youtubeIds];
          }
 
