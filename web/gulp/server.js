@@ -9,7 +9,7 @@ var browserSyncSpa = require('browser-sync-spa');
 
 var util = require('util');
 
-// var proxyMiddleware = require('http-proxy-middleware');
+var proxyMiddleware = require('http-proxy-middleware');
 
 function browserSyncInit(baseDir, browser) {
    browser = browser === undefined ? 'default' : browser;
@@ -33,7 +33,13 @@ function browserSyncInit(baseDir, browser) {
     *
     * For more details and option, https://github.com/chimurai/http-proxy-middleware/blob/v0.0.5/README.md
     */
-   // server.middleware = proxyMiddleware('/users', {target: 'http://jsonplaceholder.typicode.com', proxyHost: 'jsonplaceholder.typicode.com'});
+   server.middleware = proxyMiddleware('/api/catalog', {
+      target: 'http://localhost:9999',
+      pathRewrite: {
+         '^/api/catalog': '/catalog/services'
+      },
+      proxyHost: 'sda.tamu.edu'
+   });
 
    browserSync.instance = browserSync.init({
       startPath: '/',
