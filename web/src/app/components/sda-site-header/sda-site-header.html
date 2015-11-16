@@ -2,6 +2,9 @@
    <div class="site-logo">
       <a href=""><img src="assets/images/sda-logo-light.png" alt="SDA Logo"></a>
    </div>
+   <ul class="nav">
+       <li ng-repeat="navitem in vm.navitems"><a href="{{navitem.url}}">{{navitem.label}}</a></li>
+   </ul>
    <div class="search">
       <a href="" class="toggle" ng-class="{active: vm.isSearchFormVisible}" ng-click="vm.toggleSearchForm()"><i class="fa fa-search"></i></a>
       <form ng-class="{active: vm.isSearchFormVisible}">

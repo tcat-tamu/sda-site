@@ -28,6 +28,18 @@
 
          vm.isSearchFormVisible = false;
          vm.toggleSearchForm = toggleSearchForm;
+         vm.navitems = [];
+
+         activate();
+
+         function activate() {
+            vm.navitems = [
+               { label: 'Home', url: 'index.html' },
+               { label: 'Media Centre', url: 'media.html' },
+               { label: 'Reader', url: 'reader.html' },
+               { label: 'Library', url: 'library.html' }
+            ];
+         }
 
          function toggleSearchForm() {
             vm.isSearchFormVisible = !vm.isSearchFormVisible;
