@@ -78,7 +78,7 @@
       }
 
       function search() {
-         $state.go('home.search', { query: vm.query });
+         $state.go('articles.search', { query: vm.query });
       }
    }
 
