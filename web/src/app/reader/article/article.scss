@@ -1,0 +1,116 @@
+$sidebar-bg: #f0f0f0;
+$active-bg: darken($sidebar-bg, 5%);
+
+.section--article {
+   h2 {
+      color: $textGrey;
+   }
+
+   > .container {
+      display: flex;
+      flex-direction: column;
+
+      @media screen and (min-width: $screen-md-min) {
+         flex-direction: row;
+      }
+
+      > nav, > article {
+         padding: 2rem 1rem;
+
+         @media screen and (min-width: $screen-sm-min) {
+            padding: 2rem 3rem;
+         }
+
+         @media screen and (min-width: $screen-md-min) {
+            padding: 2rem 1rem;
+         }
+
+         @media screen and (min-width: $screen-lg-min) {
+            padding: 2rem;
+         }
+      }
+
+      > article {
+         flex: 2;
+
+         @media screen and (min-width: $screen-lg-min) {
+            flex: 3;
+         }
+
+         section {
+            margin: 1em 0;
+         }
+      }
+
+      > nav {
+         border-bottom: 1px solid #ddd;
+
+         @media screen and (min-width: $screen-md-min) {
+            flex: 1;
+            max-width: 25%;
+            background: $sidebar-bg;
+            border-bottom: none;
+            padding-left: 0;
+            padding-top: 0;
+         }
+
+         @media screen and (min-width: $container-max-width) {
+            border: 0;
+            max-width: $container-max-width / 4;
+         }
+
+         > ol {
+            list-style: none;
+            margin: 0;
+            padding: 1rem;
+
+            @media screen and (min-width: $screen-md-min) {
+               position: fixed;
+               width: 100%;
+               max-width: inherit;
+            }
+
+            ol {
+               list-style: none;
+               margin: 0;
+               padding: 0;
+               margin-left: 1em;
+               display: none;
+            }
+
+            li {
+               margin: 0.3em 0;
+
+               a {
+                  color: $textBrown;
+                  display: block;
+                  padding: 0.3em 0.6em;
+                  border-radius: 4px;
+                  outline: 0;
+                  text-decoration: none;
+
+                  &:hover {
+                     background: $active-bg;
+                  }
+
+                  &:focus {
+                     color: $textBrown;
+                     background: inherit;
+                  }
+               }
+
+               &.active {
+                  & > a {
+                     background: $active-bg;
+                     color: $lightBrown;
+                  }
+
+                  & > ol {
+                     display: block;
+                  }
+               }
+            }
+         }
+      }
+   }
+}

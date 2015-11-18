@@ -1,0 +1,20 @@
+<header sda-site-header></header>
+
+<main class="section--article">
+   <div class="container">
+      <nav>
+         <ol class="nav" dx-start-with="vm.toc">
+            <li ng-repeat="node in $dxPrior.children" du-scrollspy="{{node.id}}">
+               <a ui-sref="article({id: vm.article.id, scrollTo: node.id})" ng-click="vm.scrollTo(node.id, $event)">{{node.text}}</a>
+               <ol dx-connect="node"/>
+            </li>
+         </ol>
+      </nav>
+      <article>
+         <h1>{{vm.article.title}}</h1>
+         <div ng-model="vm.article.content" mathjax toc-generate="vm.toc = toc"></div>
+      </article>
+   </div>
+</main>
+
+<footer sda-site-footer collapsible="true"></footer>
