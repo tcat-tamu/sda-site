@@ -10,7 +10,8 @@
          'ngSanitize',
          'ngResource',
          'ui.router',
-         'rt.debounce'
+         'rt.debounce',
+         'dotjem.angular.tree',
       ]);
 
 })();
