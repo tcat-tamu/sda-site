@@ -8,7 +8,7 @@
 
 <main class="section--library">
    <div class="container">
-      <section class="sidebar" ui-view="sidebar">
+      <section class="sidebar">
          <form ng-submit="vm.search()" class="search">
             <div class="input-group">
                <input type="search" ng-model="vm.query" name="query" id="query" placeholder="search articles..."/>
@@ -25,7 +25,7 @@
             </div>
          </form>
       </section>
-      <div class="content" ui-view="content">
+      <div class="content" ui-view>
          <div class="landing">
             <section class="overview">
                <h1>Thematic Overview Articles</h1>

@@ -90,6 +90,7 @@
 
                @media screen and (min-width: $screen-lg-min) {
                   flex-direction: column;
+                  margin: 0;
                }
 
                .list {
@@ -98,6 +99,10 @@
 
                   @media screen and (min-width: $screen-sm-min) {
                      min-width: 50%;
+                  }
+
+                  @media screen and (min-width: $screen-lg-min) {
+                     padding: 0 0 1rem;
                   }
                }
 
@@ -132,18 +137,6 @@
 
          @media screen and (min-width: $container-max-width) {
             border: 0;
-         }
-
-         nav {
-            margin: -2rem -3rem 2rem;
-
-            @media screen and (min-width: $screen-md-min) {
-               margin: -2rem -1rem 2rem;
-            }
-
-            @media screen and (min-width: $screen-lg-min) {
-               margin: -2rem -2rem 2rem;
-            }
          }
 
          form {

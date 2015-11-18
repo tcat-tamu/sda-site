@@ -8,36 +8,23 @@
    /** @ngInject */
    function routeConfig($stateProvider, $urlRouterProvider) {
       $stateProvider
-         .state('articles', {
+         .state('home', {
             url: '/',
             templateUrl: 'app/reader/main/main.html',
             controller: 'MainController',
             controllerAs: 'vm'
          })
-         .state('articles.search', {
+         .state('home.search', {
             url: 'search/:query',
-            views: {
-               content: {
-                  templateUrl: 'app/reader/search/search.html',
-                  controller: 'SearchController',
-                  controllerAs: 'vm'
-               }
-            }
+            templateUrl: 'app/reader/main/search/search.html',
+            controller: 'SearchController',
+            controllerAs: 'vm'
          })
-         .state('articles.show', {
-            url: 'articles/:id',
-            views: {
-               sidebar: {
-                  templateUrl: 'app/reader/show/toc.html',
-                  controller: 'ArticleTocController',
-                  controllerAs: 'vm'
-               },
-               content: {
-                  templateUrl: 'app/reader/show/show.html',
-                  controller: 'ArticleShowController',
-                  controllerAs: 'vm'
-               }
-            }
+         .state('article', {
+            url: '/articles/:id?scrollTo',
+            templateUrl: 'app/reader/article/article.html',
+            controller: 'ArticleController',
+            controllerAs: 'vm'
          });
 
       $urlRouterProvider.otherwise('/');

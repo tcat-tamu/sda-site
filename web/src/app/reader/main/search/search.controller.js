@@ -18,8 +18,6 @@
 
          if (vm.query) {
             $scope.$emit('set:query', vm.query);
-            console.log('searching for', vm.query);
-
             vm.queryResult = articleRepository.search({ q: vm.query });
          }
       }
