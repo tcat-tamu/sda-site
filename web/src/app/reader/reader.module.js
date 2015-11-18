@@ -12,6 +12,7 @@
          'ui.router',
          'rt.debounce',
          'dotjem.angular.tree',
+         'duScroll'
       ]);
 
 })();
