@@ -105,7 +105,6 @@ body {
                   background: transparent;
                   border: 1px solid #4e534d;
                   border-right: none;
-                  border-radius: 8px 0 0 8px;
                   color: $cream;
                   font-family: inherit;
                   font-size: inherit;
@@ -126,7 +125,6 @@ body {
                button[type='submit'] {
                   background: transparent;
                   border: 1px solid #4e534d;
-                  border-radius: 0 8px 8px 0;
                   color: $cream;
                   height: (5/8 * $header-height);
                   transition: background-color 0.4s;
