@@ -34,7 +34,6 @@
 
          function activate() {
             vm.navitems = [
-               { label: 'Home', url: 'index.html' },
                { label: 'Library', url: 'library.html' },
                { label: 'Reader', url: 'reader.html' },
                { label: 'Media', url: 'media.html' },
