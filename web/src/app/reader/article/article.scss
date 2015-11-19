@@ -70,7 +70,7 @@ $active-bg: darken($sidebar-bg, 5%);
 
                      &.active a {
                         color: $text;
-                        border-bottom: 2px solid $copper;
+                        border-bottom: 2px solid $lightBrown;
                      }
                   }
                }
@@ -93,6 +93,7 @@ $active-bg: darken($sidebar-bg, 5%);
 
       > .sidebar {
          position: fixed;
+         z-index: 1;
          width: 25%;
          max-width: ($container-max-width / 4);
          margin-right: 2rem;
