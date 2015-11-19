@@ -63,7 +63,17 @@
          </a>
       </aside>
       <article>
-         <h1>{{vm.article.title}}</h1>
+         <div class="meta">
+            <nav class="depth-chooser">
+               <ul>
+                  <li><a href="">Summary</a></li>
+                  <li><a href="">Overview</a></li>
+                  <li class="active"><a href="">Detailed Article</a></li>
+               </ul>
+            </nav>
+            <h1>{{vm.article.title}}</h1>
+            <p class="author-info" ng-if="vm.article.author">by {{vm.article.author}}</p>
+         </div>
          <div ng-model="vm.article.content" mathjax toc-generate="vm.toc = toc"></div>
       </article>
    </div>

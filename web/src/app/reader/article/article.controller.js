@@ -32,6 +32,8 @@
                });
             }
 
+            vm.article.author = 'John Doe';
+
             vm.article.notes = [
                {
                   active: false,
