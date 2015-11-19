@@ -289,6 +289,16 @@
                .panel {
                   padding: 2em;
 
+                  &.center-v {
+                     display: flex;
+                     align-items: center;
+                  }
+
+                  &.center-h {
+                     display: flex;
+                     justify-content: center;
+                  }
+
                   figure {
                      position: relative;
                      overflow: hidden;
