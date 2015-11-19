@@ -2,14 +2,66 @@
 
 <main class="section--article">
    <div class="container">
-      <nav>
-         <ol class="nav" dx-start-with="vm.toc">
-            <li ng-repeat="node in $dxPrior.children" du-scrollspy="{{node.id}}">
-               <a ui-sref="article({id: vm.article.id, scrollTo: node.id})" ng-click="vm.scrollTo(node.id, $event)">{{node.text}}</a>
-               <ol dx-connect="node"/>
-            </li>
-         </ol>
-      </nav>
+      <aside class="sidebar">
+         <nav class="tabs">
+            <ul>
+               <li ng-class="{active: vm.activeTab == 'contents'}">
+                  <a ng-click="vm.activeTab = 'contents'">
+                     <i class="icon fa fa-list"></i>
+                     <span>Contents</span>
+                  </a>
+               </li>
+               <li ng-class="{active: vm.activeTab == 'links'}">
+                  <a ng-click="vm.activeTab = 'links'">
+                     <i class="icon fa fa-link"></i>
+                     <span>Links</span>
+                  </a>
+               </li>
+               <li ng-class="{active: vm.activeTab == 'notes'}">
+                  <a ng-click="vm.activeTab = 'notes'">
+                     <i class="icon fa fa-sticky-note-o"></i>
+                     <span>Notes</span>
+                  </a>
+               </li>
+               <li ng-class="{active: vm.activeTab == 'refs'}">
+                  <a ng-click="vm.activeTab = 'refs'">
+                     <i class="icon fa fa-exchange"></i>
+                     <span>References</span>
+                  </a>
+               </li>
+            </ul>
+         </nav>
+         <div class="panes">
+            <div class="toc" ng-show="vm.activeTab == 'contents'">
+               <ol dx-start-with="vm.toc">
+                  <li ng-repeat="node in $dxPrior.children" du-scrollspy="{{node.id}}" offset="{{vm.scrollOffset}}">
+                     <a ui-sref="article({id: vm.article.id, scrollTo: node.id})" ng-click="vm.scrollTo(node.id, true, $event)">{{node.text}}</a>
+                     <ol dx-connect="node"/>
+                  </li>
+               </ol>
+            </div>
+            <div class="links" ng-show="vm.activeTab == 'links'">
+               Links to go here...
+            </div>
+            <div class="notes" ng-show="vm.activeTab == 'notes'">
+               <ol>
+                  <li ng-repeat="note in vm.article.notes" ng-class="{active: note.active}" ng-click="vm.activateNote(note)">
+                     <div ng-model="note.note" mathjax></div>
+                  </li>
+               </ol>
+            </div>
+            <div class="refs" ng-show="vm.activeTab == 'refs'">
+               References to go here...
+            </div>
+         </div>
+         <a href="" class="toplink" ng-click="vm.scrollToTop($event)">
+            <span class="label">top</span>
+            <span class="icon fa-stack fa-lg">
+               <i class="fa fa-circle fa-stack-2x"></i>
+               <i class="fa fa-chevron-up fa-stack-1x fa-inverse"></i>
+            </span>
+         </a>
+      </aside>
       <article>
          <h1>{{vm.article.title}}</h1>
          <div ng-model="vm.article.content" mathjax toc-generate="vm.toc = toc"></div>
