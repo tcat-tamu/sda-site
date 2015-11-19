@@ -15,9 +15,14 @@ gulp.task('inject', ['scripts', 'styles'], function () {
       path.join('!' + conf.paths.tmp, '/serve/app/vendor.css')
    ], { read: false });
 
+   var injectConfigScripts = gulp.src([
+      path.join(conf.paths.src, '/app/config.js')
+   ], { read: false });
+
    var injectScripts = gulp.src([
          path.join(conf.paths.src, '/app/**/*.module.js'),
          path.join(conf.paths.src, '/app/**/*.js'),
+         path.join('!' + conf.paths.src, '/app/config.js'),
          path.join('!' + conf.paths.src, '/app/**/*.spec.js'),
          path.join('!' + conf.paths.src, '/app/**/*.mock.js')
       ])
@@ -28,8 +33,15 @@ gulp.task('inject', ['scripts', 'styles'], function () {
       addRootSlash: false
    };
 
+   var injectConfigOptions = {
+      starttag: '<!-- inject:config -->',
+      ignorePath: conf.paths.src,
+      addRootSlash: false
+   }
+
    return gulp.src(path.join(conf.paths.src, '/*.html'))
       .pipe($.inject(injectStyles, injectOptions))
+      .pipe($.inject(injectConfigScripts, injectConfigOptions))
       .pipe($.inject(injectScripts, injectOptions))
       .pipe(wiredep(_.extend({}, conf.wiredep)))
       .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve')));
