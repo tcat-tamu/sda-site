@@ -312,7 +312,7 @@
    }
 
    > .brow-container {
-      @extend .container;
+      @extend %container;
       margin: 0;
       width: 100%;
       display: flex;
