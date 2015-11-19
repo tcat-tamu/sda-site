@@ -3,10 +3,10 @@
 
    angular
       .module('sda.library')
-      .controller('MainController', MainController);
+      .controller('LibraryController', LibraryController);
 
    /** @ngInject */
-   function MainController($state, $scope) {
+   function LibraryController($state, $scope) {
       var vm = this;
 
       vm.search = search;
@@ -39,7 +39,7 @@
       }
 
       function search() {
-         $state.go('home.search', { query: vm.query });
+         $state.go('library.search', { query: vm.query });
       }
    }
 

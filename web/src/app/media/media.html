@@ -12,7 +12,7 @@
          <h2>{{playlist.title}}</h2>
          <ol class="media">
             <li ng-repeat="item in playlist.items">
-               <a ui-sref="item({ id: item.id })">
+               <a ui-sref="media-item({ id: item.id })">
                   <img ng-src="{{item.image}}" alt="" />
                   <h3>{{item.title}}</h3>
                   <span class="meta time">{{item.time}}</span>

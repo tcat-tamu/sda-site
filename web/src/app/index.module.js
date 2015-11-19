@@ -3,6 +3,10 @@
 
    angular
       .module('sda', [
+         'sda.home',
+         'sda.library',
+         'sda.media',
+         'sda.reader',
          'ngAnimate',
          'ngCookies',
          'ngTouch',

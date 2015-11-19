@@ -3,10 +3,10 @@
 
    angular
       .module('sda.media')
-      .service('VideoRepository', VideoRepository);
+      .service('videoRepository', videoRepository);
 
    /** @ngInject */
-   function VideoRepository($http, $q, _) {
+   function videoRepository($http, $q, _) {
       var speakers = [
          {
             "id": "1",

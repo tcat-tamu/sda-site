@@ -3,10 +3,10 @@
 
    angular
       .module('sda.library')
-      .controller('SearchController', SearchController);
+      .controller('LibrarySearchController', LibrarySearchController);
 
    /** @ngInject */
-   function SearchController($stateParams, $scope) {
+   function LibrarySearchController($stateParams, $scope) {
       var vm = this;
 
       activate();

@@ -3,10 +3,10 @@
 
    angular
       .module('sda.media')
-      .controller('MainController', MainController);
+      .controller('MediaController', MediaController);
 
    /** @ngInject */
-   function MainController(VideoRepository) {
+   function MediaController(videoRepository) {
       var vm = this;
 
       vm.playlists = [];
@@ -14,7 +14,7 @@
       activate();
 
       function activate() {
-         VideoRepository.getPlaylists().then(function (playlists) {
+         videoRepository.getPlaylists().then(function (playlists) {
             vm.playlists = playlists;
          });
       }

@@ -3,10 +3,10 @@
 
    angular
       .module('sda.reader')
-      .controller('SearchController', SearchController);
+      .controller('ReaderSearchController', ReaderSearchController);
 
    /** @ngInject */
-   function SearchController($stateParams, $scope, articleRepository) {
+   function ReaderSearchController($stateParams, $scope, articleRepository) {
       var vm = this;
 
       vm.queryResult = {};
