@@ -19,13 +19,20 @@ gulp.task('partials', function () {
          quotes: true
       }))
       .pipe($.angularTemplatecache('templateCacheHtml.js', {
-         module: 'web',
+         module: 'sda',
          root: 'app'
       }))
       .pipe(gulp.dest(conf.paths.tmp + '/partials/'));
 });
 
 gulp.task('html', ['inject', 'partials'], function () {
+   var configInjectFile = gulp.src(path.join(conf.paths.src, '/app/config.js'), { read: false });
+   var configInjectOptions = {
+      starttag: '<!-- inject:config -->',
+      ignorePath: conf.paths.src,
+      addRootSlash: false
+   };
+
    var partialsInjectFile = gulp.src(path.join(conf.paths.tmp, '/partials/templateCacheHtml.js'), { read: false });
    var partialsInjectOptions = {
       starttag: '<!-- inject:partials -->',
@@ -34,11 +41,12 @@ gulp.task('html', ['inject', 'partials'], function () {
    };
 
    var htmlFilter = $.filter('*.html', { restore: true });
-   var jsFilter = $.filter('**/*.js', { restore: true });
+   var jsFilter = $.filter(['**/*.js', '!**/config-*.js'], { restore: true });
    var cssFilter = $.filter('**/*.css', { restore: true });
    var assets;
 
    return gulp.src(path.join(conf.paths.tmp, '/serve/*.html'))
+      .pipe($.inject(configInjectFile, configInjectOptions))
       .pipe($.inject(partialsInjectFile, partialsInjectOptions))
       .pipe(assets = $.useref.assets())
       .pipe($.rev())
