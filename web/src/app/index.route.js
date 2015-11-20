@@ -20,7 +20,7 @@
 
          .state('sda', {
             abstract: true,
-            templateUrl: 'app/layout.html',
+            templateUrl: 'app/layout.html'
          })
 
 

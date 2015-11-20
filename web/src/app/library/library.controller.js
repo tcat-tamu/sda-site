@@ -13,7 +13,6 @@
 
       vm.search = search;
       vm.query = '';
-      vm.activeTab = 'people';
       vm.keyPeople = [];
       vm.keyBooks = [];
 
