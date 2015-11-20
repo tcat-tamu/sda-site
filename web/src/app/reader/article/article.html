@@ -1,0 +1,41 @@
+<main class="section--article">
+   <div class="container">
+      <sda-tabbed-sidebar fixed="true" toplink="true">
+         <sda-sidebar-tab class="toc" title="Contents" icon="list">
+            <ol dx-start-with="vm.toc">
+               <li ng-repeat="node in $dxPrior.children" du-scrollspy="{{node.id}}" offset="{{vm.scrollOffset}}">
+                  <a ui-sref="sda.reader-article({id: vm.article.id, scrollTo: node.id})" ng-click="vm.scrollTo(node.id, true, $event)">{{node.text}}</a>
+                  <ol dx-connect="node"/>
+               </li>
+            </ol>
+         </sda-sidebar-tab>
+         <sda-sidebar-tab class="links" title="Links" icon="link">
+            Links to go here...
+         </sda-sidebar-tab>
+         <sda-sidebar-tab class="notes" title="Notes" icon="sticky-note-o">
+            <ol>
+               <li ng-repeat="note in vm.article.notes" ng-class="{active: note.active}" ng-click="vm.activateNote(note)">
+                  <div ng-model="note.note" mathjax></div>
+               </li>
+            </ol>
+         </sda-sidebar-tab>
+         <sda-sidebar-tab class="refs" title="Bibliography" icon="exchange">
+            References to go here...
+         </sda-sidebar-tab>
+      </sda-tabbed-sidebar>
+      <article>
+         <div class="meta">
+            <nav class="depth-chooser">
+               <ul>
+                  <li><a href="">Summary</a></li>
+                  <li><a href="">Overview</a></li>
+                  <li class="active"><a href="">Detailed Article</a></li>
+               </ul>
+            </nav>
+            <h1>{{vm.article.title}}</h1>
+            <p class="author-info" ng-if="vm.article.author">by {{vm.article.author}}</p>
+         </div>
+         <div ng-model="vm.article.content" mathjax toc-generate="vm.toc = toc"></div>
+      </article>
+   </div>
+</main>

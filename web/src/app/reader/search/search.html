@@ -1,0 +1,9 @@
+<section class="results">
+   <h1>Search Results</h1>
+   <ol ng-if="vm.queryResult.articles">
+      <li ng-repeat="result in vm.queryResult.articles">
+         <a ui-sref="sda.reader-article({id: result.id})">{{result.title}}</a>
+      </li>
+   </ol>
+   <div ng-if="!vm.queryResult.articles">No results</div>
+</section>

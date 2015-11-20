@@ -13,12 +13,17 @@ $textBlack: #292626;
 $copper: #a47140;
 $cream: #eee8de;
 
+$sidebar-bg: #f0f0f0;
+
 // Media query breakpoints (bootstrap naming conventions)
 $screen-sm-min: 35em;
 $screen-md-min: 51em;
 $screen-lg-min: 70em;
 
+// layout component dimensions
 $container-max-width: 1600px;
+$header-height: 4rem;
+$banner-height: 18rem;
 
 
 /**
@@ -266,16 +271,23 @@ form {
 }
 
 .page-banner {
-   padding: 9rem 0;
+   height: $banner-height;
+   transition: height 1s;
+   overflow: hidden;
 
    background-image: url('../assets/images/banners/slider-people.jpg');
    background-size: cover;
    background-position: center center;
 
    h1 {
+      line-height: $banner-height;
       text-align: center;
       margin: 0;
       color: #fff;
+   }
+
+   &.ng-hide {
+      height: 0;
    }
 }
 

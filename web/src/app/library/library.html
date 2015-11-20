@@ -1,0 +1,58 @@
+<div class="page-banner" ng-show="vm.showBanner">
+   <div class="container">
+      <h1>Library</h1>
+   </div>
+</div>
+
+<main class="section--library" ng-click="vm.showBanner = false">
+   <div class="container">
+      <sda-tabbed-sidebar>
+         <sda-sidebar-tab title="People" icon="users">
+            <form ng-submit="vm.search()">
+               <div class="input-group">
+                  <input type="search" ng-model="vm.query" name="query" id="query" placeholder="search people..."/>
+                  <button type="submit">
+                     <i class="fa fa-search"></i>
+                     <span class="sr-only">Search</span>
+                  </button>
+               </div>
+            </form>
+         </sda-sidebar-tab>
+         <sda-sidebar-tab title="Books" icon="book">
+            <form ng-submit="vm.search()">
+               <div class="input-group">
+                  <input type="search" ng-model="vm.query" name="query" id="query" placeholder="search books..."/>
+                  <button type="submit">
+                     <i class="fa fa-search"></i>
+                     <span class="sr-only">Search</span>
+                  </button>
+               </div>
+            </form>
+         </sda-sidebar-tab>
+      </sda-tabbed-sidebar>
+      <div class="content" ui-view>
+         <div class="landing">
+            <section class="overview">
+               <h1>Overview</h1>
+               <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore consequatur iusto error alias eveniet nihil, nulla. Totam quae, libero distinctio odio non maxime placeat nulla nihil est corporis adipisci quia ipsa. Unde, molestias necessitatibus delectus dolore amet tempora sit omnis voluptatum minima eum ratione sed maxime aliquam ab, alias, quod nesciunt consequatur officia est? Enim incidunt atque similique blanditiis, ducimus.
+               </p>
+               <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis alias earum molestiae consequuntur facilis soluta ipsum, ipsa autem doloribus necessitatibus sed neque, architecto accusantium adipisci molestias perspiciatis eaque cupiditate odit, in ea. Cum, expedita.
+               </p>
+               <h1>Tools</h1>
+               <ul class="tools">
+                  <li><a href=""><img src="//placehold.it/300x300" /></a></li>
+                  <li><a href=""><img src="//placehold.it/300x300" /></a></li>
+               </ul>
+            </section>
+            <section class="key-items">
+               <h2>Starting Points</h2>
+               <ul>
+                  <li ng-repeat="book in vm.keyBooks"><em><a href="">{{book.title}}</a></em> by <a href="">{{book.author}}</a></li>
+               </ul>
+            </section>
+         </div>
+      </div>
+   </div>
+</main>

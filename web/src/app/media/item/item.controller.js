@@ -3,10 +3,10 @@
 
    angular
       .module('sda.media')
-      .controller('ItemController', ItemController);
+      .controller('MediaItemController', MediaItemController);
 
    /** @ngInject */
-   function ItemController($stateParams, $sce, VideoRepository, $log) {
+   function MediaItemController($stateParams, $sce, videoRepository, $log) {
       var vm = this;
 
       vm.item = {};
@@ -16,9 +16,9 @@
       activate();
 
       function activate() {
-         var videoP = VideoRepository.getVideo($stateParams.id);
+         var videoP = videoRepository.getVideo($stateParams.id);
          var speakerP = videoP.then(function (video) {
-            return VideoRepository.getSpeaker(video.speaker.id);
+            return videoRepository.getSpeaker(video.speaker.id);
          });
 
          videoP.then(function (video) {

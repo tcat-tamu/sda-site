@@ -28,13 +28,15 @@
       }
 
       /** @ngInject */
-      function FullpageScrollController($window, debounce) {
+      function FullpageScrollController($scope, $window, debounce) {
          var fullpageScroll = this;
 
          fullpageScroll.init = init;
          fullpageScroll.rebuild = debounce(100, rebuild);
          fullpageScroll.nextSection = nextSection;
          fullpageScroll.destroy = destroy;
+
+         $scope.$on('$destroy', destroy);
 
          function init() {
             if (fullpageScroll.initialized) {
