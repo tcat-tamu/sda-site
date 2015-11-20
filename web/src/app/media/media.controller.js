@@ -9,6 +9,8 @@
    function MediaController(videoRepository) {
       var vm = this;
 
+      vm.showBanner = true;
+
       vm.playlists = [];
 
       activate();

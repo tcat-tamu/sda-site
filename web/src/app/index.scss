@@ -270,6 +270,7 @@ form {
 
 .page-banner {
    height: $banner-height;
+   transition: height 1s;
    overflow: hidden;
 
    background-image: url('../assets/images/banners/slider-people.jpg');
@@ -281,6 +282,10 @@ form {
       text-align: center;
       margin: 0;
       color: #fff;
+   }
+
+   &.ng-hide {
+      height: 0;
    }
 }
 

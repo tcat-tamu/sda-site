@@ -1,10 +1,10 @@
-<div class="page-banner">
+<div class="page-banner" ng-show="vm.showBanner">
    <div class="container">
       <h1>Media Centre</h1>
    </div>
 </div>
 
-<main class="section--media">
+<main class="section--media" ng-click="vm.showBanner = false">
    <div class="container">
       <section class="playlist" ng-repeat="playlist in vm.playlists">
          <h2>{{playlist.title}}</h2>

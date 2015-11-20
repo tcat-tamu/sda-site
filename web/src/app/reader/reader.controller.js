@@ -9,6 +9,8 @@
    function ReaderController($state, $scope) {
       var vm = this;
 
+      vm.showBanner = true;
+
       vm.search = search;
       vm.query = '';
       vm.facets = [];
