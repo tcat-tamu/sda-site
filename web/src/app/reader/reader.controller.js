@@ -78,7 +78,7 @@
       }
 
       function search() {
-         $state.go('reader.search', { query: vm.query });
+         $state.go('sda.reader.search', { query: vm.query });
       }
    }
 

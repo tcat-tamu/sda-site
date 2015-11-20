@@ -39,7 +39,7 @@
       }
 
       function search() {
-         $state.go('library.search', { query: vm.query });
+         $state.go('sda.library.search', { query: vm.query });
       }
    }
 

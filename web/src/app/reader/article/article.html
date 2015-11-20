@@ -35,7 +35,7 @@
             <div class="toc" ng-show="vm.activeTab == 'contents'">
                <ol dx-start-with="vm.toc">
                   <li ng-repeat="node in $dxPrior.children" du-scrollspy="{{node.id}}" offset="{{vm.scrollOffset}}">
-                     <a ui-sref="reader-article({id: vm.article.id, scrollTo: node.id})" ng-click="vm.scrollTo(node.id, true, $event)">{{node.text}}</a>
+                     <a ui-sref="sda.reader-article({id: vm.article.id, scrollTo: node.id})" ng-click="vm.scrollTo(node.id, true, $event)">{{node.text}}</a>
                      <ol dx-connect="node"/>
                   </li>
                </ol>
