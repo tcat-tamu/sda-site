@@ -67,12 +67,11 @@
          }
       }
 
-      .search {
+      .sidebar {
          border-bottom: 1px solid #ddd;
 
          @media screen and (min-width: $screen-md-min) {
             flex: 1;
-            background: #f0f0f0;
             border-bottom: none;
          }
 
@@ -80,61 +79,53 @@
             border: 0;
          }
 
-         nav {
-            margin: -2rem -3rem 2rem;
+         form {
+            padding: 2rem;
 
-            @media screen and (min-width: $screen-md-min) {
-               margin: -2rem -1rem 2rem;
-            }
+            .input-group {
+               display: flex;
+               flex-direction: row;
 
-            @media screen and (min-width: $screen-lg-min) {
-               margin: -2rem -2rem 2rem;
-            }
-         }
+               input {
+                  flex-grow: 1;
+                  height: 2.5rem;
+                  padding: 0.5rem;
+                  border: 1px solid #999;
+                  border-right: 0;
+                  border-top-left-radius: 5px;
+                  border-bottom-left-radius: 5px;
+                  font-family: inherit;
+                  font-size: inherit;
+                  min-width: 2.5rem;
 
-         form .input-group {
-            display: flex;
-            flex-direction: row;
-
-            input {
-               flex-grow: 1;
-               height: 2.5rem;
-               padding: 0.5rem;
-               border: 1px solid #999;
-               border-right: 0;
-               border-top-left-radius: 5px;
-               border-bottom-left-radius: 5px;
-               font-family: inherit;
-               font-size: inherit;
-               min-width: 2.5rem;
-
-               &:focus {
-                  border-color: $copper
-               }
-            }
-
-            button {
-               height: 2.5rem;
-               min-width: 2.5rem;
-               background: $copper;
-               border: 1px solid $copper;
-               color: $cream;
-               border-top-right-radius: 5px;
-               border-bottom-right-radius: 5px;
-               cursor: pointer;
-               transition: all 0.2s;
-
-               &:hover, &:focus {
-                  background: lighten($copper, 5%);
+                  &:focus {
+                     border-color: $copper
+                  }
                }
 
-               &::-moz-focus-inner {
-                  border: 0;
-               }
+               button {
+                  height: 2.5rem;
+                  min-width: 2.5rem;
+                  background: $copper;
+                  border: 1px solid $copper;
+                  color: $cream;
+                  border-top-right-radius: 5px;
+                  border-bottom-right-radius: 5px;
+                  cursor: pointer;
+                  transition: all 0.2s;
 
-               &:active {
-                  background: darken($copper, 5%);
-                  box-shadow: inset 0 1px 5px rgba(0,0,0,0.3);
+                  &:hover, &:focus {
+                     background: lighten($copper, 5%);
+                  }
+
+                  &::-moz-focus-inner {
+                     border: 0;
+                  }
+
+                  &:active {
+                     background: darken($copper, 5%);
+                     box-shadow: inset 0 1px 5px rgba(0,0,0,0.3);
+                  }
                }
             }
          }

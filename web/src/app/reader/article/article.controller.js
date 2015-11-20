@@ -16,7 +16,6 @@
 
       vm.article = {};
       vm.toc = [];
-      vm.activeTab = 'contents';
       vm.scrollTo = scrollTo;
       vm.scrollToTop = scrollToTop;
       vm.activateNote = activateNote;

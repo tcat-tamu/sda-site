@@ -6,18 +6,23 @@
 
 <main class="section--media" ng-click="vm.showBanner = false">
    <div class="container">
-      <section class="playlist" ng-repeat="playlist in vm.playlists">
-         <h2>{{playlist.title}}</h2>
-         <ol class="media">
-            <li ng-repeat="item in playlist.items">
-               <a ui-sref="sda.media-item({ id: item.id })">
-                  <img ng-src="{{item.image}}" alt="" />
-                  <h3>{{item.title}}</h3>
-                  <span class="meta time">{{item.time}}</span>
-                  <span class="meta speaker">{{item.speaker.name}}</span>
-               </a>
-            </li>
-         </ol>
-      </section>
+      <aside class="sidebar">
+         search and filter stuff goes here...
+      </aside>
+      <div class="content">
+         <section class="playlist" ng-repeat="playlist in vm.playlists">
+            <h2>{{playlist.title}}</h2>
+            <ol class="media">
+               <li ng-repeat="item in playlist.items">
+                  <a ui-sref="sda.media-item({ id: item.id })">
+                     <img ng-src="{{item.image}}" alt="" />
+                     <h3>{{item.title}}</h3>
+                     <span class="meta time">{{item.time}}</span>
+                     <span class="meta speaker">{{item.speaker.name}}</span>
+                  </a>
+               </li>
+            </ol>
+         </section>
+      </div>
    </div>
 </main>

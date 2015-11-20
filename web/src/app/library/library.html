@@ -6,32 +6,30 @@
 
 <main class="section--library" ng-click="vm.showBanner = false">
    <div class="container">
-      <section class="search">
-         <nav class="tabs">
-            <ul>
-               <li ng-class="{active: vm.activeTab == 'people'}"><a href="" ng-click="vm.activeTab = 'people'">People</a></li>
-               <li ng-class="{active: vm.activeTab == 'books'}"><a href="" ng-click="vm.activeTab = 'books'">Books</a></li>
-            </ul>
-         </nav>
-         <form ng-submit="vm.search()" ng-show="vm.activeTab == 'people'">
-            <div class="input-group">
-               <input type="search" ng-model="vm.query" name="query" id="query" placeholder="search people..."/>
-               <button type="submit">
-                  <i class="fa fa-search"></i>
-                  <span class="sr-only">Search</span>
-               </button>
-            </div>
-         </form>
-         <form ng-submit="vm.search()" ng-show="vm.activeTab == 'books'">
-            <div class="input-group">
-               <input type="search" ng-model="vm.query" name="query" id="query" placeholder="search books..."/>
-               <button type="submit">
-                  <i class="fa fa-search"></i>
-                  <span class="sr-only">Search</span>
-               </button>
-            </div>
-         </form>
-      </section>
+      <sda-tabbed-sidebar>
+         <sda-sidebar-tab title="People" icon="users">
+            <form ng-submit="vm.search()">
+               <div class="input-group">
+                  <input type="search" ng-model="vm.query" name="query" id="query" placeholder="search people..."/>
+                  <button type="submit">
+                     <i class="fa fa-search"></i>
+                     <span class="sr-only">Search</span>
+                  </button>
+               </div>
+            </form>
+         </sda-sidebar-tab>
+         <sda-sidebar-tab title="Books" icon="book">
+            <form ng-submit="vm.search()">
+               <div class="input-group">
+                  <input type="search" ng-model="vm.query" name="query" id="query" placeholder="search books..."/>
+                  <button type="submit">
+                     <i class="fa fa-search"></i>
+                     <span class="sr-only">Search</span>
+                  </button>
+               </div>
+            </form>
+         </sda-sidebar-tab>
+      </sda-tabbed-sidebar>
       <div class="content" ui-view>
          <div class="landing">
             <section class="overview">

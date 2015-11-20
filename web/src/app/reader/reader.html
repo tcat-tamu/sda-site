@@ -4,83 +4,54 @@
    </div>
 </div>
 
-<main class="section--library" ng-click="vm.showBanner = false">
+<main class="section--reader" ng-click="vm.showBanner = false">
    <div class="container">
-      <section class="sidebar">
-         <form ng-submit="vm.search()" class="search">
-            <div class="input-group">
-               <input type="search" ng-model="vm.query" name="query" id="query" placeholder="search articles..."/>
-               <button type="submit">
-                  <i class="fa fa-search"></i>
-                  <span class="sr-only">Search</span>
-               </button>
-            </div>
-            <div class="checkbox-list">
-               <label ng-repeat="facet in vm.facets">
-                  <input type="checkbox" name="facet[]" value="{{facet.field}}" ng-model="facet.selected">
-                  {{ facet.label }}
-               </label>
-            </div>
-         </form>
-      </section>
+      <sda-tabbed-sidebar>
+         <sda-sidebar-tab title="Search" icon="search">
+            <form ng-submit="vm.search()" class="search">
+               <div class="input-group">
+                  <input type="search" ng-model="vm.query" name="query" id="query" placeholder="search articles..."/>
+                  <button type="submit">
+                     <i class="fa fa-search"></i>
+                     <span class="sr-only">Search</span>
+                  </button>
+               </div>
+               <div class="checkbox-list">
+                  <label ng-repeat="facet in vm.facets">
+                     <input type="checkbox" name="facet[]" value="{{facet.field}}" ng-model="facet.selected">
+                     {{ facet.label }}
+                  </label>
+               </div>
+            </form>
+         </sda-sidebar-tab>
+      </sda-tabbed-sidebar>
       <div class="content" ui-view>
-         <div class="landing">
-            <section class="overview">
-               <h1>Thematic Overview Articles</h1>
+         <section class="landing">
+            <h1>Thematic Overview Articles</h1>
 
-               <div class="blocks">
-                  <div class="block">
-                     <h2>Meaning</h2>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, facere est necessitatibus doloremque. In quidem voluptatibus eos praesentium, adipisci officia!</p>
-                     <a href="#" class="read-more">Read More »</a>
-                  </div>
-                  <div class="block">
-                     <h2>Assessment</h2>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut nemo recusandae mollitia, quae ea provident eveniet in aliquid ab voluptates!</p>
-                     <a href="#" class="read-more">Read More »</a>
-                  </div>
-                  <div class="block">
-                     <h2>Narrative</h2>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam ab molestias dolor eligendi voluptas ullam quibusdam illo, amet suscipit dolore.</p>
-                     <a href="#" class="read-more">Read More »</a>
-                  </div>
-                  <div class="block">
-                     <h2>Imagination</h2>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo aspernatur animi cupiditate, consectetur tempora libero ut cumque, quo atque ad!</p>
-                     <a href="#" class="read-more">Read More »</a>
-                  </div>
+            <div class="blocks">
+               <div class="block">
+                  <h2>Meaning</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, facere est necessitatibus doloremque. In quidem voluptatibus eos praesentium, adipisci officia!</p>
+                  <a href="#" class="read-more">Read More »</a>
                </div>
-            </section>
-            <section class="key-items">
-               <div class="list">
-                  <h2>Thematic Overviews</h2>
-                  <ul>
-                     <li ng-repeat="overview in vm.overviews"><a href="">{{overview.title}}</a></li>
-                  </ul>
+               <div class="block">
+                  <h2>Assessment</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut nemo recusandae mollitia, quae ea provident eveniet in aliquid ab voluptates!</p>
+                  <a href="#" class="read-more">Read More »</a>
                </div>
-
-               <div class="list">
-                  <h2>Articles</h2>
-                  <ul>
-                     <li ng-repeat="article in vm.articles"><a href="">{{article.title}}</a></li>
-                  </ul>
+               <div class="block">
+                  <h2>Narrative</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam ab molestias dolor eligendi voluptas ullam quibusdam illo, amet suscipit dolore.</p>
+                  <a href="#" class="read-more">Read More »</a>
                </div>
-
-               <div class="list">
-                  <h2>Book Reviews</h2>
-                  <ul>
-                     <li ng-repeat="bookReview in vm.bookReviews"><a href="">{{bookReview.title}}</a></li>
-                  </ul>
+               <div class="block">
+                  <h2>Imagination</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo aspernatur animi cupiditate, consectetur tempora libero ut cumque, quo atque ad!</p>
+                  <a href="#" class="read-more">Read More »</a>
                </div>
-
-               <div class="list">
-                  <h2>Biographies</h2>
-                  <ul>
-                     <li ng-repeat="biography in vm.biographies"><a href="">{{biography.title}}</a></li>
-                  </ul>
-               </div>
-            </section>
-         </div>
+            </div>
+         </section>
       </div>
    </div>
 </main>
