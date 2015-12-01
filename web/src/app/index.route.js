@@ -30,10 +30,16 @@
             controller: 'LibraryController',
             controllerAs: 'vm'
          })
-         .state('sda.library.search', {
-            url: 'search/:query',
-            templateUrl: 'app/library/search/search.html',
-            controller: 'LibrarySearchController',
+         .state('sda.library.search-people', {
+            url: '/search/people/:query',
+            templateUrl: 'app/library/search/people.html',
+            controller: 'LibraryPeopleSearchController',
+            controllerAs: 'vm'
+         })
+         .state('sda.library.search-books', {
+            url: '/search/books/:query',
+            templateUrl: 'app/library/search/books.html',
+            controller: 'LibraryBooksSearchController',
             controllerAs: 'vm'
          })
 
@@ -59,7 +65,7 @@
             controllerAs: 'vm'
          })
          .state('sda.reader.search', {
-            url: 'search/:query',
+            url: '/search/:query',
             templateUrl: 'app/reader/search/search.html',
             controller: 'ReaderSearchController',
             controllerAs: 'vm'
