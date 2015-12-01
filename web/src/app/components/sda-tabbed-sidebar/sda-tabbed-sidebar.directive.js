@@ -13,26 +13,41 @@
          transclude: true,
          replace: true,
          scope: {
+            activeTab: '=',
             fixed: '=',
             toplink: '='
          },
          controller: SdaTabbedSidebarController,
-         controllerAs: 'vm'
+         controllerAs: 'vm',
+         link: linkFunc
       };
 
       return directive;
 
+      function linkFunc(scope) {
+         scope.$watch('activeTab', function (value) {
+            if (!value) {
+               return;
+            }
+
+            scope.vm.activateTabById(value);
+         });
+      }
+
       /** @ngInject */
-      function SdaTabbedSidebarController($document) {
+      function SdaTabbedSidebarController($document, $scope) {
          var vm = this;
 
          vm.tabs = [];
          vm.addTab = addTab;
          vm.activateTab = activateTab;
+         vm.activateTabById = activateTabById;
          vm.scrollToTop = scrollToTop;
 
          function addTab(tab) {
-            if (vm.tabs.length === 0) {
+            if (($scope.activeTab && $scope.activeTab === tab.id) ||
+               (!$scope.activeTab && vm.tabs.length === 0))
+            {
                tab.active = true;
             }
 
@@ -40,11 +55,36 @@
          }
 
          function activateTab(tab) {
+            if (!tab) {
+               return;
+            }
+
+            var oldTab = null;
             vm.tabs.forEach(function (tab) {
+               if (tab.active) {
+                  oldTab = tab;
+               }
+
                tab.active = false;
             });
 
             tab.active = true;
+
+            if (tab !== oldTab) {
+               $scope.$emit('sda-tabbed-sidebar:change:tab', tab, oldTab);
+            }
+         }
+
+         function activateTabById(tabId) {
+            if (!tabId) {
+               return;
+            }
+
+            var tab = vm.tabs.find(function (tab) {
+               return tab.id == tabId;
+            });
+
+            activateTab(tab);
          }
 
          function scrollToTop() {

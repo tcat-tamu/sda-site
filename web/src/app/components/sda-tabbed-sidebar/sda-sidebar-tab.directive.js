@@ -13,6 +13,7 @@
          template: '<div ng-show="active" ng-transclude></div>',
          replace: true,
          scope: {
+            id: '@',
             icon: '@',
             title: '@'
          },
