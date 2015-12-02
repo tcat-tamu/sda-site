@@ -1,6 +1,6 @@
 <main class="section--article">
    <div class="container">
-      <sda-tabbed-sidebar fixed="true" toplink="true">
+      <sda-tabbed-sidebar fixed="true" toplink="true" backlink="true" go-back="vm.goBack()">
          <sda-sidebar-tab class="toc" title="Contents" icon="list">
             <ol dx-start-with="vm.toc">
                <li ng-repeat="node in $dxPrior.children" du-scrollspy="{{node.id}}" offset="{{vm.scrollOffset}}">

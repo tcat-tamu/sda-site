@@ -6,7 +6,7 @@
       .controller('ArticleController', ArticleController);
 
    /** @ngInject */
-   function ArticleController($stateParams, articleRepository, $document, $timeout) {
+   function ArticleController($state, $stateParams, articleRepository, $document, $timeout, $http) {
       var vm = this;
 
       // HACK: calculate scroll offset based on rem value and header-height

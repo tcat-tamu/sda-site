@@ -15,7 +15,9 @@
          scope: {
             activeTab: '=',
             fixed: '=',
-            toplink: '='
+            toplink: '=',
+            backlink: '=',
+            goBack: '&'
          },
          controller: SdaTabbedSidebarController,
          controllerAs: 'vm',
@@ -35,7 +37,7 @@
       }
 
       /** @ngInject */
-      function SdaTabbedSidebarController($document, $scope) {
+      function SdaTabbedSidebarController($window, $document, $scope) {
          var vm = this;
 
          vm.tabs = [];
@@ -43,6 +45,7 @@
          vm.activateTab = activateTab;
          vm.activateTabById = activateTabById;
          vm.scrollToTop = scrollToTop;
+         vm.goBack = goBack;
 
          function addTab(tab) {
             if (($scope.activeTab && $scope.activeTab === tab.id) ||
@@ -89,6 +92,14 @@
 
          function scrollToTop() {
             $document.duScrollTopAnimated(0);
+         }
+
+         function goBack() {
+            if ($scope.goBack) {
+               $scope.goBack();
+            } else {
+               $window.history.back();
+            }
          }
       }
    }
