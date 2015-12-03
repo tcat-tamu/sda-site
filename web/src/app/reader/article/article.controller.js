@@ -19,6 +19,7 @@
       vm.scrollTo = scrollTo;
       vm.scrollToTop = scrollToTop;
       vm.activateNote = activateNote;
+      vm.goBack = goBack;
 
       activate();
 
@@ -80,6 +81,10 @@
          } else {
             $document.duScrollTop(0);
          }
+      }
+
+      function goBack() {
+         $state.go('sda.reader');
       }
 
       function activateNote(note) {
