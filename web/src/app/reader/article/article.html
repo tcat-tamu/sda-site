@@ -1,7 +1,7 @@
 <main class="section--article">
    <div class="container">
-      <sda-tabbed-sidebar fixed="true" toplink="true" backlink="true" go-back="vm.goBack()">
-         <sda-sidebar-tab class="toc" title="Contents" icon="list">
+      <sda-tabbed-sidebar fixed="true" toplink="true" backlink="true" go-back="vm.goBack()" active-tab="vm.activeTab">
+         <sda-sidebar-tab class="toc" title="Contents" icon="list" id="toc">
             <ol dx-start-with="vm.toc">
                <li ng-repeat="node in $dxPrior.children" du-scrollspy="{{node.id}}" offset="{{vm.scrollOffset}}">
                   <a ui-sref="sda.reader-article({id: vm.article.id, scrollTo: node.id})" ng-click="vm.scrollTo(node.id, true, $event)">{{node.text}}</a>
@@ -9,17 +9,17 @@
                </li>
             </ol>
          </sda-sidebar-tab>
-         <sda-sidebar-tab class="links" title="Links" icon="link">
+         <sda-sidebar-tab class="links" title="Links" icon="link" id="links">
             Links to go here...
          </sda-sidebar-tab>
-         <sda-sidebar-tab class="notes" title="Notes" icon="sticky-note-o">
+         <sda-sidebar-tab class="notes" title="Footnotes" icon="sticky-note-o" id="footnotes">
             <ol>
-               <li ng-repeat="note in vm.article.notes" ng-class="{active: note.active}" ng-click="vm.activateNote(note)">
-                  <div ng-model="note.note" mathjax></div>
+               <li ng-repeat="note in vm.article.footnotes" ng-class="{active: note.active}" du-scrollspy="{{note.backlinkId}}" offset="{{vm.scrollOffset}}">
+                  <a ui-sref="sda.reader-article({id: vm.article.id, scrollTo: note.backlinkId})" ng-click="vm.activateNote(note, $event)" ng-model="note.text" mathjax></a>
                </li>
             </ol>
          </sda-sidebar-tab>
-         <sda-sidebar-tab class="refs" title="Bibliography" icon="exchange">
+         <sda-sidebar-tab class="refs" title="Bibliography" icon="exchange" id="references">
             References to go here...
          </sda-sidebar-tab>
       </sda-tabbed-sidebar>

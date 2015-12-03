@@ -6,8 +6,10 @@
       .controller('ArticleController', ArticleController);
 
    /** @ngInject */
-   function ArticleController($state, $stateParams, articleRepository, $document, $timeout, $http) {
+   function ArticleController($state, $stateParams, articleRepository, $log, $document, $scope, $timeout, $http, _) {
       var vm = this;
+
+      vm.activeTab = 'toc';
 
       // HACK: calculate scroll offset based on rem value and header-height
       var rem = 16;
@@ -87,11 +89,14 @@
          $state.go('sda.reader');
       }
 
-      function activateNote(note) {
-         vm.article.notes.forEach(function (note) {
+      function activateNote(note, $event) {
+         vm.article.footnotes.forEach(function (note) {
             note.active = false;
          });
 
+         scrollTo(note.backlinkId, true, $event)
+
+         vm.activeTab = 'footnotes';
          note.active = true;
       }
    }

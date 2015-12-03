@@ -164,18 +164,21 @@
                      counter-increment: notes;
                   }
 
-                  div {
+                  > a {
+                     display: block;
                      width: 100%;
                      white-space: nowrap;
                      overflow: hidden;
                      text-overflow: ellipsis;
+                     text-decoration: none;
+                     color: inherit;
                   }
 
                   &.active {
                      color: black;
                      cursor: auto;
 
-                     div {
+                     > a {
                         white-space: normal;
                      }
                   }
