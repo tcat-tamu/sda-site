@@ -33,9 +33,9 @@
                </ul>
             </nav>
             <h1>{{vm.article.title}}</h1>
-            <p class="author-info" ng-if="vm.article.author">by {{vm.article.author}}</p>
+            <p class="author-info" ng-if="vm.article.authors">by <a ng-repeat="author in vm.article.authors" href="mailto:{{author.email}}">{{author.name}}</a></p>
          </div>
-         <div ng-model="vm.article.content" mathjax toc-generate="vm.toc = toc"></div>
+         <article-parser body="vm.article.body" generate-toc="vm.toc = toc" footnotes="vm.article.footnotes"></article-parser>
       </article>
    </div>
 </main>
