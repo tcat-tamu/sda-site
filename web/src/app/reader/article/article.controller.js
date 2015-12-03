@@ -35,6 +35,12 @@
             vm.article = resp.data;
             initScroll();
          });
+
+         var unregisterFootnoteClickListener = $scope.$on('click:footnote', function (evt, data) {
+            scrollTo(data.id, data.$event);
+         });
+
+         $scope.$on('$destroy', unregisterFootnoteClickListener);
       }
 
       /**
@@ -65,10 +71,14 @@
          }
 
          var target = angular.element('#' + id);
-         if (animated) {
-            $document.duScrollToElementAnimated(target, vm.scrollOffset);
-         } else {
-            $document.duScrollToElement(target, vm.scrollOffset);
+         try {
+            if (animated) {
+               $document.duScrollToElementAnimated(target, vm.scrollOffset);
+            } else {
+               $document.duScrollToElement(target, vm.scrollOffset);
+            }
+         } catch (e) {
+            $log.warn('unable to scroll to element by id', id);
          }
       }
 
