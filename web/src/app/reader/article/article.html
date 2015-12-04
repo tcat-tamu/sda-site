@@ -2,7 +2,7 @@
    <div class="container">
       <sda-tabbed-sidebar fixed="true" toplink="true" backlink="true" go-back="vm.goBack()" active-tab="vm.activeTab">
          <sda-sidebar-tab class="toc" title="Contents" icon="list" id="toc">
-            <ol dx-start-with="vm.toc">
+            <ol dx-start-with="vm.toc" du-scrollspy-context>
                <li ng-repeat="node in $dxPrior.children" du-scrollspy="{{node.id}}" offset="{{vm.scrollOffset}}">
                   <a ui-sref="sda.reader-article({id: vm.article.id, scrollTo: node.id})" ng-click="vm.scrollTo(node.id, true, $event)">{{node.text}}</a>
                   <ol dx-connect="node"/>
@@ -13,7 +13,7 @@
             Links to go here...
          </sda-sidebar-tab>
          <sda-sidebar-tab class="notes" title="Footnotes" icon="sticky-note-o" id="footnotes">
-            <ol>
+            <ol du-scrollspy-context>
                <li ng-repeat="note in vm.article.footnotes" ng-class="{active: note.active}" du-scrollspy="{{note.backlinkId}}" offset="{{vm.scrollOffset}}">
                   <a ui-sref="sda.reader-article({id: vm.article.id, scrollTo: note.backlinkId})" ng-click="vm.activateNote(note, $event)" ng-model="note.text" mathjax></a>
                </li>
