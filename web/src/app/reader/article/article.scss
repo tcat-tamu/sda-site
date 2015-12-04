@@ -90,6 +90,12 @@
          .footnote-anchor {
             cursor: pointer;
          }
+
+         cite {
+            font-style: normal;
+            cursor: pointer;
+            color: $lightBrown;
+         }
       }
 
       > .sidebar {

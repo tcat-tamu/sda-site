@@ -9,7 +9,7 @@
    function ArticleController($state, $stateParams, articleRepository, $log, $document, $scope, $timeout, $http, $q, _, cslBuilder) {
       var vm = this;
 
-      vm.activeTab = 'toc';
+      vm.activeTab = null;
 
       // HACK: calculate scroll offset based on rem value and header-height
       var rem = 16;
@@ -118,6 +118,11 @@
                   if (note) {
                      activateNote(note);
                   }
+               } else if ($stateParams.scrollTo.match(/cite/)) {
+                  var citation = _.findWhere(vm.citations, {backlinkId: $stateParams.scrollTo});
+                  if (citation) {
+                     activateCitation(citation);
+                  }
                } else {
                   scrollTo($stateParams.scrollTo, false)
                }
@@ -165,10 +170,15 @@
             note.active = false;
          });
 
-         scrollTo(note.backlinkId, true, $event)
-
-         vm.activeTab = 'footnotes';
          note.active = true;
+         vm.activeTab = 'footnotes';
+
+         scrollTo(note.backlinkId, true, $event)
+      }
+
+      function activateCitation(citation, $event) {
+         vm.activeTab = 'bibliography';
+         scrollTo(citation.backlinkId, true, $event);
       }
    }
 

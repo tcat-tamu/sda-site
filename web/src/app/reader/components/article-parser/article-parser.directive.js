@@ -12,6 +12,7 @@
          scope: {
             body: '=',
             footnotes: '=',
+            citations: '=',
             setToc: '&generateToc'
          },
          link: linkFunc
@@ -20,10 +21,11 @@
       return directive;
 
       function linkFunc($scope, el) {
-         $scope.$watchGroup(['body', 'footnotes'], function (newValues, oldValues) {
+         $scope.$watchGroup(['body', 'footnotes', 'citations'], function (newValues, oldValues) {
             var body = newValues[0];
             var oldBody = oldValues[0];
             var footnotes = newValues[1];
+            var citations = newValues[2];
 
             if (body && (body !== oldBody || !oldBody)) {
                // render HTML content
@@ -38,19 +40,33 @@
             }
 
             if (footnotes) {
-               // parse footnotes
                parseFootnotes(el, footnotes, onFootnoteClicked);
+            }
+
+            if (citations) {
+               // parse citations
+               parseCitations(el, citations, onCitationClicked);
             }
          });
 
          /**
           * propagate footnote 'click' events to scope
           *
-          * @param {string} id ID of the footnote that was clicked
+          * @param {Footnote} note The footnote whose anchor was clicked
           * @param {event} $event originating click event
           */
-         function onFootnoteClicked(id, $event) {
-            $scope.$emit('click:footnote', { id: id, $event: $event });
+         function onFootnoteClicked(note, $event) {
+            $scope.$emit('click:footnote', { id: note.id, note: note, $event: $event });
+         }
+
+         /**
+          * propagate citation 'click' events to scope
+          *
+          * @param {Citation} citation The citation whose anchor was clicked
+          * @param {event} $event originating click event
+          */
+         function onCitationClicked(citation, $event) {
+            $scope.$emit('click:citation', { id: citation.id, citation: citation, $event: $event });
          }
       }
 
@@ -75,8 +91,34 @@
 
             anchor
                .attr('id', backlinkId)
-               .on('click', _.partial(clickHandler, this.id))
+               .on('click', _.partial(clickHandler, target))
                .text(i+1);
+         });
+      }
+
+      /**
+       * Add backrefs to citations and trigger click events
+       *
+       * @param {Element} domRoot
+       * @param {Citation[]} citations
+       * @param {function(id:string, $event:event)} clickHandler
+       */
+      function parseCitations(domRoot, citations, clickHandler) {
+         domRoot.find('cite[data-href]').each(function (i, a) {
+            var anchor = angular.element(a);
+            var target = _.findWhere(citations, { id: anchor.data('href').replace(/^#/, '') });
+
+            var backlinkId = 'cite-' + target.id;
+
+
+            if (target) {
+               target.backlinkId = backlinkId;
+            }
+
+            anchor
+               .attr('id', backlinkId)
+               .on('click', _.partial(clickHandler, target))
+               .html(target.text);
          });
       }
 

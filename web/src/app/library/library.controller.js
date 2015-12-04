@@ -9,6 +9,7 @@
    function LibraryController($state, $scope) {
       var vm = this;
 
+      vm.defaultTab = null;
       vm.showBanner = true;
 
       vm.searchPeople = searchPeople;

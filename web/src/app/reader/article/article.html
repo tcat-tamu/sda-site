@@ -37,7 +37,7 @@
             <h1>{{vm.article.title}}</h1>
             <p class="author-info" ng-if="vm.article.authors">by <a ng-repeat="author in vm.article.authors" href="mailto:{{author.email}}">{{author.name}}</a></p>
          </div>
-         <article-parser body="vm.article.body" generate-toc="vm.toc = toc" footnotes="vm.article.footnotes"></article-parser>
+         <article-parser body="vm.article.body" generate-toc="vm.toc = toc" footnotes="vm.article.footnotes" citations="vm.citations"></article-parser>
       </article>
    </div>
 </main>
