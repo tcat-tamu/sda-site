@@ -19,8 +19,10 @@
                </li>
             </ol>
          </sda-sidebar-tab>
-         <sda-sidebar-tab class="refs" title="Bibliography" icon="exchange" id="references">
-            References to go here...
+         <sda-sidebar-tab class="refs" title="Bibliography" icon="exchange" id="bibliography">
+            <ol>
+               <li ng-repeat="item in vm.bibliography" ng-bind-html="item"></li>
+            </ol>
          </sda-sidebar-tab>
       </sda-tabbed-sidebar>
       <article>
