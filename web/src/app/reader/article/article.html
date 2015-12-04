@@ -10,7 +10,12 @@
             </ol>
          </sda-sidebar-tab>
          <sda-sidebar-tab class="links" title="Links" icon="link" id="links">
-            Links to go here...
+            <ul>
+               <li ng-repeat="link in vm.article.links" class="related related-{{link.type}}">
+                  <i class="icon fa fa-{{link.icon}}"></i>
+                  <a href="" ng-click="vm.goToLink(link, $event)">{{link.title}}</a>
+               </li>
+            </ul>
          </sda-sidebar-tab>
          <sda-sidebar-tab class="notes" title="Footnotes" icon="sticky-note-o" id="footnotes">
             <ol du-scrollspy-context>

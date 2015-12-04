@@ -155,9 +155,21 @@
     "links": [
         {
             "id": "2d8f23a7-b70e-481c-a965-65b17da096cc",
-            "title": "Foo Bar",
+            "title": "Another Article",
             "type": "article",
-            "href": "http://example.com/articles/"
+            "href": "http://example.com/articles/2d8f23a7-b70e-481c-a965-65b17da096cc"
+        },
+        {
+            "id": "9ba5ac04-4c7e-43e0-9add-6e5a9b93b3d8",
+            "title": "An Essay in Answer to Mr. Hume's Essay on Miracles",
+            "type": "book",
+            "href": "http://example.com/books/9ba5ac04-4c7e-43e0-9add-6e5a9b93b3d8"
+        },
+        {
+           "id": "3",
+           "title": "Natural Causes, Divine Action, and Scientific Explanation",
+           "type": "video",
+           "href": "http://example.com/videos/3"
         }
     ],
     "theme": {

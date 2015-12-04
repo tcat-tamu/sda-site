@@ -6,7 +6,7 @@
       .controller('ArticleController', ArticleController);
 
    /** @ngInject */
-   function ArticleController($state, $stateParams, articleRepository, $log, $document, $scope, $timeout, $http, $q, _, cslBuilder) {
+   function ArticleController($state, $stateParams, articleRepository, $log, $window, $document, $scope, $timeout, $http, $q, _, cslBuilder) {
       var vm = this;
 
       vm.activeTab = null;
@@ -25,6 +25,7 @@
       vm.scrollToTop = scrollToTop;
       vm.activateNote = activateNote;
       vm.goBack = goBack;
+      vm.goToLink = goToLink;
 
       activate();
 
@@ -54,6 +55,9 @@
          var articleP = $http.get('app/reader/article/article.json').then(_.property('data'));
 
          articleP.then(function (article) {
+            article.links.forEach(function (link) {
+               link.icon = getIcon(link.type);
+            });
             vm.article = article;
             initScroll();
          });
@@ -165,6 +169,20 @@
          $state.go('sda.reader');
       }
 
+      function goToLink(link, $event) {
+         if ($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+         }
+
+         var state = getState(link.type);
+         if (state) {
+            $state.go(state, { id: link.id });
+         } else {
+            $window.location = link.href;
+         }
+      }
+
       function activateNote(note, $event) {
          vm.article.footnotes.forEach(function (note) {
             note.active = false;
@@ -179,6 +197,48 @@
       function activateCitation(citation, $event) {
          vm.activeTab = 'bibliography';
          scrollTo(citation.backlinkId, true, $event);
+      }
+
+      /**
+       * Get the appropriate (font-awesome) icon for a given link type
+       *
+       * @param {string} type
+       * @return {string}
+       */
+      function getIcon(type) {
+         switch (type) {
+            case 'article':
+               return 'file-text-o';
+            case 'book':
+               return 'book';
+            case 'video':
+               return 'film';
+            case 'audio':
+               return 'volume-up';
+            default:
+               return 'link';
+         }
+      }
+
+      /**
+       * Get the appropriate app state for a given link type
+       *
+       * @param {string} type
+       * @return {string}
+       */
+      function getState(type) {
+         switch (type) {
+            case 'article':
+               return 'sda.reader-article';
+            // case 'book':
+            //    return 'sda.library-book';
+            case 'video':
+               return 'sda.media-item';
+            case 'audio':
+               return 'sda.media-item';
+            default:
+               return null;
+         }
       }
    }
 
