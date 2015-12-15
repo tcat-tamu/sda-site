@@ -179,7 +179,7 @@
          if (state) {
             $state.go(state, { id: link.id });
          } else {
-            $window.location = link.href;
+            $window.location = link.uri;
          }
       }
 
