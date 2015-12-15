@@ -13,7 +13,7 @@
             <ul>
                <li ng-repeat="link in vm.article.links" class="related related-{{link.type}}">
                   <i class="icon fa fa-{{link.icon}}"></i>
-                  <a href="" ng-click="vm.goToLink(link, $event)">{{link.title}}</a>
+                  <a href="{{link.uri}}" rel="{{link.rel}}" ng-click="vm.goToLink(link, $event)">{{link.title}}</a>
                </li>
             </ul>
          </sda-sidebar-tab>
