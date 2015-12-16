@@ -7,9 +7,18 @@
 
    /** @ngInject */
    function articleRepositoryFactory($resource, config) {
-      var repo = $resource(config.apiEndpoint + '/articles/:id', {}, {
-         search: { method: 'GET' }
-      });
+      var uri = config.apiEndpoint + '/articles/:id';
+
+      var defaultParameters = {};
+
+      var actions = {
+         search: {
+            method: 'GET'
+         }
+      };
+
+      var repo = $resource(uri, defaultParameters, actions);
+
       return repo;
    }
 

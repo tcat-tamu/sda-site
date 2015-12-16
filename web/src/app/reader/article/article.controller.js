@@ -30,9 +30,18 @@
       activate();
 
       function activate() {
-         // vm.article = articleRepository.get({ id: $stateParams.id }, function () {
-         //    initScroll();
-         // });
+         vm.article = articleRepository.get({ id: $stateParams.id }, function () {
+            vm.article.links.forEach(function (link) {
+               link.icon = getIcon(link.type);
+            });
+
+            var bibliography = _.indexBy(vm.article.bibliography, 'id');
+            cslBuilder.getEngine(bibliography, 'mla').then(function (citeproc) {
+               makeBibliography(vm.article, citeproc);
+            });
+
+            initScroll();
+         });
 
          var unregisterFootnoteClickListener = $scope.$on('click:footnote', function (evt, data) {
             $scope.$apply(function () {
@@ -49,34 +58,6 @@
          });
 
          $scope.$on('$destroy', unregisterCitationClickListener);
-
-
-         // HACK: static content for development purposes
-         var articleP = $http.get('app/reader/article/article.json').then(_.property('data'));
-
-         articleP.then(function (article) {
-            article.links.forEach(function (link) {
-               link.icon = getIcon(link.type);
-            });
-            vm.article = article;
-            initScroll();
-         });
-
-
-         // asynchronously load bibliographic data
-         var citeprocP = articleP.then(function (article) {
-            var bibliography = _.indexBy(article.bibliography, 'id');
-            return cslBuilder.getEngine(bibliography, 'mla');
-         });
-
-         $q
-            .all({
-               article: articleP,
-               citeproc: citeprocP
-            })
-            .then(function (data) {
-               makeBibliography(data.article, data.citeproc);
-            });
       }
 
       /**
