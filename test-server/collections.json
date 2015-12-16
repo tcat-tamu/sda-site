@@ -30,6 +30,10 @@
                         {
                            "type": "summary",
                            "id": "ccffe3ea-a5b1-42b9-b146-25f25c32b0b8"
+                        },
+                        {
+                           "type": "detailed",
+                           "id": "de00c735-0a0e-4661-9210-b57ec4f1a984"
                         }
                      ],
                      "children": [
@@ -169,27 +173,27 @@
       {
          "id": "4fea45d5-6ff2-46fd-8dd1-3a85b7b214bf",
          "title": "Assessment",
-         "articles:": {},
+         "articles:": [],
          "children": [
             {
                "id": "600e40d4-7a72-44df-b1cc-12cb35ef736a",
                "title": "Miracles-Reports",
-               "articles:": {},
+               "articles:": [],
                "children": [
                   {
                      "id": "c65df7ba-0ec0-4bb4-9911-88de952553e1",
                      "title": "Epistemology",
-                     "articles:": {},
+                     "articles:": [],
                      "children": [
                         {
                            "id": "1961a987-d377-4612-8574-a979d82028b1",
                            "title": "Systematic Evaluation",
-                           "articles:": {}
+                           "articles:": []
                         },
                         {
                            "id": "1eae9289-d0e4-4724-a031-ad79ba0eec29",
                            "title": "Historical Commentators",
-                           "articles:": {}
+                           "articles:": []
                         }
                      ]
                   },
