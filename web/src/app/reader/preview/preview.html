@@ -1,7 +1,16 @@
 <section class="article-preview">
    <article>
-      <h1>{{vm.article.title}}</h1>
-      <p class="author-info" ng-if="vm.article.authors">by <a ng-repeat="author in vm.article.authors" href="mailto:{{author.email}}">{{author.name}}</a></p>
+      <div class="meta">
+         <h1>{{vm.article.title}}</h1>
+         <p class="author-info" ng-if="vm.article.authors">
+            by
+            <span class="author" ng-repeat="author in vm.article.authors">
+               <a ng-if="author.contact.email" href="mailto:{{author.contact.email}}">{{author.name}}</a>
+               <span ng-if="!author.contact.email">{{author.name}}</span>
+            </span>
+         </p>
+      </div>
+
       <div ng-bind-html="vm.article.articleAbstract"></div>
 
       <nav>
