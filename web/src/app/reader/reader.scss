@@ -78,14 +78,18 @@
                   }
                }
             }
+         }
 
-            .checkbox-list {
-               margin: 2rem 0;
+         .collections {
+            ul {
+               margin: 0;
+               padding: 0 0 0 1.5em;
+               list-style: none;
+               line-height: 1.3;
+            }
 
-               label {
-                  display: block;
-                  cursor: pointer;
-               }
+            li {
+               margin: 0.5em 0;
             }
          }
       }

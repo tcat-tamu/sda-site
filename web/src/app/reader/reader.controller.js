@@ -6,19 +6,14 @@
       .controller('ReaderController', ReaderController);
 
    /** @ngInject */
-   function ReaderController($state, $scope) {
+   function ReaderController($state, $scope, $http, _) {
       var vm = this;
 
       vm.showBanner = true;
 
       vm.search = search;
       vm.query = '';
-      vm.facets = [];
-
-      vm.overviews = [];
-      vm.articles = [];
-      vm.bookReviews = [];
-      vm.biographies = [];
+      vm.rootCollection = [];
 
       activate();
 
@@ -27,56 +22,11 @@
             vm.query = query;
          });
 
-         vm.facets = [
-            {
-               label: 'Thematic Overviews',
-               value: 'overview',
-               selected: false
-            },
-            {
-               label: 'Articles',
-               value: 'article',
-               selected: false
-            },
-            {
-               label: 'Book Reviews',
-               value: 'review',
-               selected: false
-            },
-            {
-               label: 'Biographies',
-               value: 'biography',
-               selected: false
-            }
-         ];
+         var rootCollectionP = $http.get('app/reader/collections.json').then(_.property('data'));
 
-         vm.overviews = [
-            { title: 'Lorem ipsum' },
-            { title: 'Lorem ipsum' },
-            { title: 'Lorem ipsum' },
-            { title: 'Lorem ipsum' }
-         ];
-
-         vm.articles = [
-            { title: 'Lorem ipsum' },
-            { title: 'Lorem ipsum' },
-            { title: 'Lorem ipsum' },
-            { title: 'Lorem ipsum' }
-         ];
-
-         vm.bookReviews = [
-            { title: 'Lorem ipsum' },
-            { title: 'Lorem ipsum' },
-            { title: 'Lorem ipsum' },
-            { title: 'Lorem ipsum' }
-         ];
-
-         vm.biographies = [
-            { title: 'Lorem ipsum' },
-            { title: 'Lorem ipsum' },
-            { title: 'Lorem ipsum' },
-            { title: 'Lorem ipsum' }
-         ];
+         rootCollectionP.then(function (root) {
+            vm.rootCollection = root;
+         });
       }
 
       function search() {

@@ -7,7 +7,7 @@
 <main class="section--reader" ng-click="vm.showBanner = false">
    <div class="container">
       <sda-tabbed-sidebar>
-         <sda-sidebar-tab title="Search" icon="search">
+         <sda-sidebar-tab title="Thematic Overviews">
             <form ng-submit="vm.search()" class="search">
                <div class="input-group">
                   <input type="search" ng-model="vm.query" name="query" id="query" placeholder="search articles..."/>
@@ -16,13 +16,20 @@
                      <span class="sr-only">Search</span>
                   </button>
                </div>
-               <div class="checkbox-list">
-                  <label ng-repeat="facet in vm.facets">
-                     <input type="checkbox" name="facet[]" value="{{facet.field}}" ng-model="facet.selected">
-                     {{ facet.label }}
-                  </label>
-               </div>
             </form>
+            <div class="collections">
+               <ul dx-start-with="vm.rootCollection">
+                  <li ng-repeat="node in $dxPrior.children">
+                     <a ng-if="node.articles.summary" ui-sref="sda.reader.preview({id: node.articles.summary})">{{node.title}}</a>
+                     <span ng-if="!node.articles.summary">{{node.title}}</span>
+                     <ul dx-connect="node"/>
+                  </li>
+               </ul>
+            </div>
+         </sda-sidebar-tab>
+         <sda-sidebar-tab title="Book Reviews">
+         </sda-sidebar-tab>
+         <sda-sidebar-tab title="Biographies">
          </sda-sidebar-tab>
       </sda-tabbed-sidebar>
       <div class="content" ui-view>
