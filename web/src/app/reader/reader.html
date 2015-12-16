@@ -20,8 +20,8 @@
             <div class="collections">
                <ul dx-start-with="vm.rootCollection">
                   <li ng-repeat="node in $dxPrior.children">
-                     <a ng-if="node.summary" ui-sref="sda.reader.preview({id: node.summary.id})">{{node.title}}</a>
-                     <span ng-if="!node.summary">{{node.title}}</span>
+                     <a ng-if="node.articles.length" ui-sref="sda.reader.preview({id: node.id})">{{node.title}}</a>
+                     <span ng-if="!node.articles.length">{{node.title}}</span>
                      <ul dx-connect="node"/>
                   </li>
                </ul>

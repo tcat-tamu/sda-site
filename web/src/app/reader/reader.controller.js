@@ -6,7 +6,7 @@
       .controller('ReaderController', ReaderController);
 
    /** @ngInject */
-   function ReaderController($state, $scope, $http, _) {
+   function ReaderController($state, $scope, articleCollectionRepository) {
       var vm = this;
 
       vm.showBanner = true;
@@ -22,20 +22,7 @@
             vm.query = query;
          });
 
-         var rootCollectionP = $http.get('app/reader/collections.json').then(_.property('data'));
-
-         rootCollectionP.then(function (root) {
-            vm.rootCollection = $adaptCollection(root);
-
-            console.log(vm.rootCollection);
-         });
-      }
-
-      function $adaptCollection(collection) {
-         var adapted = _.pick(collection, ['title']);
-         adapted.summary = _.findWhere(collection.articles, {type: 'summary'});
-         adapted.children = angular.isArray(collection.children) ? collection.children.map($adaptCollection) : [];
-         return adapted;
+         vm.rootCollection = articleCollectionRepository.get();
       }
 
       function search() {

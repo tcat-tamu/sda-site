@@ -10,24 +10,28 @@
    };
 
    /** @ngInject */
-   function ReaderPreviewController($http, _) {
+   function ReaderPreviewController($stateParams, articleCollectionRepository, articleRepository, $http, _) {
       var vm = this;
 
+      vm.collection = {};
       vm.article = {};
+      vm.articleType = 'summary';
       vm.getThemeTitle = getThemeTitle;
 
       activate();
 
       function activate() {
-         var articleP = $http.get('app/reader/article/article.json').then(_.property('data'));
+         vm.collection = articleCollectionRepository.get({ id: $stateParams.id }, function (collection) {
+            // TODO: fall back to larger articles until one is found
+            var article = _.findWhere(collection.articles, { type: vm.articleType });
 
-         articleP.then(function (article) {
-            vm.article = article;
+            if (article) {
+               vm.article = articleRepository.get({ id: article.id });
+            }
          });
       }
 
       function getThemeTitle(type) {
-
          return TYPE_TITLE[type] || _.capitalize(type);
       }
    }
