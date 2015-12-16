@@ -1,0 +1,8 @@
+<section class="article-preview">
+   <article>
+      <h1>{{vm.article.title}}</h1>
+      <p class="author-info" ng-if="vm.article.authors">by <a ng-repeat="author in vm.article.authors" href="mailto:{{author.email}}">{{author.name}}</a></p>
+      <div ng-bind-html="vm.article.articleAbstract"></div>
+      <a ui-sref="sda.reader-article({id: '2cb4aa59-1332-4aa5-a51b-05a4a9692258'})" class="read-more">Read More &raquo;</a>
+   </article>
+</section>

@@ -1,0 +1,17 @@
+.article-preview {
+   a.read-more {
+      display: block;
+      margin-top: 2rem;
+      float: right;
+      padding: 0.5rem 1rem;
+      background: $copper;
+      color: $cream;
+      text-decoration: none;
+
+      transition: all 0.3s;
+
+      &:hover {
+         background: lighten($copper, 5%);
+      }
+   }
+}

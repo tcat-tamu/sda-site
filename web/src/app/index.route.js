@@ -70,6 +70,12 @@
             controller: 'ReaderSearchController',
             controllerAs: 'vm'
          })
+         .state('sda.reader.preview', {
+            url: '/preview/:id',
+            templateUrl: 'app/reader/preview/preview.html',
+            controller: 'ReaderPreviewController',
+            controllerAs: 'vm'
+         })
          .state('sda.reader-article', {
             url: '/reader/articles/:id?scrollTo',
             templateUrl: 'app/reader/article/article.html',
