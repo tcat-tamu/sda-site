@@ -5,11 +5,16 @@
       .module('sda.reader')
       .controller('ReaderPreviewController', ReaderPreviewController);
 
+   var TYPE_TITLE = {
+      detailed: 'Detailed Article'
+   };
+
    /** @ngInject */
    function ReaderPreviewController($http, _) {
       var vm = this;
 
       vm.article = {};
+      vm.getThemeTitle = getThemeTitle;
 
       activate();
 
@@ -19,6 +24,11 @@
          articleP.then(function (article) {
             vm.article = article;
          });
+      }
+
+      function getThemeTitle(type) {
+
+         return TYPE_TITLE[type] || _.capitalize(type);
       }
    }
 

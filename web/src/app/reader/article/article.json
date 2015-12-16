@@ -182,9 +182,20 @@
     "theme": {
         "title": "Miracles",
         "themeAbstract": "",
-        "treatments": [
+        "articles": [
             {
                 "type": "summary",
+                "id": "6ec6f2f6-23e1-48fb-b3ff-46db25de430c",
+                "uri": "http://example.com/themes/foo/bar"
+            },
+            {
+                "type": "overview",
+                "id": "0b604b6d-b0e9-4c66-864c-91c022085feb",
+                "uri": "http://example.com/themes/foo/bar"
+            },
+            {
+                "type": "detailed",
+                "id": "96e6ee4b-85e8-41ce-8aa9-d8978e8f34c8",
                 "uri": "http://example.com/themes/foo/bar"
             }
         ]

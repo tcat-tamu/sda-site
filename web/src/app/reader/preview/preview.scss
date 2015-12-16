@@ -1,17 +1,31 @@
 .article-preview {
-   a.read-more {
-      display: block;
+   nav {
       margin-top: 2rem;
-      float: right;
-      padding: 0.5rem 1rem;
-      background: $copper;
-      color: $cream;
-      text-decoration: none;
 
-      transition: all 0.3s;
+      ul {
+         margin: 0;
+         padding: 0;
+         list-style: none;
+         text-align: right;
 
-      &:hover {
-         background: lighten($copper, 5%);
+         li {
+            display: inline-block;
+            margin: 0 0.5rem;
+
+            a.read-more {
+               display: block;
+               padding: 0.5rem 1rem;
+               background: $copper;
+               color: $cream;
+               text-decoration: none;
+
+               transition: all 0.3s;
+
+               &:hover {
+                  background: lighten($copper, 5%);
+               }
+            }
+         }
       }
    }
 }

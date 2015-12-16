@@ -6,56 +6,59 @@
       {
          "id": "018fdce8-97b3-426a-b9f8-829e28e05474",
          "title": "Meaning",
-         "articles": {},
+         "articles": [],
          "children": [
             {
                "id": "01fc4190-ca51-449b-8863-21b21689c86f",
                "title": "What is SDA?",
-               "articles": {},
+               "articles": [],
                "children": [
                   {
                      "id": "eae2f7ce-42fd-4760-b0b9-d55c6d8ff8c5",
                      "title": "Inspiration",
-                     "articles": {}
+                     "articles": []
                   },
                   {
                      "id": "7aa16cc3-a8e5-448a-b85e-83373cb3783b",
                      "title": "Providence",
-                     "articles": {}
+                     "articles": []
                   },
                   {
                      "id": "f32720ef-4f4c-49fd-84c3-d94303d77086",
                      "title": "Miracles",
-                     "articles": {
-                        "summary": "ccffe3ea-a5b1-42b9-b146-25f25c32b0b8"
-                     },
+                     "articles": [
+                        {
+                           "type": "summary",
+                           "id": "ccffe3ea-a5b1-42b9-b146-25f25c32b0b8"
+                        }
+                     ],
                      "children": [
                         {
                            "id": "56bf9be1-805c-4739-b9f8-e09d8d85a817",
                            "title": "Bolzano",
-                           "articles": {}
+                           "articles": []
                         },
                         {
                            "id": "7f334e57-9665-479b-8509-9dd9d1087f7a",
                            "title": "Hume",
-                           "articles": {}
+                           "articles": []
                         }
                      ]
                   },
                   {
                      "id": "d5f1a357-6f49-496d-81bf-619d88d0714c",
                      "title": "Grace",
-                     "articles": {}
+                     "articles": []
                   },
                   {
                      "id": "d23901a3-8ad0-4bb6-8d8d-d38cc557e27c",
                      "title": "Analysis of Agents involved in SDA",
-                     "articles": {}
+                     "articles": []
                   },
                   {
                      "id": "8b2bf5d5-1724-47da-9677-62818a5df637",
                      "title": "Purpose of SDA",
-                     "articles": {}
+                     "articles": []
                   }
                ]
             }
@@ -64,98 +67,98 @@
       {
          "id": "fa55af48-4dc6-40e7-88ab-06932f92f215",
          "title": "Narratives",
-         "articles": {},
+         "articles": [],
          "children": [
             {
                "id": "11a17ead-dc60-4f97-a68c-1c1a3ace7f4e",
                "title": "Worldviews",
-               "articles": {},
+               "articles": [],
                "children": [
                   {
                      "id": "caf99469-efd6-462f-9601-a4e0ad17674c",
                      "title": "Religious Studies",
-                     "articles": {},
+                     "articles": [],
                      "children": [
                         {
                            "id": "6bd6f069-c4cd-408a-b629-fae5d74a80cf",
                            "title": "Recent and Historical Examples",
-                           "articles": {}
+                           "articles": []
                         },
                         {
                            "id": "a7564357-8ecb-4900-a50c-c300d7359f2d",
                            "title": "Islam",
-                           "articles": {}
+                           "articles": []
                         },
                         {
                            "id": "b47aa7e4-6e5a-4f34-ab59-d7d1c7cb2a21",
                            "title": "Christianity",
-                           "articles": {}
+                           "articles": []
                         },
                         {
                            "id": "8f2356ca-2062-40af-873d-bd86f36421b8",
                            "title": "Buddhism",
-                           "articles": {}
+                           "articles": []
                         }
                      ]
                   },
                   {
                      "id": "358bd29c-b857-4ee7-a462-2ec519626623",
                      "title": "Philosophy of Religion",
-                     "articles": {},
+                     "articles": [],
                      "children": [
                         {
                            "id": "d8ea144e-d894-40c2-b158-160ce9f7ad6a",
                            "title": "Theism",
-                           "articles": {}
+                           "articles": []
                         },
                         {
                            "id": "626ad591-3616-459a-a6c8-c22dfd59a52a",
                            "title": "Deism",
-                           "articles": {}
+                           "articles": []
                         },
                         {
                            "id": "9e4a0191-4cfd-4b7c-913e-db5f067ff716",
                            "title": "Process Theology",
-                           "articles": {}
+                           "articles": []
                         }
                      ]
                   },
                   {
                      "id": "24a7515f-3fcf-4f52-a5e1-ce7b2ea74a16",
                      "title": "Science",
-                     "articles": {},
+                     "articles": [],
                      "children": [
                         {
                            "id": "be6db2c0-4ac0-465e-9c86-956678bba539",
                            "title": "Newton",
-                           "articles": {}
+                           "articles": []
                         },
                         {
                            "id": "a9f24089-bfee-48aa-be18-48f46407bbe6",
                            "title": "Quantum",
-                           "articles": {}
+                           "articles": []
                         }
                      ]
                   },
                   {
                      "id": "0ac6d502-51ae-4cec-9921-b72a30767c5b",
                      "title": "Philosophy of Science",
-                     "articles": {},
+                     "articles": [],
                      "children": [
                         {
                            "id": "5ca44560-4aab-4b8b-9d23-6230e2127d18",
                            "title": "Reductionism",
-                           "articles": {}
+                           "articles": []
                         },
                         {
                            "id": "76a81303-6e16-445a-864b-1ec5db3cc80e",
                            "title": "Causation",
-                           "articles": {}
+                           "articles": []
                         },
                         {
                            "id": "85adfbd4-f3ff-4189-8020-9051f9785d62",
                            "title": "Emergence",
-                           "articles": {}
+                           "articles": []
                         }
                      ]
                   }
@@ -193,17 +196,17 @@
                   {
                      "id": "fa1febdc-602c-423d-b718-813fd8842061",
                      "title": "1. Person",
-                     "articles": {}
+                     "articles": []
                   },
                   {
                      "id": "659d91ac-e809-4909-8629-3c09d03149f4",
                      "title": "2. Person",
-                     "articles": {}
+                     "articles": []
                   },
                   {
                      "id": "606bad95-68a2-4847-b951-a9f2b043b478",
                      "title": "3. Person",
-                     "articles": {}
+                     "articles": []
                   }
                ]
             }
@@ -212,17 +215,17 @@
       {
          "id": "7430d8e4-eafc-44ac-8f89-d2cc5356b74d",
          "title": "Imagination",
-         "articles": {},
+         "articles": [],
          "children": [
             {
                "id": "1b561fc9-6c89-4998-93e6-2110daceb613",
                "title": "How is it described?",
-               "articles": {}
+               "articles": []
             },
             {
                "id": "0e7dec17-3090-4999-97e4-ac9099542d73",
                "title": "Metaphors, Stories, Images",
-               "articles": {}
+               "articles": []
             }
          ]
       }
