@@ -213,6 +213,10 @@
             throw new Error('no bibliography provided');
          }
 
+         if (angular.isArray(bibliography)) {
+            bibliography = _.indexBy(bibliography, 'id');
+         }
+
          if (!stylePs[styleId]) {
             throw new Error('attempted to load unregistered style ' + styleId);
          }
