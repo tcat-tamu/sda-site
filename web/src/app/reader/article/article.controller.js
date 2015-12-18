@@ -35,58 +35,28 @@
                link.icon = getIcon(link.type);
             });
 
-            var bibliography = _.indexBy(vm.article.bibliography, 'id');
-            cslBuilder.getEngine(bibliography, 'mla').then(function (citeproc) {
-               makeBibliography(vm.article, citeproc);
-            });
+            var bibliography = vm.article.bibliography;
+            var citations = vm.article.citations;
+
+            cslBuilder.renderBibliography(bibliography, citations, 'mla').then(function (bibView) {
+               vm.citations = _.pluck(bibView.citations, 'html');
+               vm.bibliography = bibView.items;
+            })
 
             initScroll();
          });
 
-         var unregisterFootnoteClickListener = $scope.$on('click:footnote', function (evt, data) {
+         $scope.$on('click:footnote', function (evt, data) {
             $scope.$apply(function () {
                activateNote(data.note, data.$event);
             });
          });
 
-         $scope.$on('$destroy', unregisterFootnoteClickListener);
-
-         var unregisterCitationClickListener = $scope.$on('click:citation', function (evt, data) {
+         $scope.$on('click:citation', function (evt, data) {
             $scope.$apply(function () {
                activateCitation(data.citation, data.$event);
             });
          });
-
-         $scope.$on('$destroy', unregisterCitationClickListener);
-      }
-
-      /**
-       * Pull citations and bibliography from the article and render them into HTML for display
-       *
-       * @param {Article} article
-       * @param {CSL.Engine} citeproc
-       */
-      function makeBibliography(article, citeproc) {
-         var refIds = _.chain(article.citations)
-            .pluck('citationItems')
-            .flatten()
-            .pluck('id')
-            .unique()
-            .value();
-
-         citeproc.updateItems(refIds);
-
-         vm.citations = article.citations.map(function (citation) {
-            var citeData = citeproc.appendCitationCluster(citation, true);
-            return {
-               id: citation.id,
-               text: citeData[0][1]
-            };
-         });
-
-         var biblInfo = citeproc.makeBibliography();
-         // An array of HTML strings, each of which is a formatted bibliographic item
-         vm.bibliography = biblInfo[1];
       }
 
       /**

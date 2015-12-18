@@ -6,7 +6,7 @@
       .factory('cslBuilder', cslBuilderFactory);
 
    /** @ngInject */
-   function cslBuilderFactory(CSL, $http, $q) {
+   function cslBuilderFactory(CSL, $http, $q, _) {
 
       var localePs = {};
       var stylePs = {};
@@ -18,6 +18,7 @@
       API.addStyle = addStyle;
       API.setDefaultLocale = setDefaultLocale;
       API.getEngine = getEngine;
+      API.renderBibliography = renderBibliography;
 
       return API;
 
@@ -108,5 +109,61 @@
             return new CSL.Engine(sys, data.style, defaultLocale);
          });
       }
+
+      /**
+       * Renders a bibliography and citations into HTML snippets for insertion into a web page.
+       *
+       * @param {(BibliographyMap|BibliographyItem[])} bibliography
+       * @param {Citation[]} citations
+       * @param {string} style
+       * @return {Promise.<BibliographyView>}
+       */
+      function renderBibliography(bibliography, citations, styleId) {
+         return getEngine(bibliography, styleId).then(onCiteprocLoad);
+
+         /**
+          * Callback for after citeproc loads asynchronously
+          *
+          * @param {CSL.Engine} citeproc
+          * @return {BibliographyView}
+          */
+         function onCiteprocLoad(citeproc) {
+            /**
+             * @type {string[]}
+             */
+            var citationIds = _.chain(citations)
+               .pluck('citationItems').flatten()
+               .pluck('id')
+               .unique()
+               .value();
+
+            // tell citeproc in advance exactly which items will be cited
+            citeproc.updateItems(citationIds);
+
+            /**
+             * @type {CitationView[]}
+             */
+            var citationViews = citations.map(function (citation) {
+               // second argument indicates that citeproc already knows all items in advance
+               var citeData = citeproc.appendCitationCluster(citation, true);
+
+               return {
+                  id: citation.citationID,
+                  citation: citation,
+                  index: citeData[0][0],
+                  html: citeData[0][1]
+               };
+            });
+
+            var bibliographyData = citeproc.makeBibliography();
+
+            return {
+               citations: citationViews,
+               metadata: bibliographyData[0],
+               items: bibliographyData[1]
+            };
+         }
+      }
    }
+
 })();

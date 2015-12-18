@@ -18,5 +18,10 @@
             <li ng-repeat="theme in vm.collection.articles | filter: {type: '!' + vm.articleType}"><a ui-sref="sda.reader-article({id: theme.id})" class="read-more">Read {{vm.getThemeTitle(theme.type)}} &raquo;</a></li>
          </ul>
       </nav>
+
+      <h2>Bibliography</h2>
+      <ol class="bibliography">
+         <li ng-repeat="item in vm.bibliography" ng-bind-html="item"></li>
+      </ol>
    </article>
 </section>
