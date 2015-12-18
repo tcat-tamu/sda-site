@@ -100,7 +100,7 @@
        * Add backrefs to citations and trigger click events
        *
        * @param {Element} domRoot
-       * @param {Citation[]} citations
+       * @param {CitationView[]} citations
        * @param {function(id:string, $event:event)} clickHandler
        */
       function parseCitations(domRoot, citations, clickHandler) {
