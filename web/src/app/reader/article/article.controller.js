@@ -6,7 +6,7 @@
       .controller('ArticleController', ArticleController);
 
    /** @ngInject */
-   function ArticleController($state, $stateParams, articleRepository, $log, $window, $document, $scope, $timeout, $http, $q, _, cslBuilder) {
+   function ArticleController($state, $stateParams, articleRepository, $log, $window, $document, $scope, $timeout, _, cslBuilder) {
       var vm = this;
 
       vm.activeTab = null;

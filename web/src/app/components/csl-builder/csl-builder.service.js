@@ -62,13 +62,13 @@
  *
  * @typedef BibliographyMetadata
  * @type {object}
- * @property {number} maxoffset
- * @property {number} entryspacing
- * @property {number} linespacing
- * @property {number} hangingindent
- * @property {boolean} second-field-align
- * @property {string} bibstart
- * @property {string} bibend
+ * @property {integer} maxoffset - The maximum number of characters that appear in any label used in the bibliography.
+ * @property {integer} entryspacing - The spacing between entries in the bibliography.
+ * @property {integer} linespacing - The spacing between the lines within each bibliography entry.
+ * @property {number} hangingindent - The number of em-spaces to apply in hanging indents within the bibliography.
+ * @property {boolean} second-field-align - If the second-field-align CSL option is set, this returns either "flush" or "margin"; otherwise set to false.
+ * @property {string} bibstart - A string to be appended to the front of the finished bibliography string.
+ * @property {string} bibend - A string to be appended to the end of the finished bibliography string.
  * @property {BibliographyError[]} bibliography_errors
  */
 
