@@ -2,6 +2,7 @@
    > .container {
       display: flex;
       flex-direction: column;
+      flex: 1;
 
       @media screen and (min-width: $screen-md-min) {
          flex-direction: row;

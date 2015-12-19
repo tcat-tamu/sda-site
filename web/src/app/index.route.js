@@ -54,6 +54,12 @@
             controller: 'LibraryBookController',
             controllerAs: 'vm'
          })
+         .state('sda.library-bookreader', {
+            url: '/library/read/:workId/:copyId',
+            templateUrl: 'app/library/bookreader/bookreader.html',
+            controller: 'LibraryBookreaderController',
+            controllerAs: 'vm'
+         })
 
 
          .state('sda.media', {

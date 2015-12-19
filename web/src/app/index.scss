@@ -135,6 +135,7 @@ html {
 
 html, body {
    margin: 0;
+   height: 100%;
 }
 
 body {
@@ -145,6 +146,15 @@ body {
    // -webkit-font-smoothing: antialiased;
    // -moz-osx-font-smoothing: grayscale;
    line-height: 1.8;
+   position: relative;
+
+   .fill-page {
+      position: absolute;
+      top: $header-height;
+      bottom: 0;
+      left: 0;
+      right: 0;
+   }
 }
 
 img, picture {
