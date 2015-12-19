@@ -42,6 +42,18 @@
             controller: 'LibraryBooksSearchController',
             controllerAs: 'vm'
          })
+         .state('sda.library.person', {
+            url: '/people/:id',
+            templateUrl: 'app/library/people/person.html',
+            controller: 'LibraryPersonController',
+            controllerAs: 'vm'
+         })
+         .state('sda.library.book', {
+            url: '/books/:workId',
+            templateUrl: 'app/library/books/book.html',
+            controller: 'LibraryBookController',
+            controllerAs: 'vm'
+         })
 
 
          .state('sda.media', {

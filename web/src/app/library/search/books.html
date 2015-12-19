@@ -1,11 +1,13 @@
 <section class="results">
    <h1>Search Results</h1>
    <ol>
-      <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, praesentium.</li>
-      <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, praesentium.</li>
-      <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, praesentium.</li>
-      <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, praesentium.</li>
-      <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, praesentium.</li>
-      <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, praesentium.</li>
+      <li class="work" ng-repeat="book in vm.books">
+         <span class="authors">
+            <span class="author" ng-repeat="author in book.authors">
+               <a ui-sref="sda.library.person({id: author.authorId})">{{author.lastName}}</a>,
+            </span>
+         </span>
+         <span class="title"><a ui-sref="sda.library.book({workId: book.id})">{{book.title}}</a></span>
+      </li>
    </ol>
 </section>

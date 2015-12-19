@@ -44,7 +44,6 @@
          var bibliography = _.indexBy(article.bibliography, 'id');
 
          cslBuilder.renderBibliography(bibliography, citations, 'mla').then(function (bibView) {
-            console.log(bibView);
             vm.bibliography = bibView.items;
             vm.citations = _.pluck(bibView.citations, 'html');
          });

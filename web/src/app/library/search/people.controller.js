@@ -6,13 +6,17 @@
       .controller('LibraryPeopleSearchController', LibraryPeopleSearchController);
 
    /** @ngInject */
-   function LibraryPeopleSearchController($stateParams, $scope) {
+   function LibraryPeopleSearchController($stateParams, $scope, personRepository) {
       var vm = this;
+
+      vm.people = [];
 
       activate();
 
       function activate() {
-         $scope.$emit('set:query:people', $stateParams.query);
+         var query = $stateParams.query;
+         $scope.$emit('set:query:people', query);
+         vm.people = personRepository.query({ syntheticName: query });
       }
    }
 
