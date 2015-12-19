@@ -1,0 +1,1823 @@
+[
+    {
+        "authors": [
+            {
+                "authorId": "1037",
+                "firstName": "Lobegott Friedrich Constantin von",
+                "lastName": "Tischendorf",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1016",
+        "label": "Tischendorf, Origin of the Four Gospels",
+        "pubYear": null,
+        "summary": "",
+        "title": "Origin of the Four Gospels",
+        "type": null,
+        "uri": "works/1016"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "271",
+                "firstName": "Bryan",
+                "lastName": "Fairfax",
+                "name": null,
+                "role": "author"
+            }
+        ],
+        "id": "354",
+        "label": "Fairfax, Strictures on the Second Part of the Age of Reason",
+        "pubYear": null,
+        "summary": "",
+        "title": "Strictures on the Second Part of the Age of Reason",
+        "type": null,
+        "uri": "works/354"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "26",
+                "firstName": "Edward",
+                "lastName": "Chandler",
+                "name": null,
+                "role": "author"
+            }
+        ],
+        "id": "15",
+        "label": "Chandler, Defence of Christianity",
+        "pubYear": null,
+        "summary": "",
+        "title": "Defence of Christianity",
+        "type": null,
+        "uri": "works/15"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1063",
+                "firstName": "Edward 4th Baronet",
+                "lastName": "Denny",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1103",
+        "label": "Denny, The Seventy Weeks of Daniel",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Seventy Weeks of Daniel",
+        "type": null,
+        "uri": "works/1103"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "633",
+                "firstName": "Thomas Verner",
+                "lastName": "Moore",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1200",
+        "label": "Moore, The Last Days of Jesus",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Last Days of Jesus",
+        "type": null,
+        "uri": "works/1200"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "620",
+                "firstName": "John David",
+                "lastName": "Michaelis",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1153",
+        "label": "Michaelis, Burial and Resurrection of Jesus Christ",
+        "pubYear": null,
+        "summary": "",
+        "title": "Burial and Resurrection of Jesus Christ",
+        "type": null,
+        "uri": "works/1153"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "656",
+                "firstName": "Uzal",
+                "lastName": "Ogden",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1244",
+        "label": "Ogden, Antidote to Deism",
+        "pubYear": null,
+        "summary": "",
+        "title": "Antidote to Deism",
+        "type": null,
+        "uri": "works/1244"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "678",
+                "firstName": "John Gorham",
+                "lastName": "Palfrey",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1273",
+        "label": "Palfrey, The Relation Between Judaism and Christianity",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Relation Between Judaism and Christianity",
+        "type": null,
+        "uri": "works/1273"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1038",
+                "firstName": "Henry George",
+                "lastName": "Tomkins",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1017",
+        "label": "Tomkins, Abraham and his Age",
+        "pubYear": null,
+        "summary": "",
+        "title": "Abraham and his Age",
+        "type": null,
+        "uri": "works/1017"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "268",
+                "firstName": "The Hon. Tho.",
+                "lastName": "Erskine",
+                "name": null,
+                "role": "author"
+            }
+        ],
+        "id": "345",
+        "label": "Erskine, Christianity Vindicated",
+        "pubYear": null,
+        "summary": "",
+        "title": "Christianity Vindicated",
+        "type": null,
+        "uri": "works/345"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "996",
+                "firstName": "Charles",
+                "lastName": "Elliott",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1104",
+        "label": "Elliott, Old Testament Prophecy",
+        "pubYear": null,
+        "summary": "",
+        "title": "Old Testament Prophecy",
+        "type": null,
+        "uri": "works/1104"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "620",
+                "firstName": "John David",
+                "lastName": "Michaelis",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1154",
+        "label": "Michaelis, Introduction to the New Testament",
+        "pubYear": null,
+        "summary": "",
+        "title": "Introduction to the New Testament",
+        "type": null,
+        "uri": "works/1154"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1113",
+                "firstName": "Thomas",
+                "lastName": "Percy",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1201",
+        "label": "Percy, A Key to the New Testament",
+        "pubYear": null,
+        "summary": "",
+        "title": "A Key to the New Testament",
+        "type": null,
+        "uri": "works/1201"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "657",
+                "firstName": "John",
+                "lastName": "Ogilvie",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1245",
+        "label": "Ogilvie, An Inquiry into the Causes of the Infidelity and Scepticism of the Times",
+        "pubYear": null,
+        "summary": "",
+        "title": "An Inquiry into the Causes of the Infidelity and Scepticism of the Times",
+        "type": null,
+        "uri": "works/1245"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "678",
+                "firstName": "John Gorham",
+                "lastName": "Palfrey",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1274",
+        "label": "Palfrey, Thoughts on Providence and Prayer",
+        "pubYear": null,
+        "summary": "",
+        "title": "Thoughts on Providence and Prayer",
+        "type": null,
+        "uri": "works/1274"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "704",
+                "firstName": "Humphrey",
+                "lastName": "Prideaux",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1311",
+        "label": "Prideaux, The True Nature of Imposture Fully Display'd in the Life of Mahomet.",
+        "pubYear": null,
+        "summary": "",
+        "title": "The True Nature of Imposture Fully Display'd in the Life of Mahomet.",
+        "type": null,
+        "uri": "works/1311"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "715",
+                "firstName": "George",
+                "lastName": "Renaud",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1355",
+        "label": "Renaud, How Did Christ Rank the Proofs of His Mission?",
+        "pubYear": null,
+        "summary": "",
+        "title": "How Did Christ Rank the Proofs of His Mission?",
+        "type": null,
+        "uri": "works/1355"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "17",
+                "firstName": "Peter",
+                "lastName": "Annet",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1389",
+        "label": "Annet, The Resurrection Defenders Stript of All Defence",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Resurrection Defenders Stript of All Defence",
+        "type": null,
+        "uri": "works/1389"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "900",
+                "firstName": "Benjamin Breckinridge",
+                "lastName": "Warfield",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1018",
+        "label": "Warfield,  Acts and Pastoral Epistles",
+        "pubYear": null,
+        "summary": "",
+        "title": " Acts and Pastoral Epistles",
+        "type": null,
+        "uri": "works/1018"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "571",
+                "firstName": "Jane Haldimand",
+                "lastName": "Marcet",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1056",
+        "label": "Marcet, Conversations on the Evidences of Christianity",
+        "pubYear": null,
+        "summary": "<div>Seems to have been written by Marcet, but later modified by Blake</div>",
+        "title": "Conversations on the Evidences of Christianity",
+        "type": null,
+        "uri": "works/1056"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "30",
+                "firstName": "Anthony",
+                "lastName": "Collins",
+                "name": "Anonymous",
+                "role": "author"
+            }
+        ],
+        "id": "27",
+        "label": "Collins, Literal Prophecy Considered",
+        "pubYear": null,
+        "summary": "",
+        "title": "Literal Prophecy Considered",
+        "type": null,
+        "uri": "works/27"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1065",
+                "firstName": "Patrick",
+                "lastName": "Fairbairn",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1105",
+        "label": "Fairbairn, Prophecy",
+        "pubYear": null,
+        "summary": "",
+        "title": "Prophecy",
+        "type": null,
+        "uri": "works/1105"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "621",
+                "firstName": "Richard",
+                "lastName": "Michell",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1155",
+        "label": "Michell, The Nature and Comparative Value of the Christian Evidences ",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Nature and Comparative Value of the Christian Evidences ",
+        "type": null,
+        "uri": "works/1155"
+    },
+    {
+        "authors": [
+            {
+                "authorId": null,
+                "firstName": "George Bethune",
+                "lastName": "English",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1202",
+        "label": "English, Five Pebbles From the Brook",
+        "pubYear": null,
+        "summary": "",
+        "title": "Five Pebbles From the Brook",
+        "type": null,
+        "uri": "works/1202"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "659",
+                "firstName": "Henry Ustick",
+                "lastName": "Onderdonk",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1246",
+        "label": "Onderdonk, Sermons and Episcopal Charges",
+        "pubYear": null,
+        "summary": "",
+        "title": "Sermons and Episcopal Charges",
+        "type": null,
+        "uri": "works/1246"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "679",
+                "firstName": "Roundell",
+                "lastName": "Palmer",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1275",
+        "label": "Palmer, Letters to His Son on Religion",
+        "pubYear": null,
+        "summary": "",
+        "title": "Letters to His Son on Religion",
+        "type": null,
+        "uri": "works/1275"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1142",
+                "firstName": "Edward",
+                "lastName": "Gibbon",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1207",
+        "label": "Gibbon, Decline and Fall of the Roman Empire",
+        "pubYear": null,
+        "summary": "",
+        "title": "Decline and Fall of the Roman Empire",
+        "type": null,
+        "uri": "works/1207"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "76",
+                "firstName": "Joseph",
+                "lastName": "Priestley",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1312",
+        "label": "Priestley, An Answer to Mr. Paine's Age of Reason",
+        "pubYear": null,
+        "summary": "",
+        "title": "An Answer to Mr. Paine's Age of Reason",
+        "type": null,
+        "uri": "works/1312"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "716",
+                "firstName": "Henry Robert",
+                "lastName": "Reynolds",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1356",
+        "label": "Reynolds, John the Baptist.",
+        "pubYear": null,
+        "summary": "",
+        "title": "John the Baptist.",
+        "type": null,
+        "uri": "works/1356"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "723",
+                "firstName": "Robert",
+                "lastName": "Roberts",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1390",
+        "label": "Roberts, The Trial of the Most Notable Lawsuit of Ancient or Modern Times.",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Trial of the Most Notable Lawsuit of Ancient or Modern Times.",
+        "type": null,
+        "uri": "works/1390"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "901",
+                "firstName": "George",
+                "lastName": "Warington",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1019",
+        "label": "Warington, The Historic Character of the Pentateuch Vindicated",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Historic Character of the Pentateuch Vindicated",
+        "type": null,
+        "uri": "works/1019"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "591",
+                "firstName": "Lucy F. March",
+                "lastName": "Phillipps",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1057",
+        "label": "Phillipps, Lectures on the Cumulative Evidences of Divine Revelation",
+        "pubYear": null,
+        "summary": "",
+        "title": "Lectures on the Cumulative Evidences of Divine Revelation",
+        "type": null,
+        "uri": "works/1057"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1066",
+                "firstName": "Aaron Parker",
+                "lastName": "Forman",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1106",
+        "label": "Forman, Prophecy",
+        "pubYear": null,
+        "summary": "",
+        "title": "Prophecy",
+        "type": null,
+        "uri": "works/1106"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "71",
+                "firstName": "Henry D.D.",
+                "lastName": "Wace",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1156",
+        "label": "Wace,  Prophecy -- Jewish and Christian",
+        "pubYear": null,
+        "summary": "",
+        "title": " Prophecy -- Jewish and Christian",
+        "type": null,
+        "uri": "works/1156"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "17",
+                "firstName": "Peter",
+                "lastName": "Annet",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1391",
+        "label": "Annet, The History and Character of St Paul, Examined ",
+        "pubYear": null,
+        "summary": "",
+        "title": "The History and Character of St Paul, Examined ",
+        "type": null,
+        "uri": "works/1391"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1131",
+                "firstName": "William  Benjamin",
+                "lastName": "Carpenter",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1696",
+        "label": "Carpenter, Nature and Man ",
+        "pubYear": null,
+        "summary": "",
+        "title": "Nature and Man ",
+        "type": null,
+        "uri": "works/1696"
+    },
+    {
+        "authors": [
+            {
+                "authorId": null,
+                "firstName": "George Bethune",
+                "lastName": "English",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1203",
+        "label": "English, The Grounds of Christianity Examined: by Comparing the New Testament with the Old",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Grounds of Christianity Examined: by Comparing the New Testament with the Old",
+        "type": null,
+        "uri": "works/1203"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "670",
+                "firstName": "James",
+                "lastName": "Orr",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1247",
+        "label": "Orr, David Hume and His Influence on Philosophy and Theology",
+        "pubYear": null,
+        "summary": "",
+        "title": "David Hume and His Influence on Philosophy and Theology",
+        "type": null,
+        "uri": "works/1247"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "680",
+                "firstName": "William D.D.",
+                "lastName": "Parker",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1276",
+        "label": "Parker, The Expediency of some Divine Interpositions, during the First Ages of the Christian Fathers, consider'd.",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Expediency of some Divine Interpositions, during the First Ages of the Christian Fathers, consider'd.",
+        "type": null,
+        "uri": "works/1276"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "76",
+                "firstName": "Joseph",
+                "lastName": "Priestley",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1313",
+        "label": "Priestley, Discourses on the Evidence of Revealed Religion",
+        "pubYear": null,
+        "summary": "",
+        "title": "Discourses on the Evidence of Revealed Religion",
+        "type": null,
+        "uri": "works/1313"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "717",
+                "firstName": "George",
+                "lastName": "Richards",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1357",
+        "label": "Richards, Divine Origin of Prophecy Illustrated and Defended",
+        "pubYear": null,
+        "summary": "",
+        "title": "Divine Origin of Prophecy Illustrated and Defended",
+        "type": null,
+        "uri": "works/1357"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "73",
+                "firstName": "Charles Adolphus",
+                "lastName": "Row",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1420",
+        "label": "Row, The Jesus of the Evangelists",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Jesus of the Evangelists",
+        "type": null,
+        "uri": "works/1420"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "903",
+                "firstName": "Henry William",
+                "lastName": "Watkins",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1020",
+        "label": "Watkins, Modern Criticism Considered in its Relation to the Fourth Gospel",
+        "pubYear": null,
+        "summary": "",
+        "title": "Modern Criticism Considered in its Relation to the Fourth Gospel",
+        "type": null,
+        "uri": "works/1020"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "42",
+                "firstName": "John",
+                "lastName": "Locke",
+                "name": null,
+                "role": "author"
+            }
+        ],
+        "id": "51",
+        "label": "Locke, Second Vindication of the Reasonableness of Christianity",
+        "pubYear": null,
+        "summary": "",
+        "title": "Second Vindication of the Reasonableness of Christianity",
+        "type": null,
+        "uri": "works/51"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "592",
+                "firstName": "James",
+                "lastName": "Marchant",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1058",
+        "label": "Marchant, Theories of the Resurrection of Jesus Christ",
+        "pubYear": null,
+        "summary": "",
+        "title": "Theories of the Resurrection of Jesus Christ",
+        "type": null,
+        "uri": "works/1058"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1067",
+                "firstName": "John",
+                "lastName": "Gill",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1107",
+        "label": "Gill, The Prophecies of the Old Testament",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Prophecies of the Old Testament",
+        "type": null,
+        "uri": "works/1107"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "916",
+                "firstName": "William",
+                "lastName": "Whiston",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1157",
+        "label": "Whiston, The Accomplishment of Scripture Prophecies",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Accomplishment of Scripture Prophecies",
+        "type": null,
+        "uri": "works/1157"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1140",
+                "firstName": "Benjamin Dias",
+                "lastName": "Fernandes",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1204",
+        "label": "Fernandes, A Series of Letters on the Evidences of Christianity",
+        "pubYear": null,
+        "summary": "",
+        "title": "A Series of Letters on the Evidences of Christianity",
+        "type": null,
+        "uri": "works/1204"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "670",
+                "firstName": "James",
+                "lastName": "Orr",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1248",
+        "label": "Orr, The Bible Under Trial",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Bible Under Trial",
+        "type": null,
+        "uri": "works/1248"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "681",
+                "firstName": "Lawrence",
+                "lastName": "Parsons",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1277",
+        "label": "Parsons, An Argument to Prove the Truth of the Christian Revelation",
+        "pubYear": null,
+        "summary": "",
+        "title": "An Argument to Prove the Truth of the Christian Revelation",
+        "type": null,
+        "uri": "works/1277"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "76",
+                "firstName": "Joseph",
+                "lastName": "Priestley",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1314",
+        "label": "Priestley, A Comparison of the Institutes of Moses with those of the Hindoos",
+        "pubYear": null,
+        "summary": "",
+        "title": "A Comparison of the Institutes of Moses with those of the Hindoos",
+        "type": null,
+        "uri": "works/1314"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "73",
+                "firstName": "Charles Adolphus",
+                "lastName": "Row",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1421",
+        "label": "Row, The Moral Teaching of the New Testament",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Moral Teaching of the New Testament",
+        "type": null,
+        "uri": "works/1421"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "718",
+                "firstName": "Joseph Esmond",
+                "lastName": "Riddle",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1358",
+        "label": "Riddle, The Natural History of Infidelity and Superstition in Contrast with Christian Faith",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Natural History of Infidelity and Superstition in Contrast with Christian Faith",
+        "type": null,
+        "uri": "works/1358"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "17",
+                "firstName": "Peter",
+                "lastName": "Annet",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1392",
+        "label": "Annet, Deism Fairly Stated and Fully Vindicated  from the Gross Imputations and Groundless Calumnies of Modern Believers ",
+        "pubYear": null,
+        "summary": "",
+        "title": "Deism Fairly Stated and Fully Vindicated  from the Gross Imputations and Groundless Calumnies of Modern Believers ",
+        "type": null,
+        "uri": "works/1392"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "903",
+                "firstName": "Henry William",
+                "lastName": "Watkins",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1471",
+        "label": "Watkins, Modern Criticism Considered in Relation to the Fourth Gospel",
+        "pubYear": null,
+        "summary": "",
+        "title": "Modern Criticism Considered in Relation to the Fourth Gospel",
+        "type": null,
+        "uri": "works/1471"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1006",
+                "firstName": "Dyson",
+                "lastName": "Dyson Hague",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1632",
+        "label": "Dyson Hague, The Higher Criticism",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Higher Criticism",
+        "type": null,
+        "uri": "works/1632"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "62",
+                "firstName": "Charles",
+                "lastName": "Bradlaugh",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1697",
+        "label": "Bradlaugh, The Bible",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Bible",
+        "type": null,
+        "uri": "works/1697"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1043",
+                "firstName": "Charles Fulkes",
+                "lastName": "Watson",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1021",
+        "label": "Watson, Darius the Median Identified",
+        "pubYear": null,
+        "summary": "",
+        "title": "Darius the Median Identified",
+        "type": null,
+        "uri": "works/1021"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "593",
+                "firstName": "David Samuel",
+                "lastName": "Margoliouth",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1059",
+        "label": "Margoliouth, Lines of Defence of the Biblical Revelation",
+        "pubYear": null,
+        "summary": "",
+        "title": "Lines of Defence of the Biblical Revelation",
+        "type": null,
+        "uri": "works/1059"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1001",
+                "firstName": "Robert Baker",
+                "lastName": "Girdlestone",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1108",
+        "label": "Girdlestone, The Grammar of Prophecy",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Grammar of Prophecy",
+        "type": null,
+        "uri": "works/1108"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1087",
+                "firstName": "J. Robert",
+                "lastName": "Wolfe",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1158",
+        "label": "Wolfe, The Messiah as Predicted in the Pentateuch and the Psalms",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Messiah as Predicted in the Pentateuch and the Psalms",
+        "type": null,
+        "uri": "works/1158"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1149",
+                "firstName": "John  Shertzer",
+                "lastName": "Hittell",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1205",
+        "label": "Hittell, The Evidences Against Christianity ",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Evidences Against Christianity ",
+        "type": null,
+        "uri": "works/1205"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "670",
+                "firstName": "James",
+                "lastName": "Orr",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1249",
+        "label": "Orr, The Christian View of God and the World",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Christian View of God and the World",
+        "type": null,
+        "uri": "works/1249"
+    },
+    {
+        "authors": [
+            {
+                "authorId": null,
+                "firstName": null,
+                "lastName": null,
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1278",
+        "label": "no title available",
+        "pubYear": null,
+        "summary": "",
+        "title": "no title available",
+        "type": null,
+        "uri": "works/1278"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "76",
+                "firstName": "Joseph",
+                "lastName": "Priestley",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1315",
+        "label": "Priestley, Discourses Relating to the Evidences of Revealed Religion",
+        "pubYear": null,
+        "summary": "",
+        "title": "Discourses Relating to the Evidences of Revealed Religion",
+        "type": null,
+        "uri": "works/1315"
+    },
+    {
+        "authors": [
+            {
+                "authorId": null,
+                "firstName": null,
+                "lastName": null,
+                "name": null,
+                "role": "Author"
+            },
+            {
+                "authorId": "1154",
+                "firstName": "Kersopp",
+                "lastName": "Lake",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1359",
+        "label": "The Historical Evidence for the Resurrection of Jesus Christ ",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Historical Evidence for the Resurrection of Jesus Christ ",
+        "type": null,
+        "uri": "works/1359"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "723",
+                "firstName": "Robert",
+                "lastName": "Roberts",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1393",
+        "label": "Roberts, The Visible Hand of God;",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Visible Hand of God;",
+        "type": null,
+        "uri": "works/1393"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "73",
+                "firstName": "Charles Adolphus",
+                "lastName": "Row",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1422",
+        "label": "Row, The Nature and Extent of Divine Inspiration",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Nature and Extent of Divine Inspiration",
+        "type": null,
+        "uri": "works/1422"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "767",
+                "firstName": "Thomas",
+                "lastName": "Scott",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1448",
+        "label": "Scott, The Works of the Late Rev. Thomas Scott",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Works of the Late Rev. Thomas Scott",
+        "type": null,
+        "uri": "works/1448"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "70",
+                "firstName": "Richard",
+                "lastName": "Watson",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1472",
+        "label": "Watson, A Second Defence of Revealed Religion",
+        "pubYear": null,
+        "summary": "",
+        "title": "A Second Defence of Revealed Religion",
+        "type": null,
+        "uri": "works/1472"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1044",
+                "firstName": "Harold Marcus",
+                "lastName": "Wiener",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1022",
+        "label": "Wiener, Essays in Pentateuchal Criticism",
+        "pubYear": null,
+        "summary": "",
+        "title": "Essays in Pentateuchal Criticism",
+        "type": null,
+        "uri": "works/1022"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "594",
+                "firstName": "Edward Garrard",
+                "lastName": "Marsh",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1060",
+        "label": "Marsh, A Brief Survey of the Evidence and Nature of the Christian Religion",
+        "pubYear": null,
+        "summary": "",
+        "title": "A Brief Survey of the Evidence and Nature of the Christian Religion",
+        "type": null,
+        "uri": "works/1060"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1068",
+                "firstName": "James Paton",
+                "lastName": "Gloag",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1109",
+        "label": "Gloag, The Messianic Prophecies",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Messianic Prophecies",
+        "type": null,
+        "uri": "works/1109"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "382",
+                "firstName": "Terrot Reaveley",
+                "lastName": "Glover",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "471",
+        "label": "Glover, The Jesus of History",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Jesus of History",
+        "type": null,
+        "uri": "works/471"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "54",
+                "firstName": "Daniel",
+                "lastName": "Whitby",
+                "name": "Whitby, Daniel",
+                "role": "author"
+            }
+        ],
+        "id": "72",
+        "label": "Whitby, The Necessity and Usefulness of the Christian revelation; ",
+        "pubYear": null,
+        "summary": "Did not specifically mention Herbert, but argued against according to \"The Contemporary Review, vol. 6\"\n",
+        "title": "The Necessity and Usefulness of the Christian revelation; ",
+        "type": null,
+        "uri": "works/72"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1088",
+                "firstName": "James Aitken",
+                "lastName": "Wylie",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1159",
+        "label": "Wylie, The Modern Judea Compared with Ancient Prophecy",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Modern Judea Compared with Ancient Prophecy",
+        "type": null,
+        "uri": "works/1159"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1148",
+                "firstName": "Godfrey",
+                "lastName": "Higgins",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1206",
+        "label": "Higgins, Anacalypsis",
+        "pubYear": null,
+        "summary": "",
+        "title": "Anacalypsis",
+        "type": null,
+        "uri": "works/1206"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "670",
+                "firstName": "James",
+                "lastName": "Orr",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1250",
+        "label": "Orr, The Faith of a Modern Christian",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Faith of a Modern Christian",
+        "type": null,
+        "uri": "works/1250"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "103",
+                "firstName": "Samuel",
+                "lastName": "Bache",
+                "name": null,
+                "role": "author"
+            }
+        ],
+        "id": "102",
+        "label": "Bache, Miracles the Credentials of Christ",
+        "pubYear": null,
+        "summary": "",
+        "title": "Miracles the Credentials of Christ",
+        "type": null,
+        "uri": "works/102"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "104",
+                "firstName": "David Bristow",
+                "lastName": "Baker",
+                "name": null,
+                "role": "author"
+            }
+        ],
+        "id": "103",
+        "label": "Baker, A Treatise on the Nature and Causes of Doubt",
+        "pubYear": null,
+        "summary": "",
+        "title": "A Treatise on the Nature and Causes of Doubt",
+        "type": null,
+        "uri": "works/103"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "102",
+                "firstName": "Charles",
+                "lastName": "Babbage",
+                "name": null,
+                "role": "author"
+            }
+        ],
+        "id": "101",
+        "label": "Babbage, The Ninth Bridgewater Treatise",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Ninth Bridgewater Treatise",
+        "type": null,
+        "uri": "works/101"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "683",
+                "firstName": "Blaise",
+                "lastName": "Pascal",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1279",
+        "label": "Pascal, Thoughts on Religion",
+        "pubYear": null,
+        "summary": "",
+        "title": "Thoughts on Religion",
+        "type": null,
+        "uri": "works/1279"
+    },
+    {
+        "authors": [
+            {
+                "authorId": null,
+                "firstName": "Alfred",
+                "lastName": "Lois ",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1360",
+        "label": "Lois, The Gospel and the Church",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Gospel and the Church",
+        "type": null,
+        "uri": "works/1360"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1121",
+                "firstName": "Edwin",
+                "lastName": "Abbot",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1394",
+        "label": "Abbot, Silanus the Christian ",
+        "pubYear": null,
+        "summary": "",
+        "title": "Silanus the Christian ",
+        "type": null,
+        "uri": "works/1394"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "73",
+                "firstName": "Charles Adolphus",
+                "lastName": "Row",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1423",
+        "label": "Row, The Principles of Modern Pantheistic and Atheistic Philosophy",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Principles of Modern Pantheistic and Atheistic Philosophy",
+        "type": null,
+        "uri": "works/1423"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "768",
+                "firstName": "William Anderson",
+                "lastName": "Scott",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1449",
+        "label": "Scott, Moses and the Pentateuch",
+        "pubYear": null,
+        "summary": "",
+        "title": "Moses and the Pentateuch",
+        "type": null,
+        "uri": "works/1449"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1044",
+                "firstName": "Harold Marcus",
+                "lastName": "Wiener",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1023",
+        "label": "Wiener,  Pentateuchal Studies",
+        "pubYear": null,
+        "summary": "",
+        "title": " Pentateuchal Studies",
+        "type": null,
+        "uri": "works/1023"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "595",
+                "firstName": "Gideon William Barker",
+                "lastName": "Marsh",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1061",
+        "label": "Marsh, Messianic Philosophy",
+        "pubYear": null,
+        "summary": "",
+        "title": "Messianic Philosophy",
+        "type": null,
+        "uri": "works/1061"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1069",
+                "firstName": "William",
+                "lastName": "Goode",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1110",
+        "label": "Goode, Fulfilled Prophecy a Proof of the Truth of Revealed Religion",
+        "pubYear": null,
+        "summary": "",
+        "title": "Fulfilled Prophecy a Proof of the Truth of Revealed Religion",
+        "type": null,
+        "uri": "works/1110"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1088",
+                "firstName": "James Aitken",
+                "lastName": "Wylie",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1160",
+        "label": "Wylie, A Journey over the Region of Fulfilled Prophecy",
+        "pubYear": null,
+        "summary": "",
+        "title": "A Journey over the Region of Fulfilled Prophecy",
+        "type": null,
+        "uri": "works/1160"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "670",
+                "firstName": "James",
+                "lastName": "Orr",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1251",
+        "label": "Orr, The Problem of the Old Testament",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Problem of the Old Testament",
+        "type": null,
+        "uri": "works/1251"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "684",
+                "firstName": "John Brown",
+                "lastName": "Paton",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1280",
+        "label": "Paton, A Review of the \u201cVie de Jesus\u201d of M. Renan",
+        "pubYear": null,
+        "summary": "",
+        "title": "A Review of the \u201cVie de Jesus\u201d of M. Renan",
+        "type": null,
+        "uri": "works/1280"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1306",
+                "firstName": "John",
+                "lastName": "Tillotson",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1270",
+        "label": "Tillotson, The Rule of Faith",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Rule of Faith",
+        "type": null,
+        "uri": "works/1270"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1243",
+                "firstName": "Reginald Walter",
+                "lastName": "Macan",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1361",
+        "label": "Macan, The Resurrection of Jesus Christ",
+        "pubYear": null,
+        "summary": "",
+        "title": "The Resurrection of Jesus Christ",
+        "type": null,
+        "uri": "works/1361"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "724",
+                "firstName": "Archibald Thomas",
+                "lastName": "Robertson",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1395",
+        "label": "Robertson, Luke the Historian in the Light of Research",
+        "pubYear": null,
+        "summary": "",
+        "title": "Luke the Historian in the Light of Research",
+        "type": null,
+        "uri": "works/1395"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "73",
+                "firstName": "Charles Adolphus",
+                "lastName": "Row",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1424",
+        "label": "Row, On the Common Maxims of Infidelity.",
+        "pubYear": null,
+        "summary": "",
+        "title": "On the Common Maxims of Infidelity.",
+        "type": null,
+        "uri": "works/1424"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "769",
+                "firstName": "Jeremiah",
+                "lastName": "Seed",
+                "name": null,
+                "role": "Author"
+            },
+            {
+                "authorId": "70",
+                "firstName": "Richard",
+                "lastName": "Watson",
+                "name": null,
+                "role": "Author"
+            },
+            {
+                "authorId": "16",
+                "firstName": "William D.D.",
+                "lastName": "Paley",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1450",
+        "label": "Seed, A Short View of the Evidences of Christianity",
+        "pubYear": null,
+        "summary": "",
+        "title": "A Short View of the Evidences of Christianity",
+        "type": null,
+        "uri": "works/1450"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "70",
+                "firstName": "Richard",
+                "lastName": "Watson",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1473",
+        "label": "Watson,  A Defence of Revealed Religion",
+        "pubYear": null,
+        "summary": "",
+        "title": " A Defence of Revealed Religion",
+        "type": null,
+        "uri": "works/1473"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "914",
+                "firstName": "Elizabeth Jane",
+                "lastName": "Whately",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1493",
+        "label": "Whately, How to Answer Objections to Revealed Religion",
+        "pubYear": null,
+        "summary": "",
+        "title": "How to Answer Objections to Revealed Religion",
+        "type": null,
+        "uri": "works/1493"
+    },
+    {
+        "authors": [
+            {
+                "authorId": "1044",
+                "firstName": "Harold Marcus",
+                "lastName": "Wiener",
+                "name": null,
+                "role": "Author"
+            }
+        ],
+        "id": "1024",
+        "label": "Wiener, Studies in Biblical Law",
+        "pubYear": null,
+        "summary": "",
+        "title": "Studies in Biblical Law",
+        "type": null,
+        "uri": "works/1024"
+    }
+]
