@@ -40,7 +40,6 @@
     },
     "citeproc-js": {
       "main": [
-        "xmle4x.js",
         "xmldom.js",
         "citeproc.js"
       ]
