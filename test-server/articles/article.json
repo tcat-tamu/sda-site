@@ -35,7 +35,7 @@
     ],
     "citations": [
         {
-            "id": "cite00",
+            "citationID": "cite00",
             "citationItems": [
                 {
                     "id": "babbage1837",
@@ -46,7 +46,7 @@
             "properties": {}
         },
         {
-            "id": "cite01",
+            "citationID": "cite01",
             "citationItems": [
                 {
                     "id": "adams1767",
@@ -58,7 +58,7 @@
             "properties": {}
         },
         {
-            "id": "cite02",
+            "citationID": "cite02",
             "citationItems": [
                 {
                     "id": "aquinasSCG",

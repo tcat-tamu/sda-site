@@ -108,17 +108,12 @@
             var anchor = angular.element(a);
             var target = _.findWhere(citations, { id: anchor.data('href').replace(/^#/, '') });
 
-            var backlinkId = 'cite-' + target.id;
-
-
             if (target) {
-               target.backlinkId = backlinkId;
+               anchor
+                  .attr('id', target.id)
+                  .on('click', _.partial(clickHandler, target))
+                  .html(target.html);
             }
-
-            anchor
-               .attr('id', backlinkId)
-               .on('click', _.partial(clickHandler, target))
-               .html(target.text);
          });
       }
 

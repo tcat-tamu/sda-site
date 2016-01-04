@@ -39,7 +39,7 @@
             var citations = vm.article.citations;
 
             cslBuilder.renderBibliography(bibliography, citations, 'mla').then(function (bibView) {
-               vm.citations = _.pluck(bibView.citations, 'html');
+               vm.citations = bibView.citations;
                vm.bibliography = bibView.items;
             })
 
