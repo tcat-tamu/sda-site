@@ -7,13 +7,15 @@
 <main class="section--media">
    <div class="container">
       <aside class="sidebar">
-         search and filter stuff goes here...
+         <form class="filter">
+            <input type="text" ng-model="vm.filter" placeholder="filter videos" />
+         </form>
       </aside>
       <div class="content">
          <section class="playlist" ng-repeat="playlist in vm.playlists">
             <h2>{{playlist.title}}</h2>
             <ol class="media">
-               <li ng-repeat="item in playlist.items">
+               <li ng-repeat="item in playlist.items | filter:vm.filter">
                   <a ui-sref="sda.media-item({ id: item.id })">
                      <img ng-src="{{item.image}}" alt="" />
                      <h3>{{item.title}}</h3>
