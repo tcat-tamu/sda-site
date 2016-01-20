@@ -100,6 +100,13 @@
             controller: 'ArticleController',
             controllerAs: 'vm'
          })
+
+         .state('sda.about', {
+            url: '/about',
+            templateUrl: 'app/about/about.html',
+            controller: 'AboutController',
+            controllerAs: 'vm'
+         })
       ;
 
       $urlRouterProvider.otherwise('/');
