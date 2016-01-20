@@ -113,7 +113,7 @@
 
          var digitalLibrary = {
             banner: {
-               image: 'slider-books.jpg',
+               image: 'slider-floating-books.jpg',
                style: 'upper-box textbg-copper',
                content: '<h2>Digital Library</h2>' +
                   '<p class="subtitle">Discover the landscape of insights and influences that shape our understanding</p>'
@@ -135,7 +135,7 @@
 
          var support = {
             banner: {
-               image: 'slider-earth.jpg',
+               image: 'slider-empty-tomb.jpg',
                style: 'upper-box textbg-copper',
                content: '<h2>Student and Teacher Support</h2>' +
                   '<p class="subtitle">Apply study aids, competitions and course materials to universities, colleges, and schools</p>'

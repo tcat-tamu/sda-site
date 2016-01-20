@@ -1,3 +1,11 @@
+.page-banner--library {
+   background-image: url('../assets/images/banners/slider-floating-books.jpg');
+   h1 {
+      background-color: rgba(#000, 0.4);
+      // text-shadow: 0 1px 3px #000;
+   }
+}
+
 .section--library {
    > .container {
       display: flex;
