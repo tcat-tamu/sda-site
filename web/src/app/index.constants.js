@@ -1,4 +1,4 @@
-/* global _:false config:false CSL:false */
+/* global _:false config:false CSL:false, moment:false */
 (function () {
    'use strict';
 
@@ -6,6 +6,7 @@
       .module('sda')
       .constant('config', config)
       .constant('_', _)
-      .constant('CSL', CSL);
+      .constant('CSL', CSL)
+      .constant('moment', moment);
 
 })();

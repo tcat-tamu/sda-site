@@ -19,7 +19,8 @@
     "lodash": "~3.10.1",
     "dotjem-angular-tree": "~0.2.1",
     "angular-scroll": "~0.7.3",
-    "citeproc-js": "hg+https://bitbucket.org/fbennett/citeproc-js#1.1.67"
+    "citeproc-js": "hg+https://bitbucket.org/fbennett/citeproc-js#1.1.67",
+    "moment": "~2.11.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.2"

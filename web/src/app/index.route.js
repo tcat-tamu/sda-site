@@ -101,6 +101,19 @@
             controllerAs: 'vm'
          })
 
+         .state('sda.conference', {
+            url: '/conferences',
+            templateUrl: 'app/conferences/conferences.html',
+            controller: 'ConferencesController',
+            controllerAs: 'vm'
+         })
+         .state('sda.conference.show', {
+            url: '/{id}',
+            templateUrl: 'app/conferences/show/show.html',
+            controller: 'ConferenceShowController',
+            controllerAs: 'vm'
+         })
+
          .state('sda.about', {
             url: '/about',
             templateUrl: 'app/about/about.html',

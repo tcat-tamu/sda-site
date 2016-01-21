@@ -1,0 +1,32 @@
+.nav-conferences {
+   background: $lightBrown;
+   font-size: 1.3rem;
+
+   ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      display: flex;
+      flex-direction: row;
+
+      li {
+         flex: 1;
+
+         a {
+            display: block;
+            padding: 1rem;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            background: $lightBrown;
+            transition: color, background-color 0.3s;
+         }
+
+         &.active a, a:hover, a:active, a:focus {
+            color: $cream;
+            background: $copper;
+         }
+      }
+   }
+}

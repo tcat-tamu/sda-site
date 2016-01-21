@@ -7,6 +7,7 @@
          'sda.library',
          'sda.media',
          'sda.reader',
+         'sda.conference',
          'ngAnimate',
          'ngCookies',
          'ngTouch',
