@@ -115,6 +115,13 @@
          //    controllerAs: 'vm'
          // })
 
+         .state('sda.teaching', {
+            url: '/teaching',
+            templateUrl: 'app/teaching/teaching.html',
+            controller: 'TeachingController',
+            controllerAs: 'vm'
+         })
+
          .state('sda.about', {
             url: '/about',
             templateUrl: 'app/about/about.html',
