@@ -114,10 +114,12 @@ body {
                display: block;
                outline: 0;
                padding: 0.5rem 1rem;
+               text-align: left;
 
                @media screen and (min-width: $screen-md-min) {
                   line-height: $header-height;
                   padding: 0 1rem;
+                  text-align: center;
                }
 
                &:hover, &:focus, &:active {
@@ -139,8 +141,11 @@ body {
          }
       }
 
-      .search {
+      .horizontal-glue {
          flex: 1;
+      }
+
+      .search {
          text-align: right;
          height: $header-height;
 
@@ -149,7 +154,7 @@ body {
          }
 
          .toggle {
-            display: inline-block;
+            display: block;
             text-align: center;
             width: $header-height;
             height: $header-height;
