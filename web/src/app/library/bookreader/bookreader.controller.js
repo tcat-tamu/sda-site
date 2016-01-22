@@ -6,7 +6,7 @@
       .controller('LibraryBookreaderController', LibraryBookreaderController);
 
    /** @ngInject */
-   function LibraryBookreaderController($state, $stateParams, $sce, copyRefRepository, googleBooksApi) {
+   function LibraryBookreaderController($state, $stateParams, $sce, copyRefRepository) {
       var vm = this;
 
       vm.peopleQuery = '',

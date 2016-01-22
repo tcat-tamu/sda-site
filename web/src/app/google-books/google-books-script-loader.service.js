@@ -33,7 +33,7 @@
       }
 
       function includeScript(options) {
-         var omitOptions = ['transport', 'preventLoad'];
+         var omitOptions = ['transport', 'preventLoad', 'randomizedFunctionName'];
 
          var query = _.map(_.omit(options, omitOptions), function (v, k) { return k + '=' + v });
 

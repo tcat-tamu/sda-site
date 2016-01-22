@@ -24,7 +24,10 @@
          googleBooksApiManualLoader.load();
          googleBooksApi.then(function (books) {
             var viewer = new books.DefaultViewer(el.get(0));
-            viewer.load(scope.bookId);
+
+            scope.$watch('bookId', function (id) {
+               viewer.load(id);
+            });
          });
       }
    }
