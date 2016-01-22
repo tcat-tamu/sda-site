@@ -38,10 +38,15 @@ body {
                padding: 0 1rem;
                text-decoration: none;
                display: block;
+               outline: 0;
 
-               &:hover {
+               &:hover, &:focus, &:active {
                   background-color: lighten($darkBrown, 5%);
                }
+            }
+
+            &.active a {
+               background-color: lighten($darkBrown, 5%);
             }
          }
       }

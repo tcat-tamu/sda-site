@@ -3,12 +3,12 @@
       <a ui-sref="home"><img src="assets/images/sda-logo-light.png" alt="SDA Logo"></a>
    </div>
    <ul class="nav">
-       <li><a ui-sref="sda.library">Library</a></li>
-       <li><a ui-sref="sda.reader">Reader</a></li>
-       <li><a ui-sref="sda.media">Media</a></li>
-       <li><a ui-sref="sda.teaching">Teaching</a></li>
-       <!-- <li><a ui-sref="sda.conference">Conferences</a></li> -->
-       <li><a ui-sref="sda.about">About</a></li>
+       <li ui-sref-active="active"><a ui-sref="sda.library">Library</a></li>
+       <li ui-sref-active="active"><a ui-sref="sda.reader">Reader</a></li>
+       <li ui-sref-active="active"><a ui-sref="sda.media">Media</a></li>
+       <li ui-sref-active="active"><a ui-sref="sda.teaching">Teaching</a></li>
+       <!-- <li ui-sref-active="active"><a ui-sref="sda.conference">Conferences</a></li> -->
+       <li ui-sref-active="active"><a ui-sref="sda.about">About</a></li>
    </ul>
    <div class="search">
       <a href="" class="toggle" ng-class="{active: vm.isSearchFormVisible}" ng-click="vm.toggleSearchForm()"><i class="fa fa-search"></i></a>
