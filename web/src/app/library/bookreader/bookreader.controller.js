@@ -32,8 +32,7 @@
       function onCopyRefLoaded(copyRef) {
          var copyId = copyRef.copyId;
 
-         // HACK: determine better way of 'switching' and 'matching' on a string
-         var idParts = copyId.match(/^([^:]+):(\d{9})#(.+)$/);
+         var idParts = copyId.match(/^([^:]+):.+$/);
          var type = idParts[1];
          if (copyRefHandlers[type]) {
             vm.book = copyRefHandlers[type](copyRef);
