@@ -206,6 +206,7 @@ body {
                   &[type=search] {
                      -moz-appearance: none;
                      -webkit-appearance: none;
+                     border-radius: 0;
                   }
 
                   @media only screen and (min-width: $screen-md-min) {
