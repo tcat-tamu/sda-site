@@ -1,7 +1,11 @@
 .section--media {
    > .container {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
+
+      @media screen and (min-width: $screen-md-min) {
+         flex-direction: row;
+      }
 
       > * {
          padding: 2rem 3rem;
@@ -21,7 +25,8 @@
          padding: 0.5rem;
          font-size: inherit;
          border: 1px solid #999;
-         // border-radius: 5px;
+         width: 100%;
+         border-radius: 5px;
       }
    }
 
