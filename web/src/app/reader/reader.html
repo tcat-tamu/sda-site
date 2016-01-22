@@ -8,28 +8,36 @@
    <div class="container">
       <sda-tabbed-sidebar>
          <sda-sidebar-tab title="Thematic Overviews">
-            <form ng-submit="vm.search()" class="search">
-               <div class="input-group">
-                  <input type="search" ng-model="vm.query" name="query" id="query" placeholder="search articles..."/>
-                  <button type="submit">
-                     <i class="fa fa-search"></i>
-                     <span class="sr-only">Search</span>
-                  </button>
+            <div class="sidebar-content">
+               <form ng-submit="vm.search()" class="search">
+                  <div class="input-group">
+                     <input type="search" ng-model="vm.query" name="query" id="query" placeholder="search articles..."/>
+                     <button type="submit">
+                        <i class="fa fa-search"></i>
+                        <span class="sr-only">Search</span>
+                     </button>
+                  </div>
+               </form>
+               <div class="collections">
+                  <ul dx-start-with="vm.rootCollection">
+                     <li ng-repeat="node in $dxPrior.children">
+                        <a ng-if="node.articles.length" ui-sref="sda.reader.preview({id: node.id})">{{node.title}}</a>
+                        <span ng-if="!node.articles.length">{{node.title}}</span>
+                        <ul dx-connect="node"/>
+                     </li>
+                  </ul>
                </div>
-            </form>
-            <div class="collections">
-               <ul dx-start-with="vm.rootCollection">
-                  <li ng-repeat="node in $dxPrior.children">
-                     <a ng-if="node.articles.length" ui-sref="sda.reader.preview({id: node.id})">{{node.title}}</a>
-                     <span ng-if="!node.articles.length">{{node.title}}</span>
-                     <ul dx-connect="node"/>
-                  </li>
-               </ul>
             </div>
          </sda-sidebar-tab>
          <sda-sidebar-tab title="Book Reviews">
+            <div class="sidebar-content">
+               <em>Coming soon...</em>
+            </div>
          </sda-sidebar-tab>
          <sda-sidebar-tab title="Biographies">
+            <div class="sidebar-content">
+               <em>Coming soon...</em>
+            </div>
          </sda-sidebar-tab>
       </sda-tabbed-sidebar>
       <div class="content" ui-view>
