@@ -6,7 +6,7 @@
       .controller('LibraryBookreaderController', LibraryBookreaderController);
 
    /** @ngInject */
-   function LibraryBookreaderController($state, $stateParams, $sce, copyRefRepository) {
+   function LibraryBookreaderController($state, $stateParams, $sce, copyRefRepository, googleBooksApi) {
       var vm = this;
 
       vm.peopleQuery = '',
@@ -14,7 +14,7 @@
       vm.searchPeople = searchPeople;
       vm.searchBooks = searchBooks;
 
-      vm.bookUrl = '';
+      vm.book = {};
       vm.copyRef = null;
 
       activate();
@@ -24,13 +24,31 @@
       }
 
       function onCopyRefLoaded(copyRef) {
-         var idParts = copyRef.copyId.match(/^htid:(\d{9})#(.+)$/);
-         if (!idParts) {
-            throw new Error('expected HathiTrust resource identifier, received {' + copyRef.copyId + '}');
+         // var copyId = copyRef.copyId;
+         // HACK: hard-coded google book for demonstration purposes
+         var copyId = 'gb:000000000#ISBN:0738531367';
+
+         // HACK: determine better way of 'switching' and 'matching' on a string
+         var idParts = copyId.match(/^htid:(\d{9})#(.+)$/);
+         if (idParts) {
+            var htid = idParts[2];
+            vm.book = {
+               type: 'hathitrust',
+               src: $sce.trustAsResourceUrl('https://babel.hathitrust.org/cgi/pt?id=' + htid + ';ui=embed')
+            };
+         } else {
+            idParts = copyId.match(/^gb:(\d{9})#(.*)$/);
+            if (idParts) {
+               var gbid = idParts[2];
+               vm.book = {
+                  type: 'google-books',
+                  id: gbid
+               };
+            } else {
+               throw new Error('expected resource identifier, received {' + copyId + '}');
+            }
          }
 
-         var htid = idParts[2];
-         vm.bookUrl = $sce.trustAsResourceUrl('https://babel.hathitrust.org/cgi/pt?id=' + htid + ';ui=embed');
       }
 
       function searchPeople() {

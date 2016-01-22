@@ -30,7 +30,8 @@
       <div class="content">
          <section>
             <h1>{{vm.copyRef.title}}</h1>
-            <iframe ng-src="{{vm.bookUrl}}"></iframe>
+            <iframe class="reader" ng-if="vm.book.type == 'hathitrust'" ng-src="{{vm.book.src}}"></iframe>
+            <google-book-reader class="reader" ng-if="vm.book.type == 'google-books'" book-id="vm.book.id"></google-book-reader>
          </section>
       </div>
    </div>

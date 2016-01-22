@@ -3,7 +3,8 @@
 
    angular
       .module('sda.library', [
-         'sda'
+         'sda',
+         'google.books'
       ]);
 
 })();
