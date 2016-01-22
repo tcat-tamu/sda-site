@@ -218,6 +218,7 @@ body {
                   border: 1px solid #4e534d;
                   color: $cream;
                   height: (5/8 * $header-height);
+                  min-width: (5/8 * $header-height);
                   transition: background-color 0.4s;
                   margin: 0;
 
@@ -231,7 +232,15 @@ body {
                      text-transform: uppercase;
                      display: none;
 
-                     @media only screen and (min-width: 35em) {
+                     @media only screen and (min-width: $screen-sm-min) {
+                        display: inline;
+                     }
+
+                     @media only screen and (min-width: $screen-md-min) {
+                        display: none;
+                     }
+
+                     @media only screen and (min-width: 60em) {
                         display: inline;
                      }
                   }
