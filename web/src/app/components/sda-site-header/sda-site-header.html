@@ -1,8 +1,14 @@
 <div class="container">
+   <button class="nav-toggle" ng-class="{active: vm.isNavMenuVisible}" ng-click="vm.toggleNavMenu()">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+   </button>
    <div class="site-logo">
       <a ui-sref="home"><img src="assets/images/sda-logo-light.png" alt="SDA Logo"></a>
    </div>
-   <ul class="nav">
+   <ul class="nav" ng-class="{collapsed: !vm.isNavMenuVisible}">
        <li ui-sref-active="active"><a ui-sref="sda.library">Library</a></li>
        <li ui-sref-active="active"><a ui-sref="sda.reader">Reader</a></li>
        <li ui-sref-active="active"><a ui-sref="sda.media">Media</a></li>

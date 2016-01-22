@@ -17,6 +17,56 @@ body {
       justify-content: space-between;
       align-items: center;
 
+      .nav-toggle {
+         $width: $header-height;
+         $height: $header-height;
+
+         $vpadding: (5/16 * $height);
+         $hpadding: (4/16 * $width);
+
+         $content-height: ($height - 2*$vpadding);
+         $content-width: ($width - 2*$hpadding);
+
+         $bar-space-ratio: 3/2;
+         $bar-height: ($content-height/(3 + 2*$bar-space-ratio));
+         $bar-spacing: ($bar-space-ratio * $bar-height);
+
+         padding: $vpadding $hpadding;
+         width: $width;
+         height: $height;
+         background: $darkBrown;
+         border: 0;
+         cursor: pointer;
+
+         &:hover, &:focus, &:active, &.active {
+            background: lighten($darkBrown, 5%);
+            outline: 0px none;
+         }
+
+         &::-moz-focus-inner {
+            border: 0;
+         }
+
+         @media screen and (min-width: $screen-md-min) {
+            display: none;
+         }
+
+         .icon-bar {
+            display: block;
+            background: $copper;
+            height: $bar-height;
+            width: $content-width;
+
+            & + .icon-bar {
+               margin-top: $bar-spacing;
+            }
+
+            &:last-child {
+               margin-bottom: 0;
+            }
+         }
+      }
+
       .site-logo {
          padding: (3/16 * $header-height);
          img {
@@ -29,24 +79,62 @@ body {
          list-style: none;
          margin: 0;
          padding: 0;
+         background: lighten($darkBrown, 5%);
+
+         display: flex;
+         flex-direction: column;
+
+         position: absolute;
+         top: $header-height;
+         left: 0;
+         right: 0;
+
+         &.collapsed {
+            display: none;
+         }
+
+         @media screen and (min-width: $screen-md-min) {
+            position: static;
+            top: auto;
+            left: auto;
+            right: auto;
+            flex-direction: row;
+            background: transparent;
+
+            &.collapsed {
+               display: flex;
+            }
+         }
 
          li {
-            display: inline-block;
+            flex: 1;
 
             a {
-               line-height: $header-height;
-               padding: 0 1rem;
                text-decoration: none;
                display: block;
                outline: 0;
+               padding: 0.5rem 1rem;
+
+               @media screen and (min-width: $screen-md-min) {
+                  line-height: $header-height;
+                  padding: 0 1rem;
+               }
 
                &:hover, &:focus, &:active {
-                  background-color: lighten($darkBrown, 5%);
+                  background-color: lighten($darkBrown, 10%);
+
+                  @media screen and (min-width: $screen-md-min) {
+                     background-color: lighten($darkBrown, 5%);
+                  }
                }
             }
 
             &.active a {
-               background-color: lighten($darkBrown, 5%);
+               background-color: lighten($darkBrown, 10%);
+
+               @media screen and (min-width: $screen-md-min) {
+                  background-color: lighten($darkBrown, 5%);
+               }
             }
          }
       }
@@ -56,7 +144,7 @@ body {
          text-align: right;
          height: $header-height;
 
-         @media only screen and (min-width: 51em) {
+         @media only screen and (min-width: $screen-md-min) {
             height: auto;
          }
 
@@ -67,7 +155,7 @@ body {
             height: $header-height;
             font-size: 2rem;
 
-            @media only screen and (min-width: 51em) {
+            @media only screen and (min-width: $screen-md-min) {
                display: none;
             }
 
@@ -91,7 +179,7 @@ body {
                display: block;
             }
 
-            @media only screen and (min-width: 51em) {
+            @media only screen and (min-width: $screen-md-min) {
                padding: 0;
                display: block;
                position: static;
@@ -120,7 +208,7 @@ body {
                      -webkit-appearance: none;
                   }
 
-                  @media only screen and (min-width: 51em) {
+                  @media only screen and (min-width: $screen-md-min) {
                      max-width: 200px;
                   }
                }
@@ -162,7 +250,7 @@ body {
          max-height: (10/16 * $header-height);
          margin: (3/16 * $header-height);
 
-         @media only screen and (min-width: 51em) {
+         @media only screen and (min-width: $screen-md-min) {
             display: block;
          }
       }

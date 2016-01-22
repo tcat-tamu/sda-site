@@ -29,6 +29,9 @@
          vm.isSearchFormVisible = false;
          vm.toggleSearchForm = toggleSearchForm;
 
+         vm.isNavMenuVisible = false;
+         vm.toggleNavMenu = toggleNavMenu;
+
          activate();
 
          function activate() {
@@ -36,10 +39,17 @@
 
          function toggleSearchForm() {
             vm.isSearchFormVisible = !vm.isSearchFormVisible;
+            vm.isNavMenuVisible = false;
+
             $timeout(function () {
                // HACK: give element time to display before focusing
                angular.element('input#search').focus();
             }, 100);
+         }
+
+         function toggleNavMenu() {
+            vm.isNavMenuVisible = !vm.isNavMenuVisible;
+            vm.isSearchFormVisible = false;
          }
       }
    }
