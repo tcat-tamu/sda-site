@@ -1,0 +1,30 @@
+[
+  {
+    "identifier": "uk.ac.ox.bodleian.sda.relationships.influence",
+    "title": "Influenced",
+    "reverseTitle": "Influenced By",
+    "description": null,
+    "isDirected": true
+  },
+  {
+    "identifier": "uk.ac.ox.bodleian.sda.relationships.provoked",
+    "title": "Provoked",
+    "reverseTitle": "Provoked By",
+    "description": null,
+    "isDirected": true
+  },
+  {
+    "identifier": "uk.ac.ox.bodleian.sda.relationships.consonance",
+    "title": "Consonance",
+    "reverseTitle": null,
+    "description": null,
+    "isDirected": false
+  },
+  {
+    "identifier": "uk.ac.ox.bodleian.sda.relationships.patternmatch",
+    "title": "Possible Pattern Match",
+    "reverseTitle": null,
+    "description": "Two (or more) works appear to be directly related but there is no explicitly stated dependency.",
+    "isDirected": false
+  }
+]

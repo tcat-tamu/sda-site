@@ -1,0 +1,56 @@
+{
+  "query": {
+    "q": "persons considered wise",
+    "highlight": true,
+    "offset": 0,
+    "max": 25,
+    "pg": 1,
+    "totalResults": 1,
+    "numPages": 1,
+    "pageUrlTemplate": null,
+    "self": {
+      "uri": "http://localhost:9999/catalog/services/articles?q=persons+considered+wise&hi=true&offset=0&max=25",
+      "rel": "self",
+      "title": "Self"
+    },
+    "next": null,
+    "previous": null,
+    "first": {
+      "uri": "http://localhost:9999/catalog/services/articles?q=persons+considered+wise&hi=true&offset=0&max=25",
+      "rel": "first",
+      "title": "First results"
+    },
+    "last": {
+      "uri": "http://localhost:9999/catalog/services/articles?q=persons+considered+wise&hi=true&offset=0&max=25",
+      "rel": "last",
+      "title": "Last results"
+    }
+  },
+  "articles": [
+    {
+      "id": "c766f790-9639-4a8a-a70c-3605d417d6ca",
+      "title": "African Sage Philosophy",
+      "pubInfo": {
+        "dateCreated": null,
+        "dateModified": null
+      },
+      "authors": [
+        {
+          "id": "cbd1b7c3-d8f9-4ed2-87dc-7392f333c994",
+          "name": "Gideon Rosen",
+          "affiliation": "Princeton",
+          "contact": {
+            "email": "grosen@princeton.edu",
+            "phone": ""
+          }
+        }
+      ],
+      "absHL": [
+        "\n\n“African Sage Philosophy” is the name now commonly given\nto the body of thought produced by <em>persons</em> <em>considered</em> <em>wise</em> in African\ncommunities, and more specifically refers to those who seek a rational\nfoundation for ideas and concepts used to describe and view the world\nby critically examining the justification of those ideas and concepts.\n"
+      ],
+      "contentHL": [
+        "Oruka, however, had very definite ideas about who qualifies as\na philosophic sage and how such <em>persons</em> are to be distinguished from\nother sages. ... They are like Ogotemmêli, whose\npresentation, however complex and amazing in details, is exactly what\nevery <em>wise</em> Dogon person is expected to know (Sage Philosophy,\npp. 9–10). ... This idea suggests that he desired to\nexpand the location of legitimate philosophical activity beyond the\ninstitutional confines of the academy, which he <em>considered</em> to be\nintricately connected to the colonial legacy. "
+      ]
+    }
+  ]
+}

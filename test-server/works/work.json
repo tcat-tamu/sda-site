@@ -1,0 +1,149 @@
+{
+  "id": "8",
+  "type": null,
+  "authors": [
+    {
+      "authorId": "8",
+      "name": "Adams, William",
+      "firstName": "William",
+      "lastName": "Adams",
+      "role": "author"
+    }
+  ],
+  "titles": [
+    {
+      "type": "short",
+      "lg": "en",
+      "title": "An Essay on Mr. Hume’s Essay on Miracles",
+      "subtitle": ""
+    },
+    {
+      "type": "canonical",
+      "lg": "en",
+      "title": "An Essay on Mr. Hume’s Essay on Miracles",
+      "subtitle": ""
+    }
+  ],
+  "otherAuthors": [],
+  "series": "",
+  "summary": "In response to David Hume's Of Miracles",
+  "editions": [
+    {
+      "id": "22",
+      "editionName": "Third Edition",
+      "publicationInfo": {
+        "publisher": "B. White",
+        "place": "London",
+        "date": {
+          "calendar": null,
+          "description": "1767"
+        }
+      },
+      "authors": [
+        {
+          "authorId": "8",
+          "name": "Adams, William",
+          "firstName": "William",
+          "lastName": "Adams",
+          "role": "author"
+        }
+      ],
+      "titles": [
+        {
+          "type": "short",
+          "lg": "en",
+          "title": "Essay in Answer to Mr Hume's Essay",
+          "subtitle": ""
+        },
+        {
+          "type": "canonical",
+          "lg": "en",
+          "title": "Essay in Answer to Mr Hume's Essay on Miracles",
+          "subtitle": ""
+        }
+      ],
+      "otherAuthors": [],
+      "summary": "",
+      "series": "",
+      "volumes": []
+    },
+    {
+      "id": "44",
+      "editionName": "",
+      "publicationInfo": {
+        "publisher": "",
+        "place": "",
+        "date": {
+          "calendar": null,
+          "description": ""
+        }
+      },
+      "authors": [
+        {
+          "authorId": "8",
+          "name": "Adams, William",
+          "firstName": "William",
+          "lastName": "Adams",
+          "role": "author"
+        }
+      ],
+      "titles": [
+        {
+          "type": "canonical",
+          "lg": "en",
+          "title": "An Essay on Mr. Hume’s Essay on Miracles",
+          "subtitle": ""
+        },
+        {
+          "type": "short",
+          "lg": "en",
+          "title": "An Essay on Mr. Hume’s Essay on Miracles",
+          "subtitle": ""
+        }
+      ],
+      "otherAuthors": [],
+      "summary": "",
+      "series": "",
+      "volumes": []
+    },
+    {
+      "id": "2",
+      "editionName": "First Edition",
+      "publicationInfo": {
+        "publisher": "",
+        "place": "London",
+        "date": {
+          "calendar": null,
+          "description": "1752"
+        }
+      },
+      "authors": [
+        {
+          "authorId": "8",
+          "name": null,
+          "firstName": "William",
+          "lastName": "Adams",
+          "role": "author"
+        }
+      ],
+      "titles": [
+        {
+          "type": "canonical",
+          "lg": "en",
+          "title": "An Essay on Mr. Hume’s Essay on Miracles",
+          "subtitle": ""
+        },
+        {
+          "type": "short",
+          "lg": "en",
+          "title": "Essay on Miracles",
+          "subtitle": ""
+        }
+      ],
+      "otherAuthors": [],
+      "summary": "",
+      "series": "",
+      "volumes": []
+    }
+  ]
+}
