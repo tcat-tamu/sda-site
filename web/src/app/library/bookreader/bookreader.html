@@ -28,10 +28,13 @@
          </sda-sidebar-tab>
       </sda-tabbed-sidebar>
       <div class="content">
-         <section>
+         <section ng-switch="vm.book.type">
             <h1>{{vm.copyRef.title}}</h1>
-            <iframe class="reader" ng-if="vm.book.type == 'hathitrust'" ng-src="{{vm.book.src}}"></iframe>
-            <google-book-reader class="reader" ng-if="vm.book.type == 'google-books'" book-id="vm.book.id"></google-book-reader>
+            <hathitrust-reader class="reader" ng-switch-when="hathitrust" book-id="vm.book.id"></hathitrust-reader>
+            <google-book-reader class="reader" ng-switch-when="google-books" book-id="vm.book.id"></google-book-reader>
+            <div class="reader" ng-switch-default>
+               Sorry. We were unable to load a book reader for that resource.
+            </div>
          </section>
       </div>
    </div>
