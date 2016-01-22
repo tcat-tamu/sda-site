@@ -30,14 +30,18 @@
       }
 
       function onCopyRefLoaded(copyRef) {
-         var copyId = copyRef.copyId;
+         var idParts = copyRef.copyId.match(/^([^:]+):.+$/);
 
-         var idParts = copyId.match(/^([^:]+):.+$/);
+         if (!idParts) {
+            throw new Error('malformed copy reference identifier {' + copyRef.copyId + '}');
+         }
+
          var type = idParts[1];
+
          if (copyRefHandlers[type]) {
             vm.book = copyRefHandlers[type](copyRef);
          } else {
-            $log.error('unable to find handler for copy reference {' + copyId + '}');
+            $log.error('unable to find handler for copy reference {' + copyRef.copyId + '}');
          }
       }
 
