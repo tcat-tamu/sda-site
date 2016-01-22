@@ -146,6 +146,9 @@ body {
       }
 
       .search {
+         // disable for now by hiding UI
+         display: none;
+
          text-align: right;
          height: $header-height;
 
