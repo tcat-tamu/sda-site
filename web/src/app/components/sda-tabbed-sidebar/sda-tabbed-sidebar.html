@@ -4,7 +4,7 @@
          <li ng-repeat="tab in vm.tabs" ng-class="{active: tab.active}">
             <a ng-click="vm.activateTab(tab)">
                <i ng-if="tab.icon" class="icon fa fa-{{tab.icon}}"></i>
-               <span>{{tab.title}}</span>
+               <span class="label">{{tab.title}}</span>
             </a>
          </li>
       </ul>
