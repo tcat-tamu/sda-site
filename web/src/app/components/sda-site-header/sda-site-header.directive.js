@@ -23,7 +23,7 @@
       }
 
       /** @ngInject */
-      function SdaSiteHeaderController($timeout) {
+      function SdaSiteHeaderController($timeout, $rootScope) {
          var vm = this;
 
          vm.isSearchFormVisible = false;
@@ -35,6 +35,10 @@
          activate();
 
          function activate() {
+            $rootScope.$on('$stateChangeStart', function () {
+               // hide nav menu when going somewhere else
+               vm.isNavMenuVisible = false;
+            });
          }
 
          function toggleSearchForm() {
