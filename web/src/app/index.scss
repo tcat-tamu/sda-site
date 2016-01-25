@@ -149,6 +149,21 @@ body {
    line-height: 1.8;
    position: relative;
 
+   display: flex;
+   flex-direction: column;
+
+   > .app-canvas {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+
+      > .content-area {
+         display: flex;
+         flex-direction: column;
+         flex-grow: 1;
+      }
+   }
+
    .fill-page {
       position: absolute;
       top: $header-height;
