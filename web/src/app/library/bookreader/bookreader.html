@@ -33,7 +33,8 @@
             <hathitrust-reader class="reader" ng-switch-when="hathitrust" book-id="vm.book.id"></hathitrust-reader>
             <google-book-reader class="reader" ng-switch-when="google-books" book-id="vm.book.id"></google-book-reader>
             <div class="reader" ng-switch-default>
-               Sorry. We were unable to load a book reader for that resource.
+               <p ng-if="vm.book.type">Sorry. We were unable to load a book reader for that resource.</p>
+               <p ng-if="!vm.book.type">Loading book reader&hellip;</p>
             </div>
          </section>
       </div>

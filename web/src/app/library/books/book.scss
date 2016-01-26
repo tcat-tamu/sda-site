@@ -32,5 +32,9 @@
       &:hover .readonline {
          opacity: 1;
       }
+
+      time.date:before {
+         content: ' ';
+      }
    }
 }
