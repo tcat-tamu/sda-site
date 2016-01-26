@@ -15,7 +15,7 @@
 
       <nav>
          <ul>
-            <li ng-repeat="theme in vm.collection.articles | filter: {type: '!' + vm.articleType}"><a ui-sref="sda.reader-article({id: theme.id})" class="read-more">Read {{vm.getThemeTitle(theme.type)}} &raquo;</a></li>
+            <li ng-repeat="theme in vm.node.articles | filter: {type: '!' + vm.articleType}"><a ui-sref="sda.reader-article({id: theme.id})" class="read-more">Read {{vm.getThemeTitle(theme.type)}} &raquo;</a></li>
          </ul>
       </nav>
 

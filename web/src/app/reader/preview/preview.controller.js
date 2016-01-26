@@ -14,6 +14,7 @@
       var vm = this;
 
       vm.collection = {};
+      vm.node = {};
       vm.article = {};
       vm.articleType = 'summary';
       vm.citations = [];
@@ -23,16 +24,17 @@
       activate();
 
       function activate() {
-         vm.collection = articleCollectionRepository.get({ id: $stateParams.id }, onCollectionLoaded);
+         vm.collection = articleCollectionRepository.get({}, onCollectionLoaded);
       }
 
       function getThemeTitle(type) {
          return TYPE_TITLE[type] || _.capitalize(type);
       }
 
-      function onCollectionLoaded(collection) {
+      function onCollectionLoaded() {
+         vm.node = findSubCollection($stateParams.id);
          // TODO: fall back to larger articles until one is found
-         var article = _.findWhere(collection.articles, { type: vm.articleType });
+         var article = _.findWhere(vm.node.articles, { type: vm.articleType });
 
          if (article) {
             vm.article = articleRepository.get({ id: article.id }, onArticleLoaded);
@@ -48,6 +50,33 @@
             vm.citations = _.pluck(bibView.citations, 'html');
          });
       }
+
+
+        /**
+         * BFS for collection node with given ID
+         *
+         * @param string id
+         * @return Node
+         */
+        function findSubCollection(id) {
+            var worklist = [vm.collection];
+
+            while (worklist.length > 0) {
+                var node = worklist.shift();
+
+                if (!node) {
+                   continue;
+                }
+
+                if (node.id === id) {
+                    return node;
+                } else if (node.children) {
+                    worklist = worklist.concat(node.children);
+                }
+            }
+
+            return null;
+        }
    }
 
 })();
