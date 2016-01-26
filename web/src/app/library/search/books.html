@@ -1,6 +1,6 @@
 <section class="results">
    <h1>Search Results</h1>
-   <ol>
+   <ol ng-if="vm.books">
       <li class="work" ng-repeat="book in vm.books">
          <span class="authors">
             <span class="author" ng-repeat="author in book.authors">
@@ -10,4 +10,5 @@
          <span class="title"><a ui-sref="sda.library.book({workId: book.id})">{{book.title}}</a></span>
       </li>
    </ol>
+   <p ng-if="!vm.books">No results.</p>
 </section>
