@@ -4,10 +4,17 @@ var app = express();
 
 var root = '/catalog/services';
 
-require('./articles')(app, root);
-require('./copies')(app, root);
-require('./relationships')(app, root);
-require('./works')(app, root);
+services = [
+    './articles',
+    './copies',
+    './people',
+    './relationships',
+    './works'
+];
+
+services.forEach(function (s) {
+    require(s)(app, root);
+});
 
 var server = app.listen(9999, function () {
     var host = server.address().address;
