@@ -13,53 +13,61 @@
 
    <div class="editions" ng-if="vm.work.editions.length">
       <h2>Editions</h2>
+
       <section class="edition" ng-repeat="edition in vm.work.editions">
-         <h3>{{edition.editionName}}</h3>
+         <h3 ng-class="{active: edition.active}">
+            <a class="edition-name" href="" ng-click="edition.active = !edition.active">{{edition.editionName || '[Untitled Edition]'}}</a>
+            <a class="edition-copy readonline" ui-sref="sda.library-bookreader({workId: vm.work.id, copyId: edition.copyRef.id})" ng-if="edition.copyRef">
+               <i class="fa fa-book"></i>
+               <span class="sr-only">Read online</span>
+            </a>
+         </h3>
 
-         <p>
-            <sda-work-authors class="authors" ng-model="edition.authors"></sda-work-authors>
-            <sda-work-title class="title" ng-model="edition.titles"></sda-work-title>
-            <span class="pubinfo" ng-if="edition.publicationInfo.place || edition.publicationInfo.publisher || edition.publicationInfo.date.description">
-               (<span class="place" ng-if="edition.publicationInfo.place">{{edition.publicationInfo.place}},</span>
-               <span class="publisher" ng-if="edition.publicationInfo.publisher">{{edition.publicationInfo.publisher}}.</span>
-               <time class="date" ng-if="edition.publicationInfo.date.description" datetime="{{edition.publicationInfo.date.calendar}}">{{edition.publicationInfo.date.description}}</time>)
-            </span>
-         </p>
+         <div class="collapse" ng-show="edition.active">
+            <p>
+               <sda-work-citation
+                  authors="edition.authors"
+                  titles="edition.titles"
+                  publication-info="edition.publicationInfo">
+               </sda-work-citation>
+            </p>
 
-         <a class="volume-copy readonline" ui-sref="sda.library-bookreader({workId: vm.work.id, copyId: edition.copyRef.id})" ng-if="edition.copyRef">
-            <i class="fa fa-book"></i>
-            <span class="sr-only">Read Volume {{volume.volumeNumber}} Online</span>
-         </a>
 
-         <div class="summary" ng-if="edition.summary">
-            <h4>Summary</h4>
-            <div class="content" ng-bind-html="edition.summary"></div>
-         </div>
+            <div class="summary" ng-if="edition.summary">
+               <h4>Summary</h4>
+               <div class="content" ng-bind-html="edition.summary"></div>
+            </div>
 
-         <div class="volumes" ng-if="edition.volumes.length">
-            <h4>Volumes</h4>
-            <section class="volume" ng-repeat="volume in edition.volumes">
-               <p>
-                  <sda-work-authors class="authors" ng-model="edition.authors"></sda-work-authors>
-                  <sda-work-title class="title" ng-model="edition.titles"></sda-work-title>
-                  <span class="volume">Volume {{volume.volumeNumber}}</span>
-                  <span class="pubinfo" ng-if="edition.publicationInfo.place || edition.publicationInfo.publisher || edition.publicationInfo.date.description">
-                     (<span class="place" ng-if="edition.publicationInfo.place">{{edition.publicationInfo.place}},</span>
-                     <span class="publisher" ng-if="edition.publicationInfo.publisher">{{edition.publicationInfo.publisher}}.</span>
-                     <time class="date" ng-if="edition.publicationInfo.date.description" datetime="{{edition.publicationInfo.date.calendar}}">{{edition.publicationInfo.date.description}}</time>)
-                  </span>
-               </p>
+            <div class="volumes" ng-if="edition.volumes.length">
+               <h4>Volumes</h4>
+               <section class="volume" ng-repeat="volume in edition.volumes">
+                  <h5>
+                     <a class="volume-number" href="" ng-click="volume.active = !volume.active">Volume {{volume.volumeNumber}}</a>
+                     <a class="volume-copy readonline" ui-sref="sda.library-bookreader({workId: vm.work.id, copyId: volume.copyRef.id})" ng-if="volume.copyRef">
+                        <i class="fa fa-book"></i>
+                        <span class="sr-only">Read Volume {{volume.volumeNumber}} Online</span>
+                     </a>
+                  </h5>
 
-               <a class="volume-copy readonline" ui-sref="sda.library-bookreader({workId: vm.work.id, copyId: volume.copyRef.id})" ng-if="volume.copyRef">
-                  <i class="fa fa-book"></i>
-                  <span class="sr-only">Read Volume {{volume.volumeNumber}} Online</span>
-               </a>
+                  <div class="collapse" ng-show="volume.active">
+                     <p>
+                        <sda-work-citation
+                           authors="volume.authors"
+                           titles="volume.titles"
+                           edition="edition.editionName"
+                           volume="'Volume ' + volume.volumeNumber"
+                           publication-info="volume.publicationInfo">
+                        </sda-work-citation>
+                     </p>
 
-               <div class="summary" ng-if="volume.summary">
-                  <h5>Summary</h5>
-                  <div class="content" ng-bind-html="volume.summary"></div>
-               </div>
-            </section>
+
+                     <div class="summary" ng-if="volume.summary">
+                        <h5>Summary</h5>
+                        <div class="content" ng-bind-html="volume.summary"></div>
+                     </div>
+                  </div>
+               </section>
+            </div>
          </div>
       </section>
    </div>
@@ -70,15 +78,14 @@
          <li ng-repeat="relationship in vm.relationships">
             <!-- HACK: relies on the fact that works, editions, and volumes look similar -->
             <span class="relationship">{{relationship.title}}</span>
-            <sda-work-authors class="authors" ng-model="relationship.entity.authors"></sda-work-authors>
-            <span class="title"><a ui-sref="sda.library.book({workId: relationship.entity.id})"><sda-work-title ng-model="relationship.entity.titles"></sda-work-title></a></span>
-            <span class="edition" ng-if="relationship.edition">{{relationship.edition.editionName}}</span>
-            <span class="volume" ng-if="relationship.volume">{{relationship.volume.volumeNumber}}</span>
-            <span class="pubinfo" ng-if="relationship.entity.publicationInfo.place || relationship.entity.publicationInfo.publisher || relationship.entity.publicationInfo.date.description">
-               (<span class="place" ng-if="relationship.entity.publicationInfo.place">{{relationship.entity.publicationInfo.place}},</span>
-               <span class="publisher" ng-if="relationship.entity.publicationInfo.publisher">{{relationship.entity.publicationInfo.publisher}}.</span>
-               <time class="date" ng-if="relationship.entity.publicationInfo.date.description" datetime="{{relationship.entity.publicationInfo.date.calendar}}">{{relationship.entity.publicationInfo.date.description}}</time>)
-            </span>
+            <sda-work-citation
+               work-id="relationship.entity.id"
+               authors="relationship.entity.authors"
+               titles="relationship.entity.titles"
+               edition="relationship.edition.editionName"
+               volume="relationship.volume.volumeNumber"
+               publication-info="relationship.entity.publicationInfo">
+            </sda-work-citation>
          </li>
       </ul>
    </div>

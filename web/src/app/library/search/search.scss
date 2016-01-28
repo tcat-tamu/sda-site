@@ -1,39 +1,26 @@
-.results {
-   ol {
-      margin: 0;
-      padding: 0;
-      list-style: none;
+ol.results {
+   margin: 0;
+   padding: 0;
+   list-style: none;
 
-      li {
-         padding-left: 2em;
-         text-indent: -2em;
-         margin-bottom: 1em;
+   li {
+      padding-left: 2em;
+      text-indent: -2em;
+      margin-bottom: 1em;
 
-         a {
-            color: inherit;
-            text-decoration: none;
-         }
+      &.active {
+         color: $copper;
       }
-   }
-}
-
-.work {
-   .author {
-      text-transform: uppercase;
-      font-weight: bold;
 
       a {
          color: inherit;
          text-decoration: none;
+         font-weight: bold;
       }
-   }
 
-   .title {
-      font-style: italic;
-
-      a {
-         color: inherit;
-         text-decoration: none;
+      p {
+         margin: 0;
+         padding-left: 1em;
       }
    }
 }

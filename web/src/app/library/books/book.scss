@@ -6,21 +6,15 @@
    }
 
    .readonline {
-      background-color: lighten(desaturate($copper, 20%), 20%);
-      opacity: 0.5;
-      position: absolute;
-      left: 0;
-      top: 0;
-      padding: 0.5em;
-      color: #fff;
+      color: inherit;
       line-height: 0;
-      border-radius: 4px;
       text-align: center;
 
       transition: opacity 300ms, background-color 300ms;
 
       &:hover {
          background-color: $copper;
+         color: $cream;
       }
    }
 
@@ -28,13 +22,98 @@
       position: relative;
       padding: 0 0 0 2.5em;
       margin: 1rem 0 1rem -2.5em;
+   }
 
-      &:hover .readonline {
-         opacity: 1;
+   .edition {
+      h3 {
+         font-family: inherit;
+         font-weight: bold;
+         font-size: 1em;
+         line-height: 1;
+         margin: 0;
+         color: #000;
+         background: $cream;
+
+         display: flex;
+         flex-direction: row;
+
+         &.active a.edition-name:before {
+            content: '\2013';
+         }
+
+         a.edition-name {
+            flex: 1;
+            display: block;
+            padding: 0.7em;
+            text-decoration: none;
+            color: inherit;
+
+            &:before {
+               content: '+';
+               display: block;
+               float: left;
+               width: 1em;
+               text-align: center;
+               font-weight: 300;
+               margin-right: 0.7em;
+            }
+         }
+
+         .readonline {
+            padding: 0.7em;
+            border-left: 1px solid $lightCopper;
+         }
       }
 
-      time.date:before {
-         content: ' ';
+      .volume {
+         h5 {
+            font-family: inherit;
+            font-size: 0.9em;
+            line-height: 1;
+            margin: 0;
+            color: #000;
+            background: #f2f2f2;
+
+            display: flex;
+            flex-direction: row;
+
+            a.volume-number {
+               flex: 1;
+               display: block;
+               padding: 0.5em;
+               text-decoration: none;
+               color: inherit;
+            }
+
+            .readonline {
+               padding: 0.5em 0.7em;
+               border-left: 1px solid $textGrey;
+            }
+         }
+      }
+
+      .collapse {
+         transition: max-height 1s cubic-bezier(1,0,1,1);
+         overflow: hidden;
+         max-height: 9999px;
+
+         &.ng-hide {
+            transition-timing-function: cubic-bezier(0, 1.1, 0, 1);
+            max-height: 0;
+         }
+      }
+   }
+
+   .related {
+      ul {
+         margin: 0;
+         padding: 0 0 0 2em;
+         list-style: none;
+
+         li {
+            text-indent: -2em;
+            margin: 0.7em 0;
+         }
       }
    }
 }
