@@ -1,29 +1,34 @@
 (function () {
    'use strict';
 
-   // This directive should probably be deprecated since sda-work-citation is preferred for displaying inline work information
-
    angular
       .module('sda.library')
-      .directive('sdaWorkTitle', sdaWorkTitle);
+      .directive('sdaWorkCitation', sdaWorkCitation);
 
    /** @ngInject */
-   function sdaWorkTitle(_) {
+   function sdaWorkCitation(_) {
       var directive = {
          restrict: 'E',
-         template: '{{title}}',
+         templateUrl: 'app/library/components/sda-work-citation/sda-work-citation.html',
          scope: {
-            titles: '=ngModel'
+            workId: '=',
+            authors: '=',
+            titles: '=',
+            title: '=',
+            edition: '=',
+            volume: '=',
+            publicationInfo: '='
          },
-         controller: SdaWorkTitleController
+         link: linkFunc
       };
 
       return directive;
 
-      /** @ngInject */
-      function SdaWorkTitleController($scope) {
-         $scope.$watch('titles', function (titles) {
-            $scope.title = titles ? getDisplayTitle(titles) : '';
+      function linkFunc(scope) {
+         scope.$watch('titles', function (titles) {
+            if (!scope.title && titles) {
+               scope.title = getDisplayTitle(titles);
+            }
          });
       }
 
