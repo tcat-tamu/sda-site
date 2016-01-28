@@ -6,7 +6,7 @@
       .controller('LibraryPersonController', LibraryPersonController);
 
    /** @ngInject */
-   function LibraryPersonController($stateParams, personRepository, workRepository) {
+   function LibraryPersonController($stateParams, $scope, personRepository, workRepository) {
       var vm = this;
 
       vm.person = null;
@@ -15,8 +15,14 @@
       activate();
 
       function activate() {
-         vm.person = personRepository.get({ id: $stateParams.id });
-         vm.relatedWorks = workRepository.query({ aid: $stateParams.id });
+         var id = $stateParams.id;
+
+         $scope.$emit('set:query:people', null);
+
+         if (id) {
+            vm.person = personRepository.get({ id: id });
+            vm.relatedWorks = workRepository.query({ aid: id });
+         }
       }
    }
 

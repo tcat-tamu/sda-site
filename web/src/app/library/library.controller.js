@@ -12,11 +12,14 @@
       vm.defaultTab = null;
       vm.showBanner = true;
 
-      vm.searchPeople = searchPeople;
-      vm.searchBooks = searchBooks;
       vm.peopleQuery = '';
+      vm.people = null;
+      vm.searchPeople = searchPeople;
+
       vm.bookQuery = '';
-      vm.keyPeople = [];
+      vm.books = null;
+      vm.searchBooks = searchBooks;
+
       vm.keyBooks = [];
 
       activate();
@@ -34,13 +37,6 @@
          $scope.$on('sda-tabbed-sidebar:change:tab', function (e, newTab) {
             vm.defaultTab = newTab.id;
          });
-
-         vm.keyPeople = [
-            { name: 'Andrew Pinsent' },
-            { name: 'Neal Audenaert' },
-            { name: 'Jesse Mitchell' },
-            { name: 'Matthew Barry' }
-         ];
 
          vm.keyBooks = [
             { author: 'David Hume', title: 'Philosophical Essays' },

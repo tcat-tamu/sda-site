@@ -17,6 +17,7 @@
                   </button>
                </div>
             </form>
+            <div class="results-container" ui-view="peopleResults"></div>
          </sda-sidebar-tab>
          <sda-sidebar-tab id="books" title="Books" icon="book">
             <form ng-submit="vm.searchBooks()">
@@ -28,9 +29,10 @@
                   </button>
                </div>
             </form>
+            <div class="results-container" ui-view="booksResults"></div>
          </sda-sidebar-tab>
       </sda-tabbed-sidebar>
-      <div class="content" ui-view>
+      <div class="content" ui-view="main">
          <div class="landing">
             <section class="overview">
                <h1>Overview</h1>

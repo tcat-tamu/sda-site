@@ -1,14 +1,14 @@
-<section class="results">
-   <h1>Search Results</h1>
-   <ol ng-if="vm.books">
-      <li class="work" ng-repeat="book in vm.books">
+<ol class="results" ng-if="vm.books.length">
+   <li class="work" ng-repeat="book in vm.books" ng-class="{active: vm.currentId == book.id}">
+      <div class="citation"
          <span class="authors">
             <span class="author" ng-repeat="author in book.authors">
                <a ui-sref="sda.library.person({id: author.authorId})">{{author.lastName}}</a>,
             </span>
          </span>
-         <span class="title"><a ui-sref="sda.library.book({workId: book.id})">{{book.title}}</a></span>
-      </li>
-   </ol>
-   <p ng-if="!vm.books">No results.</p>
-</section>
+         <span class="title"><a ui-sref="sda.library.search-books({query: vm.query, id: book.id})">{{book.title}}</a></span>
+      </div>
+      <p class="summary">{{book.summary || 'Summary not yet available.'}}</p>
+   </li>
+</ol>
+<p ng-if="vm.bookQuery && (!vm.books || vm.books.length == 0)">No results.</p>

@@ -16,7 +16,7 @@
       .controller('LibraryBookController', LibraryBookController);
 
    /** @ngInject */
-   function LibraryBookController($stateParams, workRepository, copyRefRepository, relationshipRepository, $q, _) {
+   function LibraryBookController($stateParams, $scope, workRepository, copyRefRepository, relationshipRepository, $q, _) {
       var vm = this;
 
       var typesQ = $q.defer();
@@ -27,10 +27,16 @@
       activate();
 
       function activate() {
-         vm.work = workRepository.get({ id: $stateParams.workId }, onWorkLoaded);
-         relationshipRepository.queryTypes({}, function (ts) {
-            typesQ.resolve(ts);
-         });
+         var workId = $stateParams.id;
+
+         $scope.$emit('set:query:book', null);
+
+         if (workId) {
+            vm.work = workRepository.get({ id: workId }, onWorkLoaded);
+            relationshipRepository.queryTypes({}, function (ts) {
+               typesQ.resolve(ts);
+            });
+         }
       }
 
       function onWorkLoaded(work) {

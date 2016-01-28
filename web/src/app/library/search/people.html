@@ -1,9 +1,7 @@
-<section class="results">
-   <h1>Search Results</h1>
-   <ol ng-if="vm.people">
-      <li ng-repeat="person in vm.people">
-         <a ui-sref="sda.library.person({id: person.id})">{{person.formattedName}}</a>
-      </li>
-   </ol>
-   <p ng-if="!vm.people">No results.</p>
-</section>
+<ol class="results" ng-if="vm.people.length">
+   <li class="work sda-citation" ng-repeat="person in vm.people" ng-class="{active: vm.currentId == person.id}">
+      <a ui-sref="sda.library.search-people({query: vm.query, id: person.id})">{{person.formattedName}}</a>
+      <p class="summary">{{person.summary || 'Summary not yet available.'}}</p>
+   </li>
+</ol>
+<p ng-if="vm.query && (!vm.people || vm.people.length == 0)">No results.</p>
