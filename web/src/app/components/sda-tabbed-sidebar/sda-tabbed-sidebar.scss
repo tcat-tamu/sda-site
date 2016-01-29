@@ -119,6 +119,11 @@
       .panes {
          max-height: 100%;
          overflow: auto;
+
+         &.ng-hide {
+            animation: slideOutLeft 0.3s;
+            max-width: 0;
+         }
       }
 
       a.toplink, a.backlink {

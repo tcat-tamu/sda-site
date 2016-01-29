@@ -1,6 +1,6 @@
-<main class="section--library section--bookreader fill-page">
+<main class="section--library section--bookreader fill-page" ng-class="{fullscreen: fullscreen}">
    <div class="container">
-      <sda-tabbed-sidebar active-tab="'info'">
+      <sda-tabbed-sidebar active-tab="'info'" ng-hide="fullscreen">
          <sda-sidebar-tab id="people" title="People" icon="users">
             <form ng-submit="vm.searchPeople()">
                <div class="input-group">
@@ -28,6 +28,10 @@
          </sda-sidebar-tab>
       </sda-tabbed-sidebar>
       <div class="content">
+         <button type="button" class="fullscreen-toggle" ng-click="fullscreen = !fullscreen">
+            <i class="fa" ng-class="{'fa-expand': !fullscreen, 'fa-compress': fullscreen}"></i>
+            <span class="sr-only">Toggle fullscreen</span>
+         </button>
          <section ng-switch="vm.book.type">
             <hathitrust-reader class="reader" ng-switch-when="hathitrust" book-id="vm.book.id"></hathitrust-reader>
             <google-book-reader class="reader" ng-switch-when="google-books" book-id="vm.book.id"></google-book-reader>
