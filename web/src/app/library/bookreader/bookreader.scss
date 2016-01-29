@@ -9,6 +9,9 @@
       font-size: 0.9em;
       line-height: 1.3;
 
+      .section--work {
+         padding: 2rem 1rem;
+      }
    }
 
    .content {
@@ -19,6 +22,7 @@
          flex: 1;
          display: flex;
          flex-direction: column;
+         padding: 2rem;
 
          > .reader {
             flex: 1;

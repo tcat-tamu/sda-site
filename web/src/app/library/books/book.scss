@@ -1,8 +1,21 @@
 .section--work {
    position: relative;
+   padding: 2rem 3rem;
 
-   .summary .content {
-      margin: 0 2em 2em;
+   h1 {
+      margin-bottom: 1rem;
+   }
+
+   section {
+      margin: 2em 0;
+
+      &:last-child {
+         margin-bottom: 0;
+      }
+   }
+
+   .summary {
+      padding: 0 2em;
    }
 
    .readonline {
@@ -18,13 +31,29 @@
       }
    }
 
-   section.edition, section.volume {
-      position: relative;
-      padding: 0 0 0 2.5em;
-      margin: 1rem 0 1rem -2.5em;
+   .citation {
+      margin: 0;
+      text-indent: -2em;
+      padding-left: 2em;
+      line-height: 1.5;
    }
 
-   .edition {
+   .editions > .edition {
+      box-shadow: $md-shadow-2dp;
+      margin: 1em 0;
+      overflow: hidden;
+
+      transition: box-shadow 0.2s, margin 0.2s;
+
+      &.active {
+         margin: 1.3em 0;
+         box-shadow: $md-shadow-8dp;
+      }
+
+      &:last-child {
+         margin-bottom: 0;
+      }
+
       h3 {
          font-family: inherit;
          font-weight: bold;
@@ -37,8 +66,10 @@
          display: flex;
          flex-direction: row;
 
-         &.active a.edition-name:before {
-            content: '\2013';
+         &.active {
+            a.edition-name:before {
+               content: '\2013';
+            }
          }
 
          a.edition-name {
@@ -65,17 +96,36 @@
          }
       }
 
-      .volume {
+      .volumes > .volume {
+         box-shadow: $md-shadow-2dp;
+         margin: 1em 0;
+         overflow: hidden;
+
+         transition: box-shadow 0.2s, margin 0.2s;
+
+         &.active {
+            margin: 1.3em 0;
+            box-shadow: $md-shadow-8dp;
+         }
+
+         &:last-child {
+            margin-bottom: 0;
+         }
+
          h5 {
             font-family: inherit;
             font-size: 0.9em;
             line-height: 1;
             margin: 0;
             color: #000;
-            background: #f2f2f2;
+            background: #ddd;
 
             display: flex;
             flex-direction: row;
+
+            &.active a.volume-number:before {
+               content: '\2013';
+            }
 
             a.volume-number {
                flex: 1;
@@ -83,6 +133,16 @@
                padding: 0.5em;
                text-decoration: none;
                color: inherit;
+
+               &:before {
+                  content: '+';
+                  display: block;
+                  float: left;
+                  width: 1em;
+                  text-align: center;
+                  font-weight: 300;
+                  margin-right: 0.7em;
+               }
             }
 
             .readonline {
@@ -93,14 +153,7 @@
       }
 
       .collapse {
-         transition: max-height 1s cubic-bezier(1,0,1,1);
-         overflow: hidden;
-         max-height: 9999px;
-
-         &.ng-hide {
-            transition-timing-function: cubic-bezier(0, 1.1, 0, 1);
-            max-height: 0;
-         }
+         padding: 1em;
       }
    }
 

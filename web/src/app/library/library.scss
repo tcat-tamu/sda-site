@@ -25,15 +25,15 @@
          flex-direction: row;
       }
 
-      section {
+      .landing section {
          padding: 2rem 3rem;
 
          @media screen and (min-width: $screen-md-min) {
-            padding: 2rem 1rem;
+            padding: 2rem;
          }
 
          @media screen and (min-width: $screen-lg-min) {
-            padding: 2rem;
+            padding: 2rem 3rem;
          }
       }
 
