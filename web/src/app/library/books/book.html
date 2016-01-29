@@ -2,19 +2,17 @@
    <h1><sda-work-title ng-model="vm.work.titles"></sda-work-title></h1>
    <p>by <sda-work-authors class="authors" ng-model="vm.work.authors"></sda-work-authors></p>
 
-   <a class="volume-copy readonline" ui-sref="sda.library-bookreader({workId: vm.work.id, copyId: vm.work.copyRef.copyId})" ng-if="vm.work.CopyRef">
+   <a class="work-copy readonline" ui-sref="sda.library-bookreader({workId: vm.work.id, copyId: vm.work.copyRef.copyId})" ng-if="vm.work.CopyRef">
       <i class="fa fa-book"></i>
       <span class="sr-only">Read Volume {{volume.volumeNumber}} Online</span>
    </a>
 
-   <div class="summary">
-      <div class="content" ng-bind-html="vm.work.summary"></div>
-   </div>
+   <section class="summary" ng-if="vm.work.summary" ng-bind-html="vm.work.summary"></section>
 
-   <div class="editions" ng-if="vm.work.editions.length">
+   <section class="editions" ng-if="vm.work.editions.length">
       <h2>Editions</h2>
 
-      <section class="edition" ng-repeat="edition in vm.work.editions">
+      <div class="edition" ng-repeat="edition in vm.work.editions" ng-class="{active: edition.active}">
          <h3 ng-class="{active: edition.active}">
             <a class="edition-name" href="" ng-click="edition.active = !edition.active">{{edition.editionName || '[Untitled Edition]'}}</a>
             <a class="edition-copy readonline" ui-sref="sda.library-bookreader({workId: vm.work.id, copyId: edition.copyRef.id})" ng-if="edition.copyRef">
@@ -23,8 +21,8 @@
             </a>
          </h3>
 
-         <div class="collapse" ng-show="edition.active">
-            <p>
+         <div class="collapse" slide-toggle="edition.active">
+            <p class="citation">
                <sda-work-citation
                   authors="edition.authors"
                   titles="edition.titles"
@@ -33,15 +31,15 @@
             </p>
 
 
-            <div class="summary" ng-if="edition.summary">
+            <section class="summary" ng-if="edition.summary">
                <h4>Summary</h4>
                <div class="content" ng-bind-html="edition.summary"></div>
-            </div>
+            </section>
 
-            <div class="volumes" ng-if="edition.volumes.length">
+            <section class="volumes" ng-if="edition.volumes.length">
                <h4>Volumes</h4>
-               <section class="volume" ng-repeat="volume in edition.volumes">
-                  <h5>
+               <div class="volume" ng-repeat="volume in edition.volumes" ng-class="{active: volume.active}">
+                  <h5 ng-class="{active: volume.active}">
                      <a class="volume-number" href="" ng-click="volume.active = !volume.active">Volume {{volume.volumeNumber}}</a>
                      <a class="volume-copy readonline" ui-sref="sda.library-bookreader({workId: vm.work.id, copyId: volume.copyRef.id})" ng-if="volume.copyRef">
                         <i class="fa fa-book"></i>
@@ -49,8 +47,8 @@
                      </a>
                   </h5>
 
-                  <div class="collapse" ng-show="volume.active">
-                     <p>
+                  <div class="collapse" slide-toggle="volume.active">
+                     <p class="citation">
                         <sda-work-citation
                            authors="volume.authors"
                            titles="volume.titles"
@@ -66,13 +64,13 @@
                         <div class="content" ng-bind-html="volume.summary"></div>
                      </div>
                   </div>
-               </section>
+               </div>
             </div>
          </div>
-      </section>
-   </div>
+      </div>
+   </section>
 
-   <div class="related" ng-if="vm.relationships.length">
+   <section class="related" ng-if="vm.relationships.length">
       <h2>Related Works</h2>
       <ul>
          <li ng-repeat="relationship in vm.relationships">
@@ -88,5 +86,5 @@
             </sda-work-citation>
          </li>
       </ul>
-   </div>
+   </section>
 </section>
