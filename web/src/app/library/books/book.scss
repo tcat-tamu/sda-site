@@ -39,7 +39,7 @@
    }
 
    .editions > .edition {
-      box-shadow: $md-shadow-2dp;
+      // box-shadow: $md-shadow-2dp;
       margin: 1em 0;
       overflow: hidden;
 
@@ -47,7 +47,7 @@
 
       &.active {
          margin: 1.3em 0;
-         box-shadow: $md-shadow-8dp;
+         // box-shadow: $md-shadow-8dp;
       }
 
       &:last-child {
@@ -97,7 +97,7 @@
       }
 
       .volumes > .volume {
-         box-shadow: $md-shadow-2dp;
+         // box-shadow: $md-shadow-2dp;
          margin: 1em 0;
          overflow: hidden;
 
@@ -105,7 +105,7 @@
 
          &.active {
             margin: 1.3em 0;
-            box-shadow: $md-shadow-8dp;
+            // box-shadow: $md-shadow-8dp;
          }
 
          &:last-child {
@@ -153,7 +153,7 @@
       }
 
       .collapse {
-         padding: 1em;
+         padding: 1em 0;
       }
    }
 
