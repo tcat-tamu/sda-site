@@ -1,0 +1,75 @@
+.section--person {
+   display: flex;
+   flex-direction: column;
+
+   @media screen and (min-width: $screen-md-min) {
+      flex-direction: row;
+   }
+
+   article {
+      flex: 2;
+
+      padding: 2rem 3rem;
+
+      h1 {
+         margin-bottom: 1rem;
+      }
+   }
+
+   aside {
+      flex: 1;
+
+      padding: 2rem;
+
+      > div {
+         margin: 1em 0;
+
+         &:first-child {
+            margin-top: 0;
+         }
+
+         &:last-child {
+            margin-bottom: 0;
+         }
+      }
+
+      .meta {
+         > div {
+            margin: .6em 0;
+
+            &:first-child {
+               margin-top: 0;
+            }
+
+            &:last-child {
+               margin-bottom: 0;
+            }
+
+            .label {
+               color: $copper;
+               text-transform: uppercase;
+               display: block;
+               font-size: 0.8em;
+            }
+
+            .date, .location {
+               display: block;
+            }
+         }
+      }
+
+      .related {
+         ul {
+            margin: 0;
+            padding: 0 0 0 2em;
+            list-style: none;
+
+            li {
+               text-indent: -2em;
+               margin: 0.7em 0;
+            }
+         }
+      }
+   }
+
+}
