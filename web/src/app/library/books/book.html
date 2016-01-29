@@ -30,11 +30,7 @@
                </sda-work-citation>
             </p>
 
-
-            <section class="summary" ng-if="edition.summary">
-               <h4>Summary</h4>
-               <div class="content" ng-bind-html="edition.summary"></div>
-            </section>
+            <section class="summary" ng-if="edition.summary" ng-bind-html="edition.summary"></section>
 
             <section class="volumes" ng-if="edition.volumes.length">
                <h4>Volumes</h4>
@@ -58,11 +54,7 @@
                         </sda-work-citation>
                      </p>
 
-
-                     <div class="summary" ng-if="volume.summary">
-                        <h5>Summary</h5>
-                        <div class="content" ng-bind-html="volume.summary"></div>
-                     </div>
+                     <div class="summary" ng-if="volume.summary" ng-bind-html="volume.summary"></div>
                   </div>
                </div>
             </div>
