@@ -1,6 +1,17 @@
 .section--bookreader {
    display: flex;
 
+   .throbber {
+      text-align: center;
+      font-size: 2em;
+      color: $textGrey;
+
+      i {
+         display: block;
+         font-size: 1.5em;
+      }
+   }
+
    h1 {
       font-size: 2em;
    }

@@ -37,7 +37,7 @@
             <google-book-reader class="reader" ng-switch-when="google-books" book-id="vm.book.id"></google-book-reader>
             <div class="reader" ng-switch-default>
                <p ng-if="vm.book.type">Sorry. We were unable to load a book reader for that resource.</p>
-               <p ng-if="!vm.book.type">Loading book reader&hellip;</p>
+               <p ng-if="!vm.book.type" class="throbber">Loading book reader&hellip; <i class="fa fa-spin fa-circle-o-notch"></i></p>
             </div>
          </section>
       </div>
