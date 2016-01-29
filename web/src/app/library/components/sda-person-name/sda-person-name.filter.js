@@ -10,13 +10,13 @@
       return renderName;
 
       function renderName(name) {
-         var parts = [
+         var parts = name ? [
             name.title,
             name.givenName,
             name.middleName,
             name.familyName,
             name.suffix
-         ];
+         ] : [];
 
          return _.filter(parts).join(' ');
       }
