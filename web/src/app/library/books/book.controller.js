@@ -27,7 +27,7 @@
       activate();
 
       function activate() {
-         var workId = $stateParams.id;
+         var workId = $stateParams.id || $stateParams.workId;
 
          $scope.$emit('set:query:book', null);
 
