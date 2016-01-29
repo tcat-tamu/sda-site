@@ -29,7 +29,6 @@
       </sda-tabbed-sidebar>
       <div class="content">
          <section ng-switch="vm.book.type">
-            <h1>{{vm.copyRef.title}}</h1>
             <hathitrust-reader class="reader" ng-switch-when="hathitrust" book-id="vm.book.id"></hathitrust-reader>
             <google-book-reader class="reader" ng-switch-when="google-books" book-id="vm.book.id"></google-book-reader>
             <div class="reader" ng-switch-default>
