@@ -1,102 +1,45 @@
 .section--work {
-   position: relative;
-   padding: 2rem 3rem;
+   > .work {
+      position: relative;
+      padding: 2rem 3rem;
 
-   h1 {
-      margin-bottom: 1rem;
-   }
-
-   section {
-      margin: 2em 0;
-
-      &:last-child {
-         margin-bottom: 0;
-      }
-   }
-
-   .summary {
-      padding: 0 2em;
-   }
-
-   .readonline {
-      color: inherit;
-      line-height: 0;
-      text-align: center;
-
-      transition: opacity 300ms, background-color 300ms;
-
-      &:hover {
-         background-color: $copper;
-         color: $cream;
-      }
-   }
-
-   .citation {
-      margin: 0;
-      text-indent: -2em;
-      padding-left: 2em;
-      line-height: 1.5;
-   }
-
-   .editions > .edition {
-      // box-shadow: $md-shadow-2dp;
-      margin: 1em 0;
-      overflow: hidden;
-
-      transition: box-shadow 0.2s, margin 0.2s;
-
-      &.active {
-         margin: 1.3em 0;
-         // box-shadow: $md-shadow-8dp;
+      h1 {
+         margin-bottom: 1rem;
       }
 
-      &:last-child {
-         margin-bottom: 0;
+      section {
+         margin: 2em 0;
+
+         &:last-child {
+            margin-bottom: 0;
+         }
       }
 
-      h3 {
-         font-family: inherit;
-         font-weight: bold;
-         font-size: 1em;
-         line-height: 1;
+      .summary {
+         padding: 0 2em;
+      }
+
+      .readonline {
+         color: inherit;
+         line-height: 0;
+         text-align: center;
+
+         transition: opacity 300ms, background-color 300ms;
+
+         &:hover {
+            background-color: $copper;
+            color: $cream;
+         }
+      }
+
+      .citation {
          margin: 0;
-         color: #000;
-         background: $cream;
-
-         display: flex;
-         flex-direction: row;
-
-         &.active {
-            a.edition-name:before {
-               content: '\2013';
-            }
-         }
-
-         a.edition-name {
-            flex: 1;
-            display: block;
-            padding: 0.7em;
-            text-decoration: none;
-            color: inherit;
-
-            &:before {
-               content: '+';
-               display: block;
-               float: left;
-               width: 1em;
-               text-align: center;
-               font-weight: 300;
-               margin-right: 0.7em;
-            }
-         }
-
-         .readonline {
-            padding: 0.7em;
-            border-left: 1px solid $lightCopper;
-         }
+         text-indent: -2em;
+         padding-left: 2em;
+         line-height: 1.5;
       }
 
-      .volumes > .volume {
+      .editions > .edition {
          // box-shadow: $md-shadow-2dp;
          margin: 1em 0;
          overflow: hidden;
@@ -112,25 +55,28 @@
             margin-bottom: 0;
          }
 
-         h5 {
+         h3 {
             font-family: inherit;
-            font-size: 0.9em;
+            font-weight: bold;
+            font-size: 1em;
             line-height: 1;
             margin: 0;
             color: #000;
-            background: #ddd;
+            background: $cream;
 
             display: flex;
             flex-direction: row;
 
-            &.active a.volume-number:before {
-               content: '\2013';
+            &.active {
+               a.edition-name:before {
+                  content: '\2013';
+               }
             }
 
-            a.volume-number {
+            a.edition-name {
                flex: 1;
                display: block;
-               padding: 0.5em;
+               padding: 0.7em;
                text-decoration: none;
                color: inherit;
 
@@ -146,27 +92,91 @@
             }
 
             .readonline {
-               padding: 0.5em 0.7em;
-               border-left: 1px solid $textGrey;
+               padding: 0.7em;
+               border-left: 1px solid $lightCopper;
+            }
+         }
+
+         .volumes > .volume {
+            // box-shadow: $md-shadow-2dp;
+            margin: 1em 0;
+            overflow: hidden;
+
+            transition: box-shadow 0.2s, margin 0.2s;
+
+            &.active {
+               margin: 1.3em 0;
+               // box-shadow: $md-shadow-8dp;
+            }
+
+            &:last-child {
+               margin-bottom: 0;
+            }
+
+            h5 {
+               font-family: inherit;
+               font-size: 0.9em;
+               line-height: 1;
+               margin: 0;
+               color: #000;
+               background: #ddd;
+
+               display: flex;
+               flex-direction: row;
+
+               &.active a.volume-number:before {
+                  content: '\2013';
+               }
+
+               a.volume-number {
+                  flex: 1;
+                  display: block;
+                  padding: 0.5em;
+                  text-decoration: none;
+                  color: inherit;
+
+                  &:before {
+                     content: '+';
+                     display: block;
+                     float: left;
+                     width: 1em;
+                     text-align: center;
+                     font-weight: 300;
+                     margin-right: 0.7em;
+                  }
+               }
+
+               .readonline {
+                  padding: 0.5em 0.7em;
+                  border-left: 1px solid $textGrey;
+               }
+            }
+         }
+
+         .collapse {
+            padding: 1em 0;
+         }
+      }
+
+      .related {
+         ul {
+            margin: 0;
+            padding: 0 0 0 2em;
+            list-style: none;
+
+            li {
+               text-indent: -2em;
+               margin: 0.7em 0;
             }
          }
       }
-
-      .collapse {
-         padding: 1em 0;
-      }
    }
 
-   .related {
-      ul {
-         margin: 0;
-         padding: 0 0 0 2em;
-         list-style: none;
-
-         li {
-            text-indent: -2em;
-            margin: 0.7em 0;
-         }
-      }
+   .throbber {
+      flex: 1;
+      padding: 3em;
+      text-align: center;
+      font-size: 3em;
+      color: $textGrey;
    }
 }

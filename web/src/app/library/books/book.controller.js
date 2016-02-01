@@ -16,18 +16,26 @@
       .controller('LibraryBookController', LibraryBookController);
 
    /** @ngInject */
-   function LibraryBookController($stateParams, $scope, workRepository, copyRefRepository, relationshipRepository, $q, _) {
+   function LibraryBookController($stateParams, $scope, workRepository, copyRefRepository, relationshipRepository, $q, _, $timeout) {
       var vm = this;
 
       var typesQ = $q.defer();
 
       vm.work = null;
       vm.copyRefs = [];
+      vm.loading = true;
+      vm.showThrobber = false;
+      vm.loadingTimeout = null;
 
       activate();
 
       function activate() {
          var workId = $stateParams.id || $stateParams.workId;
+
+         vm.loadingTimeout = $timeout(function () {
+            vm.showThrobber = true;
+            vm.loadingTimeout = null;
+         }, 250);
 
          $scope.$emit('set:query:book', null);
 
@@ -42,6 +50,7 @@
       function onWorkLoaded(work) {
          copyRefRepository.queryByWork({ workId: work.id }, onCopyRefsLoaded);
          relationshipRepository.query({ entity: 'works/' + work.id }, onRelationshipsLoaded);
+         hideThrobber();
       }
 
       function onCopyRefsLoaded(copyRefs) {
@@ -106,7 +115,15 @@
 
             }
          });
+      }
 
+      function hideThrobber() {
+         if (vm.loadingTimeout) {
+            $timeout.cancel(vm.loadingTimeout);
+            vm.loadingTimeout = null;
+         }
+         vm.loading = false;
+         vm.showThrobber = false;
       }
    }
 
