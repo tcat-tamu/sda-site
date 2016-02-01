@@ -1,47 +1,53 @@
-<section class="section--person" ng-if="vm.person">
-   <article>
-      <h1>{{vm.person.displayName.displayName}}</h1>
-      <div ng-if="vm.person.summary" ng-bind-html="vm.person.summary"></div>
-      <p ng-if="!vm.person.summary">Summary not available.</p>
-   </article>
+<section class="section--person">
+   <div class="person" ng-if="!vm.loading && vm.person">
+      <article>
+         <h1>{{vm.person.displayName.displayName}}</h1>
+         <div ng-if="vm.person.summary" ng-bind-html="vm.person.summary"></div>
+         <p ng-if="!vm.person.summary">Summary not available.</p>
+      </article>
 
-   <aside>
-      <div class="meta">
-         <div ng-if="(vm.person.displayName | sdaPersonName) != vm.person.displayName.displayName">
-            <div class="label">Full name</div>
-            <sda-person-name ng-model="vm.person.displayName"></sda-person-name>
+      <aside>
+         <div class="meta">
+            <div ng-if="(vm.person.displayName | sdaPersonName) != vm.person.displayName.displayName">
+               <div class="label">Full name</div>
+               <sda-person-name ng-model="vm.person.displayName"></sda-person-name>
+            </div>
+            <div ng-if="vm.person.birth">
+               <div class="label">Born</div>
+               <sda-date-location ng-model="vm.person.birth"></sda-date-location>
+            </div>
+            <div ng-if="vm.person.death">
+               <div class="label">Died</div>
+               <sda-date-location ng-model="vm.person.death"></sda-date-location>
+            </div>
+            <div class="altnames" ng-if="vm.person.names.length > 0">
+               <div class="label">Other Names</div>
+               <ul>
+                  <li ng-repeat="name in vm.person.names">
+                     <span class="display">{{name.displayName}}</span>
+                     <span class="full" ng-if="(name | sdaPersonName) != name.displayName">
+                        (<sda-person-name ng-model="name"></sda-person-name>)
+                     </span>
+                  </li>
+               </ul>
+            </div>
          </div>
-         <div ng-if="vm.person.birth">
-            <div class="label">Born</div>
-            <sda-date-location ng-model="vm.person.birth"></sda-date-location>
-         </div>
-         <div ng-if="vm.person.death">
-            <div class="label">Died</div>
-            <sda-date-location ng-model="vm.person.death"></sda-date-location>
-         </div>
-         <div class="altnames" ng-if="vm.person.names.length > 0">
-            <div class="label">Other Names</div>
+         <div class="related" ng-if="vm.relatedWorks.length > 0">
+            <h2>Books</h2>
             <ul>
-               <li ng-repeat="name in vm.person.names">
-                  <span class="display">{{name.displayName}}</span>
-                  <span class="full" ng-if="(name | sdaPersonName) != name.displayName">
-                     (<sda-person-name ng-model="name"></sda-person-name>)
-                  </span>
+               <li class="work sda-citation" ng-repeat="work in vm.relatedWorks">
+                  <sda-work-citation
+                     work-id="work.id"
+                     authors="work.authors"
+                     title="work.title">
+                  </sda-work-citation>
                </li>
             </ul>
          </div>
-      </div>
-      <div class="related" ng-if="vm.relatedWorks.length > 0">
-         <h2>Books</h2>
-         <ul>
-            <li class="work sda-citation" ng-repeat="work in vm.relatedWorks">
-               <sda-work-citation
-                  work-id="work.id"
-                  authors="work.authors"
-                  title="work.title">
-               </sda-work-citation>
-            </li>
-         </ul>
-      </div>
-   </aside>
+      </aside>
+   </div>
+
+   <div class="throbber" ng-if="vm.loading && vm.showThrobber">
+      <i class="fa fa-spin fa-circle-o-notch"></i>
+   </div>
 </section>

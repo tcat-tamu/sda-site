@@ -10,43 +10,31 @@
 }
 
 .section--person {
-   display: flex;
-   flex-direction: column;
+   > .person {
+      display: flex;
+      flex-direction: column;
 
-   @media screen and (min-width: $screen-md-min) {
-      flex-direction: row;
-   }
-
-   article {
-      flex: 2;
-
-      padding: 2rem 3rem;
-
-      h1 {
-         margin-bottom: 1rem;
+      @media screen and (min-width: $screen-md-min) {
+         flex-direction: row;
       }
-   }
 
-   aside {
-      flex: 1;
+      article {
+         flex: 2;
 
-      padding: 2rem;
+         padding: 2rem 3rem;
 
-      > div {
-         margin: 1.5em 0;
-
-         &:first-child {
-            margin-top: 0;
-         }
-
-         &:last-child {
-            margin-bottom: 0;
+         h1 {
+            margin-bottom: 1rem;
          }
       }
 
-      .meta {
+      aside {
+         flex: 1;
+
+         padding: 2rem;
+
          > div {
-            margin: .6em 0;
+            margin: 1.5em 0;
 
             &:first-child {
                margin-top: 0;
@@ -55,35 +43,56 @@
             &:last-child {
                margin-bottom: 0;
             }
+         }
 
-            .label {
-               color: $copper;
-               text-transform: uppercase;
-               display: block;
-               font-size: 0.8em;
-            }
+         .meta {
+            > div {
+               margin: .6em 0;
 
-            .date, .location {
-               display: block;
+               &:first-child {
+                  margin-top: 0;
+               }
+
+               &:last-child {
+                  margin-bottom: 0;
+               }
+
+               .label {
+                  color: $copper;
+                  text-transform: uppercase;
+                  display: block;
+                  font-size: 0.8em;
+               }
+
+               .date, .location {
+                  display: block;
+               }
             }
          }
-      }
 
-      .altnames {
-         ul {
-            @include hanging-list(2em);
+         .altnames {
+            ul {
+               @include hanging-list(2em);
+            }
          }
-      }
 
-      .related {
-         ul {
-            @include hanging-list(2em);
+         .related {
+            ul {
+               @include hanging-list(2em);
 
-            li {
-               margin: 0.7em 0;
+               li {
+                  margin: 0.7em 0;
+               }
             }
          }
       }
    }
 
+   .throbber {
+      flex: 1;
+      padding: 3em;
+      text-align: center;
+      font-size: 3em;
+      color: $textGrey;
+   }
 }
