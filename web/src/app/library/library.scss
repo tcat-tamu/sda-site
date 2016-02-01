@@ -2,6 +2,9 @@
    background-image: url('../assets/images/banners/slider-floating-books.jpg');
    padding: 0;
 
+   // without this constraints, some browsers progressively collapse the banner content area
+   min-height: (2*$banner-padding);
+
    .container {
       padding: $banner-padding 0;
       background-color: rgba(#000, 0.4);
@@ -115,6 +118,7 @@
 
       .sidebar {
          border-bottom: 1px solid #ddd;
+         display: flex;
 
          @media screen and (min-width: $screen-md-min) {
             flex: 1;
@@ -123,6 +127,18 @@
 
          @media screen and (min-width: $container-max-width) {
             border: 0;
+         }
+
+         .panes {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+
+            > .sidebar-pane {
+               flex: 1;
+               display: flex;
+               flex-direction: column;
+            }
          }
 
          form {
