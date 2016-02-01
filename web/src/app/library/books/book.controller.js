@@ -16,7 +16,7 @@
       .controller('LibraryBookController', LibraryBookController);
 
    /** @ngInject */
-   function LibraryBookController($stateParams, $scope, workRepository, copyRefRepository, relationshipRepository, $q, _, $timeout) {
+   function LibraryBookController($stateParams, $scope, workRepository, copyRefRepository, relationshipRepository, $q, _, $timeout, toastr) {
       var vm = this;
 
       var typesQ = $q.defer();
@@ -40,7 +40,7 @@
          $scope.$emit('set:query:book', null);
 
          if (workId) {
-            vm.work = workRepository.get({ id: workId }, onWorkLoaded);
+            vm.work = workRepository.get({ id: workId }, onWorkLoaded, onNetworkFailure(false));
             relationshipRepository.queryTypes({}, function (ts) {
                typesQ.resolve(ts);
             });
@@ -48,8 +48,8 @@
       }
 
       function onWorkLoaded(work) {
-         copyRefRepository.queryByWork({ workId: work.id }, onCopyRefsLoaded);
-         relationshipRepository.query({ entity: 'works/' + work.id }, onRelationshipsLoaded);
+         copyRefRepository.queryByWork({ workId: work.id }, onCopyRefsLoaded, onNetworkFailure(true));
+         relationshipRepository.query({ entity: 'works/' + work.id }, onRelationshipsLoaded, onNetworkFailure(true));
          hideThrobber();
       }
 
@@ -124,6 +124,17 @@
          }
          vm.loading = false;
          vm.showThrobber = false;
+      }
+
+      function onNetworkFailure(partialFailure) {
+         return function () {
+            if (partialFailure) {
+               toastr.warning('Some content failed to load. Displaying Partial information', 'Network Error');
+            } else {
+               toastr.error('Unable to load content.', 'Network Error');
+            }
+            hideThrobber();
+         }
       }
    }
 

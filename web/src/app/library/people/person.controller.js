@@ -6,7 +6,7 @@
       .controller('LibraryPersonController', LibraryPersonController);
 
    /** @ngInject */
-   function LibraryPersonController($stateParams, $scope, $timeout, personRepository, workRepository) {
+   function LibraryPersonController($stateParams, $scope, $timeout, personRepository, workRepository, toastr) {
       var vm = this;
 
       vm.person = null;
@@ -27,7 +27,7 @@
          }, 250);
 
          if (id) {
-            vm.person = personRepository.get({ id: id }, onPersonLoaded);
+            vm.person = personRepository.get({ id: id }, onPersonLoaded, onNetworkFailure);
 
             vm.relatedWorks = workRepository.query({ aid: id });
          }
@@ -44,6 +44,11 @@
          }
          vm.loading = false;
          vm.showThrobber = false;
+      }
+
+      function onNetworkFailure() {
+         toastr.error('Unable to load content.', 'Network Error');
+         hideThrobber();
       }
    }
 

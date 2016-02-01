@@ -4,7 +4,8 @@
    angular
       .module('sda.library', [
          'sda',
-         'google.books'
+         'google.books',
+         'toastr'
       ]);
 
 })();

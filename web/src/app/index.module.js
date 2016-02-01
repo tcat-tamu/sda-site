@@ -14,7 +14,8 @@
          'ngSanitize',
          'ngResource',
          'ui.router',
-         'rt.debounce'
+         'rt.debounce',
+         'toastr'
       ]);
 
 })();
