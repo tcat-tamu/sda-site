@@ -17,7 +17,9 @@
                   </button>
                </div>
             </form>
-            <div class="results-container" ui-view="peopleResults"></div>
+            <div class="ui-view-container">
+               <div class="results-container" ui-view="peopleResults"></div>
+            </div>
          </sda-sidebar-tab>
          <sda-sidebar-tab id="books" title="Books" icon="book">
             <form ng-submit="vm.searchBooks()">
@@ -29,31 +31,35 @@
                   </button>
                </div>
             </form>
-            <div class="results-container" ui-view="booksResults"></div>
+            <div class="ui-view-container">
+               <div class="results-container" ui-view="booksResults"></div>
+            </div>
          </sda-sidebar-tab>
       </sda-tabbed-sidebar>
-      <div class="content" ui-view="main">
-         <div class="landing">
-            <section class="overview">
-               <h1>Overview</h1>
-               <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore consequatur iusto error alias eveniet nihil, nulla. Totam quae, libero distinctio odio non maxime placeat nulla nihil est corporis adipisci quia ipsa. Unde, molestias necessitatibus delectus dolore amet tempora sit omnis voluptatum minima eum ratione sed maxime aliquam ab, alias, quod nesciunt consequatur officia est? Enim incidunt atque similique blanditiis, ducimus.
-               </p>
-               <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis alias earum molestiae consequuntur facilis soluta ipsum, ipsa autem doloribus necessitatibus sed neque, architecto accusantium adipisci molestias perspiciatis eaque cupiditate odit, in ea. Cum, expedita.
-               </p>
-               <h1>Tools</h1>
-               <ul class="tools">
-                  <li><a href=""><img src="//placehold.it/300x300" /></a></li>
-                  <li><a href=""><img src="//placehold.it/300x300" /></a></li>
-               </ul>
-            </section>
-            <section class="key-items">
-               <h2>Starting Points</h2>
-               <ul>
-                  <li ng-repeat="book in vm.keyBooks"><em><a href="">{{book.title}}</a></em> by <a href="">{{book.author}}</a></li>
-               </ul>
-            </section>
+      <div class="ui-view-container">
+         <div class="content" ui-view="main">
+            <div class="landing">
+               <section class="overview">
+                  <h1>Overview</h1>
+                  <p>
+                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore consequatur iusto error alias eveniet nihil, nulla. Totam quae, libero distinctio odio non maxime placeat nulla nihil est corporis adipisci quia ipsa. Unde, molestias necessitatibus delectus dolore amet tempora sit omnis voluptatum minima eum ratione sed maxime aliquam ab, alias, quod nesciunt consequatur officia est? Enim incidunt atque similique blanditiis, ducimus.
+                  </p>
+                  <p>
+                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis alias earum molestiae consequuntur facilis soluta ipsum, ipsa autem doloribus necessitatibus sed neque, architecto accusantium adipisci molestias perspiciatis eaque cupiditate odit, in ea. Cum, expedita.
+                  </p>
+                  <h1>Tools</h1>
+                  <ul class="tools">
+                     <li><a href=""><img src="//placehold.it/300x300" /></a></li>
+                     <li><a href=""><img src="//placehold.it/300x300" /></a></li>
+                  </ul>
+               </section>
+               <section class="key-items">
+                  <h2>Starting Points</h2>
+                  <ul>
+                     <li ng-repeat="book in vm.keyBooks"><em><a href="">{{book.title}}</a></em> by <a href="">{{book.author}}</a></li>
+                  </ul>
+               </section>
+            </div>
          </div>
       </div>
    </div>

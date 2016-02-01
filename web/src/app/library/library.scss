@@ -37,49 +37,77 @@
          }
       }
 
-      .content {
+      > .ui-view-container {
+         position: relative;
          flex: 2;
 
          @media screen and (min-width: $screen-lg-min) {
             flex: 3;
          }
 
-         .landing {
-            display: flex;
-            flex-direction: column;
+         .content[ui-view] {
+            position: absolute;
+            top: 0; bottom: 0; left: 0; right: 0;
 
-            @media screen and (min-width: $screen-lg-min) {
-               flex-direction: row;
+            &.ng-enter, &.ng-leave {
+               transition: all .5s;
             }
 
-            .overview {
+            &.ng-enter {
+               opacity: 0;
+            }
+
+            &.ng-enter-active {
+               opacity: 1;
+               animation: zoomIn .5s ease-out;
+            }
+
+            &.ng-leave {
+               opacity: 1;
+            }
+
+            &.ng-leave-active {
+               opacity: 0;
+               animation: slideOutRight .5s ease-in;
+            }
+
+            .landing {
+               display: flex;
+               flex-direction: column;
+
                @media screen and (min-width: $screen-lg-min) {
-                  flex: 3;
-               }
-            }
-
-            .key-items {
-               border-top: 1px solid #ddd;
-
-               h2 {
-                  color: $textGrey;
+                  flex-direction: row;
                }
 
-               ul {
-                  list-style: none;
-                  padding-left: x2rem;
-
-                  li {
-                     line-height: 1.3;
-                     text-indent: -2rem;
-                     margin-bottom: 1rem;
+               .overview {
+                  @media screen and (min-width: $screen-lg-min) {
+                     flex: 3;
                   }
                }
 
-               @media screen and (min-width: $screen-lg-min) {
-                  flex: 2;
-                  border-left: 1px solid #ddd;
-                  border-top: 0;
+               .key-items {
+                  border-top: 1px solid #ddd;
+
+                  h2 {
+                     color: $textGrey;
+                  }
+
+                  ul {
+                     list-style: none;
+                     padding-left: x2rem;
+
+                     li {
+                        line-height: 1.3;
+                        text-indent: -2rem;
+                        margin-bottom: 1rem;
+                     }
+                  }
+
+                  @media screen and (min-width: $screen-lg-min) {
+                     flex: 2;
+                     border-left: 1px solid #ddd;
+                     border-top: 0;
+                  }
                }
             }
          }
@@ -154,8 +182,16 @@
             }
          }
 
-         .results-container {
-            padding: 0 2rem 2rem;
+         .ui-view-container {
+            position: relative;
+            flex: 1;
+
+            .results-container {
+               position: absolute;
+               top: 0; bottom: 0; left: 0; right: 0;
+               padding: 0 2rem 2rem;
+               overflow: auto;
+            }
          }
       }
 
