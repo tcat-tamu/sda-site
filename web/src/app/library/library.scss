@@ -2,22 +2,22 @@
    background-image: url('../assets/images/banners/slider-floating-books.jpg');
    padding: 0;
 
-   // without this constraints, some browsers progressively collapse the banner content area
-   min-height: (2*$banner-padding);
+   // without this constraint, some browsers progressively collapse the banner content area
+   height: 15.8em;
+   min-height: 15.8em;
+   max-height: 15.8em;
+
 
    .container {
       padding: $banner-padding 0;
       background-color: rgba(#000, 0.4);
-      // h1 {
-      //    text-shadow: 0 1px 3px #000;
-      // }
    }
 }
 
 .section--library {
    display: flex;
    flex-direction: row;
-   flex-grow: 1;
+   flex: 1;
 
    > .container {
       display: flex;
@@ -53,7 +53,7 @@
             top: 0; bottom: 0; left: 0; right: 0;
 
             &.ng-enter, &.ng-leave {
-               transition: all .5s;
+               transition: all .4s;
             }
 
             &.ng-enter {
@@ -62,7 +62,7 @@
 
             &.ng-enter-active {
                opacity: 1;
-               animation: zoomIn .5s ease-out;
+               animation: slideInLeft .4s ease-out;
             }
 
             &.ng-leave {
@@ -71,7 +71,7 @@
 
             &.ng-leave-active {
                opacity: 0;
-               animation: slideOutRight .5s ease-in;
+               animation: slideOutRight .4s ease-in;
             }
 
             .landing {
@@ -127,87 +127,6 @@
 
          @media screen and (min-width: $container-max-width) {
             border: 0;
-         }
-
-         .panes {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-
-            > .sidebar-pane {
-               flex: 1;
-               display: flex;
-               flex-direction: column;
-            }
-         }
-
-         form {
-            padding: 2rem;
-
-            .input-group {
-               display: flex;
-               flex-direction: row;
-
-               input {
-                  flex-grow: 1;
-                  height: 2.5rem;
-                  margin: 0;
-                  padding: 0.5rem;
-                  border: 1px solid #999;
-                  border-right: 0;
-                  border-top-left-radius: 5px;
-                  border-top-right-radius: 0;
-                  border-bottom-left-radius: 5px;
-                  border-bottom-right-radius: 0;
-                  font-family: inherit;
-                  font-size: inherit;
-                  min-width: 2.5rem;
-                  -moz-appearance: none;
-                  -webkit-appearance: none;
-
-                  &:focus {
-                     border-color: $copper
-                  }
-               }
-
-               button {
-                  margin: 0;
-                  height: 2.5rem;
-                  min-width: 2.5rem;
-                  background: $copper;
-                  border: 1px solid $copper;
-                  color: $cream;
-                  border-top-right-radius: 5px;
-                  border-bottom-right-radius: 5px;
-                  cursor: pointer;
-                  transition: all 0.2s;
-
-                  &:hover, &:focus {
-                     background: lighten($copper, 5%);
-                  }
-
-                  &::-moz-focus-inner {
-                     border: 0;
-                  }
-
-                  &:active {
-                     background: darken($copper, 5%);
-                     box-shadow: inset 0 1px 5px rgba(0,0,0,0.3);
-                  }
-               }
-            }
-         }
-
-         .ui-view-container {
-            position: relative;
-            flex: 1;
-
-            .results-container {
-               position: absolute;
-               top: 0; bottom: 0; left: 0; right: 0;
-               padding: 0 2rem 2rem;
-               overflow: auto;
-            }
          }
       }
 

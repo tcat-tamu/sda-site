@@ -30,6 +30,8 @@
             vm.person = personRepository.get({ id: id }, onPersonLoaded, onNetworkFailure);
 
             vm.relatedWorks = workRepository.query({ aid: id });
+         } else {
+            hideThrobber();
          }
       }
 

@@ -1,17 +1,29 @@
+<form ng-submit="vm.search()" class="section--library--search-form">
+   <div class="input-group">
+      <input type="search" ng-model="vm.query" name="query" placeholder="search books..."/>
+      <button type="submit">
+         <i class="fa fa-search"></i>
+         <span class="sr-only">Search</span>
+      </button>
+   </div>
+</form>
+
 <div class="section--library--search-results">
-   <ol class="results" ng-if="vm.books.length">
-      <li class="work" ng-repeat="book in vm.books" ng-class="{active: vm.currentId == book.id}">
-         <div class="citation"
-            <span class="authors">
-               <span class="author" ng-repeat="author in book.authors">
-                  <a ui-sref="sda.library.person({id: author.authorId})">{{author.lastName}}</a>,
+   <div class="content">
+      <ol class="results" ng-if="vm.books.length">
+         <li class="work" ng-repeat="book in vm.books" ng-class="{active: vm.currentId == book.id}">
+            <div class="citation">
+               <span class="authors">
+                  <span class="author" ng-repeat="author in book.authors">
+                     <a ui-sref="sda.library.person({id: author.authorId})">{{author.lastName}}</a>,
+                  </span>
                </span>
-            </span>
-            <span class="title"><a ui-sref="sda.library.search-books({query: vm.query, id: book.id})">{{book.title}}</a></span>
-         </div>
-         <p class="summary">{{book.summary || 'Summary not yet available.'}}</p>
-      </li>
-   </ol>
-   <p class="throbber" ng-if="vm.loading && vm.showThrobber"><i class="fa fa-spin fa-circle-o-notch"></i></p>
-   <p ng-if="!vm.loading && (!vm.books || vm.books.length == 0)">No results.</p>
+               <span class="title"><a ui-sref="sda.library.search-books({query: vm.query, id: book.id})" ng-click="vm.currentId = book.id">{{book.title}}</a></span>
+            </div>
+            <p class="summary">{{book.summary || 'Summary not yet available.'}}</p>
+         </li>
+      </ol>
+      <p class="throbber" ng-if="vm.loading && vm.showThrobber"><i class="fa fa-spin fa-circle-o-notch"></i></p>
+      <p ng-if="!vm.loading && (!vm.books || vm.books.length == 0)">No results.</p>
+   </div>
 </div>

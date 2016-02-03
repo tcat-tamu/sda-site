@@ -31,55 +31,28 @@
             controllerAs: 'vm'
          })
          .state('sda.library.search-people', {
-            url: '/search/people/:query/:id',
-            views: {
-               peopleResults: {
-                  templateUrl: 'app/library/search/people.html',
-                  controller: 'LibraryPeopleSearchController',
-                  controllerAs: 'vm'
-               },
-               main: {
-                  templateUrl: 'app/library/people/person.html',
-                  controller: 'LibraryPersonController',
-                  controllerAs: 'vm'
-               }
-            }
-
+            url: '/search/people?query&id',
+            templateUrl: 'app/library/people/person.html',
+            controller: 'LibraryPersonController',
+            controllerAs: 'vm'
          })
          .state('sda.library.search-books', {
-            url: '/search/books/:query/:id',
-            views: {
-               booksResults: {
-                  templateUrl: 'app/library/search/books.html',
-                  controller: 'LibraryBooksSearchController',
-                  controllerAs: 'vm'
-               },
-               main: {
-                  templateUrl: 'app/library/books/book.html',
-                  controller: 'LibraryBookController',
-                  controllerAs: 'vm'
-               }
-            }
+            url: '/search/books?query&id',
+            templateUrl: 'app/library/books/book.html',
+            controller: 'LibraryBookController',
+            controllerAs: 'vm'
          })
          .state('sda.library.person', {
             url: '/people/:id',
-            views: {
-               main: {
-                  templateUrl: 'app/library/people/person.html',
-                  controller: 'LibraryPersonController',
-                  controllerAs: 'vm'
-               }
-            }
+            templateUrl: 'app/library/people/person.html',
+            controller: 'LibraryPersonController',
+            controllerAs: 'vm'
          })
          .state('sda.library.book', {
             url: '/books/:id',
-            views: {
-               main: {
-                  templateUrl: 'app/library/books/book.html',
-                  controller: 'LibraryBookController',
-                  controllerAs: 'vm'
-               }
-            }
+            templateUrl: 'app/library/books/book.html',
+            controller: 'LibraryBookController',
+            controllerAs: 'vm'
          })
          .state('sda.library-bookreader', {
             url: '/library/read/:workId/:copyId',

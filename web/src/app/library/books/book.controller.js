@@ -23,7 +23,7 @@
 
       vm.work = null;
       vm.copyRefs = [];
-      vm.loading = true;
+      vm.loading = false;
       vm.showThrobber = false;
       vm.loadingTimeout = null;
 
@@ -32,11 +32,6 @@
       function activate() {
          var workId = $stateParams.id || $stateParams.workId;
 
-         vm.loadingTimeout = $timeout(function () {
-            vm.showThrobber = true;
-            vm.loadingTimeout = null;
-         }, 250);
-
          $scope.$emit('set:query:book', null);
 
          if (workId) {
@@ -44,6 +39,9 @@
             relationshipRepository.queryTypes({}, function (ts) {
                typesQ.resolve(ts);
             });
+
+            showThrobber();
+            vm.loading = true;
          }
       }
 
@@ -51,6 +49,7 @@
          copyRefRepository.queryByWork({ workId: work.id }, onCopyRefsLoaded, onNetworkFailure(true));
          relationshipRepository.query({ entity: 'works/' + work.id }, onRelationshipsLoaded, onNetworkFailure(true));
          hideThrobber();
+         vm.loading = false;
       }
 
       function onCopyRefsLoaded(copyRefs) {
@@ -117,12 +116,21 @@
          });
       }
 
+      function showThrobber() {
+         hideThrobber();
+
+         vm.loadingTimeout = $timeout(function () {
+            vm.showThrobber = true;
+            vm.loadingTimeout = null;
+         }, 250);
+      }
+
       function hideThrobber() {
          if (vm.loadingTimeout) {
             $timeout.cancel(vm.loadingTimeout);
             vm.loadingTimeout = null;
          }
-         vm.loading = false;
+
          vm.showThrobber = false;
       }
 
@@ -133,7 +141,9 @@
             } else {
                toastr.error('Unable to load content.', 'Network Error');
             }
+
             hideThrobber();
+            vm.loading = false;
          }
       }
    }
