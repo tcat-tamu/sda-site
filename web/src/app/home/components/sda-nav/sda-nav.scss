@@ -135,8 +135,7 @@
             list-style: none;
 
             display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
+            flex-flow: row wrap;
 
             @extend %AvenirLTStd-Heavy;
             background-color: #e8e7e3;
@@ -144,10 +143,6 @@
             border-bottom: 4px solid #dfddd5;
             vertical-align: bottom;
             font-size: 0.9em;
-
-            @media only all and (min-width: 50em) {
-               flex-direction: row;
-            }
 
             @media only all and (min-width: 50em) {
                padding-top: 3rem;
