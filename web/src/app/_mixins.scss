@@ -47,3 +47,12 @@
       @content;
    }
 }
+
+@mixin hanging-list($indent) {
+   list-style: none;
+
+   li {
+      text-indent: -$indent;
+      padding-left: $indent;
+   }
+}

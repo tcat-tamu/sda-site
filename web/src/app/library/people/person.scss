@@ -1,14 +1,3 @@
-@mixin hanging-list($indent) {
-   margin: 0;
-   padding: 0;
-   list-style: none;
-
-   li {
-      text-indent: -$indent;
-      padding-left: $indent;
-   }
-}
-
 .section--person {
    > .person {
       display: flex;
@@ -73,12 +62,16 @@
          .altnames {
             ul {
                @include hanging-list(2em);
+               margin: 0;
+               padding: 0;
             }
          }
 
          .related {
             ul {
                @include hanging-list(2em);
+               margin: 0;
+               padding: 0;
 
                li {
                   margin: 0.7em 0;
