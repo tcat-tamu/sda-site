@@ -15,19 +15,7 @@
 }
 
 .section--library {
-   display: flex;
-   flex-direction: row;
-   flex: 1;
-
    > .container {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-
-      @media screen and (min-width: $screen-md-min) {
-         flex-direction: row;
-      }
-
       .landing section {
          padding: 2rem 3rem;
 
@@ -42,11 +30,6 @@
 
       > .ui-view-container {
          position: relative;
-         flex: 2;
-
-         @media screen and (min-width: $screen-lg-min) {
-            flex: 3;
-         }
 
          .content[ui-view] {
             position: absolute;
@@ -75,19 +58,6 @@
             }
 
             .landing {
-               display: flex;
-               flex-direction: column;
-
-               @media screen and (min-width: $screen-lg-min) {
-                  flex-direction: row;
-               }
-
-               .overview {
-                  @media screen and (min-width: $screen-lg-min) {
-                     flex: 3;
-                  }
-               }
-
                .key-items {
                   border-top: 1px solid #ddd;
 
@@ -118,10 +88,8 @@
 
       .sidebar {
          border-bottom: 1px solid #ddd;
-         display: flex;
 
          @media screen and (min-width: $screen-md-min) {
-            flex: 1;
             border-bottom: none;
          }
 

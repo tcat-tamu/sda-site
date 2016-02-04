@@ -1,12 +1,12 @@
 <section class="section--person">
-   <div class="person" ng-if="!vm.loading && vm.person">
-      <article>
+   <div class="person layout-xs-column layout-gt-sm-row layout-padding" ng-if="!vm.loading && vm.person">
+      <article class="flex-gt-sm-66">
          <h1>{{vm.person.displayName.displayName}}</h1>
          <div ng-if="vm.person.summary" ng-bind-html="vm.person.summary"></div>
          <p ng-if="!vm.person.summary">Summary not available.</p>
       </article>
 
-      <aside>
+      <aside class="flex-gt-sm-33">
          <div class="meta">
             <div ng-if="(vm.person.displayName | sdaPersonName) != vm.person.displayName.displayName">
                <div class="label">Full name</div>

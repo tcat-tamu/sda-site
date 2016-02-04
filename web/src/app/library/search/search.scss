@@ -1,8 +1,4 @@
 form.section--library--search-form {
-   position: relative;
-   padding: 2rem;
-   width: 100%;
-
    .input-group {
       display: flex;
       flex-direction: row;
@@ -58,10 +54,6 @@ form.section--library--search-form {
 }
 
 .section--library--search-results {
-
-   > .content {
-      padding: 0 2rem 2rem;
-   }
 
    ol.results {
       @include hanging-list(2em);
