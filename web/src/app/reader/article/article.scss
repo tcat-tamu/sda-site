@@ -8,30 +8,8 @@
    > .container {
       background: #fff;
 
-      > .sidebar, > article {
-         box-sizing: border-box;
-      }
-
-      > .sidebar > .panes, > article {
-         padding: 2rem 1rem;
-
-         @media screen and (min-width: $screen-sm-min) {
-            padding: 2rem 3rem;
-         }
-
-         @media screen and (min-width: $screen-md-min) {
-            padding: 2rem 1rem;
-         }
-
-         @media screen and (min-width: $screen-lg-min) {
-            padding: 2rem;
-         }
-      }
-
       > article {
          position: relative;
-         margin-left: 25%;
-         padding-left: 4rem;
 
          .meta {
             margin-bottom: 2.5rem;
@@ -99,9 +77,6 @@
       }
 
       > .sidebar {
-         width: 25%;
-         max-width: ($container-max-width / 4);
-
          .toc > ol {
             list-style: none;
             margin: 0;

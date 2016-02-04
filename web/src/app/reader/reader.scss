@@ -1,40 +1,11 @@
 .section--reader {
-   flex-grow: 1;
-   display: flex;
-   flex-direction: row;
 
    h2 {
       color: $textGrey;
    }
 
    > .container {
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-
-      @media screen and (min-width: $screen-md-min) {
-         flex-direction: row;
-      }
-
-      section {
-         padding: 2rem 1rem;
-
-         @media screen and (min-width: $screen-sm-min) {
-            padding: 2rem 3rem;
-         }
-
-         @media screen and (min-width: $screen-md-min) {
-            padding: 2rem 1rem;
-         }
-
-         @media screen and (min-width: $screen-lg-min) {
-            padding: 2rem;
-         }
-      }
-
       > .sidebar {
-         flex: 1;
-
          form {
             .input-group {
                display: flex;
@@ -106,19 +77,9 @@
                margin: 0.5em 0;
             }
          }
-
-         .sidebar-content {
-            padding: 2rem;
-         }
       }
 
       .content {
-         flex: 2;
-
-         @media screen and (min-width: $screen-lg-min) {
-            flex: 3;
-         }
-
          .landing {
             .blocks {
                display: flex;
