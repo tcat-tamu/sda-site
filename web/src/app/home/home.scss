@@ -1,3 +1,12 @@
+.site-header.site-header-home {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   width: 100%;
+   height: $header-height;
+}
+
 // this will go away when we release the site.
 .disclaimer {
    position: absolute;

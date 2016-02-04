@@ -1,81 +1,14 @@
-// font paths for bootstrap and font-awesome
-$icon-font-path: '../../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/';
-$fa-font-path: '../../bower_components/fontawesome/fonts';
-$local-font-path: '../assets/fonts';
-
-// Colors
-$darkBrown: #1a1b1a;
-$lightBrown: #b88554;
-$text: #2e2e2e;
-$textGrey: #acaaa3;
-$textBrown: #272927;
-$textBlack: #292626;
-$copper: #a47140;
-$lightCopper: #dcc3ab;
-$cream: #eee8de;
-
-$sidebar-bg: #f0f0f0;
-
-// Media query breakpoints (bootstrap naming conventions)
-$screen-sm-min: 35em;
-$screen-md-min: 51em;
-$screen-lg-min: 70em;
-
-// layout component dimensions
-$container-max-width: 1600px;
-$header-height: 4rem;
-$banner-padding: 7rem;
-
-// borrow shadow details from material design
-$md-umbra-opacity: 0.2;
-$md-penumbra-opacity: 0.14;
-$md-ambient-shadow-opacity: 0.12;
-
-$md-shadow-1dp:  0px  1px  3px  0px rgba(#000, $md-umbra-opacity), 0px  1px  1px 0px rgba(#000, $md-penumbra-opacity), 0px 2px  1px -1px rgba(#000, $md-ambient-shadow-opacity);
-$md-shadow-2dp:  0px  1px  5px  0px rgba(#000, $md-umbra-opacity), 0px  2px  2px 0px rgba(#000, $md-penumbra-opacity), 0px 3px  1px -2px rgba(#000, $md-ambient-shadow-opacity);
-$md-shadow-3dp:  0px  1px  8px  0px rgba(#000, $md-umbra-opacity), 0px  3px  4px 0px rgba(#000, $md-penumbra-opacity), 0px 3px  3px -2px rgba(#000, $md-ambient-shadow-opacity);
-$md-shadow-4dp:  0px  2px  4px -1px rgba(#000, $md-umbra-opacity), 0px  4px  5px 0px rgba(#000, $md-penumbra-opacity), 0px 1px 10px  0px rgba(#000, $md-ambient-shadow-opacity);
-$md-shadow-5dp:  0px  3px  5px -1px rgba(#000, $md-umbra-opacity), 0px  5px  8px 0px rgba(#000, $md-penumbra-opacity), 0px 1px 14px  0px rgba(#000, $md-ambient-shadow-opacity);
-$md-shadow-6dp:  0px  3px  5px -1px rgba(#000, $md-umbra-opacity), 0px  6px 10px 0px rgba(#000, $md-penumbra-opacity), 0px 1px 18px  0px rgba(#000, $md-ambient-shadow-opacity);
-$md-shadow-7dp:  0px  4px  5px -2px rgba(#000, $md-umbra-opacity), 0px  7px 10px 1px rgba(#000, $md-penumbra-opacity), 0px 2px 16px  1px rgba(#000, $md-ambient-shadow-opacity);
-$md-shadow-8dp:  0px  5px  5px -3px rgba(#000, $md-umbra-opacity), 0px  8px 10px 1px rgba(#000, $md-penumbra-opacity), 0px 3px 14px  2px rgba(#000, $md-ambient-shadow-opacity);
-$md-shadow-9dp:  0px  5px  6px -3px rgba(#000, $md-umbra-opacity), 0px  9px 12px 1px rgba(#000, $md-penumbra-opacity), 0px 3px 16px  2px rgba(#000, $md-ambient-shadow-opacity);
-$md-shadow-10dp: 0px  6px  6px -3px rgba(#000, $md-umbra-opacity), 0px 10px 14px 1px rgba(#000, $md-penumbra-opacity), 0px 4px 18px  3px rgba(#000, $md-ambient-shadow-opacity);
-$md-shadow-11dp: 0px  6px  7px -4px rgba(#000, $md-umbra-opacity), 0px 11px 15px 1px rgba(#000, $md-penumbra-opacity), 0px 4px 20px  3px rgba(#000, $md-ambient-shadow-opacity);
-$md-shadow-12dp: 0px  7px  8px -4px rgba(#000, $md-umbra-opacity), 0px 12px 17px 2px rgba(#000, $md-penumbra-opacity), 0px 5px 22px  4px rgba(#000, $md-ambient-shadow-opacity);
-$md-shadow-13dp: 0px  7px  8px -4px rgba(#000, $md-umbra-opacity), 0px 13px 19px 2px rgba(#000, $md-penumbra-opacity), 0px 5px 24px  4px rgba(#000, $md-ambient-shadow-opacity);
-$md-shadow-14dp: 0px  7px  9px -4px rgba(#000, $md-umbra-opacity), 0px 14px 21px 2px rgba(#000, $md-penumbra-opacity), 0px 5px 26px  4px rgba(#000, $md-ambient-shadow-opacity);
-$md-shadow-15dp: 0px  8px  9px -5px rgba(#000, $md-umbra-opacity), 0px 15px 22px 2px rgba(#000, $md-penumbra-opacity), 0px 6px 28px  5px rgba(#000, $md-ambient-shadow-opacity);
-$md-shadow-16dp: 0px  8px 10px -5px rgba(#000, $md-umbra-opacity), 0px 16px 24px 2px rgba(#000, $md-penumbra-opacity), 0px 6px 30px  5px rgba(#000, $md-ambient-shadow-opacity);
-$md-shadow-17dp: 0px  8px 11px -5px rgba(#000, $md-umbra-opacity), 0px 17px 26px 2px rgba(#000, $md-penumbra-opacity), 0px 6px 32px  5px rgba(#000, $md-ambient-shadow-opacity);
-$md-shadow-18dp: 0px  9px 11px -5px rgba(#000, $md-umbra-opacity), 0px 18px 28px 2px rgba(#000, $md-penumbra-opacity), 0px 7px 34px  6px rgba(#000, $md-ambient-shadow-opacity);
-$md-shadow-19dp: 0px  9px 12px -6px rgba(#000, $md-umbra-opacity), 0px 19px 29px 2px rgba(#000, $md-penumbra-opacity), 0px 7px 36px  6px rgba(#000, $md-ambient-shadow-opacity);
-$md-shadow-20dp: 0px 10px 13px -6px rgba(#000, $md-umbra-opacity), 0px 20px 31px 3px rgba(#000, $md-penumbra-opacity), 0px 8px 38px  7px rgba(#000, $md-ambient-shadow-opacity);
-$md-shadow-21dp: 0px 10px 13px -6px rgba(#000, $md-umbra-opacity), 0px 21px 33px 3px rgba(#000, $md-penumbra-opacity), 0px 8px 40px  7px rgba(#000, $md-ambient-shadow-opacity);
-$md-shadow-22dp: 0px 10px 14px -6px rgba(#000, $md-umbra-opacity), 0px 22px 35px 3px rgba(#000, $md-penumbra-opacity), 0px 8px 42px  7px rgba(#000, $md-ambient-shadow-opacity);
-$md-shadow-23dp: 0px 11px 14px -7px rgba(#000, $md-umbra-opacity), 0px 23px 36px 3px rgba(#000, $md-penumbra-opacity), 0px 9px 44px  8px rgba(#000, $md-ambient-shadow-opacity);
-$md-shadow-24dp: 0px 11px 15px -7px rgba(#000, $md-umbra-opacity), 0px 24px 38px 3px rgba(#000, $md-penumbra-opacity), 0px 9px 46px  8px rgba(#000, $md-ambient-shadow-opacity);
-
+@import 'variables';
 
 /**
- *  Do not remove this comments bellow. It's the markers used by wiredep to inject
- *  sass dependencies when defined in the bower.json of your dependencies
+ *  DO NOT REMOVE: These are used by wiredep to inject SCSS files from bower dependencies.
  */
 // bower:scss
 // endbower
 
 
-// supplies core styles for typography, colors and general utilities
-// along with the basic element definitions
-
-@import 'mixins';
-
-// Fonts
-@include font-face('CenturyStd-BookItalic', '#{$local-font-path}/CenturyStd-BookItalic');
-@include font-face('CenturyStd-Book', '#{$local-font-path}/CenturyStd-Book');
-@include font-face('AvenirLTStd-Heavy', '#{$local-font-path}/AvenirLTStd-Heavy');
-@include font-face('AvenirLTStd-Roman', '#{$local-font-path}/AvenirLTStd-Roman');
-
+@import 'md-layout';
+@import 'typography';
 
 // Utility
 
@@ -127,84 +60,45 @@ $md-shadow-24dp: 0px 11px 15px -7px rgba(#000, $md-umbra-opacity), 0px 24px 38px
    }
 }
 
-// Visually hide an element while keeping it accessible
-%visuallyhidden {
-   margin: -1px;
-   padding: 0;
-   width: 1px;
-   height: 1px;
-   overflow: hidden;
-   clip: rect(0 0 0 0);
-   clip: rect(0, 0, 0, 0);
-   position: absolute;
-}
-
-/*
- * Extends the .visuallyhidden class to allow the element to be focusable
- * when navigated to via the keyboard: h5bp.com/p
- */
-.visuallyhidden.focusable {
-   &:active, &:focus {
-      clip: auto;
-      height: auto;
-      margin: 0;
-      overflow: visible;
-      position: static;
-      width: auto;
-   }
-}
 
 /*  General  */
-html {
-   background-color: $darkBrown;
-   box-sizing: border-box;
-}
-
-*, *:before, *:after {
-   box-sizing: inherit;
-}
-
 html, body {
-   margin: 0;
    height: 100%;
+   background: $darkBrown;
+   position: relative;
 }
 
 body {
+   margin: 0;
+   padding: 0;
    color: $text;
-   @extend %AvenirLTStd-Roman;
-   @include font-smoothing(on);
-
-   // -webkit-font-smoothing: antialiased;
-   // -moz-osx-font-smoothing: grayscale;
-   line-height: 1.8;
-   position: relative;
-
-   display: flex;
-   flex-direction: column;
-
-   > .app-canvas {
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-
-      > .content-area {
-         display: flex;
-         flex-direction: column;
-         flex-grow: 1;
-      }
-   }
-
-   .fill-page {
-      position: absolute;
-      top: $header-height;
-      bottom: 0;
-      left: 0;
-      right: 0;
-   }
 }
 
-img, picture {
-   max-width: 100%;
+// scrollable content area
+// borrowed from https://github.com/angular/material/blob/eb1695a0d54f6794a08f04169ad8a390b92a1849/src/components/content/content.scss
+.content {
+  display: block;
+  position: relative;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+
+  &.scroll-y {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  &.scroll-x {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  &.scroll-xy {
+  }
+
+  // For iOS allow disabling of momentum scrolling
+  // @see issue #2640.
+
+  &.autoScroll {
+    -webkit-overflow-scrolling: auto;
+  }
 }
 
 fieldset {
@@ -222,58 +116,6 @@ fieldset {
    @extend %container;
 }
 
-h1, h2, h3, h4, h5, h6 {
-   color: $lightBrown;
-   @extend %CenturyStd-Book;
-   line-height: 1.3;
-   margin-top: 0;
-}
-
-p {
-   &:last-child {
-      margin-bottom: 0;
-   }
-}
-
-a {
-   color: $lightBrown;
-}
-
-h1 {
-   @extend %CenturyStd-Book;
-   font-size: 1.9em;
-   line-height: 1;
-
-   @media only all and (min-width: 40em) {
-      font-size: 2.3em;
-   }
-
-   @media only all and (min-width: 60em) {
-      font-size: 2.7em;
-   }
-
-   @media only all and (min-width: 80em) {
-      font-size: 3.1em;
-   }
-
-   /*
-   @media only all and (min-width: 25em) {
-      font-size: 2.375em;
-   }
-
-   @media only all and (min-width: 30em) {
-      font-size: 2.85em;
-   }
-
-   @media only all and (min-width: 35em) {
-      font-size: 3.325em;
-   }
-
-   @media only all and (min-width: 40em) {
-      font-size: 3.8em;
-   }
-   */
-}
 main, .main {
    background-color: white;
 }
@@ -347,17 +189,8 @@ form {
    }
 }
 
-.ui-view-container {
-   overflow: hidden;
-
-   > [ui-view] {
-      overflow: auto;
-   }
-}
-
 /**
- *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
- *  all your sass files automatically
+ *  DO NOT REMOVE: These are used by gulp-inject to inject other SCSS files in the project.
  */
 // injector
 // endinjector
