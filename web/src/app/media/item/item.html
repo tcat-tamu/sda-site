@@ -1,34 +1,35 @@
-<header sda-site-header></header>
-
 <main class="section--item">
    <div class="container">
+
       <section class="video">
          <iframe ng-src="{{vm.getYoutubeVideoUrl(vm.item.videoId)}}" allowfullscreen="" frameborder="0" height="315" width="560"></iframe>
       </section>
 
-      <section class="metadata">
-         <h1>{{vm.item.title}}</h1>
-         <p ng-if="vm.item.speaker.name">
-            <strong>Speaker:</strong>
-            <span>{{vm.item.speaker.name}}</span>
-         </p>
-         <p ng-if="vm.item.respondent.name">
-            <strong>Respondent:</strong>
-            <span>{{vm.item.respondent.name}}</span>
-         </p>
-      </section>
+      <div class="layout-column layout-gt-md-row">
+         <div class="flex-gt-md-60 layout-padding">
+            <div class="flex">
+               <h1 class="title">{{vm.item.title}}</h1>
 
-      <section class="abstract" ng-if="vm.item.abstract">
-         <h2>Abstract</h2>
-         <div ng-bind-html="vm.item.abstract"></div>
-      </section>
+               <dl class="metadata">
+                  <dt ng-if="vm.item.speaker.name">Speaker</dt>
+                  <dd ng-if="vm.item.speaker.name">{{vm.item.speaker.name}}</dd>
+                  <dt ng-if="vm.item.respondent.name">Respondent</dt>
+                  <dd ng-if="vm.item.respondent.name">{{vm.item.respondent.name}}</dd>
+               </dl>
+
+               <section class="abstract" ng-if="vm.item.abstract">
+                  <h2>Abstract</h2>
+                  <div ng-bind-html="vm.item.abstract"></div>
+               </section>
+            </div>
+         </div>
+         <section class="bio flex-gt-md-40 layout-padding" ng-if="vm.speaker.bio">
+            <div class="flex">
+               <h2>Speaker Bio</h2>
+               <div ng-bind-html="vm.speaker.bio"></div>
+            </div>
+         </section>
+      </div>
 
    </div>
-
-   <section class="container bio" ng-if="vm.speaker.bio">
-      <h2>Speaker Bio</h2>
-      <div ng-bind-html="vm.speaker.bio"></div>
-   </section>
 </main>
-
-<footer sda-site-footer collapsible="true"></footer>
