@@ -16,22 +16,11 @@
 
 .section--library {
    > .container {
-      .landing section {
-         padding: 2rem 3rem;
-
-         @media screen and (min-width: $screen-md-min) {
-            padding: 2rem;
-         }
-
-         @media screen and (min-width: $screen-lg-min) {
-            padding: 2rem 3rem;
-         }
-      }
-
       > .ui-view-container {
          position: relative;
+         overflow: hidden;
 
-         .content[ui-view] {
+         [ui-view] {
             position: absolute;
             top: 0; bottom: 0; left: 0; right: 0;
 
