@@ -1,4 +1,4 @@
-<aside class="sidebar sidebar-tabbed" ng-class="{'sidebar-fixed': fixed}">
+<aside class="sidebar sidebar-tabbed layout-column">
    <nav class="tabs">
       <ul>
          <li ng-repeat="tab in vm.tabs" ng-class="{active: tab.active}">
@@ -9,7 +9,7 @@
          </li>
       </ul>
    </nav>
-   <div class="panes" ng-transclude></div>
+   <div class="panes flex layout-column" ng-transclude></div>
    <a href="" class="toplink" ng-click="vm.scrollToTop($event)" ng-if="toplink">
       <span class="label">top</span>
       <span class="icon fa-stack fa-lg">

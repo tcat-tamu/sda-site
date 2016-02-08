@@ -1,15 +1,7 @@
-body {
-   padding-top: $header-height;
-}
-
 .site-header {
-   position: fixed;
-   top: 0;
-   left: 0;
-   right: 0;
-   z-index: 9999;
    background-color: $darkBrown;
-   max-height: $header-height;
+   height: $header-height;
+   z-index: 9999;
 
    > .container {
       display: flex;

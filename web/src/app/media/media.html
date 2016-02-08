@@ -1,21 +1,21 @@
-<div class="page-banner" ng-show="vm.showBanner">
+<div class="page-banner flex-none" ng-show="vm.showBanner">
    <div class="container">
       <h1>Media Centre</h1>
    </div>
 </div>
 
-<main class="section--media">
-   <div class="container">
-      <aside class="sidebar">
+<main class="section--media flex layout-row layout-align-center">
+   <div class="container flex layout-xs-column layout-sm-row layout-gt-sm-row">
+      <aside class="sidebar flex-xs-noshrink flex-sm-33 flex-gt-sm-25 content layout-column layout-padding">
          <form class="filter">
             <input type="search" ng-model="vm.filter" placeholder="filter videos" />
          </form>
       </aside>
-      <div class="content">
+      <div class="content flex layout-padding">
          <section class="playlist" ng-repeat="playlist in vm.playlists">
             <h2>{{playlist.title}}</h2>
-            <ol class="media">
-               <li ng-repeat="item in playlist.items | filter:vm.filter">
+            <ol class="media layout-wrap layout-row layout-padding">
+               <li class="flex-xs-100 flex-sm-50 flex-md-33 flex-gt-md-25" ng-repeat="item in playlist.items | filter:vm.filter">
                   <a ui-sref="sda.media-item({ id: item.id })">
                      <img ng-src="{{item.image}}" alt="" />
                      <h3>{{item.title}}</h3>

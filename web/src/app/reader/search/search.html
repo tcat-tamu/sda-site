@@ -1,57 +1,59 @@
-<section class="section--reader--results">
-   <h1>Search Results <small ng-if="vm.queryResult.query.q">"{{vm.queryResult.query.q}}"</small></h1>
+<section class="section--reader--results layout-padding">
+   <div class="flex content">
+      <h1>Search Results <small ng-if="vm.queryResult.query.q">"{{vm.queryResult.query.q}}"</small></h1>
 
-   <p ng-if="vm.queryResult.query">
-      Showing {{vm.queryResult.query.totalResults == 0 ? 0 : vm.queryResult.query.offset+1}}&ndash;{{vm.queryResult.query.offset + vm.queryResult.articles.length}} of {{vm.queryResult.query.totalResults}}
-   </p>
+      <p ng-if="vm.queryResult.query">
+         Showing {{vm.queryResult.query.totalResults == 0 ? 0 : vm.queryResult.query.offset+1}}&ndash;{{vm.queryResult.query.offset + vm.queryResult.articles.length}} of {{vm.queryResult.query.totalResults}}
+      </p>
 
-   <nav class="pagination" ng-if="vm.queryResult.query.numPages > 1">
-      <a href="" ng-click="vm.displayFirstPage()" ng-if="vm.queryResult.query.first">
-         <i class="fa fa-angle-double-left"></i>
-         <span class="sr-only">First</span>
-      </a>
-      <a href="" ng-click="vm.displayPrevPage()" ng-if="vm.queryResult.query.previous">
-         <i class="fa fa-angle-left"></i>
-         <span class="sr-only">Previous</span>
-      </a>
-      <span>{{vm.queryResult.query.pg}}</span>
-      <a href="" ng-click="vm.displayNextPage()" ng-if="vm.queryResult.query.next">
-         <span class="sr-only">Next</span>
-         <i class="fa fa-angle-right"></i>
-      </a>
-      <a href="" ng-click="vm.displayLastPage()" ng-if="vm.queryResult.query.last">
-         <span class="sr-only">Last</span>
-         <i class="fa fa-angle-double-right"></i>
-      </a>
-   </nav>
+      <nav class="pagination" ng-if="vm.queryResult.query.numPages > 1">
+         <a href="" ng-click="vm.displayFirstPage()" ng-if="vm.queryResult.query.first">
+            <i class="fa fa-angle-double-left"></i>
+            <span class="sr-only">First</span>
+         </a>
+         <a href="" ng-click="vm.displayPrevPage()" ng-if="vm.queryResult.query.previous">
+            <i class="fa fa-angle-left"></i>
+            <span class="sr-only">Previous</span>
+         </a>
+         <span>{{vm.queryResult.query.pg}}</span>
+         <a href="" ng-click="vm.displayNextPage()" ng-if="vm.queryResult.query.next">
+            <span class="sr-only">Next</span>
+            <i class="fa fa-angle-right"></i>
+         </a>
+         <a href="" ng-click="vm.displayLastPage()" ng-if="vm.queryResult.query.last">
+            <span class="sr-only">Last</span>
+            <i class="fa fa-angle-double-right"></i>
+         </a>
+      </nav>
 
-   <ol ng-if="vm.queryResult.articles">
-      <li class="result" ng-repeat="result in vm.queryResult.articles">
-         <h3><a ui-sref="sda.reader-article({id: result.id})">{{result.title}}</a></h3>
-         <span class="author" ng-repeat="author in result.authors">{{author.name}}, {{author.affiliation}}</span>
-         <p ng-bind-html="result.absHL"></p>
-         <p ng-bind-html="result.contentHL"></p>
-      </li>
-   </ol>
-   <div ng-if="!vm.queryResult.articles">No results</div>
+      <ol ng-if="vm.queryResult.articles">
+         <li class="result" ng-repeat="result in vm.queryResult.articles">
+            <h3><a ui-sref="sda.reader-article({id: result.id})">{{result.title}}</a></h3>
+            <span class="author" ng-repeat="author in result.authors">{{author.name}}, {{author.affiliation}}</span>
+            <p ng-bind-html="result.absHL"></p>
+            <p ng-bind-html="result.contentHL"></p>
+         </li>
+      </ol>
+      <div ng-if="!vm.queryResult.articles">No results</div>
 
-   <nav class="pagination" ng-if="vm.queryResult.query.numPages > 1">
-      <a href="" ng-click="vm.displayFirstPage()" ng-if="vm.queryResult.query.first">
-         <i class="fa fa-angle-double-left"></i>
-         <span class="sr-only">First</span>
-      </a>
-      <a href="" ng-click="vm.displayPrevPage()" ng-if="vm.queryResult.query.previous">
-         <i class="fa fa-angle-left"></i>
-         <span class="sr-only">Previous</span>
-      </a>
-      <span>{{vm.queryResult.query.pg}}</span>
-      <a href="" ng-click="vm.displayNextPage()" ng-if="vm.queryResult.query.next">
-         <span class="sr-only">Next</span>
-         <i class="fa fa-angle-right"></i>
-      </a>
-      <a href="" ng-click="vm.displayLastPage()" ng-if="vm.queryResult.query.last">
-         <span class="sr-only">Last</span>
-         <i class="fa fa-angle-double-right"></i>
-      </a>
-   </nav>
+      <nav class="pagination" ng-if="vm.queryResult.query.numPages > 1">
+         <a href="" ng-click="vm.displayFirstPage()" ng-if="vm.queryResult.query.first">
+            <i class="fa fa-angle-double-left"></i>
+            <span class="sr-only">First</span>
+         </a>
+         <a href="" ng-click="vm.displayPrevPage()" ng-if="vm.queryResult.query.previous">
+            <i class="fa fa-angle-left"></i>
+            <span class="sr-only">Previous</span>
+         </a>
+         <span>{{vm.queryResult.query.pg}}</span>
+         <a href="" ng-click="vm.displayNextPage()" ng-if="vm.queryResult.query.next">
+            <span class="sr-only">Next</span>
+            <i class="fa fa-angle-right"></i>
+         </a>
+         <a href="" ng-click="vm.displayLastPage()" ng-if="vm.queryResult.query.last">
+            <span class="sr-only">Last</span>
+            <i class="fa fa-angle-double-right"></i>
+         </a>
+      </nav>
+   </div>
 </section>

@@ -1,14 +1,14 @@
-<div class="page-banner" ng-show="vm.showBanner">
+<div class="page-banner flex-none" ng-show="vm.showBanner">
    <div class="container">
       <h1>SDA Reader</h1>
    </div>
 </div>
 
-<main class="section--reader">
-   <div class="container">
-      <sda-tabbed-sidebar>
+<main class="section--reader flex layout-row layout-align-center">
+   <div class="container flex layout-xs-column layout-sm-column layout-md-row layout-gt-md-row">
+      <sda-tabbed-sidebar class="flex-md-33 flex-gt-md-25">
          <sda-sidebar-tab title="Thematic Overviews">
-            <div class="sidebar-content">
+            <div class="content layout-column layout-padding">
                <form ng-submit="vm.search()" class="search">
                   <div class="input-group">
                      <input type="search" ng-model="vm.query" name="query" id="query" placeholder="search articles..."/>
@@ -30,40 +30,42 @@
             </div>
          </sda-sidebar-tab>
          <sda-sidebar-tab title="Book Reviews">
-            <div class="sidebar-content">
+            <div class="layout-column layout-padding">
                <em>Coming soon...</em>
             </div>
          </sda-sidebar-tab>
          <sda-sidebar-tab title="Biographies">
-            <div class="sidebar-content">
+            <div class="layout-column layout-padding">
                <em>Coming soon...</em>
             </div>
          </sda-sidebar-tab>
       </sda-tabbed-sidebar>
       <div class="content" ui-view>
-         <section class="landing">
-            <h1>Thematic Overview Articles</h1>
+         <section class="landing layout-column layout-padding">
+            <div>
+               <h1>Thematic Overview Articles</h1>
 
-            <div class="blocks">
-               <div class="block">
-                  <h2>Meaning</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, facere est necessitatibus doloremque. In quidem voluptatibus eos praesentium, adipisci officia!</p>
-                  <a href="#" class="read-more">Read More »</a>
-               </div>
-               <div class="block">
-                  <h2>Assessment</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut nemo recusandae mollitia, quae ea provident eveniet in aliquid ab voluptates!</p>
-                  <a href="#" class="read-more">Read More »</a>
-               </div>
-               <div class="block">
-                  <h2>Narrative</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam ab molestias dolor eligendi voluptas ullam quibusdam illo, amet suscipit dolore.</p>
-                  <a href="#" class="read-more">Read More »</a>
-               </div>
-               <div class="block">
-                  <h2>Imagination</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo aspernatur animi cupiditate, consectetur tempora libero ut cumque, quo atque ad!</p>
-                  <a href="#" class="read-more">Read More »</a>
+               <div class="blocks layout-row layout-wrap layout-padding">
+                  <div class="block flex-xs-100 flex-sm-100 flex-gt-sm-50">
+                     <h2>Meaning</h2>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, facere est necessitatibus doloremque. In quidem voluptatibus eos praesentium, adipisci officia!</p>
+                     <a href="#" class="read-more">Read More »</a>
+                  </div>
+                  <div class="block flex-xs-100 flex-sm-100 flex-gt-sm-50">
+                     <h2>Assessment</h2>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut nemo recusandae mollitia, quae ea provident eveniet in aliquid ab voluptates!</p>
+                     <a href="#" class="read-more">Read More »</a>
+                  </div>
+                  <div class="block flex-xs-100 flex-sm-100 flex-gt-sm-50">
+                     <h2>Narrative</h2>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam ab molestias dolor eligendi voluptas ullam quibusdam illo, amet suscipit dolore.</p>
+                     <a href="#" class="read-more">Read More »</a>
+                  </div>
+                  <div class="block flex-xs-100 flex-sm-100 flex-gt-sm-50">
+                     <h2>Imagination</h2>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo aspernatur animi cupiditate, consectetur tempora libero ut cumque, quo atque ad!</p>
+                     <a href="#" class="read-more">Read More »</a>
+                  </div>
                </div>
             </div>
          </section>

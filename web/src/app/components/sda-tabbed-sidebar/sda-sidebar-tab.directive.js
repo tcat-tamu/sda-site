@@ -10,7 +10,7 @@
       var directive = {
          restrict: 'E',
          require: '^sdaTabbedSidebar',
-         template: '<div ng-show="active" ng-transclude></div>',
+         template: '<div class="flex layout-column" ng-show="active" ng-transclude></div>',
          replace: true,
          scope: {
             id: '@',

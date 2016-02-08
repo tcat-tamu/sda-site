@@ -1,14 +1,6 @@
 .section--item {
-   > .container {
-      padding: 3rem 5rem;
-   }
-
-   section {
-      margin-bottom: 2rem;
-
-      &:last-child {
-         margin-bottom: 0;
-      }
+   h1.title {
+      margin-bottom: 1rem;
    }
 
    .video {

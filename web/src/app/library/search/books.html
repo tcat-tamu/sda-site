@@ -1,15 +1,15 @@
-<form ng-submit="vm.search()" class="section--library--search-form">
-   <div class="input-group">
-      <input type="search" ng-model="vm.query" name="query" placeholder="search books..."/>
-      <button type="submit">
-         <i class="fa fa-search"></i>
-         <span class="sr-only">Search</span>
-      </button>
-   </div>
-</form>
+<div class="layout-column layout-padding">
+   <form ng-submit="vm.search()" class="section--library--search-form">
+      <div class="input-group">
+         <input type="search" ng-model="vm.query" name="query" placeholder="search books..."/>
+         <button type="submit">
+            <i class="fa fa-search"></i>
+            <span class="sr-only">Search</span>
+         </button>
+      </div>
+   </form>
 
-<div class="section--library--search-results">
-   <div class="content">
+   <div class="section--library--search-results content">
       <ol class="results" ng-if="vm.books.length">
          <li class="work" ng-repeat="book in vm.books" ng-class="{active: vm.currentId == book.id}">
             <div class="citation">

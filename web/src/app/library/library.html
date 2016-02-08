@@ -1,23 +1,23 @@
-<div class="page-banner page-banner--library" ng-show="vm.showBanner">
+<div class="page-banner page-banner--library flex-noshrink" ng-show="vm.showBanner">
    <div class="container">
       <h1>Library</h1>
    </div>
 </div>
 
-<main class="section--library">
-   <div class="container">
-      <sda-tabbed-sidebar active-tab="vm.defaultTab">
-         <sda-sidebar-tab id="people" title="People" icon="users" class="sidebar-pane">
-            <div class="search-form-container" ng-include="'app/library/search/people.html'" ng-controller="LibraryPeopleSearchController as vm"></div>
+<main class="section--library flex layout-row">
+   <div class="container flex layout-xs-column layout-sm-column layout-md-row layout-gt-md-row">
+      <sda-tabbed-sidebar class="flex-md-33 flex-gt-md-25" active-tab="vm.defaultTab">
+         <sda-sidebar-tab id="people" title="People" icon="users">
+            <div class="content layout-column" ng-include="'app/library/search/people.html'" ng-controller="LibraryPeopleSearchController as vm"></div>
          </sda-sidebar-tab>
-         <sda-sidebar-tab id="books" title="Books" icon="book" class="sidebar-pane">
-            <div class="search-form-container" ng-include="'app/library/search/books.html'" ng-controller="LibraryBooksSearchController as vm"></div>
+         <sda-sidebar-tab id="books" title="Books" icon="book">
+            <div class="content layout-column" ng-include="'app/library/search/books.html'" ng-controller="LibraryBooksSearchController as vm"></div>
          </sda-sidebar-tab>
       </sda-tabbed-sidebar>
-      <div class="ui-view-container">
-         <div class="content" ui-view>
-            <div class="landing">
-               <section class="overview">
+      <div class="flex layout-column ui-view-container">
+         <div class="flex content" ui-view>
+            <div class="landing layout-xs-column layout-gt-md-row layout-padding">
+               <section class="overview flex-gt-md-66">
                   <h1>Overview</h1>
                   <p>
                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore consequatur iusto error alias eveniet nihil, nulla. Totam quae, libero distinctio odio non maxime placeat nulla nihil est corporis adipisci quia ipsa. Unde, molestias necessitatibus delectus dolore amet tempora sit omnis voluptatum minima eum ratione sed maxime aliquam ab, alias, quod nesciunt consequatur officia est? Enim incidunt atque similique blanditiis, ducimus.
@@ -31,7 +31,7 @@
                      <li><a href=""><img src="//placehold.it/300x300" /></a></li>
                   </ul>
                </section>
-               <section class="key-items">
+               <section class="key-items flex-gt-md-33">
                   <h2>Starting Points</h2>
                   <ul>
                      <li ng-repeat="book in vm.keyBooks"><em><a href="">{{book.title}}</a></em> by <a href="">{{book.author}}</a></li>

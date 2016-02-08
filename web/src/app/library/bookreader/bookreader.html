@@ -1,40 +1,24 @@
-<main class="section--library section--bookreader fill-page" ng-class="{fullscreen: fullscreen}">
-   <div class="container">
-      <sda-tabbed-sidebar active-tab="'info'" ng-hide="fullscreen">
+<main class="section--library section--bookreader flex layout-row layout-align-center" ng-class="{fullscreen: fullscreen}">
+   <div class="container flex layout-row">
+      <sda-tabbed-sidebar active-tab="'info'" ng-hide="fullscreen" class="flex-33">
          <sda-sidebar-tab id="people" title="People" icon="users">
-            <form ng-submit="vm.searchPeople()">
-               <div class="input-group">
-                  <input type="search" ng-model="vm.peopleQuery" name="peopleQuery" id="peopleQuery" placeholder="search people..."/>
-                  <button type="submit">
-                     <i class="fa fa-search"></i>
-                     <span class="sr-only">Search</span>
-                  </button>
-               </div>
-            </form>
+            <div class="layout-column" ng-include="'app/library/search/people.html'" ng-controller="LibraryPeopleSearchController as vm"></div>
          </sda-sidebar-tab>
          <sda-sidebar-tab id="books" title="Books" icon="book">
-            <form ng-submit="vm.searchBooks()">
-               <div class="input-group">
-                  <input type="search" ng-model="vm.bookQuery" name="bookQuery" id="bookQuery" placeholder="search books..."/>
-                  <button type="submit">
-                     <i class="fa fa-search"></i>
-                     <span class="sr-only">Search</span>
-                  </button>
-               </div>
-            </form>
+            <div class="layout-column" ng-include="'app/library/search/books.html'" ng-controller="LibraryBooksSearchController as vm"></div>
          </sda-sidebar-tab>
          <sda-sidebar-tab class="work-info-sidebar" id="info" title="Work Information" icon="info-circle">
             <ng-include src="'app/library/books/book.html'" ng-controller="LibraryBookController as vm"></ng-include>
          </sda-sidebar-tab>
       </sda-tabbed-sidebar>
-      <div class="content">
+      <div class="content flex layout-column">
          <button type="button" class="fullscreen-toggle" ng-click="fullscreen = !fullscreen">
             <i class="fa" ng-class="{'fa-expand': !fullscreen, 'fa-compress': fullscreen}"></i>
             <span class="sr-only">Toggle fullscreen</span>
          </button>
-         <section ng-switch="vm.book.type">
-            <hathitrust-reader class="reader" ng-switch-when="hathitrust" book-id="vm.book.id"></hathitrust-reader>
-            <google-book-reader class="reader" ng-switch-when="google-books" book-id="vm.book.id"></google-book-reader>
+         <section ng-switch="vm.book.type" class="flex layout-column layout-padding">
+            <hathitrust-reader class="reader flex" ng-switch-when="hathitrust" book-id="vm.book.id"></hathitrust-reader>
+            <google-book-reader class="reader flex" ng-switch-when="google-books" book-id="vm.book.id"></google-book-reader>
             <div class="reader" ng-switch-default>
                <p ng-if="vm.book.type">Sorry. We were unable to load a book reader for that resource.</p>
                <p ng-if="!vm.book.type" class="throbber">Loading book reader&hellip; <i class="fa fa-spin fa-circle-o-notch"></i></p>

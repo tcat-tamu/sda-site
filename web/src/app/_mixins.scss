@@ -18,17 +18,6 @@
    white-space: nowrap;
 }
 
-// Setting a rem font size with pixel fallback
-@function calculateRem($size) {
-   $remSize: $size / 16px;
-   @return $remSize * 1rem;
-}
-
-@mixin font-size($size) {
-   font-size: $size;
-   font-size: calculateRem($size);
-}
-
 // Font Smoothing (making fonts appear less "heavy")
 @mixin font-smoothing($value: on) {
    @if $value == on {
@@ -39,11 +28,6 @@
       -webkit-font-smoothing: subpixel-antialiased;
       -moz-osx-font-smoothing: auto;
    }
-}
-
-@mixin link-disabled {
-   cursor: not-allowed;
-   opacity: 0.6;
 }
 
 @mixin placeholder {
@@ -61,5 +45,14 @@
 
    &::-ms-input-placeholder {
       @content;
+   }
+}
+
+@mixin hanging-list($indent) {
+   list-style: none;
+
+   li {
+      text-indent: -$indent;
+      padding-left: $indent;
    }
 }
