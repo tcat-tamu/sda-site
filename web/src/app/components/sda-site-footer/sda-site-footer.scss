@@ -9,6 +9,13 @@
       padding: 0;
       width: 100%;
 
+      &.ng-hide {
+         animation: slideOutDown 300ms;
+      }
+      &.ng-hide-remove {
+         animation: slideInUp 300ms;
+      }
+
       .content {
          font-size: 0.9em;
          line-height: 1.5em;
