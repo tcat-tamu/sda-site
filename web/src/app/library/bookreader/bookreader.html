@@ -1,13 +1,15 @@
 <main class="section--library section--bookreader flex layout-row layout-align-center" ng-class="{fullscreen: fullscreen}">
    <div class="container flex layout-row">
       <sda-tabbed-sidebar active-tab="'info'" ng-hide="fullscreen" class="flex-33">
+         <!--
          <sda-sidebar-tab id="people" title="People" icon="users">
             <div class="layout-column" ng-include="'app/library/search/people.html'" ng-controller="LibraryPeopleSearchController as vm"></div>
          </sda-sidebar-tab>
          <sda-sidebar-tab id="books" title="Books" icon="book">
             <div class="layout-column" ng-include="'app/library/search/books.html'" ng-controller="LibraryBooksSearchController as vm"></div>
          </sda-sidebar-tab>
-         <sda-sidebar-tab class="work-info-sidebar" id="info" title="Work Information" icon="info-circle">
+         -->
+         <sda-sidebar-tab class="work-info-sidebar" id="info" title="Book Information" icon="info-circle">
             <ng-include src="'app/library/books/book.html'" ng-controller="LibraryBookController as vm"></ng-include>
          </sda-sidebar-tab>
       </sda-tabbed-sidebar>
