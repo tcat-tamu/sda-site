@@ -3,29 +3,19 @@
       max-width: 60rem;
    }
 
-   .time-location {
+   section.time-location {
+      padding: 0;
       background: $copper;
       color: #fff;
-      padding: 3rem 0;
       text-align: center;
       border-bottom: 5px solid $lightCopper;
-
-      .container {
-         display: flex;
-         flex-direction: row;
-
-         div {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-         }
-      }
 
       h3 {
          color: inherit;
          font-family: inherit;
          font-weight: bold;
          margin-bottom: 0.5em;
+         margin-top: 0;
          font-size: 1.3em;
          text-transform: uppercase;
       }
@@ -94,16 +84,6 @@
       .map > iframe {
          width: 100%;
          margin: 4rem 0;
-      }
-
-      .cols {
-         display: flex;
-         margin: 0 -2.5rem;
-
-         > * {
-            flex: 1;
-            padding: 0 2.5rem;
-         }
       }
    }
 
