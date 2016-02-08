@@ -111,8 +111,10 @@
 
       .panes {
          &.ng-hide {
-            animation: slideOutLeft 0.3s;
-            max-width: 0;
+            animation: slideOutLeft 300ms;
+         }
+         &.ng-hide-remove {
+            animation: slideInLeft 300ms;
          }
       }
 

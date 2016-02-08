@@ -28,39 +28,7 @@
       }
    }
 
-   aside.sidebar {
-      &.ng-hide {
-         animation: slideOutLeft 0.3s;
-      }
-
-      &.ng-hide-remove {
-         animation: slideInLeft 0.3s;
-      }
-   }
-
    .content {
-      .fullscreen-toggle {
-         position: absolute;
-         display: block;
-         left: 0rem;
-         top: 0rem;
-         width: 2rem;
-         height: 2rem;
-         font-size: 1.1rem;
-         background: $copper;
-         border: none;
-         border-radius: 50%;
-         color: $cream;
-         text-align: center;
-         cursor: pointer;
-
-         transition: background-color 0.3s;
-
-         &:hover, &:focus, &:active {
-            background: lighten($copper, 10%);
-         }
-      }
-
       > section {
          > .reader {
             border: 0;

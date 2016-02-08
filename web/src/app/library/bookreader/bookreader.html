@@ -1,23 +1,34 @@
 <main class="section--library section--bookreader flex layout-row layout-align-center" ng-class="{fullscreen: fullscreen}">
    <div class="container flex layout-row">
+      <!--
       <sda-tabbed-sidebar active-tab="'info'" ng-hide="fullscreen" class="flex-33">
-         <!--
          <sda-sidebar-tab id="people" title="People" icon="users">
             <div class="layout-column" ng-include="'app/library/search/people.html'" ng-controller="LibraryPeopleSearchController as vm"></div>
          </sda-sidebar-tab>
          <sda-sidebar-tab id="books" title="Books" icon="book">
             <div class="layout-column" ng-include="'app/library/search/books.html'" ng-controller="LibraryBooksSearchController as vm"></div>
          </sda-sidebar-tab>
-         -->
          <sda-sidebar-tab class="work-info-sidebar" id="info" title="Book Information" icon="info-circle">
             <ng-include src="'app/library/books/book.html'" ng-controller="LibraryBookController as vm"></ng-include>
          </sda-sidebar-tab>
       </sda-tabbed-sidebar>
-      <div class="content flex layout-column">
-         <button type="button" class="fullscreen-toggle" ng-click="fullscreen = !fullscreen">
-            <i class="fa" ng-class="{'fa-expand': !fullscreen, 'fa-compress': fullscreen}"></i>
-            <span class="sr-only">Toggle fullscreen</span>
-         </button>
+      -->
+      <aside class="sidebar flex-nogrow sidebar-tabbed layout-column">
+         <nav class="tabs">
+            <ul>
+               <li class="active">
+                  <a ng-click="fullscreen = !fullscreen">
+                     <i class="icon fa fa-angle-double-{{fullscreen ? 'right' : 'left'}}"></i>
+                     <span class="label">{{fullscreen ? 'Show' : 'Hide'}} Details</span>
+                  </a>
+               </li>
+            </ul>
+         </nav>
+         <div class="panes" ng-hide="fullscreen">
+            <ng-include src="'app/library/books/book.html'" ng-controller="LibraryBookController as vm"></ng-include>
+         </div>
+      </aside>
+      <div class="content layout-column flex-100">
          <section ng-switch="vm.book.type" class="flex layout-column layout-padding">
             <hathitrust-reader class="reader flex" ng-switch-when="hathitrust" book-id="vm.book.id"></hathitrust-reader>
             <google-book-reader class="reader flex" ng-switch-when="google-books" book-id="vm.book.id"></google-book-reader>
