@@ -86,6 +86,66 @@
 
 
 
+.main-nav {
+   form.search-form {
+      .input-group {
+         display: flex;
+         flex-direction: row;
+
+         input {
+            flex-grow: 1;
+            height: 2.5rem;
+            margin: 0;
+            padding: 0.5rem;
+            border: 1px solid #999;
+            border-right: 0;
+            font-family: inherit;
+            font-size: inherit;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+
+            &:focus {
+               border-color: $copper
+            }
+         }
+
+         button {
+            margin: 0;
+            height: 2.5rem;
+            min-width: 2.5rem;
+            text-align: center;
+            background: $copper;
+            border: 1px solid $copper;
+            color: $cream;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            padding: 0 1rem;
+
+            > span {
+               font-size: 0.95em;
+               letter-spacing: 1px;
+            }
+
+            &:hover, &:focus {
+               background: lighten($copper, 5%);
+            }
+
+            &::-moz-focus-inner {
+               border: 0;
+            }
+
+            &:active {
+               background: darken($copper, 5%);
+               box-shadow: inset 0 1px 5px rgba(0,0,0,0.3);
+            }
+         }
+      }
+   }
+}
+
+
+
 .about-project {
    .container {
       padding: 2rem 3rem;
