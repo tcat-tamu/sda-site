@@ -31,13 +31,15 @@
             controllerAs: 'vm'
          })
          .state('sda.library.search-people', {
-            url: '/search/people?query&id',
+            url: '/search/people/:id?query',
+            reloadOnSearch: false,
             templateUrl: 'app/library/people/person.html',
             controller: 'LibraryPersonController',
             controllerAs: 'vm'
          })
          .state('sda.library.search-books', {
-            url: '/search/books?query&id',
+            url: '/search/books/:id?query',
+            reloadOnSearch: false,
             templateUrl: 'app/library/books/book.html',
             controller: 'LibraryBookController',
             controllerAs: 'vm'
