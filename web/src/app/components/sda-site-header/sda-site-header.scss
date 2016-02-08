@@ -107,6 +107,7 @@
                outline: 0;
                padding: 0.5rem 1rem;
                text-align: left;
+               position: relative;
 
                @media screen and (min-width: $screen-md-min) {
                   line-height: $header-height;
@@ -125,6 +126,17 @@
 
             &.active a {
                background-color: lighten($darkBrown, 10%);
+
+               &:before {
+                  display: block;
+                  content: '';
+                  position: absolute;
+                  bottom: 0;
+                  left: 0;
+                  right: 0;
+                  height: 3px;
+                  background: $copper;
+               }
 
                @media screen and (min-width: $screen-md-min) {
                   background-color: lighten($darkBrown, 5%);
