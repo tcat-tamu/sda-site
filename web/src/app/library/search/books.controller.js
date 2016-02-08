@@ -18,7 +18,7 @@
       vm.search = search;
 
       $scope.$on('$stateChangeSuccess', function (evt, state, params) {
-         if (state.name === 'sda.library.search-books') {
+         if (state.name === 'sda.library.main.search-books') {
             if (params.id) {
                vm.currentId = params.id
             }
@@ -31,7 +31,7 @@
 
 
       function activate() {
-         if ($state.is('sda.library.search-books')) {
+         if ($state.is('sda.library.main.search-books')) {
             vm.query = $stateParams.query;
             vm.currentId = $stateParams.id;
 
@@ -42,7 +42,7 @@
       }
 
       function search() {
-         $state.go('sda.library.search-books', { query: vm.query, id: vm.currentId });
+         $state.go('sda.library.main.search-books', { query: vm.query, id: vm.currentId });
 
          vm.books = workRepository.query({ q: vm.query }, onResultsLoaded);
 
@@ -56,7 +56,7 @@
 
          if (!vm.currentId && vm.books.length > 0) {
             vm.currentId = vm.books[0].id;
-            $state.go('sda.library.search-books', { query: vm.query, id: vm.currentId });
+            $state.go('sda.library.main.search-books', { query: vm.query, id: vm.currentId });
          }
       }
 

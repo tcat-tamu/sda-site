@@ -15,10 +15,10 @@
             <div class="citation">
                <span class="authors">
                   <span class="author" ng-repeat="author in book.authors">
-                     <a ui-sref="sda.library.person({id: author.authorId})">{{author.lastName}}</a>,
+                     <a ui-sref="sda.library.main.person({id: author.authorId})">{{author.lastName}}</a>,
                   </span>
                </span>
-               <span class="title"><a ui-sref="sda.library.search-books({query: vm.query, id: book.id})" ng-click="vm.currentId = book.id">{{book.title}}</a></span>
+               <span class="title"><a ui-sref="sda.library.main.search-books({query: vm.query, id: book.id})" ng-click="vm.currentId = book.id">{{book.title}}</a></span>
             </div>
             <p class="summary">{{book.summary || 'Summary not yet available.'}}</p>
          </li>

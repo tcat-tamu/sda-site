@@ -18,7 +18,7 @@
       vm.search = search;
 
       $scope.$on('$stateChangeSuccess', function (evt, state, params) {
-         if (state.name === 'sda.library.search-people') {
+         if (state.name === 'sda.library.main.search-people') {
             if (params.id) {
                vm.currentId = params.id
             }
@@ -30,7 +30,7 @@
       activate();
 
       function activate() {
-         if ($state.is('sda.library.search-people')) {
+         if ($state.is('sda.library.main.search-people')) {
             vm.query = $stateParams.query;
             vm.currentId = $stateParams.id;
 
@@ -41,7 +41,7 @@
       }
 
       function search() {
-         $state.go('sda.library.search-people', { query: vm.query, id: vm.currentId });
+         $state.go('sda.library.main.search-people', { query: vm.query, id: vm.currentId });
 
          vm.people = personRepository.query({ syntheticName: vm.query }, onResultsLoaded);
 
@@ -55,7 +55,7 @@
 
          if (!vm.currentId && vm.people.length > 0) {
             vm.currentId = vm.people[0].id;
-            $state.go('sda.library.search-people', { query: vm.query, id: vm.currentId });
+            $state.go('sda.library.main.search-people', { query: vm.query, id: vm.currentId });
          }
       }
 

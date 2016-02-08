@@ -1,5 +1,5 @@
 <sda-work-authors class="authors" ng-model="authors"></sda-work-authors>
-<a class="title" ng-if="workId && title" ui-sref="sda.library.book({id: workId})">{{title}}</a>
+<a class="title" ng-if="workId && title" ui-sref="sda.library.main.book({id: workId})">{{title}}</a>
 <span class="title" ng-if="!workId && title">{{title}}</span>
 <span class="edition" ng-if="edition">{{edition}}</span>
 <span class="volume" ng-if="volume">{{volume}}</span>

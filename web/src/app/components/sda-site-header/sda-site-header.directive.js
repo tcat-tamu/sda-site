@@ -23,7 +23,7 @@
       }
 
       /** @ngInject */
-      function SdaSiteHeaderController($timeout, $rootScope) {
+      function SdaSiteHeaderController($timeout, $rootScope, $state) {
          var vm = this;
 
          vm.isSearchFormVisible = false;
@@ -31,6 +31,8 @@
 
          vm.isNavMenuVisible = false;
          vm.toggleNavMenu = toggleNavMenu;
+
+         vm.$state = $state
 
          activate();
 

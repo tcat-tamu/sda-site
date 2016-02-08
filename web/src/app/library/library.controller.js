@@ -17,9 +17,9 @@
       activate();
 
       function activate() {
-         if ($state.is('sda.library.search-books')) {
+         if ($state.is('sda.library.main.search-books')) {
             vm.defaultTab = 'books';
-         } else if ($state.is('sda.library.search-people')) {
+         } else if ($state.is('sda.library.main.search-people')) {
             vm.defaultTab = 'people';
          }
 

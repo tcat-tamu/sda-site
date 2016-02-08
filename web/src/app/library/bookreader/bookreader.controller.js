@@ -46,11 +46,11 @@
       }
 
       function searchPeople() {
-         $state.go('sda.library.search-people', { query: vm.peopleQuery });
+         $state.go('sda.library.main.search-people', { query: vm.peopleQuery });
       }
 
       function searchBooks() {
-         $state.go('sda.library.search-books', { query: vm.bookQuery });
+         $state.go('sda.library.main.search-books', { query: vm.bookQuery });
       }
 
 

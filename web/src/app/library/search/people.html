@@ -12,7 +12,7 @@
    <div class="section--library--search-results">
       <ol class="results" ng-if="vm.people.length">
          <li class="work sda-citation" ng-repeat="person in vm.people" ng-class="{active: vm.currentId == person.id}">
-            <a ui-sref="sda.library.search-people({query: vm.query, id: person.id})" ng-click="vm.currentId = person.id">{{person.formattedName}}</a>
+            <a ui-sref="sda.library.main.search-people({query: vm.query, id: person.id})" ng-click="vm.currentId = person.id">{{person.formattedName}}</a>
             <p class="summary">{{person.summary || 'Summary not yet available.'}}</p>
          </li>
       </ol>

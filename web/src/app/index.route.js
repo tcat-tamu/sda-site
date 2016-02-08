@@ -23,40 +23,43 @@
             templateUrl: 'app/layout.html'
          })
 
-
          .state('sda.library', {
+            abstract: true,
+            template: '<div ui-view class="flex layout-column"></div>'
+         })
+         .state('sda.library.main', {
             url: '/library',
             templateUrl: 'app/library/library.html',
             controller: 'LibraryController',
             controllerAs: 'vm'
          })
-         .state('sda.library.search-people', {
+         .state('sda.library.main.search-people', {
             url: '/search/people/:id?query',
             reloadOnSearch: false,
             templateUrl: 'app/library/people/person.html',
             controller: 'LibraryPersonController',
             controllerAs: 'vm'
          })
-         .state('sda.library.search-books', {
+         .state('sda.library.main.search-books', {
             url: '/search/books/:id?query',
             reloadOnSearch: false,
             templateUrl: 'app/library/books/book.html',
             controller: 'LibraryBookController',
             controllerAs: 'vm'
          })
-         .state('sda.library.person', {
+         .state('sda.library.main.person', {
             url: '/people/:id',
             templateUrl: 'app/library/people/person.html',
             controller: 'LibraryPersonController',
             controllerAs: 'vm'
          })
-         .state('sda.library.book', {
+         .state('sda.library.main.book', {
             url: '/books/:id',
             templateUrl: 'app/library/books/book.html',
             controller: 'LibraryBookController',
             controllerAs: 'vm'
          })
-         .state('sda.library-bookreader', {
+         .state('sda.library.bookreader', {
             url: '/library/read/:workId/:copyId',
             templateUrl: 'app/library/bookreader/bookreader.html',
             controller: 'LibraryBookreaderController',
