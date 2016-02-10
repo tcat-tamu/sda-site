@@ -1,8 +1,0 @@
-/releng/**/build
-/main/**/vendor
-build
-dist
-
-node_modules
-*~
-*.bak
