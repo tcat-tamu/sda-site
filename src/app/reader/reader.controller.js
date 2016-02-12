@@ -6,14 +6,16 @@
       .controller('ReaderController', ReaderController);
 
    /** @ngInject */
-   function ReaderController($state, $scope, articleCollectionRepository) {
+   function ReaderController($state, $scope, articleCollectionRepository, _) {
       var vm = this;
 
       vm.showBanner = true;
 
       vm.search = search;
       vm.query = '';
-      vm.rootCollection = [];
+      vm.collection = null;
+
+      vm.nodeHasArticles = nodeHasArticles;
 
       activate();
 
@@ -22,7 +24,11 @@
             vm.query = query;
          });
 
-         vm.rootCollection = articleCollectionRepository.get();
+         vm.collection = articleCollectionRepository.get();
+      }
+
+      function nodeHasArticles(node) {
+         return _.size(node.articles) > 0;
       }
 
       function search() {

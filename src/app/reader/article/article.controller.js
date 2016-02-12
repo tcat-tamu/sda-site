@@ -6,21 +6,21 @@
       .controller('ArticleController', ArticleController);
 
    /** @ngInject */
-   function ArticleController($state, $stateParams, articleRepository, $log, $window, $document, $scope, $timeout, _, cslBuilder) {
+   function ArticleController($state, $stateParams, articleRepository, articleCollectionRepository, $log, $window, $scope, $timeout, _, cslBuilder) {
       var vm = this;
 
       vm.activeTab = null;
 
-      // HACK: calculate scroll offset based on rem value and header-height
-      var rem = 16;
-      var headerHeight = 4*rem;
-      vm.scrollOffset = headerHeight + 1*rem;
+      vm.node = null;
+      vm.article = null;
+      vm.links = [];
+      vm.articleType = null;
 
-      vm.article = {};
       vm.toc = [];
       vm.citations = [];
       vm.bibliography = [];
 
+      vm.titleCase = _.startCase;
       vm.scrollTo = scrollTo;
       vm.scrollToTop = scrollToTop;
       vm.activateNote = activateNote;
@@ -30,21 +30,11 @@
       activate();
 
       function activate() {
-         vm.article = articleRepository.get({ id: $stateParams.id }, function () {
-            vm.article.links.forEach(function (link) {
-               link.icon = getIcon(link.type);
-            });
-
-            var bibliography = vm.article.bibliography;
-            var citations = vm.article.citations;
-
-            cslBuilder.renderBibliography(bibliography, citations, 'mla').then(function (bibView) {
-               vm.citations = bibView.citations;
-               vm.bibliography = bibView.items;
-            })
-
-            initScroll();
-         });
+         if ($stateParams.type) {
+            loadThematic($stateParams.id, $stateParams.type);
+         } else {
+            loadArticle($stateParams.id);
+         }
 
          $scope.$on('click:footnote', function (evt, data) {
             $scope.$apply(function () {
@@ -57,6 +47,60 @@
                activateCitation(data.citation, data.$event);
             });
          });
+      }
+
+      /**
+       * Asynchronously loads an article into the controller view model.
+       *
+       * @param {string} articleId
+       */
+      function loadArticle(articleId) {
+         articleRepository.get({ id: articleId }, onArticleLoaded);
+      }
+
+      /**
+      * Asynchronously loads an article via a thematic node into the controller view model.
+      *
+      * @param {string} nodeId
+      * @param {string} type
+      */
+      function loadThematic(nodeId, type) {
+         vm.articleType = type;
+         articleCollectionRepository.get({ id: nodeId, type: type }, onThematicNodeLoaded);
+      }
+
+      /**
+       * Callback for when the thematic collection node has been loaded.
+       *
+       * @param {ThematicNode} node
+       */
+      function onThematicNodeLoaded(node) {
+         vm.node = node;
+         vm.links = _.values(node.links);
+         onArticleLoaded(node.article);
+      }
+
+      /**
+       * Callback for when the article has been loaded.
+       *
+       * @param {Article} article
+       */
+      function onArticleLoaded(article) {
+         vm.article = article;
+
+         vm.article.links.forEach(function (link) {
+            link.icon = getIcon(link.type);
+         });
+
+         var citations = vm.article.citations;
+         var bibliography = _.indexBy(vm.article.bibliography, 'id');
+
+         cslBuilder.renderBibliography(bibliography, citations, 'mla').then(function (bibView) {
+            vm.citations = bibView.citations;
+            vm.bibliography = bibView.items;
+         });
+
+         initScroll();
       }
 
       /**
@@ -91,12 +135,13 @@
             $event.stopPropagation();
          }
 
+         var container = angular.element('#article-content');
          var target = angular.element('#' + id);
          try {
             if (animated) {
-               $document.duScrollToElementAnimated(target, vm.scrollOffset);
+               container.duScrollToElementAnimated(target);
             } else {
-               $document.duScrollToElement(target, vm.scrollOffset);
+               container.duScrollToElement(target);
             }
          } catch (e) {
             $log.warn('unable to scroll to element by id', id);
@@ -109,14 +154,21 @@
             $event.stopPropagation();
          }
 
+         var container = angular.element('#article-content');
          if (animated) {
-            $document.duScrollTopAnimated(0);
+            container.duScrollTopAnimated(0);
          } else {
-            $document.duScrollTop(0);
+            container.duScrollTop(0);
          }
       }
 
       function goBack() {
+         var routeOpts = {};
+
+         if (vm.node) {
+            routeOpts.id = vm.node.id;
+         }
+
          $state.go('sda.reader.main.preview', routeOpts);
       }
 
@@ -147,7 +199,7 @@
 
       function activateCitation(citation, $event) {
          vm.activeTab = 'bibliography';
-         scrollTo(citation.backlinkId, true, $event);
+         scrollTo(citation.id, true, $event);
       }
 
       /**

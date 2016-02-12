@@ -15,9 +15,12 @@
             margin-bottom: 2.5rem;
 
             .depth-chooser {
-               position: absolute;
-               top: 2rem;
-               right: 2rem;
+               float: right;
+               padding-left: 2rem;
+               padding-bottom: 2rem;
+               // position: absolute;
+               // top: 2rem;
+               // right: 2rem;
 
                ul {
                   padding: 0;
@@ -52,6 +55,7 @@
             }
 
             h1 {
+               margin-top: 0;
                margin-bottom: 0.5rem;
             }
 
@@ -65,14 +69,10 @@
             margin: 1em 0;
          }
 
-         .footnote-anchor {
-            cursor: pointer;
-         }
-
-         cite {
+         cite, .footnote-anchor {
             font-style: normal;
             cursor: pointer;
-            color: $lightBrown;
+            color: $copper;
          }
       }
 

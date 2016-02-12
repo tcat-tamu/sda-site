@@ -1,7 +1,13 @@
 .article-preview {
-   .meta {
-      margin-bottom: 2.5rem;
 
+   article > section {
+      margin: 2em 0;
+
+      &:first-child { margin-top: 0; }
+      &:last-child { margin-bottom: 0; }
+   }
+
+   .meta {
       h1 {
          margin-bottom: 0.5rem;
       }

@@ -19,10 +19,10 @@
                   </div>
                </form>
                <div class="collections">
-                  <ul dx-start-with="vm.rootCollection">
+                  <ul dx-start-with="vm.collection.root">
                      <li ng-repeat="node in $dxPrior.children">
-                        <a ng-if="node.articles.length" ui-sref="sda.reader.main.preview({id: node.id})">{{node.title}}</a>
-                        <span ng-if="!node.articles.length">{{node.title}}</span>
+                        <a ng-if="vm.nodeHasArticles(node)" ui-sref="sda.reader.main.preview({id: node.id})">{{node.title}}</a>
+                        <span ng-if="!vm.nodeHasArticles(node)">{{node.title}}</span>
                         <ul dx-connect="node"/>
                      </li>
                   </ul>

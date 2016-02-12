@@ -42,10 +42,14 @@
       <article id="article-content" class="flex content layout-padding">
          <div class="content">
             <div class="meta">
-               <nav class="depth-chooser">
+               <nav class="depth-chooser" ng-if="vm.links.length > 0">
                   <ul>
-                     <li><a href="">Overview</a></li>
-                     <li class="active"><a href="">Detailed Article</a></li>
+                     <li ng-class="{active: link.type === vm.articleType}" ng-repeat="link in vm.links">
+                        <a ui-sref="sda.reader.article({id: vm.node.id, type: link.type})" ng-switch="link.type">
+                           <span ng-switch-when="detailed">Detailed Article</span>
+                           <span ng-switch-default>{{ vm.titleCase(link.type) }}</span>
+                        </a>
+                     </li>
                   </ul>
                </nav>
                <h1>{{vm.article.title}}</h1>

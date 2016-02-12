@@ -18,7 +18,12 @@
 
       <nav ng-if="vm.links.length > 0">
          <ul>
-            <li ng-repeat="theme in vm.node.articles | filter: {type: '!' + vm.articleType}"><a ui-sref="sda.reader.article({id: theme.id})" class="read-more">Read {{vm.getThemeTitle(theme.type)}} &raquo;</a></li>
+            <li ng-repeat="link in vm.links">
+               <a ui-sref="sda.reader.article({id: vm.node.id, type: link.type})" class="read-more">
+                  <span>Read {{vm.getThemeTitle(link.type)}}</span>
+                  <i class="fa fa-angle-double-right"></i>
+               </a>
+            </li>
          </ul>
       </nav>
 
