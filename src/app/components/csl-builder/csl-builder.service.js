@@ -284,7 +284,7 @@
             /**
              * @type {CitationView[]}
              */
-            var citationViews = citations.map(function (citation) {
+            var citationViews = _.map(citations || [], function (citation) {
                // second argument indicates that citeproc already knows all items in advance
                var citeData = citeproc.appendCitationCluster(citation, true);
 

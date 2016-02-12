@@ -36,7 +36,9 @@
 
                // parse table of contents
                var toc = parseToc(el);
-               $scope.setToc({toc: toc});
+               if ($scope.setToc) {
+                  $scope.setToc({toc: toc});
+               }
             }
 
             if (footnotes) {

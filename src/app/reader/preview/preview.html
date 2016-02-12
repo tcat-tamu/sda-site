@@ -1,6 +1,6 @@
 <section class="article-preview content layout-padding">
-   <article>
-      <div class="meta">
+   <article ng-if="vm.article">
+      <section class="meta">
          <h1>{{vm.article.title}}</h1>
          <p class="author-info" ng-if="vm.article.authors">
             by
@@ -9,11 +9,14 @@
                <span ng-if="!author.contact.email">{{author.name}}</span>
             </span>
          </p>
-      </div>
+      </section>
 
-      <div ng-bind-html="vm.article.articleAbstract"></div>
+      <section class="abstract" ng-if="vm.article.abstract">
+         <h2>Abstract</h2>
+         <div ng-bind-html="vm.article.abstract"></div>
+      </section>
 
-      <nav>
+      <nav ng-if="vm.links.length > 0">
          <ul>
             <li ng-repeat="theme in vm.node.articles | filter: {type: '!' + vm.articleType}"><a ui-sref="sda.reader.article({id: theme.id})" class="read-more">Read {{vm.getThemeTitle(theme.type)}} &raquo;</a></li>
          </ul>
