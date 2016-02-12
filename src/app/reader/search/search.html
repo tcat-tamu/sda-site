@@ -28,7 +28,7 @@
 
       <ol ng-if="vm.queryResult.articles">
          <li class="result" ng-repeat="result in vm.queryResult.articles">
-            <h3><a ui-sref="sda.reader-article({id: result.id})">{{result.title}}</a></h3>
+            <h3><a ui-sref="sda.reader.article({id: result.id})">{{result.title}}</a></h3>
             <span class="author" ng-repeat="author in result.authors">{{author.name}}, {{author.affiliation}}</span>
             <p ng-bind-html="result.absHL"></p>
             <p ng-bind-html="result.contentHL"></p>

@@ -117,7 +117,7 @@
       }
 
       function goBack() {
-         $state.go('sda.reader');
+         $state.go('sda.reader.main.preview', routeOpts);
       }
 
       function goToLink(link, $event) {
@@ -180,7 +180,7 @@
       function getState(type) {
          switch (type) {
             case 'article':
-               return 'sda.reader-article';
+               return 'sda.reader.article';
             // case 'book':
             //    return 'sda.library-book';
             case 'video':

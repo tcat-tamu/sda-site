@@ -10,7 +10,7 @@
    </div>
    <ul class="nav" ng-class="{collapsed: !vm.isNavMenuVisible}">
        <li ng-class="{active: vm.$state.includes('sda.library')}"><a ui-sref="sda.library.main">Library</a></li>
-       <li ui-sref-active="active"><a ui-sref="sda.reader">Reader</a></li>
+       <li ng-class="{active: vm.$state.includes('sda.reader')}"><a ui-sref="sda.reader.main">Reader</a></li>
        <li ui-sref-active="active"><a ui-sref="sda.media">Media</a></li>
        <li ui-sref-active="active"><a ui-sref="sda.teaching">Teaching</a></li>
        <!-- <li ui-sref-active="active"><a ui-sref="sda.conference">Conferences</a></li> -->
