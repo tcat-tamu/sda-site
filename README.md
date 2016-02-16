@@ -13,7 +13,7 @@ This application is a web-based front-end for the server-side Java REST service.
 
 The [Apache HTTP Server][] (version 2.4) with `mod_ssl` and `mod_proxy_http` enabled will satisfy both of these requirements. Other HTTP servers like [Nginx][] could also be used with the proper configuration.
 
-For more information about the Java REST API server, please refer to its documentation.
+For more information about the Java REST API service, please refer to its documentation.
 
 ### Deployment
 
