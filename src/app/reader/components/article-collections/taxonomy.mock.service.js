@@ -34,10 +34,6 @@
                               "summary": {
                                  "type": "summary",
                                  "id": "ccffe3ea-a5b1-42b9-b146-25f25c32b0b8"
-                              },
-                              "detailed": {
-                                 "type": "detailed",
-                                 "id": "de00c735-0a0e-4661-9210-b57ec4f1a984"
                               }
                            },
                            "children": [

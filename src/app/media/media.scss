@@ -1,3 +1,19 @@
+.page-banner--media {
+   background-image: url('../assets/images/banners/slider-sagradafamilia.jpg');
+   padding: 0;
+
+   // without this constraint, some browsers progressively collapse the banner content area
+   height: 15.8em;
+   min-height: 15.8em;
+   max-height: 15.8em;
+
+
+   .container {
+      padding: $banner-padding 0;
+      background-color: rgba(#000, 0.4);
+   }
+}
+
 .section--media {
    aside.sidebar {
       .filter input {

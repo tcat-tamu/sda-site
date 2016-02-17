@@ -12,7 +12,7 @@
       </section>
 
       <section class="abstract" ng-if="vm.article.abstract">
-         <h2>Abstract</h2>
+         <h2>Summary</h2>
          <div ng-bind-html="vm.article.abstract"></div>
       </section>
 
@@ -20,16 +20,12 @@
          <ul>
             <li ng-repeat="link in vm.links">
                <a ui-sref="sda.reader.article({id: vm.node.id, type: link.type})" class="read-more">
-                  <span>Read {{vm.getThemeTitle(link.type)}}</span>
+                  <span>Read Overview</span>
                   <i class="fa fa-angle-double-right"></i>
                </a>
             </li>
          </ul>
       </nav>
 
-      <h2>Bibliography</h2>
-      <ol class="bibliography">
-         <li ng-repeat="item in vm.bibliography" ng-bind-html="item"></li>
-      </ol>
    </article>
 </section>
