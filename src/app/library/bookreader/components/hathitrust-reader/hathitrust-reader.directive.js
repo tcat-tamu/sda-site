@@ -13,15 +13,15 @@
          replace: true,
          link: linkFunc,
          scope: {
-            bookId: '='
+            properties: '='
          }
       };
 
       return directive;
 
       function linkFunc(scope) {
-         scope.$watch('bookId', function (id) {
-            scope.src = $sce.trustAsResourceUrl('https://babel.hathitrust.org/cgi/pt?id=' + id + ';ui=embed')
+         scope.$watch('properties', function (properties) {
+            scope.src = $sce.trustAsResourceUrl('https://babel.hathitrust.org/cgi/pt?id=' + properties.htid + ';ui=embed')
          });
       }
    }

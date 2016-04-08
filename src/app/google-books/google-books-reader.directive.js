@@ -14,7 +14,7 @@
          restrict: 'E',
          link: linkFunc,
          scope: {
-            bookId: '='
+            properties: '='
          }
       };
 
@@ -25,8 +25,8 @@
          googleBooksApi.then(function (books) {
             var viewer = new books.DefaultViewer(el.get(0));
 
-            scope.$watch('bookId', function (id) {
-               viewer.load(id);
+            scope.$watch('properties', function (properties) {
+               viewer.load(properties.id);
             });
          });
       }

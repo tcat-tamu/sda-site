@@ -29,12 +29,12 @@
          </div>
       </aside>
       <div class="content layout-column flex-100">
-         <section ng-switch="vm.book.type" class="flex layout-column layout-padding">
-            <hathitrust-reader class="reader flex" ng-switch-when="hathitrust" book-id="vm.book.id"></hathitrust-reader>
-            <google-book-reader class="reader flex" ng-switch-when="google-books" book-id="vm.book.id"></google-book-reader>
+         <section ng-switch="vm.copyRef.type" class="flex layout-column layout-padding">
+            <hathitrust-reader class="reader flex" ng-switch-when="hathitrust" properties="vm.copyRef.properties"></hathitrust-reader>
+            <google-book-reader class="reader flex" ng-switch-when="googlebooks" properties="vm.copyRef.properties"></google-book-reader>
             <div class="reader" ng-switch-default>
-               <p ng-if="vm.book.type">Sorry. We were unable to load a book reader for that resource.</p>
-               <p ng-if="!vm.book.type" class="throbber">Loading book reader&hellip; <i class="fa fa-spin fa-circle-o-notch"></i></p>
+               <p ng-if="vm.copyRef.type">Sorry. We were unable to load a book reader for that resource.</p>
+               <p ng-if="!vm.copyRef.type" class="throbber">Loading book reader&hellip; <i class="fa fa-spin fa-circle-o-notch"></i></p>
             </div>
          </section>
       </div>
