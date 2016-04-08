@@ -16,13 +16,12 @@
       .controller('LibraryBookController', LibraryBookController);
 
    /** @ngInject */
-   function LibraryBookController($stateParams, $scope, workRepository, copyRefRepository, relationshipRepository, $q, _, $timeout, toastr) {
+   function LibraryBookController($stateParams, $scope, workRepository, relationshipRepository, $q, _, $timeout, toastr) {
       var vm = this;
 
       var typesQ = $q.defer();
 
       vm.work = null;
-      vm.copyRefs = [];
       vm.loading = false;
       vm.showThrobber = false;
       vm.loadingTimeout = null;
@@ -46,26 +45,9 @@
       }
 
       function onWorkLoaded(work) {
-         copyRefRepository.queryByWork({ workId: work.id }, onCopyRefsLoaded, onNetworkFailure(true));
          relationshipRepository.query({ entity: 'works/' + work.id }, onRelationshipsLoaded, onNetworkFailure(true));
          hideThrobber();
          vm.loading = false;
-      }
-
-      function onCopyRefsLoaded(copyRefs) {
-         var crMap = _.indexBy(copyRefs, 'associatedEntry');
-
-         vm.work.copyRef = crMap['works/' + vm.work.id];
-         if (vm.work.editions) {
-            vm.work.editions.forEach(function (edition) {
-               edition.copyRef = crMap['works/' + vm.work.id + '/editions/' + edition.id];
-               if (edition.volumes) {
-                  edition.volumes.forEach(function (volume) {
-                     volume.copyRef = crMap['works/' + vm.work.id + '/editions/' + edition.id + '/volumes/' + volume.id];
-                  });
-               }
-            });
-         }
       }
 
       function onRelationshipsLoaded(relationships) {

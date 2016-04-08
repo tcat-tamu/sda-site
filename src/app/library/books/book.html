@@ -3,7 +3,7 @@
       <h1><sda-work-title ng-model="vm.work.titles"></sda-work-title></h1>
       <p>by <sda-work-authors class="authors" ng-model="vm.work.authors"></sda-work-authors></p>
 
-      <a class="work-copy readonline" ui-sref="sda.library.bookreader({workId: vm.work.id, copyId: vm.work.copyRef.copyId})" ng-if="vm.work.CopyRef">
+      <a class="work-copy readonline" ui-sref="sda.library.bookreader({workId: vm.work.id, copyId: vm.work.copies[0].id})" ng-if="vm.work.copies.length > 0">
          <i class="fa fa-book"></i>
          <span class="sr-only">Read Volume {{volume.volumeNumber}} Online</span>
       </a>
@@ -16,7 +16,7 @@
          <div class="edition" ng-repeat="edition in vm.work.editions" ng-class="{active: edition.active}">
             <h3 ng-class="{active: edition.active}">
                <a class="edition-name" href="" ng-click="edition.active = !edition.active">{{edition.editionName || '[Untitled Edition]'}}</a>
-               <a class="edition-copy readonline" ui-sref="sda.library.bookreader({workId: vm.work.id, copyId: edition.copyRef.id})" ng-if="edition.copyRef">
+               <a class="edition-copy readonline" ui-sref="sda.library.bookreader({workId: vm.work.id, editionId: edition.id, copyId: edition.copies[0].id})" ng-if="edition.copies.length > 0">
                   <i class="fa fa-book"></i>
                   <span class="sr-only">Read online</span>
                </a>
@@ -38,7 +38,7 @@
                   <div class="volume" ng-repeat="volume in edition.volumes" ng-class="{active: volume.active}">
                      <h5 ng-class="{active: volume.active}">
                         <a class="volume-number" href="" ng-click="volume.active = !volume.active">Volume {{volume.volumeNumber}}</a>
-                        <a class="volume-copy readonline" ui-sref="sda.library.bookreader({workId: vm.work.id, copyId: volume.copyRef.id})" ng-if="volume.copyRef">
+                        <a class="volume-copy readonline" ui-sref="sda.library.bookreader({workId: vm.work.id, editionId: edition.id, volumeId: volume.id, copyId: volume.copies[0].id})" ng-if="volume.copies.length > 0">
                            <i class="fa fa-book"></i>
                            <span class="sr-only">Read Volume {{volume.volumeNumber}} Online</span>
                         </a>
