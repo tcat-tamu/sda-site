@@ -13,11 +13,33 @@
 
       var actions = {};
 
-      var repo = $resource(uri, defaultParameters, actions);
+      var resource = $resource(uri, defaultParameters, actions)
 
+      var repo = {};
+      repo.query = search;
+      repo.get = get;
       repo.resolveUri = resolveUri;
-
       return repo;
+
+      function get(options, success, error) {
+         return resource.get(options, success, error);
+      }
+
+      function search(options, success, error) {
+         success = success || _.noop;
+         error = error || _.noop;
+         var params = _.pick(options, ['q', 'a', 't', 'aid', 'dr', 'off', 'max']);
+
+         var items = [];
+         var result = resource.get(params);
+         result.$promise.then(function (data) {
+            data.items.forEach(function (item) {
+               items.push(item);
+            });
+            success(items);
+         }, error);
+         return items;
+      }
 
       /**
       * Resolves an entity URI into a work, an edition, or a vo`lume.

@@ -60,7 +60,7 @@
             controllerAs: 'vm'
          })
          .state('sda.library.bookreader', {
-            url: '/library/read/:workId/:copyId',
+            url: '/library/read/:workId/:copyId?editionId&volumeId',
             templateUrl: 'app/library/bookreader/bookreader.html',
             controller: 'LibraryBookreaderController',
             controllerAs: 'vm'
