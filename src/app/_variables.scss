@@ -3,18 +3,35 @@ $icon-font-path: '../../bower_components/bootstrap-sass-official/assets/fonts/bo
 $fa-font-path: '../../bower_components/fontawesome/fonts';
 $local-font-path: '../assets/fonts';
 
-// Colors
-$darkBrown: #1a1b1a;
-$lightBrown: #b88554;
-$text: #2e2e2e;
-$textGrey: #acaaa3;
-$textBrown: #272927;
-$textBlack: #292626;
-$copper: #a47140;
-$lightCopper: #dcc3ab;
-$cream: #eee8de;
+// base color palette
 
-$sidebar-bg: #f0f0f0;
+$grey0: #ffffff;
+$grey1: #f0f3f0;
+$grey5: #acaaa3;
+$grey7: #2e2e2e;
+$grey8: #292626;
+
+$brown8: #272927;
+$brown9: #1a1b1a;
+
+$cream1: #eee8de;
+
+$copper3: #dcc3ab;
+$copper4: #b88554;
+$copper5: #a47140;
+
+// Semantic Colors
+$darkBrown: $brown9;
+$lightBrown: $copper4;
+$text: $grey7;
+$textGrey: $grey5;
+$textBrown: $brown8;
+$textBlack: $grey8;
+$copper: $copper5;
+$lightCopper: $copper3;
+$cream: $cream1;
+
+$sidebar-bg: $grey1;
 
 // Media query breakpoints (bootstrap naming conventions)
 $screen-xs-min: 35em;
