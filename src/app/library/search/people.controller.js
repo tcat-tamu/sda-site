@@ -43,15 +43,17 @@
       function search() {
          $state.go('sda.library.main.search-people', { query: vm.query, id: vm.currentId });
 
-         vm.people = personRepository.query({ syntheticName: vm.query }, onResultsLoaded);
+         personRepository.get({ q: vm.query }, onResultsLoaded);
 
          showThrobber();
          vm.loading = true;
       }
 
-      function onResultsLoaded() {
+      function onResultsLoaded(results) {
          hideThrobber();
          vm.loading = false;
+
+         vm.people = results.items;
 
          if (!vm.currentId && vm.people.length > 0) {
             vm.currentId = vm.people[0].id;

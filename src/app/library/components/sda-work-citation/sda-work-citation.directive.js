@@ -11,12 +11,12 @@
          restrict: 'E',
          templateUrl: 'app/library/components/sda-work-citation/sda-work-citation.html',
          scope: {
-            workId: '=',
+            workId: '=?',
             authors: '=',
-            titles: '=',
-            title: '=',
+            titles: '=?',
+            title: '=?',
             edition: '=',
-            volume: '=',
+            volume: '=?',
             publicationInfo: '='
          },
          link: linkFunc

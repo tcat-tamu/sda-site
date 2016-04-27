@@ -1,16 +1,16 @@
 <section class="section--person layout-padding">
    <div class="person layout-xs-column layout-gt-sm-row layout-padding" ng-if="!vm.loading && vm.person">
       <article class="flex-gt-sm-66">
-         <h1>{{vm.person.displayName.displayName}}</h1>
+         <h1>{{vm.person.name.label}}</h1>
          <div ng-if="vm.person.summary" ng-bind-html="vm.person.summary"></div>
          <p ng-if="!vm.person.summary">Summary not available.</p>
       </article>
 
       <aside class="flex-gt-sm-33">
          <div class="meta">
-            <div ng-if="(vm.person.displayName | sdaPersonName) != vm.person.displayName.displayName">
+            <div ng-if="(vm.person.name | sdaPersonName) != vm.person.name.label">
                <div class="label">Full name</div>
-               <sda-person-name ng-model="vm.person.displayName"></sda-person-name>
+               <sda-person-name ng-model="vm.person.label"></sda-person-name>
             </div>
             <div ng-if="vm.person.birth">
                <div class="label">Born</div>
@@ -24,8 +24,8 @@
                <div class="label">Other Names</div>
                <ul>
                   <li ng-repeat="name in vm.person.names">
-                     <span class="display">{{name.displayName}}</span>
-                     <span class="full" ng-if="(name | sdaPersonName) != name.displayName">
+                     <span class="display">{{name.label}}</span>
+                     <span class="full" ng-if="(name | sdaPersonName) != name.label">
                         (<sda-person-name ng-model="name"></sda-person-name>)
                      </span>
                   </li>
