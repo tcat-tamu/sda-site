@@ -7,11 +7,15 @@
 
 
    /** @ngInject */
-   function LibraryBookreaderController($state, $stateParams, $sce, $log, copyRefRepository) {
+   function LibraryBookreaderController($state, $stateParams, copyRefRepository, $scope, $timeout) {
       var vm = this;
+
+      vm.fullscreen = false;
 
       vm.peopleQuery = '',
       vm.bookQuery = '',
+
+      vm.toggleFullscreen = toggleFullscreen;
       vm.searchPeople = searchPeople;
       vm.searchBooks = searchBooks;
 
@@ -33,6 +37,15 @@
 
       function searchBooks() {
          $state.go('sda.library.main.search-books', { query: vm.bookQuery });
+      }
+
+      function toggleFullscreen() {
+         vm.fullscreen = !vm.fullscreen;
+
+         // HACK force google reader to resize itself
+         $timeout(function () {
+            $scope.$broadcast('resize');
+         }, 500);
       }
    }
 

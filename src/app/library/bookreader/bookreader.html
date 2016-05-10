@@ -1,4 +1,4 @@
-<main class="section--library section--bookreader flex layout-row layout-align-center" ng-class="{fullscreen: fullscreen}">
+<main class="section--library section--bookreader flex layout-row layout-align-center" ng-class="{fullscreen: vm.fullscreen}">
    <div class="container flex layout-row">
       <!--
       <sda-tabbed-sidebar active-tab="'info'" ng-hide="fullscreen" class="flex-33">
@@ -17,14 +17,14 @@
          <nav class="tabs">
             <ul>
                <li class="active">
-                  <a ng-click="fullscreen = !fullscreen">
-                     <i class="icon fa fa-angle-double-{{fullscreen ? 'right' : 'left'}}"></i>
-                     <span class="label">{{fullscreen ? 'Show' : 'Hide'}} Details</span>
+                  <a ng-click="vm.toggleFullscreen()">
+                     <i class="icon fa fa-angle-double-{{vm.fullscreen ? 'right' : 'left'}}"></i>
+                     <span class="label">{{vm.fullscreen ? 'Show' : 'Hide'}} Details</span>
                   </a>
                </li>
             </ul>
          </nav>
-         <div class="panes" ng-hide="fullscreen">
+         <div class="panes" ng-hide="vm.fullscreen">
             <ng-include src="'app/library/books/book.html'" ng-controller="LibraryBookController as vm"></ng-include>
          </div>
       </aside>
