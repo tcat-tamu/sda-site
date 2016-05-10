@@ -28,6 +28,11 @@
             scope.$watch('properties', function (properties) {
                viewer.load(properties.id);
             });
+
+            scope.$on('resize', function () {
+               console.log('resizing');
+               viewer.resize();
+            });
          });
       }
    }
