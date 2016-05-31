@@ -13,7 +13,7 @@
          </sda-sidebar-tab>
       </sda-tabbed-sidebar>
       -->
-      <aside class="sidebar flex-nogrow sidebar-tabbed layout-column">
+      <aside class="sidebar flex-nogrow sidebar-tabbed layout-column" ng-class="{ hidden: vm.fullscreen}">
          <nav class="tabs">
             <ul>
                <li class="active">
@@ -29,14 +29,22 @@
          </div>
       </aside>
       <div class="content layout-column flex-100">
+        <!-- <iframe class="reader flex" src="https://archive.org/stream/essayinanswertom00adamiala?ui=embed#page/n5/mode/2up" frameborder="0"></iframe> -->
+
          <section ng-switch="vm.copyRef.type" class="flex layout-column layout-padding">
+                 <!-- TODO make this pluggable such that any display strategy can
+                      be loaded on the page without requiring that we edit
+                      this file -->
             <hathitrust-reader class="reader flex" ng-switch-when="hathitrust" properties="vm.copyRef.properties"></hathitrust-reader>
+            <ia-reader class="reader flex" ng-switch-when="internetarchive" properties="vm.copyRef.properties"></ia-reader>
             <google-book-reader class="reader flex" ng-switch-when="googlebooks" properties="vm.copyRef.properties"></google-book-reader>
+
             <div class="reader" ng-switch-default>
                <p ng-if="vm.copyRef.type">Sorry. We were unable to load a book reader for that resource.</p>
                <p ng-if="!vm.copyRef.type" class="throbber">Loading book reader&hellip; <i class="fa fa-spin fa-circle-o-notch"></i></p>
             </div>
          </section>
+
       </div>
    </div>
 </main>
