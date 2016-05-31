@@ -3,10 +3,10 @@
 
    angular
       .module('sda.library')
-      .directive('hathitrustReader', hathitrustReader);
+      .directive('iaReader', iaReader);
 
    /** @ngInject */
-   function hathitrustReader($sce) {
+   function iaReader($sce) {
       var directive = {
          restrict: 'E',
          template: '<iframe ng-src="{{src}}">',
@@ -22,7 +22,8 @@
       function linkFunc(scope) {
         scope.$watch('properties', function(properties) {
            // TODO add page link
-           scope.src = $sce.trustAsResourceUrl('https://babel.hathitrust.org/cgi/pt?id=' + properties.htid + ';ui=embed')
+            //  <iframe class="reader flex" src="https://archive.org/stream/essayinanswertom00adamiala?ui=embed#page/n5/mode/2up" frameborder="0"></iframe>
+           scope.src = $sce.trustAsResourceUrl('https://archive.org/stream/' + properties.id + '?ui=embed#mode/2up');
         });
       }
    }
