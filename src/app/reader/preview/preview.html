@@ -1,0 +1,35 @@
+<section class="article-preview content layout-padding">
+   <article ng-if="vm.article">
+      <section class="meta">
+         <h1>{{vm.article.title}}</h1>
+         <p class="author-info" ng-if="vm.article.authors">
+            by
+            <span class="author" ng-repeat="author in vm.article.authors">
+               <a ng-if="author.contact.email" href="mailto:{{author.contact.email}}">{{author.name}}</a>
+               <span ng-if="!author.contact.email">{{author.name}}</span>
+            </span>
+         </p>
+      </section>
+
+      <section class="abstract" ng-if="vm.article.abstract">
+         <h2>Abstract</h2>
+         <div ng-bind-html="vm.article.abstract"></div>
+      </section>
+
+      <nav ng-if="vm.links.length > 0">
+         <ul>
+            <li ng-repeat="link in vm.links">
+               <a ui-sref="sda.reader.article({id: vm.node.id, type: link.type})" class="read-more">
+                  <span>Read {{vm.getThemeTitle(link.type)}}</span>
+                  <i class="fa fa-angle-double-right"></i>
+               </a>
+            </li>
+         </ul>
+      </nav>
+
+      <h2>Bibliography</h2>
+      <ol class="bibliography">
+         <li ng-repeat="item in vm.bibliography" ng-bind-html="item"></li>
+      </ol>
+   </article>
+</section>

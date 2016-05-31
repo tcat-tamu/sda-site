@@ -1,0 +1,8 @@
+<section class="main-nav layout-fill layout-xs-column layout-sm-column layout-row">
+   <ul class="buckets layout-column">
+      <li class="bucket flex layout-column" ng-repeat="module in vm.modules" ng-class="{active:module.active}">
+         <a class="flex layout-column layout-align-center" href="" ng-click="vm.setActive(module)"><span>{{module.title}}</span></a>
+      </li>
+   </ul>
+   <div class="modules flex" ng-transclude></div>
+</section>

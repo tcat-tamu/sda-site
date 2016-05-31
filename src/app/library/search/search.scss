@@ -1,0 +1,89 @@
+form.section--library--search-form {
+   .input-group {
+      display: flex;
+      flex-direction: row;
+
+      input {
+         flex-grow: 1;
+         height: 2.5rem;
+         margin: 0;
+         padding: 0.5rem;
+         border: 1px solid #999;
+         border-right: 0;
+         border-top-left-radius: 5px;
+         border-top-right-radius: 0;
+         border-bottom-left-radius: 5px;
+         border-bottom-right-radius: 0;
+         font-family: inherit;
+         font-size: inherit;
+         min-width: 2.5rem;
+         -moz-appearance: none;
+         -webkit-appearance: none;
+
+         &:focus {
+            border-color: $copper
+         }
+      }
+
+      button {
+         margin: 0;
+         height: 2.5rem;
+         min-width: 2.5rem;
+         background: $copper;
+         border: 1px solid $copper;
+         color: $cream;
+         border-top-right-radius: 5px;
+         border-bottom-right-radius: 5px;
+         cursor: pointer;
+         transition: all 0.2s;
+
+         &:hover, &:focus {
+            background: lighten($copper, 5%);
+         }
+
+         &::-moz-focus-inner {
+            border: 0;
+         }
+
+         &:active {
+            background: darken($copper, 5%);
+            box-shadow: inset 0 1px 5px rgba(0,0,0,0.3);
+         }
+      }
+   }
+}
+
+.section--library--search-results {
+
+   ol.results {
+      @include hanging-list(2em);
+      margin: 0;
+      padding: 0;
+
+      li {
+         margin-bottom: 1em;
+
+         &.active {
+            color: $copper;
+         }
+
+         a {
+            color: inherit;
+            text-decoration: none;
+            font-weight: bold;
+         }
+
+         p {
+            margin: 0;
+            padding-left: 1em;
+         }
+      }
+   }
+
+   .throbber {
+      text-align: center;
+      margin: 0;
+      font-size: 2em;
+      color: $textGrey;
+   }
+}

@@ -1,0 +1,8 @@
+<div class="module layout-column" ng-show="vm.active">
+   <ul class="controls layout-row layout-wrap">
+      <li class="flex flex-xs-50" ng-repeat="section in vm.sections" ng-class="{active:section.active}">
+         <a href="" ng-click="vm.setActive(section)">{{section.title}}</a>
+      </li>
+   </ul>
+   <div class="panels flex" ng-transclude></div>
+</div>

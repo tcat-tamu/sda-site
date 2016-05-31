@@ -1,0 +1,11 @@
+<sda-work-authors class="authors" ng-model="authors"></sda-work-authors>
+<a class="title" ng-if="workId && title" ui-sref="sda.library.main.book({id: workId})">{{title}}</a>
+<span class="title" ng-if="!workId && title">{{title}}</span>
+<span class="edition" ng-if="edition">{{edition}}</span>
+<span class="volume" ng-if="volume">{{volume}}</span>
+
+<span class="pubinfo" ng-if="publicationInfo.place || publicationInfo.publisher || publicationInfo.date.description">
+   (<span class="place" ng-if="publicationInfo.place">{{publicationInfo.place}},</span>
+   <span class="publisher" ng-if="publicationInfo.publisher">{{publicationInfo.publisher}}.</span>
+   <time class="date" ng-if="publicationInfo.date.description" datetime="{{publicationInfo.date.calendar}}">{{publicationInfo.date.description}}</time>)
+</span>

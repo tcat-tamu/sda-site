@@ -1,0 +1,204 @@
+@mixin ng-fade {
+   opacity: 1;
+   transition: opacity 0.4s;
+
+   &.ng-hide {
+      opacity: 0;
+   }
+}
+
+@mixin reset-box-model {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   outline: 0;
+}
+
+.main-nav {
+   background-color: #f2f2f0;
+
+   .buckets {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      @media only all and (min-width: $md-layout-breakpoint-sm) {
+         min-width: 300px;
+         max-width: 300px;
+      }
+
+      .bucket {
+         @extend %AvenirLTStd-Heavy;
+         background-color: #b88554;
+         border-bottom: 1px solid #a47140;
+
+         &:last-child {
+            border-bottom: 0;
+         }
+
+         &.active {
+            background-color: #a47140;
+         }
+
+         @media only all and (min-width: 31em) {
+            border: 0;
+            border-right: 1px solid #a47140;
+
+            &:last-child {
+               border-right: 0;
+            }
+         }
+
+         @media only all and (min-width: 64em) {
+            border-bottom: 1px solid #a47140;
+            border-right: 0;
+
+            &:last-child {
+               border-bottom: 0;
+            }
+         }
+
+         a {
+            color: #fff;
+            font-size: 1em;
+            line-height: 1.8;
+            text-decoration: none;
+            text-transform: uppercase;
+            padding: 1.5rem;
+
+            &:hover, &:focus, &:active {
+               text-decoration: none;
+            }
+         }
+      }
+   }
+
+   .modules {
+      position: relative;
+
+      .module {
+         @include ng-fade;
+
+         position: absolute;
+         top: 0;
+         bottom: 0;
+         left: 0;
+         right: 0;
+
+         .controls {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            @extend %AvenirLTStd-Heavy;
+            background-color: #e8e7e3;
+            text-transform: uppercase;
+            border-bottom: 4px solid #dfddd5;
+            font-size: 0.9em;
+
+            li {
+               padding: 1rem 1.5rem;
+
+               text-align: center;
+               border: 1px solid #dfddd5;
+
+               @media only all and (min-width: 50em) {
+                  border: 0;
+                  line-height: 1.2;
+               }
+
+               &.active a {
+                  color: #b88554;
+
+                  @media only all and (min-width: 50em) {
+                     color: #b88554;
+                     box-sizing: border-box;
+
+                     &:before {
+                        background-color: white;
+                        left: 0;
+                        bottom: -1.2rem;
+                        content: '';
+                        display: block;
+                        height: 4px;
+                        position: absolute;
+                        width: 100%;
+                     }
+                  }
+               }
+
+               a {
+                  color: #acaaa3;
+                  position: relative;
+                  text-decoration: none;
+
+                  &:hover, &:focus, &:active {
+                     color: #b88554;
+                     outline: 0;
+                  }
+               }
+            }
+         }
+
+         .panels {
+            position: relative;
+
+            .panel-set {
+               @include ng-fade;
+
+               position: absolute;
+               top: 0;
+               bottom: 0;
+               left: 0;
+               right: 0;
+
+               .layout-row.border > * {
+                  border-top: 2px dotted #bbb;
+
+                  @media only all and (min-width: $md-layout-breakpoint-xs) {
+                     border-top: none;
+                     border-left: 2px dotted #bbb;
+                  }
+
+                  &:first-child {
+                     border-top: none;
+                     border-left: none;
+                  }
+               }
+
+               .layout-column.border > * {
+                  border-top: 2px dotted #bbb;
+
+                  &:first-child {
+                     border-top: none;
+                  }
+               }
+
+               .panel {
+                  figure {
+                     position: relative;
+                     overflow: hidden;
+                     width: 100%;
+
+                     img, iframe {
+                        width: 100%;
+                        display: block;
+                        margin: 0 auto;
+                     }
+                  }
+
+                  h3 {
+                     font-size: 1.8em;
+                     line-height: 1.2;
+                     margin: 0 0 1rem;
+                  }
+
+                  p {
+                     font-size: 0.9em;
+                  }
+               }
+            }
+         }
+      }
+   }
+}

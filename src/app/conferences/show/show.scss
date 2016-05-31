@@ -1,0 +1,153 @@
+.section--conference {
+   .container {
+      max-width: 60rem;
+   }
+
+   section.time-location {
+      padding: 0;
+      background: $copper;
+      color: #fff;
+      text-align: center;
+      border-bottom: 5px solid $lightCopper;
+
+      h3 {
+         color: inherit;
+         font-family: inherit;
+         font-weight: bold;
+         margin-bottom: 0.5em;
+         margin-top: 0;
+         font-size: 1.3em;
+         text-transform: uppercase;
+      }
+   }
+
+   nav.toc {
+      border-bottom: 1px solid $lightCopper;
+      text-transform: uppercase;
+      padding: 1.5rem 0;
+
+      ul {
+         padding: 0;
+         margin: 0;
+         list-style: none;
+         display: flex;
+         flex-direction: row;
+
+         li {
+            flex: 1;
+
+            a {
+               display: block;
+               text-decoration: none;
+               color: $lightBrown;
+               text-align: center;
+
+               &:hover {
+                  text-decoration: underline;
+               }
+            }
+         }
+      }
+   }
+
+   section {
+      padding: 4rem 0;
+
+      &.shade {
+         background-color: #f2f2f0;
+      }
+
+      &.border-top {
+         border-top: 1px solid $lightCopper;
+      }
+
+      h2 {
+         font-size: 2rem;
+      }
+
+      h3 {
+         font-size: 1.5rem;
+         color: inherit;
+         text-transform: uppercase;
+         font-family: inherit;
+         margin-top: 1.5em;
+      }
+
+      h4 {
+         font-size: 1.1rem;
+         color: inherit;
+         text-transform: uppercase;
+         font-family: inherit;
+         font-weight: bold;
+      }
+
+      .map > iframe {
+         width: 100%;
+         margin: 4rem 0;
+      }
+   }
+
+
+   .schedule {
+      display: flex;
+      flex-direction: column;
+
+      .schedule-day {
+         display: flex;
+         flex-direction: column;
+
+         h3 {
+            background: $cream;
+            padding: 1em;
+            margin: 0;
+            font-size: inherit;
+            font-weight: bold;
+            text-transform: none;
+         }
+
+         .schedule-segment {
+            display: flex;
+            flex-direction: row;
+            border-bottom: 1px solid #ddd;
+
+            &:last-child {
+               border-bottom: none;
+            }
+
+            .time {
+               flex: 1;
+               align-self: center;
+               max-width: 10rem;
+               padding: 1em;
+               font-weight: bold;
+            }
+
+            .events {
+               display: flex;
+               flex: 1;
+               flex-direction: column;
+
+               .event {
+                  padding: 1em;
+
+                  img {
+                     float: left;
+                     margin-right: 1em;
+                  }
+
+                  h4 {
+                     text-transform: none;
+                     font-size: inherit;
+                     font-weight: normal;
+                     margin: 0;
+                  }
+
+                  .speaker {
+                     font-style: italic;
+                  }
+               }
+            }
+         }
+      }
+   }
+}

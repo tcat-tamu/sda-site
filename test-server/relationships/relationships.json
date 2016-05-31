@@ -1,0 +1,65 @@
+[
+  {
+    "id": "106",
+    "typeId": "uk.ac.ox.bodleian.sda.relationships.influence",
+    "description": "<div><br></div>",
+    "descriptionMimeType": "text/html",
+    "provenance": {
+      "creatorUris": [],
+      "dateCreated": "2015-05-19T00:40:22.292Z",
+      "dateModified": "2015-05-19T00:40:22.292Z"
+    },
+    "relatedEntities": [
+      {
+        "entryUris": ["works/3"]
+      }
+    ],
+    "targetEntities": [
+      {
+        "entryUris": ["works/8"]
+      }
+    ]
+  },
+  {
+    "id": "164",
+    "typeId": "uk.ac.ox.bodleian.sda.relationships.influence",
+    "description": "",
+    "descriptionMimeType": "text/html",
+    "provenance": {
+      "creatorUris": [],
+      "dateCreated": "2015-09-25T21:26:28.976Z",
+      "dateModified": "2015-09-25T21:26:28.976Z"
+    },
+    "relatedEntities": [
+      {
+        "entryUris": ["works/8"]
+      }
+    ],
+    "targetEntities": [
+      {
+        "entryUris": ["works/791"]
+      }
+    ]
+  },
+  {
+    "id": "165",
+    "typeId": "uk.ac.ox.bodleian.sda.relationships.influence",
+    "description": "",
+    "descriptionMimeType": "text/html",
+    "provenance": {
+      "creatorUris": [],
+      "dateCreated": "2015-09-25T21:26:47.879Z",
+      "dateModified": "2015-09-25T21:26:47.879Z"
+    },
+    "relatedEntities": [
+      {
+        "entryUris": ["works/8/editions/43"]
+      }
+    ],
+    "targetEntities": [
+      {
+        "entryUris": ["works/1303"]
+      }
+    ]
+  }
+]

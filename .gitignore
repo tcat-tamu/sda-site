@@ -1,8 +1,7 @@
-/releng/**/build
-/main/**/vendor
-build
-dist
-
-node_modules
-*~
-*.bak
+node_modules/
+bower_components/
+coverage/
+.sass-cache/
+.idea/
+.tmp/
+dist/

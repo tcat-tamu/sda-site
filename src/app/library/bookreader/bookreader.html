@@ -1,0 +1,50 @@
+<main class="section--library section--bookreader flex layout-row layout-align-center" ng-class="{fullscreen: vm.fullscreen}">
+   <div class="container flex layout-row">
+      <!--
+      <sda-tabbed-sidebar active-tab="'info'" ng-hide="fullscreen" class="flex-33">
+         <sda-sidebar-tab id="people" title="People" icon="users">
+            <div class="layout-column" ng-include="'app/library/search/people.html'" ng-controller="LibraryPeopleSearchController as vm"></div>
+         </sda-sidebar-tab>
+         <sda-sidebar-tab id="books" title="Books" icon="book">
+            <div class="layout-column" ng-include="'app/library/search/books.html'" ng-controller="LibraryBooksSearchController as vm"></div>
+         </sda-sidebar-tab>
+         <sda-sidebar-tab class="work-info-sidebar" id="info" title="Book Information" icon="info-circle">
+            <ng-include src="'app/library/books/book.html'" ng-controller="LibraryBookController as vm"></ng-include>
+         </sda-sidebar-tab>
+      </sda-tabbed-sidebar>
+      -->
+      <aside class="sidebar flex-nogrow sidebar-tabbed layout-column" ng-class="{ hidden: vm.fullscreen}">
+         <nav class="tabs">
+            <ul>
+               <li class="active">
+                  <a ng-click="vm.toggleFullscreen()">
+                     <i class="icon fa fa-angle-double-{{vm.fullscreen ? 'right' : 'left'}}"></i>
+                     <span class="label">{{vm.fullscreen ? 'Show' : 'Hide'}} Details</span>
+                  </a>
+               </li>
+            </ul>
+         </nav>
+         <div class="panes content" ng-hide="vm.fullscreen">
+            <ng-include src="'app/library/books/book.html'" ng-controller="LibraryBookController as vm"></ng-include>
+         </div>
+      </aside>
+      <div class="content layout-column flex-100">
+        <!-- <iframe class="reader flex" src="https://archive.org/stream/essayinanswertom00adamiala?ui=embed#page/n5/mode/2up" frameborder="0"></iframe> -->
+
+         <section ng-switch="vm.copyRef.type" class="flex layout-column layout-padding">
+                 <!-- TODO make this pluggable such that any display strategy can
+                      be loaded on the page without requiring that we edit
+                      this file -->
+            <hathitrust-reader class="reader flex" ng-switch-when="hathitrust" properties="vm.copyRef.properties"></hathitrust-reader>
+            <ia-reader class="reader flex" ng-switch-when="internetarchive" properties="vm.copyRef.properties"></ia-reader>
+            <google-book-reader class="reader flex" ng-switch-when="googlebooks" properties="vm.copyRef.properties"></google-book-reader>
+
+            <div class="reader" ng-switch-default>
+               <p ng-if="vm.copyRef.type">Sorry. We were unable to load a book reader for that resource.</p>
+               <p ng-if="!vm.copyRef.type" class="throbber">Loading book reader&hellip; <i class="fa fa-spin fa-circle-o-notch"></i></p>
+            </div>
+         </section>
+
+      </div>
+   </div>
+</main>

@@ -1,0 +1,58 @@
+.section--media {
+   aside.sidebar {
+      .filter input {
+         padding: 0.5rem;
+         font-size: inherit;
+         border: 1px solid #999;
+         width: 100%;
+         border-radius: 5px;
+      }
+   }
+
+   .playlist {
+      margin: 3rem 0;
+
+      &:first-child {
+         margin-top: 0;
+      }
+
+      h2 {
+         font-size: 2.4em;
+         margin-bottom: 2rem;
+         border-bottom: 1px solid #ddd;
+      }
+
+      .media {
+         list-style: none;
+         padding: 0;
+         margin: 0;
+
+         li {
+            padding: 1rem;
+            font-size: 0.9em;
+
+            > a {
+               color: inherit;
+               text-decoration: inherit;
+            }
+
+            img {
+               display: block;
+               max-width: 100%;
+            }
+
+            h3 {
+               font-size: 1.3em;
+               line-height: 1.2;
+               color: inherit;
+               margin: 0;
+            }
+
+            span.meta {
+               display: block;
+               color: $textGrey;
+            }
+         }
+      }
+   }
+}
