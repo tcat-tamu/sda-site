@@ -1,5 +1,7 @@
 <main class="section--article flex layout-row layout-align-center">
    <div class="container flex layout-row">
+     <!-- TODO split sidebar and main content into separate directives. Should be able to re-use articles
+              across projects. -->
       <sda-tabbed-sidebar class="flex-25" toplink="true" backlink="true" go-back="vm.goBack()" active-tab="vm.activeTab">
          <sda-sidebar-tab class="layout-column layout-padding" title="Contents" icon="list" id="toc">
             <div class="toc flex content">
@@ -42,7 +44,7 @@
       <article id="article-content" class="flex content layout-padding">
          <div class="content">
             <div class="meta">
-               <nav class="depth-chooser" ng-if="vm.links.length > 0">
+               <!-- <nav class="depth-chooser" ng-if="vm.links.length > 0">
                   <ul>
                      <li ng-class="{active: link.type === vm.articleType}" ng-repeat="link in vm.links">
                         <a ui-sref="sda.reader.article({id: vm.node.id, type: link.type})" ng-switch="link.type">
@@ -51,7 +53,7 @@
                         </a>
                      </li>
                   </ul>
-               </nav>
+               </nav> -->
                <h1>{{vm.article.title}}</h1>
                <p class="author-info" ng-if="vm.article.authors">
                   by
@@ -61,7 +63,9 @@
                   </span>
                </p>
             </div>
-            <!-- NOTE: abstracts are not displayed here on purpose -->
+            <!-- NOTE: abstracts are not displayed here on purpose
+                 TODO: Use a more appropriate anme. Perhaps trc-article-view?
+              -->
             <article-parser body="vm.article.body" generate-toc="vm.toc = toc" footnotes="vm.article.footnotes" citations="vm.citations"></article-parser>
          </div>
       </article>

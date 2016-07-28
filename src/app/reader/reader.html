@@ -1,4 +1,4 @@
-<div class="page-banner flex-none" ng-show="vm.showBanner">
+<div class="page-banner page-banner--reader flex-none" ng-show="vm.showBanner">
    <div class="container">
       <h1>SDA Reader</h1>
    </div>
@@ -7,7 +7,7 @@
 <main class="section--reader flex layout-row layout-align-center">
    <div class="container flex layout-xs-column layout-sm-column layout-md-row layout-gt-md-row">
       <sda-tabbed-sidebar class="flex-md-33 flex-gt-md-25">
-         <sda-sidebar-tab title="Thematic Overviews">
+         <sda-sidebar-tab title="Themes">
             <div class="content layout-column layout-padding">
                <form ng-submit="vm.search()" class="search">
                   <div class="input-group">
@@ -29,7 +29,12 @@
                </div>
             </div>
          </sda-sidebar-tab>
-         <sda-sidebar-tab title="Book Reviews">
+         <sda-sidebar-tab title="Articles">
+            <div class="layout-column layout-padding">
+               <em>Coming soon...</em>
+            </div>
+         </sda-sidebar-tab>
+         <sda-sidebar-tab title="Reviews">
             <div class="layout-column layout-padding">
                <em>Coming soon...</em>
             </div>
@@ -40,35 +45,60 @@
             </div>
          </sda-sidebar-tab>
       </sda-tabbed-sidebar>
-      <div class="content" ui-view>
-         <section class="landing layout-column layout-padding">
-            <div>
-               <h1>Thematic Overview Articles</h1>
+      <div class="flex layout-column ui-view-container">
+         <div class="flex content" ui-view>
+            <div class="landing layout-xs-column layout-gt-md-row layout-padding">
+               <section class="overview flex-gt-md-66">
+                  <p>
+                    The SDA Reader contains articles that provide an encyclopedic survey of contemporary
+                    research issues in the field and provide critical reflection on select works and people
+                    documented in the historical collection. Following the genre of print-based introductory
+                    readers widely used within philosophy, theology and Humanities disciplines, the SDA
+                    reader provides a starting point those who want an introduction to specific topics and
+                    directions for further research.
+                  </p>
+                  
+                  <p>The SDA Reader contains four main categories of content.</p>
+                  <ul class="list-style-type:none;">
+                    <li><em>Thematic Overviews</em> provide a systematic survey of key concepts in the field of SDA.
+                        Each overview article introduces a key topic and provides references to both the primary source
+                        material and the research literature for those who wish to explore the issue in more depth.</li>
 
-               <div class="blocks layout-row layout-wrap layout-padding">
-                  <div class="block flex-xs-100 flex-sm-100 flex-gt-sm-50">
-                     <h2>Meaning</h2>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum, facere est necessitatibus doloremque. In quidem voluptatibus eos praesentium, adipisci officia!</p>
-                     <a href="#" class="read-more">Read More »</a>
+                    <li><em>Research Articles</em> provide scholarly treatment of specific topics. These are of a
+                        length, quality, and scope associated with peer-reviewed journal articles and exceptional
+                        conference presentations.</li>
+
+                    <li><em>Book Reviews</em> offer a critical review of a book within the digital library. Reviews
+                        go beyond the summary information that accompanies each work to offer a critical assesment of
+                        the book's scholarly merit and impact as well as its relevance to contemporary research.</li>
+
+                    <li><em>Biographies</em> describe the professional and personal life of influential people
+                        documented in the digital library. These research articles serve to contextualize the books
+                        written by these individuals and assess their overall impact on the development of thought
+                        on this topic.</li>
+                  </ul>
+               </section>
+               <section class="key-items flex-gt-md-33">
+                  <h2>Perspectives on SDA</h2>
+                  <ul style="list-style-type:none;">
+                     <li><a href="">Philosophers</a></li>
+                     <li><a href="">Theologians</a></li>
+                     <li><a href="">Scientists</a></li>
+                     <li><a href="">Historians</a></li>
+                     <li><a href="">Literary Scholars</a></li>
+                     <li><a href="">Scripture Scholars</a></li>
+                     <li><a href="">Artists</a></li>
+                     <li><a href="">Atheists</a></li>
+                     <li><a href="">Students</a></li>
+                     <li><a href="">Anyone</a></li>
+                  </ul>
+                  <h2>Concept Map</h2>
+                  <div class="cmap-container">
+                    <a href=""><img src="//placehold.it/200x200" /></a>
                   </div>
-                  <div class="block flex-xs-100 flex-sm-100 flex-gt-sm-50">
-                     <h2>Assessment</h2>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut nemo recusandae mollitia, quae ea provident eveniet in aliquid ab voluptates!</p>
-                     <a href="#" class="read-more">Read More »</a>
-                  </div>
-                  <div class="block flex-xs-100 flex-sm-100 flex-gt-sm-50">
-                     <h2>Narrative</h2>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam ab molestias dolor eligendi voluptas ullam quibusdam illo, amet suscipit dolore.</p>
-                     <a href="#" class="read-more">Read More »</a>
-                  </div>
-                  <div class="block flex-xs-100 flex-sm-100 flex-gt-sm-50">
-                     <h2>Imagination</h2>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo aspernatur animi cupiditate, consectetur tempora libero ut cumque, quo atque ad!</p>
-                     <a href="#" class="read-more">Read More »</a>
-                  </div>
-               </div>
+               </section>
             </div>
-         </section>
+         </div>
       </div>
    </div>
 </main>
