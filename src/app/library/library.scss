@@ -99,13 +99,26 @@
          li {
             max-width: 50%;
             min-width: 250px;
-            padding: 1rem;
+            margin: 1rem;
+            border: 2px solid $copper3;
+            text-align: center;
+
+            a {
+               text-decoration: none;
+               color: inherit;
+            }
          }
 
          img {
             display: block;
             max-width: 100%;
             margin: 0 auto;
+         }
+
+         .label {
+            display: block;
+            padding: 1rem;
+            background: $copper3;
          }
       }
    }
