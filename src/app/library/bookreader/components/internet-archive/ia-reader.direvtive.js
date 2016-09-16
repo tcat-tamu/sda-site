@@ -41,9 +41,9 @@
        * @type {object}
        * @property {string} [scheme='http']
        * @property {string} host
-       * @property {string|array} [path='']
-       * @property {object.<string,string>} [query={}]
-       * @property {string} [fragment='']
+       * @property {string|array} [path]
+       * @property {object.<string,string>} [query]
+       * @property {string} [fragment]
        */
 
       /**
@@ -79,12 +79,11 @@
        */
       function joinPath() {
          return _.chain(arguments)
-            .map(arguments, function (arg) {
+            .map(function (arg) {
                return _.trim(arg, '\r\n\t /');
             })
             .filter()
-            .join('/')
-            .value();
+            .join('/');
       }
 
       /**
@@ -96,14 +95,22 @@
       function buildQueryString(params, sep) {
          sep = sep || '&';
          return _.chain(params)
-            .filter(function (val, key) {
-               return key;
+            .map(function (vals, key) {
+               if (!key) {
+                  return [];
+               }
+
+               if (!_.isArray(vals)) {
+                  vals = [vals];
+               }
+
+               return _.map(vals, function (val) {
+                  return key + (val ? '=' + val : '');
+               });
             })
-            .map(function (val, key) {
-               return key + (val ? '=' + val : '');
-            })
-            .join(sep)
-            .value();
+            .flatten()
+            .filter()
+            .join(sep);
       }
    }
 
