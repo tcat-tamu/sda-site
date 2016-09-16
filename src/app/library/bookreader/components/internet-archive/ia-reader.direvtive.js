@@ -6,7 +6,7 @@
       .directive('iaReader', iaReader);
 
    /** @ngInject */
-   function iaReader($sce) {
+   function iaReader($sce, _) {
       var directive = {
          restrict: 'E',
          template: '<iframe ng-src="{{src}}">',
@@ -20,12 +20,92 @@
       return directive;
 
       function linkFunc(scope) {
-        scope.$watch('properties', function(properties) {
-           // TODO add page link
+         scope.$watch('properties', function(properties) {
             //  <iframe class="reader flex" src="https://archive.org/stream/essayinanswertom00adamiala?ui=embed#page/n5/mode/2up" frameborder="0"></iframe>
-           scope.src = $sce.trustAsResourceUrl('https://archive.org/stream/' + properties.id + '?ui=embed#mode/2up');
-        });
+            var url = buildUrl({
+               scheme: 'https',
+               host: 'archive.org',
+               path: ['stream', properties.id],
+               query: {ui: 'embed'},
+               fragment: joinPath((properties.seq ? 'page/' + properties.seq : ''), 'mode/2up')
+            });
+
+            scope.src = $sce.trustAsResourceUrl(url);
+         });
+      }
+
+      // TODO: the following could be extracted to a URL util service/library
+
+      /**
+       * @typedef UrlParts
+       * @type {object}
+       * @property {string} [scheme='http']
+       * @property {string} host
+       * @property {string|array} [path='']
+       * @property {object.<string,string>} [query={}]
+       * @property {string} [fragment='']
+       */
+
+      /**
+       * Constructs a URL from the given parts
+       * @param  {UrlParts} options
+       * @return {string}
+       */
+      function buildUrl(options) {
+         var parts = _.defaults(_.clone(options) || {}, {
+            scheme: 'http',
+            query: {}
+         });
+
+         if (!parts.host) {
+            throw new Error('host option must be provided');
+         }
+
+         if (_.isArray(parts.path)) {
+            parts.path = joinPath.apply(null, parts.path);
+         }
+
+         if (_.isObject(parts.query)) {
+            parts.query = buildQueryString(parts.query, parts.querySep);
+         }
+
+         return parts.scheme + '://' + joinPath(parts.host, parts.path) + (parts.query ? '?' + parts.query : '') + (parts.fragment ? '#' + parts.fragment : '');
+      }
+
+      /**
+       * Joins non-falsey parts of a path via a '/' separator.
+       * @param {...string} part
+       * @return {string}
+       */
+      function joinPath() {
+         return _.chain(arguments)
+            .map(arguments, function (arg) {
+               return _.trim(arg, '\r\n\t /');
+            })
+            .filter()
+            .join('/')
+            .value();
+      }
+
+      /**
+       * Joins key/value pairs into a query string
+       * @param  {object.<string,?string>} params
+       * @param  {string} [sep='&']
+       * @return {string}
+       */
+      function buildQueryString(params, sep) {
+         sep = sep || '&';
+         return _.chain(params)
+            .filter(function (val, key) {
+               return key;
+            })
+            .map(function (val, key) {
+               return key + (val ? '=' + val : '');
+            })
+            .join(sep)
+            .value();
       }
    }
+
 
 })();
