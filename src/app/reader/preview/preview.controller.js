@@ -36,13 +36,7 @@
          vm.article = node.article;
          vm.links = _.values(node.links);
 
-         var citations = vm.article.citations;
-         var bibliography = _.indexBy(vm.article.bibliography, 'id');
-
-         cslBuilder.renderBibliography(bibliography, citations, 'mla').then(function (bibView) {
-            vm.bibliography = bibView.items;
-            vm.citations = _.pluck(bibView.citations, 'html');
-         });
+         // TODO: render citations
       }
    }
 

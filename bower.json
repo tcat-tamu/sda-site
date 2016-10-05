@@ -17,10 +17,10 @@
     "fontawesome": "~4.4.0",
     "fullpage.js": "~2.7.4",
     "jquery": "~2.1.4",
-    "lodash": "~3.10.1",
+    "lodash": "^4.6.1",
     "dotjem-angular-tree": "~0.2.1",
     "angular-scroll": "~0.7.3",
-    "citeproc-js": "hg+https://bitbucket.org/fbennett/citeproc-js#1.1.67",
+    "citeproc-js": "Juris-M/citeproc-js#^1.1.122",
     "moment": "~2.11.1"
   },
   "devDependencies": {
@@ -42,7 +42,6 @@
     },
     "citeproc-js": {
       "main": [
-        "xmldom.js",
         "citeproc.js"
       ]
     }
