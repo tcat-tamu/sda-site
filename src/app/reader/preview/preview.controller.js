@@ -10,14 +10,14 @@
    };
 
    /** @ngInject */
-   function ReaderPreviewController($stateParams, articleCollectionRepository, articleRepository, _, cslBuilder) {
+   function ReaderPreviewController($stateParams, articleCollectionRepository, articleRepository, _, referenceRenderer) {
       var vm = this;
 
       vm.node = null;
       vm.article = null;
       vm.links = [];
-      vm.citations = [];
-      vm.bibliography = [];
+      vm.citations = null;
+      vm.bibliography = null;
       vm.getThemeTitle = getThemeTitle;
 
       activate();
@@ -36,7 +36,11 @@
          vm.article = node.article;
          vm.links = _.values(node.links);
 
-         // TODO: render citations
+         // TODO: where is this supposed to be used?
+         // referenceRenderer.render('modern-language-association', vm.article.references).then(function (rendered) {
+         //    vm.citations = rendered.citations;
+         //    vm.bibliography = rendered.bibliography;
+         // });
       }
    }
 

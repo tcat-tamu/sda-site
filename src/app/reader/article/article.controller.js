@@ -6,7 +6,7 @@
       .controller('ArticleController', ArticleController);
 
    /** @ngInject */
-   function ArticleController($state, $stateParams, articleRepository, articleCollectionRepository, $log, $window, $scope, $timeout, _) {
+   function ArticleController($state, $stateParams, articleRepository, articleCollectionRepository, $log, $window, $scope, $timeout, _, referenceRenderer) {
       var vm = this;
 
       vm.activeTab = null;
@@ -110,7 +110,11 @@
                }
             });
 
-         // TODO: render article.references
+
+         referenceRenderer.render('modern-language-association', vm.article.references).then(function (rendered) {
+            vm.citations = rendered.citations;
+            vm.bibliography = rendered.bibliography;
+         });
 
          initScroll();
       }

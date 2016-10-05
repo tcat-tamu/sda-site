@@ -73,7 +73,7 @@
       }
 
       /**
-       * Add backrefs to footnotes and trigger click events
+       * footnote numbering and click handling
        *
        * @param {Element} domRoot
        * @param {Footnote[]} footnotes
@@ -99,15 +99,15 @@
        * @param {function(id:string, $event:event)} clickHandler
        */
       function parseCitations(domRoot, citations, clickHandler) {
-         domRoot.find('cite[data-href]').each(function (i, a) {
+         domRoot.find('cite[id]').each(function (i, a) {
             var anchor = angular.element(a);
-            var target = _.findWhere(citations, { id: anchor.data('href').replace(/^#/, '') });
+            var citeId = anchor.attr('id');
+            var target = citations[citeId];
 
             if (target) {
                anchor
-                  .attr('id', target.id)
                   .on('click', _.partial(clickHandler, target))
-                  .html(target.html);
+                  .html(target);
             }
          });
       }
