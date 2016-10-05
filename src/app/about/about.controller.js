@@ -7,6 +7,8 @@
 
    /** @ngInject */
    function AboutController() {
+      var vm = this;
+      vm.showBanner = true;
    }
 
 })();
