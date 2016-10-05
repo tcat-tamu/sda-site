@@ -6,7 +6,7 @@
       .controller('ArticleController', ArticleController);
 
    /** @ngInject */
-   function ArticleController($state, $stateParams, articleRepository, articleCollectionRepository, $log, $window, $scope, $timeout, _, cslBuilder) {
+   function ArticleController($state, $stateParams, articleRepository, articleCollectionRepository, $log, $window, $scope, $timeout, _) {
       var vm = this;
 
       vm.activeTab = null;
@@ -14,6 +14,7 @@
       vm.node = null;
       vm.article = null;
       vm.links = [];
+      vm.orderedFootnotes = [];
       vm.articleType = null;
 
       vm.toc = [];
@@ -92,13 +93,24 @@
             link.icon = getIcon(link.type);
          });
 
-         var citations = vm.article.citations;
-         var bibliography = _.indexBy(vm.article.bibliography, 'id');
+         vm.orderedFootnotes = [];
+         angular.element(vm.article.body)
+            .find('sup.footnote[data-footnote]')
+            .each(function (i, el) {
+               var footnoteId = angular.element(el).data('footnote');
+               var footnote = vm.article.footnotes[footnoteId];
 
-         cslBuilder.renderBibliography(bibliography, citations, 'mla').then(function (bibView) {
-            vm.citations = bibView.citations;
-            vm.bibliography = bibView.items;
-         });
+               if (footnote) {
+                  // sanity check
+                  if (vm.orderedFootnotes.indexOf(footnote) >= 0) {
+                     $log.error('duplicate reference to footnote ' + footnoteId);
+                  } else {
+                     vm.orderedFootnotes.push(footnote);
+                  }
+               }
+            });
+
+         // TODO: render article.references
 
          initScroll();
       }
@@ -112,19 +124,22 @@
          if ($stateParams.scrollTo) {
             // give page time to render before scrolling to target
             $timeout(function () {
-               if ($stateParams.scrollTo.match(/footnote/)) {
-                  var note = _.findWhere(vm.article.footnotes, {backlinkId: $stateParams.scrollTo});
-                  if (note) {
-                     activateNote(note);
-                  }
-               } else if ($stateParams.scrollTo.match(/cite/)) {
-                  var citation = _.findWhere(vm.citations, {backlinkId: $stateParams.scrollTo});
-                  if (citation) {
-                     activateCitation(citation);
-                  }
-               } else {
-                  scrollTo($stateParams.scrollTo, false)
+               // try to find footnote first
+               var note = _.findWhere(vm.article.footnotes, {backlinkId: $stateParams.scrollTo});
+               if (note) {
+                  activateNote(note);
+                  return;
                }
+
+               // fall back to finding citation
+               var citation = _.findWhere(vm.citations, {backlinkId: $stateParams.scrollTo});
+               if (citation) {
+                  activateCitation(citation);
+                  return;
+               }
+
+               // if all else fails, just scroll to arbitrary anchor
+               scrollTo($stateParams.scrollTo, false);
             });
          }
       }
@@ -187,7 +202,7 @@
       }
 
       function activateNote(note, $event) {
-         vm.article.footnotes.forEach(function (note) {
+         angular.forEach(vm.article.footnotes, function (note) {
             note.active = false;
          });
 

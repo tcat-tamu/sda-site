@@ -26,8 +26,8 @@
          <sda-sidebar-tab class="layout-column layout-padding" title="Footnotes" icon="sticky-note-o" id="footnotes">
             <div class="notes flex content">
                <ol du-scrollspy-context>
-                  <li ng-repeat="note in vm.article.footnotes" ng-class="{active: note.active}" du-scrollspy="{{note.backlinkId}}" du-scroll-container="article-content">
-                     <a ui-sref="sda.reader.article({id: vm.node.id, type: vm.articleType, scrollTo: note.backlinkId})" ng-click="vm.activateNote(note, $event)" ng-model="note.text" mathjax></a>
+                  <li ng-repeat="note in vm.orderedFootnotes track by note.id" ng-class="{active: note.active}" du-scrollspy="{{note.backlinkId}}" du-scroll-container="article-content">
+                     <a ui-sref="sda.reader.article({id: vm.node.id, type: vm.articleType, scrollTo: note.backlinkId})" ng-click="vm.activateNote(note, $event)" ng-model="note.content" mathjax></a>
                   </li>
                </ol>
             </div>

@@ -80,19 +80,12 @@
        * @param {function(id:string, $event:event)} clickHandler
        */
       function parseFootnotes(domRoot, footnotes, clickHandler) {
-         domRoot.find('sup.footnote-anchor').each(function (i, a) {
-            var anchor = angular.element(a);
-            var target = _.findWhere(footnotes, { id: anchor.data('href').replace(/^#/, '') });
-
-            var backlinkId = 'footnote' + i;
-
-
-            if (target) {
-               target.backlinkId = backlinkId;
-            }
+         domRoot.find('sup.footnote[data-footnote]').each(function (i, el) {
+            var anchor = angular.element(el);
+            var footnoteId = anchor.data('footnote')
+            var target = footnotes[footnoteId];
 
             anchor
-               .attr('id', backlinkId)
                .on('click', _.partial(clickHandler, target))
                .text(i+1);
          });
