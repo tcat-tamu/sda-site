@@ -1,4 +1,11 @@
 /**
+ * @typedef TrcReferenceCollection
+ * @type {object}
+ * @property {object.<string, TrcCitation>} citations
+ * @property {object.<string, TrcBibliographicItem>} bibliography
+ */
+
+/**
  * @typedef TrcCitation
  * @type {object}
  * @property {string} id
@@ -37,7 +44,7 @@
   'use strict';
 
   angular
-    .module('sda')
+    .module('sdaAdminWeb')
     .factory('refAdapter', referenceAdapterServiceFactory);
 
   /** @ngInject */
@@ -50,17 +57,22 @@
 
     return adapter;
 
+    /**
+     * Adapts a trc reference collection into csl citations and bibliography items
+     * @param {ItemAdapterMapping} config - Field mapping the bibliography item adapter
+     * @param {TrcReferenceCollection} reference
+     * @return {CslReferenceCollection}
+     */
     function adaptReference(config, reference) {
-
       return {
         citations: _.mapValues(reference.citations, adaptCitation),
-        bibliography: _.mapValues(reference.bibliography, makeZoteroToCslBibliogaphyItemAdapter(config))
+        bibliography: _.mapValues(reference.bibliography, makeCslBibliogaphyItemAdapter(config))
       };
     }
 
     /**
      * Adapts the given trc citation into a csl citation
-     * @param {TrcCitationDTO} trcCitation
+     * @param {TrcCitation} trcCitation
      * @return {CslCitationDTO}
      */
     function adaptCitation(trcCitation) {
@@ -82,10 +94,10 @@
      * Adapts the given biblio item into a csl bibliographic item
      * @param {object} config
      * @param {TrcBibliographicItem} item
-     * @return {CslCitationIDTO}
+     * @return {CslCitationDTO}
      */
     function adaptBiblioItem(config, item) {
-      var adapt = makeZoteroToCslBibliogaphyItemAdapter(config);
+      var adapt = makeCslBibliogaphyItemAdapter(config);
       return adapt(item);
     }
 
@@ -94,7 +106,7 @@
      * @param {AdapterConfig} config
      * @return {function}
      */
-    function makeZoteroToCslBibliogaphyItemAdapter(config) {
+    function makeCslBibliogaphyItemAdapter(config) {
       return adaptItem;
 
       /**
