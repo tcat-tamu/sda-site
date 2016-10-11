@@ -6,7 +6,7 @@
       .config(config);
 
    /** @ngInject */
-   function config($logProvider, toastrConfig, categorizationRepoProvider, citeprocProvider) {
+   function config($logProvider, toastrConfig, categorizationRepoProvider, articleRepoProvider, citeprocProvider) {
       // Enable log
       $logProvider.debugEnabled(true);
 
@@ -17,6 +17,7 @@
       });
 
       categorizationRepoProvider.url = '/api/catalog/categorizations';
+      articleRepoProvider.url = '/api/catalog/entries/articles';
 
       addLocale('en-US');
       addStyle('modern-language-association');
