@@ -28,11 +28,11 @@
   'use strict';
 
   angular
-    .module('sda')
-    .factory('referenceRenderer', ReferenceRendererServiceFactory);
+    .module('trcRefs')
+    .factory('refsRenderer', ReferenceRendererServiceFactory);
 
   /** @ngInject */
-  function ReferenceRendererServiceFactory($q, $http, _, refAdapter, citeproc) {
+  function ReferenceRendererServiceFactory($q, $http, _, refsAdapter, citeproc) {
     var adapterConfigP = $http.get('assets/typemap/zotero-csl.json').then(function (res) {
       return res.data;
     });
@@ -58,7 +58,7 @@
       }
 
       var cslReferenceP = adapterConfigP.then(function (config) {
-        return refAdapter.adapt(config, reference);
+        return refsAdapter.adapt(config, reference);
       });
 
       var citeprocP = cslReferenceP.then(function (cslReference) {
@@ -87,7 +87,7 @@
      */
     function renderBiblioItem(styleId, biblioItem) {
       var cslBiblioItemP = adapterConfigP.then(function (config) {
-        return refAdapter.adaptBiblioItem(config, biblioItem);
+        return refsAdapter.adaptBiblioItem(config, biblioItem);
       });
 
       var citeprocP = cslBiblioItemP.then(function (cslBiblioItem) {

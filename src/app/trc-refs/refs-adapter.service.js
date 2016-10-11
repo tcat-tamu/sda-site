@@ -44,11 +44,11 @@
   'use strict';
 
   angular
-    .module('sdaAdminWeb')
-    .factory('refAdapter', referenceAdapterServiceFactory);
+    .module('trcRefs')
+    .factory('refsAdapter', refsAdapterFactory);
 
   /** @ngInject */
-  function referenceAdapterServiceFactory(_) {
+  function refsAdapterFactory(_) {
     var adapter = {};
 
     adapter.adapt = adaptReference;

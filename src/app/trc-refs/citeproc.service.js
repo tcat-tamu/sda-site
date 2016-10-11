@@ -15,7 +15,7 @@
   'use strict';
 
   angular
-    .module('sda')
+    .module('trcRefs')
     .provider('citeproc', citeprocProvider);
 
   /** @ngInject */

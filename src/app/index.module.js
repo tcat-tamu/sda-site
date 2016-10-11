@@ -15,6 +15,7 @@
          'ngResource',
          'ui.router',
          'rt.debounce',
+         'trcRefs',
          'toastr'
       ]);
 
