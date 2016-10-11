@@ -6,12 +6,15 @@
       .controller('ArticleController', ArticleController);
 
    /** @ngInject */
-   function ArticleController($state, $stateParams, articleRepository, articleCollectionRepository, $log, $window, $scope, $timeout, _, referenceRenderer) {
+   function ArticleController($state, $stateParams, articleRepo, $log, $window, $scope, $timeout, _, refsRenderer, refsRepoFactory) {
+      var articleId = $stateParams.id;
+      var refsEndpoint = articleRepo.getReferencesEndpoint(articleId);
+      var refsRepo = refsRepoFactory.getRepo(refsEndpoint);
+
       var vm = this;
 
       vm.activeTab = null;
 
-      vm.node = null;
       vm.article = null;
       vm.links = [];
       vm.orderedFootnotes = [];
@@ -25,17 +28,24 @@
       vm.scrollTo = scrollTo;
       vm.scrollToTop = scrollToTop;
       vm.activateNote = activateNote;
-      vm.goBack = goBack;
       vm.goToLink = goToLink;
+      vm.goBack = function () { $state.go('sda.reader.main.preview', { id: vm.article.id }); }
 
       activate();
 
       function activate() {
-         if ($stateParams.type) {
-            loadThematic($stateParams.id, $stateParams.type);
-         } else {
-            loadArticle($stateParams.id);
-         }
+         vm.article = articleRepo.get(articleId);
+         vm.article.$promise.then(onArticleLoaded);
+
+         var references = refsRepo.get();
+         var renderedP = references.$promise.then(function () {
+            return refsRenderer.render('modern-language-association', references);
+         });
+
+         renderedP.then(function (rendered) {
+            vm.citations = rendered.citations;
+            vm.bibliography = rendered.bibliography;
+         });
 
          $scope.$on('click:footnote', function (evt, data) {
             $scope.$apply(function () {
@@ -51,47 +61,16 @@
       }
 
       /**
-       * Asynchronously loads an article into the controller view model.
-       *
-       * @param {string} articleId
-       */
-      function loadArticle(articleId) {
-         articleRepository.get({ id: articleId }, onArticleLoaded);
-      }
-
-      /**
-      * Asynchronously loads an article via a thematic node into the controller view model.
-      *
-      * @param {string} nodeId
-      * @param {string} type
-      */
-      function loadThematic(nodeId, type) {
-         vm.articleType = type;
-         articleCollectionRepository.get({ id: nodeId, type: type }, onThematicNodeLoaded);
-      }
-
-      /**
-       * Callback for when the thematic collection node has been loaded.
-       *
-       * @param {ThematicNode} node
-       */
-      function onThematicNodeLoaded(node) {
-         vm.node = node;
-         vm.links = _.values(node.links);
-         onArticleLoaded(node.article);
-      }
-
-      /**
        * Callback for when the article has been loaded.
        *
        * @param {Article} article
        */
-      function onArticleLoaded(article) {
-         vm.article = article;
-
-         vm.article.links.forEach(function (link) {
-            link.icon = getIcon(link.type);
-         });
+      function onArticleLoaded() {
+         if (vm.article.links) {
+            vm.article.links.forEach(function (link) {
+               link.icon = getIcon(link.type);
+            });
+         }
 
          vm.orderedFootnotes = [];
          angular.element(vm.article.body)
@@ -109,12 +88,6 @@
                   }
                }
             });
-
-
-         referenceRenderer.render('modern-language-association', vm.article.references).then(function (rendered) {
-            vm.citations = rendered.citations;
-            vm.bibliography = rendered.bibliography;
-         });
 
          initScroll();
       }
@@ -179,16 +152,6 @@
          } else {
             container.duScrollTop(0);
          }
-      }
-
-      function goBack() {
-         var routeOpts = {};
-
-         if (vm.node) {
-            routeOpts.id = vm.node.id;
-         }
-
-         $state.go('sda.reader.main.preview', routeOpts);
       }
 
       function goToLink(link, $event) {

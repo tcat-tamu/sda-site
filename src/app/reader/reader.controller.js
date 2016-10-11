@@ -6,14 +6,13 @@
       .controller('ReaderController', ReaderController);
 
    /** @ngInject */
-   function ReaderController($state, $scope, articleCollectionRepository, _) {
+   function ReaderController($state, $scope, _) {
       var vm = this;
 
       vm.showBanner = true;
 
       vm.search = search;
       vm.query = '';
-      vm.collection = null;
 
       vm.nodeHasArticles = nodeHasArticles;
 
@@ -24,7 +23,6 @@
             vm.query = query;
          });
 
-         vm.collection = articleCollectionRepository.get();
       }
 
       function nodeHasArticles(node) {

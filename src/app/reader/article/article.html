@@ -7,7 +7,7 @@
             <div class="toc flex content">
                <ol dx-start-with="vm.toc" du-scrollspy-context>
                   <li ng-repeat="node in $dxPrior.children" du-scrollspy="{{node.id}}" du-scroll-container="article-content">
-                     <a ui-sref="sda.reader.article({id: vm.node.id, type: vm.articleType, scrollTo: node.id})" ng-click="vm.scrollTo(node.id, true, $event)">{{node.text}}</a>
+                     <a ui-sref="sda.reader.article({id: vm.node.id, scrollTo: node.id})" ng-click="vm.scrollTo(node.id, true, $event)">{{node.text}}</a>
                      <ol dx-connect="node"/>
                   </li>
                </ol>
@@ -27,7 +27,7 @@
             <div class="notes flex content">
                <ol du-scrollspy-context>
                   <li ng-repeat="note in vm.orderedFootnotes track by note.id" ng-class="{active: note.active}" du-scrollspy="{{note.backlinkId}}" du-scroll-container="article-content">
-                     <a ui-sref="sda.reader.article({id: vm.node.id, type: vm.articleType, scrollTo: note.backlinkId})" ng-click="vm.activateNote(note, $event)" ng-model="note.content" mathjax></a>
+                     <a ui-sref="sda.reader.article({id: vm.article.id, scrollTo: note.backlinkId})" ng-click="vm.activateNote(note, $event)" ng-model="note.content" mathjax></a>
                   </li>
                </ol>
             </div>
@@ -44,18 +44,8 @@
       <article id="article-content" class="flex content layout-padding">
          <div class="content">
             <div class="meta">
-               <!-- <nav class="depth-chooser" ng-if="vm.links.length > 0">
-                  <ul>
-                     <li ng-class="{active: link.type === vm.articleType}" ng-repeat="link in vm.links">
-                        <a ui-sref="sda.reader.article({id: vm.node.id, type: link.type})" ng-switch="link.type">
-                           <span ng-switch-when="detailed">Detailed Article</span>
-                           <span ng-switch-default>{{ vm.titleCase(link.type) }}</span>
-                        </a>
-                     </li>
-                  </ul>
-               </nav> -->
                <h1>{{vm.article.title}}</h1>
-               <p class="author-info" ng-if="vm.article.authors">
+               <p class="author-info" ng-if="vm.article.authors && vm.article.authors.length > 0">
                   by
                   <span class="author" ng-repeat="author in vm.article.authors">
                      <a ng-if="author.contact.email" href="mailto:{{author.contact.email}}">{{author.name}}</a>
@@ -64,7 +54,7 @@
                </p>
             </div>
             <!-- NOTE: abstracts are not displayed here on purpose
-                 TODO: Use a more appropriate anme. Perhaps trc-article-view?
+                 TODO: Use a more appropriate name. Perhaps trc-article-view?
               -->
             <article-parser body="vm.article.body" generate-toc="vm.toc = toc" footnotes="vm.article.footnotes" citations="vm.citations"></article-parser>
          </div>
