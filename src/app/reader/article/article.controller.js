@@ -6,14 +6,18 @@
       .controller('ArticleController', ArticleController);
 
    /** @ngInject */
-   function ArticleController($state, $stateParams, articleRepository, articleCollectionRepository, $log, $window, $scope, $timeout, _, cslBuilder) {
+   function ArticleController($state, $stateParams, articleRepo, $log, $window, $scope, $timeout, _, refsRenderer, refsRepoFactory) {
+      var articleId = $stateParams.id;
+      var refsEndpoint = articleRepo.getReferencesEndpoint(articleId);
+      var refsRepo = refsRepoFactory.getRepo(refsEndpoint);
+
       var vm = this;
 
       vm.activeTab = null;
 
-      vm.node = null;
       vm.article = null;
       vm.links = [];
+      vm.orderedFootnotes = [];
       vm.articleType = null;
 
       vm.toc = [];
@@ -24,17 +28,24 @@
       vm.scrollTo = scrollTo;
       vm.scrollToTop = scrollToTop;
       vm.activateNote = activateNote;
-      vm.goBack = goBack;
       vm.goToLink = goToLink;
+      vm.goBack = function () { $state.go('sda.reader.main.preview', { id: vm.article.id }); }
 
       activate();
 
       function activate() {
-         if ($stateParams.type) {
-            loadThematic($stateParams.id, $stateParams.type);
-         } else {
-            loadArticle($stateParams.id);
-         }
+         vm.article = articleRepo.get(articleId);
+         vm.article.$promise.then(onArticleLoaded);
+
+         var references = refsRepo.get();
+         var renderedP = references.$promise.then(function () {
+            return refsRenderer.render('chicago', references);
+         });
+
+         renderedP.then(function (rendered) {
+            vm.citations = rendered.citations;
+            vm.bibliography = rendered.bibliography;
+         });
 
          $scope.$on('click:footnote', function (evt, data) {
             $scope.$apply(function () {
@@ -50,55 +61,33 @@
       }
 
       /**
-       * Asynchronously loads an article into the controller view model.
-       *
-       * @param {string} articleId
-       */
-      function loadArticle(articleId) {
-         articleRepository.get({ id: articleId }, onArticleLoaded);
-      }
-
-      /**
-      * Asynchronously loads an article via a thematic node into the controller view model.
-      *
-      * @param {string} nodeId
-      * @param {string} type
-      */
-      function loadThematic(nodeId, type) {
-         vm.articleType = type;
-         articleCollectionRepository.get({ id: nodeId, type: type }, onThematicNodeLoaded);
-      }
-
-      /**
-       * Callback for when the thematic collection node has been loaded.
-       *
-       * @param {ThematicNode} node
-       */
-      function onThematicNodeLoaded(node) {
-         vm.node = node;
-         vm.links = _.values(node.links);
-         onArticleLoaded(node.article);
-      }
-
-      /**
        * Callback for when the article has been loaded.
        *
        * @param {Article} article
        */
-      function onArticleLoaded(article) {
-         vm.article = article;
+      function onArticleLoaded() {
+         if (vm.article.links) {
+            vm.article.links.forEach(function (link) {
+               link.icon = getIcon(link.type);
+            });
+         }
 
-         vm.article.links.forEach(function (link) {
-            link.icon = getIcon(link.type);
-         });
+         vm.orderedFootnotes = [];
+         angular.element(vm.article.body)
+            .find('sup.footnote[data-footnote]')
+            .each(function (i, el) {
+               var footnoteId = angular.element(el).data('footnote');
+               var footnote = vm.article.footnotes[footnoteId];
 
-         var citations = vm.article.citations;
-         var bibliography = _.indexBy(vm.article.bibliography, 'id');
-
-         cslBuilder.renderBibliography(bibliography, citations, 'mla').then(function (bibView) {
-            vm.citations = bibView.citations;
-            vm.bibliography = bibView.items;
-         });
+               if (footnote) {
+                  // sanity check
+                  if (vm.orderedFootnotes.indexOf(footnote) >= 0) {
+                     $log.error('duplicate reference to footnote ' + footnoteId);
+                  } else {
+                     vm.orderedFootnotes.push(footnote);
+                  }
+               }
+            });
 
          initScroll();
       }
@@ -112,19 +101,22 @@
          if ($stateParams.scrollTo) {
             // give page time to render before scrolling to target
             $timeout(function () {
-               if ($stateParams.scrollTo.match(/footnote/)) {
-                  var note = _.findWhere(vm.article.footnotes, {backlinkId: $stateParams.scrollTo});
-                  if (note) {
-                     activateNote(note);
-                  }
-               } else if ($stateParams.scrollTo.match(/cite/)) {
-                  var citation = _.findWhere(vm.citations, {backlinkId: $stateParams.scrollTo});
-                  if (citation) {
-                     activateCitation(citation);
-                  }
-               } else {
-                  scrollTo($stateParams.scrollTo, false)
+               // try to find footnote first
+               var note = _.findWhere(vm.article.footnotes, {backlinkId: $stateParams.scrollTo});
+               if (note) {
+                  activateNote(note);
+                  return;
                }
+
+               // fall back to finding citation
+               var citation = _.findWhere(vm.citations, {backlinkId: $stateParams.scrollTo});
+               if (citation) {
+                  activateCitation(citation);
+                  return;
+               }
+
+               // if all else fails, just scroll to arbitrary anchor
+               scrollTo($stateParams.scrollTo, false);
             });
          }
       }
@@ -162,16 +154,6 @@
          }
       }
 
-      function goBack() {
-         var routeOpts = {};
-
-         if (vm.node) {
-            routeOpts.id = vm.node.id;
-         }
-
-         $state.go('sda.reader.main.preview', routeOpts);
-      }
-
       function goToLink(link, $event) {
          if ($event) {
             $event.preventDefault();
@@ -187,7 +169,7 @@
       }
 
       function activateNote(note, $event) {
-         vm.article.footnotes.forEach(function (note) {
+         angular.forEach(vm.article.footnotes, function (note) {
             note.active = false;
          });
 

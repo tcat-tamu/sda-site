@@ -19,13 +19,7 @@
                   </div>
                </form>
                <div class="collections">
-                  <ul dx-start-with="vm.collection.root">
-                     <li ng-repeat="node in $dxPrior.children">
-                        <a ng-if="vm.nodeHasArticles(node)" ui-sref="sda.reader.main.preview({id: node.id})">{{node.title}}</a>
-                        <span ng-if="!vm.nodeHasArticles(node)">{{node.title}}</span>
-                        <ul dx-connect="node"/>
-                     </li>
-                  </ul>
+                  <tree-categorization scope-id="sda" scheme="overviews"></tree-categorization>
                </div>
             </div>
          </sda-sidebar-tab>
@@ -57,7 +51,7 @@
                     reader provides a starting point those who want an introduction to specific topics and
                     directions for further research.
                   </p>
-                  
+
                   <p>The SDA Reader contains four main categories of content.</p>
                   <ul class="list-style-type:none;">
                     <li><em>Thematic Overviews</em> provide a systematic survey of key concepts in the field of SDA.

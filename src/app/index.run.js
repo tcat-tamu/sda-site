@@ -6,13 +6,7 @@
       .run(runBlock);
 
    /** @ngInject */
-   function runBlock(cslBuilder, $log) {
-
-      // configure CSL engine
-      cslBuilder
-         .addLocale('en-US', 'assets/csl/locales/locales-en-US.xml')
-         .addStyle('mla', 'assets/csl/styles/modern-language-association.csl');
-
+   function runBlock($log) {
       $log.debug('runBlock end');
    }
 

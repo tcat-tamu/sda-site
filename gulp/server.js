@@ -36,7 +36,7 @@ function browserSyncInit(baseDir, browser) {
    server.middleware = proxyMiddleware('/api/catalog', {
       target: 'http://localhost:9999',
       pathRewrite: {
-         '^/api/catalog': '/catalog/services'
+         '^/api/catalog': '/sda/services'
       },
       proxyHost: 'sda.tamu.edu'
    });

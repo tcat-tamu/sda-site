@@ -2,7 +2,7 @@
    <article ng-if="vm.article">
       <section class="meta">
          <h1>{{vm.article.title}}</h1>
-         <p class="author-info" ng-if="vm.article.authors">
+         <p class="author-info" ng-if="vm.article.authors && vm.article.authors.length > 0">
             by
             <span class="author" ng-repeat="author in vm.article.authors">
                <a ng-if="author.contact.email" href="mailto:{{author.contact.email}}">{{author.name}}</a>
@@ -16,11 +16,11 @@
          <div ng-bind-html="vm.article.abstract"></div>
       </section>
 
-      <nav ng-if="vm.links.length > 0">
+      <nav>
          <ul>
-            <li ng-repeat="link in vm.links">
-               <a ui-sref="sda.reader.article({id: vm.node.id, type: link.type})" class="read-more">
-                  <span>Read Overview</span>
+            <li>
+               <a ui-sref="sda.reader.article({id: vm.article.id})" class="read-more">
+                  <span>Read Full Article</span>
                   <i class="fa fa-angle-double-right"></i>
                </a>
             </li>

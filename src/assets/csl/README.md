@@ -29,6 +29,7 @@ More locales are available from Zotero's [Locale GitHub Repository][locale-repo]
 Styles are located in the **styles** directory. Included styles are:
 
 * Modern Language Association (7th Edition) (**modern-language-association.csl**)
+* Chicago Manual of Style (16th Edition; author-date) (**chicago-author-date.csl**)
 
 More styles are available from the [Zotero Style Repository][style-repo].
 

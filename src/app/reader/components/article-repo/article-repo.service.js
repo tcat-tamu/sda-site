@@ -3,40 +3,34 @@
 
    angular
       .module('sda.reader')
-      .factory('articleRepository', articleRepositoryFactory);
+      .provider('articleRepo', articleRepoProvider);
 
-   /** @ngInject */
-   function articleRepositoryFactory($resource, config, articleMock, $timeout) {
+   function articleRepoProvider() {
+      var provider = {}
+      provider.url = '/api/articles';
+      provider.$get = articleRepoFactory;
+      return provider;
 
-      // HACK: mock data retrieval for demo
-      return {
-         get: function (opts, cb) {
-            opts = opts || {};
-            cb = cb || function () {};
+      /** @ngInject */
+      function articleRepoFactory($resource) {
+         var articleResource = $resource(provider.url + '/:id', {
+            id: '@id'
+         });
 
-            if (opts.id) {
-               $timeout(function () { cb(articleMock); });
-               return articleMock
-            } else {
-               return null;
-            }
+         var repo = {};
+         repo.getReferencesEndpoint = getReferencesEndpoint;
+         repo.get = getArticle;
+         return repo;
+
+         function getReferencesEndpoint(id) {
+            return provider.url + '/' + id + '/references';
          }
+
+         function getArticle(id) {
+            return articleResource.get({ id: id });
+         }
+
       }
-
-
-      var uri = config.apiEndpoint + '/articles/:id';
-
-      var defaultParameters = {};
-
-      var actions = {
-         search: {
-            method: 'GET'
-         }
-      };
-
-      var repo = $resource(uri, defaultParameters, actions);
-
-      return repo;
    }
 
 })();
