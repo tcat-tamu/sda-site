@@ -19,26 +19,37 @@
       categorizationRepoProvider.url = '/api/catalog/categorizations';
       articleRepoProvider.url = '/api/catalog/entries/articles';
 
-      addLocale('en-US');
-      addStyle('modern-language-association');
+      var CSL_LOCALES = {
+         'en-US': 'en-US'
+      };
 
-      function addLocale(localeId) {
+      var CSL_STYLES = {
+         mla: 'modern-language-association',
+         chicago: 'chicago-author-date'
+      };
+
+      // helpers
+
+      angular.forEach(CSL_LOCALES, addLocale);
+      angular.forEach(CSL_STYLES, addStyle);
+
+      function addLocale(filename, localeId) {
          citeprocProvider.addLocale(localeId, supplier);
 
          /** @ngInject */
          function supplier($http) {
-            return $http.get('assets/csl/locales/locales-' + localeId + '.xml').then(function (res) {
+            return $http.get('assets/csl/locales/locales-' + filename + '.xml').then(function (res) {
                return res.data;
             });
          }
       }
 
-      function addStyle(styleId) {
+      function addStyle(filename, styleId) {
          citeprocProvider.addStyle(styleId, supplier);
 
          /** @ngInject */
          function supplier($http) {
-            return $http.get('assets/csl/styles/' + styleId + '.csl').then(function (res) {
+            return $http.get('assets/csl/styles/' + filename + '.csl').then(function (res) {
                return res.data;
             });
          }

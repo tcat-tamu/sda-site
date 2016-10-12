@@ -39,7 +39,7 @@
 
          var references = refsRepo.get();
          var renderedP = references.$promise.then(function () {
-            return refsRenderer.render('modern-language-association', references);
+            return refsRenderer.render('chicago', references);
          });
 
          renderedP.then(function (rendered) {
