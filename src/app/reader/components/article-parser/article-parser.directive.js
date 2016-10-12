@@ -73,26 +73,19 @@
       }
 
       /**
-       * Add backrefs to footnotes and trigger click events
+       * footnote numbering and click handling
        *
        * @param {Element} domRoot
        * @param {Footnote[]} footnotes
        * @param {function(id:string, $event:event)} clickHandler
        */
       function parseFootnotes(domRoot, footnotes, clickHandler) {
-         domRoot.find('sup.footnote-anchor').each(function (i, a) {
-            var anchor = angular.element(a);
-            var target = _.findWhere(footnotes, { id: anchor.data('href').replace(/^#/, '') });
-
-            var backlinkId = 'footnote' + i;
-
-
-            if (target) {
-               target.backlinkId = backlinkId;
-            }
+         domRoot.find('sup.footnote[data-footnote]').each(function (i, el) {
+            var anchor = angular.element(el);
+            var footnoteId = anchor.data('footnote')
+            var target = footnotes[footnoteId];
 
             anchor
-               .attr('id', backlinkId)
                .on('click', _.partial(clickHandler, target))
                .text(i+1);
          });
@@ -106,15 +99,15 @@
        * @param {function(id:string, $event:event)} clickHandler
        */
       function parseCitations(domRoot, citations, clickHandler) {
-         domRoot.find('cite[data-href]').each(function (i, a) {
+         domRoot.find('cite[id]').each(function (i, a) {
             var anchor = angular.element(a);
-            var target = _.findWhere(citations, { id: anchor.data('href').replace(/^#/, '') });
+            var citeId = anchor.attr('id');
+            var target = citations[citeId];
 
             if (target) {
                anchor
-                  .attr('id', target.id)
                   .on('click', _.partial(clickHandler, target))
-                  .html(target.html);
+                  .html(target);
             }
          });
       }

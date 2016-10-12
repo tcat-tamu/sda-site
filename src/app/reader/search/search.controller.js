@@ -6,7 +6,7 @@
       .controller('ReaderSearchController', ReaderSearchController);
 
    /** @ngInject */
-   function ReaderSearchController($stateParams, $scope, articleRepository, $http) {
+   function ReaderSearchController($stateParams, $scope, articleRepo, $http) {
       var vm = this;
 
       vm.queryResult = {};
@@ -22,7 +22,7 @@
 
          if (vm.query) {
             $scope.$emit('set:query', vm.query);
-            vm.queryResult = articleRepository.search({ q: vm.query });
+            vm.queryResult = articleRepo.search(vm.query);
          }
       }
 
