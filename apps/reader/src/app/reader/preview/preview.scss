@@ -1,0 +1,52 @@
+.article-preview {
+  padding-left: 2rem;
+  padding-right: 4rem;
+
+   article > section {
+      margin: 2em 0;
+
+      &:first-child { margin-top: 0; }
+      &:last-child { margin-bottom: 0; }
+   }
+
+   .meta {
+      h1 {
+         margin-bottom: 0.5rem;
+      }
+
+      .author-info {
+         margin: 0;
+         font-size: 1.3em;
+      }
+   }
+
+   nav {
+      margin-top: 2rem;
+
+      ul {
+         margin: 0;
+         padding: 0;
+         list-style: none;
+         text-align: right;
+
+         li {
+            display: inline-block;
+            margin: 0 0.5rem;
+
+            a.read-more {
+               display: block;
+               padding: 0.5rem 1rem;
+               background: $copper;
+               color: $cream;
+               text-decoration: none;
+
+               transition: all 0.3s;
+
+               &:hover {
+                  background: lighten($copper, 5%);
+               }
+            }
+         }
+      }
+   }
+}
