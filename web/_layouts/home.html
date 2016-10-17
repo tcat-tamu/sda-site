@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<head>
+  {% include meta-common.html %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.9/jquery.fullPage.min.css">
+  <link rel="stylesheet" href="{{ 'css/home.css' | relative_url }}">
+</head>
+<body>
+  {% include header.html %}
+
+  <main class="fullpage-scroll">
+
+    <div class="disclaimer">
+      <div class="container">
+        <i class="icon fa fa-exclamation-triangle"></i>
+        <p>Thanks for your interest in the <em>Special Divine Action</em> Project! You've found our development and test site. Please feel free to look around, but understand that this is not ready for prime time and you will encounter broken links, missing data and a wide range of other issues. We will be launching the site to the public at the <a href="https://www.aarweb.org/">American Academy of Religion</a> (AAR) in November 2016.</p>
+      </div>
+    </div>
+
+    <div class="fullpage-scroll-section">
+      {% include home/billboard.html %}
+
+      <a href="" class="scroll-indicator">
+        <span class="label">scroll down</span>
+        <span class="icon fa-stack fa-lg">
+          <i class="fa fa-circle fa-stack-2x"></i>
+          <i class="fa fa-chevron-down fa-stack-1x fa-inverse"></i>
+        </span>
+      </a>
+    </div>
+
+    <div class="fullpage-scroll-section">
+      {% include home/sda-nav.html %}
+
+      <a href="" class="scroll-indicator">
+         <span class="label">scroll down</span>
+         <span class="icon fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-chevron-down fa-stack-1x fa-inverse"></i>
+         </span>
+      </a>
+    </div>
+
+    <div class="fullpage-scroll-section about-project">
+      <div class="fullpage-scroll-slide">
+        <div class="container">
+          <h1>Advisory Board</h1>
+          <div class="advisors">
+            {% for advisor in page.advisors %}
+              <div class="member">
+                <span class="name">{{ advisor.name }}</span>
+                <span class="position">{{ advisor.position }}</span>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <a href="" class="scroll-indicator">
+         <span class="label">scroll down</span>
+         <span class="icon fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-chevron-down fa-stack-1x fa-inverse"></i>
+         </span>
+      </a>
+    </div>
+
+    <!-- TODO this section's content could be generated from jekyll _posts -->
+    <div class="fullpage-scroll-section dark content-news">
+      <div class="container">
+        <aside>
+          <h2>Explore one of the most profound influences on ideas, culture, and civilisation.</h2>
+          <p>The Special Divine Action Project brings together enduring historical resources and contemporary scholarship to help you explore the full scope of this debate and reach your own conclusions.</p>
+        </aside>
+        <div class="content">
+          <h3>Recent News</h3>
+          <ol>
+            {% for news in page.recentNews %}
+              <li>
+                <a href="" class="title">{{ news.title }}</a>
+                <span class="description">{{ news.description }}</span>
+              </li>
+            {% endfor %}
+          </ol>
+        </div>
+      </div>
+
+      <a href="" class="scroll-indicator">
+         <span class="label">scroll down</span>
+         <span class="icon fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-chevron-down fa-stack-1x fa-inverse"></i>
+         </span>
+      </a>
+    </div>
+
+    <div class="fullpage-scroll-section site-footer">
+      {% include footer.html %}
+    </div>
+
+  </main>
+
+  {% include scripts-common.html %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.9/jquery.fullPage.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.9/vendors/jquery.easings.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.9/vendors/jquery.slimscroll.min.js"></script>
+  <script src="{{ 'js/home.js' | relative_url }}"></script>
+
+</body>
+</html>

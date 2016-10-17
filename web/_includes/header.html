@@ -1,0 +1,43 @@
+<header class="site-header">
+  <div class="container">
+    <button class="nav-toggle">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <div class="site-logo">
+      <a href="{{ '/' | relative_url }}"><img src="{{ 'assets/images/sda-logo-light-dev.png' | relative_url }}" alt="SDA Logo"></a>
+    </div>
+
+    <!-- TODO highlight current page:
+         http://stackoverflow.com/questions/8340170/jekyll-automatically-highlight-current-tab-in-menu-bar -->
+    <ul class="nav collapsed" id="site-navigation">
+      <li ng-class="{active: vm.$state.includes('sda.library')}"><a ui-sref="sda.library.main">Library</a></li>
+      <li ng-class="{active: vm.$state.includes('sda.reader')}"><a ui-sref="sda.reader.main">Reader</a></li>
+      <li ui-sref-active="active"><a ui-sref="sda.media">Media</a></li>
+      <li ui-sref-active="active"><a ui-sref="sda.teaching">Teaching</a></li>
+      <!-- <li ui-sref-active="active"><a ui-sref="sda.conference">Conferences</a></li> -->
+      <li ui-sref-active="active"><a href="/about">About</a></li>
+    </ul>
+
+    <div class="horizontal-glue"></div>
+
+    <div class="search">
+      <a href="" class="toggle" ng-class="{active: vm.isSearchFormVisible}" ng-click="vm.toggleSearchForm()"><i class="fa fa-search"></i></a>
+      <form ng-class="{active: vm.isSearchFormVisible}">
+        <label class="sr-only" for="search">Search</label>
+        <div class="search-input-group">
+          <input id="search" name="q" type="search" placeholder="search">
+          <button type="submit">
+            <i class="fa fa-search"></i>
+            <span class="label">search</span>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <img class="oxford" src="{{ 'assets/images/ox-brand-rect.png' | relative_url }}" alt="University of Oxford">
+  </div>
+</header>

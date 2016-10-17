@@ -1,0 +1,44 @@
+<section class="main-nav layout-fill layout-xs-column layout-sm-column layout-row">
+  <ul class="buckets layout-column">
+    {% for module in page.modules %}
+      <li class="bucket flex layout-column" ng-repeat="module in vm.modules" ng-class="{active:module.active}">
+        <a class="flex layout-column layout-align-center" href="#{{ module.title | slugify }}" ng-click="vm.setActive(module)"><span>{{ module.title }}</span></a>
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="modules flex">
+    {% for module in page.modules %}
+      <div id="{{ module.title | slugify }}" class="module layout-column" ng-show="vm.active">
+        <ul class="controls layout-row layout-wrap">
+          {% for section in module.sections %}
+            <li class="flex flex-xs-50" ng-repeat="section in vm.sections" ng-class="{active:section.active}">
+              <a href="#{{ module.title | slugify }}-{{ section.title | slugify }}" ng-click="vm.setActive(section)">{{ section.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+        <div class="panels flex">
+          {% for section in module.sections %}
+            <div id="{{ module.title | slugify }}-{{ section.title | slugify }}" class="panel-set" ng-show="vm.active">
+              {% if section.content %}
+                {{ section.content }}
+              {% elsif section.panels %}
+                <div class="layout-row layout-wrap layout-fill layout-padding border">
+                  {% for column in section.panels %}
+                    <div class="flex-50 flex-xs-100 layout-column layout-padding border">
+                      {% for panel in column %}
+                        <div class="panel flex-50">
+                          <h3>{{ panel.title }}</h3>
+                          <p>{{ panel.content }}</p>
+                        </div>
+                      {% endfor %}
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
