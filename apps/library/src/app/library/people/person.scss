@@ -1,0 +1,76 @@
+.section--person {
+   > .person {
+      article {
+         h1 {
+            margin-bottom: 1rem;
+         }
+      }
+
+      aside {
+         > div {
+            margin: 1.5em 0;
+
+            &:first-child {
+               margin-top: 0;
+            }
+
+            &:last-child {
+               margin-bottom: 0;
+            }
+         }
+
+         .meta {
+            > div {
+               margin: .6em 0;
+
+               &:first-child {
+                  margin-top: 0;
+               }
+
+               &:last-child {
+                  margin-bottom: 0;
+               }
+
+               .label {
+                  color: $copper;
+                  text-transform: uppercase;
+                  display: block;
+                  font-size: 0.8em;
+               }
+
+               .date, .location {
+                  display: block;
+               }
+            }
+         }
+
+         .altnames {
+            ul {
+               @include hanging-list(2em);
+               margin: 0;
+               padding: 0;
+            }
+         }
+
+         .related {
+            ul {
+               @include hanging-list(2em);
+               margin: 0;
+               padding: 0;
+
+               li {
+                  margin: 0.7em 0;
+               }
+            }
+         }
+      }
+   }
+
+   .throbber {
+      flex: 1;
+      padding: 3em;
+      text-align: center;
+      font-size: 3em;
+      color: $textGrey;
+   }
+}

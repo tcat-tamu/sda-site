@@ -1,0 +1,22 @@
+<div class="layout-column layout-padding">
+   <form ng-submit="vm.search()" class="section--library--search-form">
+      <div class="input-group">
+         <input type="search" ng-model="vm.query" name="query" placeholder="search people..."/>
+         <button type="submit">
+            <i class="fa fa-search"></i>
+            <span class="sr-only">Search</span>
+         </button>
+      </div>
+   </form>
+
+   <div class="section--library--search-results">
+      <ol class="results" ng-if="vm.people.length">
+         <li class="work sda-citation" ng-repeat="person in vm.people" ng-class="{active: vm.currentId == person.id}">
+            <a ui-sref="sda.library.main.search-people({query: vm.query, id: person.id})" ng-click="vm.currentId = person.id">{{person.label}}</a>
+            <p class="summary">{{person.summary || 'Summary not yet available.'}}</p>
+         </li>
+      </ol>
+      <p class="throbber" ng-if="vm.loading && vm.showThrobber"><i class="fa fa-spin fa-circle-o-notch"></i></p>
+      <p ng-if="!vm.loading && (!vm.people || vm.people.length == 0)">No results.</p>
+   </div>
+</di>
