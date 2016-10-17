@@ -1,0 +1,280 @@
+.site-header {
+   background-color: $darkBrown;
+   height: $header-height;
+   z-index: 9999;
+
+   > .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      .nav-toggle {
+         $width: $header-height;
+         $height: $header-height;
+
+         $vpadding: (5/16 * $height);
+         $hpadding: (4/16 * $width);
+
+         $content-height: ($height - 2*$vpadding);
+         $content-width: ($width - 2*$hpadding);
+
+         $bar-space-ratio: 3/2;
+         $bar-height: ($content-height/(3 + 2*$bar-space-ratio));
+         $bar-spacing: ($bar-space-ratio * $bar-height);
+
+         padding: $vpadding $hpadding;
+         width: $width;
+         height: $height;
+         background: $darkBrown;
+         border: 0;
+         cursor: pointer;
+
+         &:hover, &:focus, &:active, &.active {
+            background: lighten($darkBrown, 5%);
+            outline: 0px none;
+         }
+
+         &::-moz-focus-inner {
+            border: 0;
+         }
+
+         @media screen and (min-width: $screen-md-min) {
+            display: none;
+         }
+
+         .icon-bar {
+            display: block;
+            background: $copper;
+            height: $bar-height;
+            width: $content-width;
+
+            & + .icon-bar {
+               margin-top: $bar-spacing;
+            }
+
+            &:last-child {
+               margin-bottom: 0;
+            }
+         }
+      }
+
+      .site-logo {
+         padding: (3/16 * $header-height);
+         img {
+            display: block;
+            max-height: (5/8 * $header-height);
+         }
+      }
+
+      ul.nav {
+         list-style: none;
+         margin: 0;
+         padding: 0;
+         background: lighten($darkBrown, 5%);
+
+         display: flex;
+         flex-direction: column;
+
+         position: absolute;
+         top: $header-height;
+         left: 0;
+         right: 0;
+
+         &.collapsed {
+            display: none;
+         }
+
+         @media screen and (min-width: $screen-md-min) {
+            position: static;
+            top: auto;
+            left: auto;
+            right: auto;
+            flex-direction: row;
+            background: transparent;
+
+            &.collapsed {
+               display: flex;
+            }
+         }
+
+         li {
+            flex: 1;
+
+            a {
+               text-decoration: none;
+               display: block;
+               outline: 0;
+               padding: 0.5rem 1rem;
+               text-align: left;
+               position: relative;
+
+               @media screen and (min-width: $screen-md-min) {
+                  line-height: $header-height;
+                  padding: 0 1rem;
+                  text-align: center;
+               }
+
+               &:hover, &:focus, &:active {
+                  background-color: lighten($darkBrown, 10%);
+
+                  @media screen and (min-width: $screen-md-min) {
+                     background-color: lighten($darkBrown, 5%);
+                  }
+               }
+            }
+
+            &.active a {
+               background-color: lighten($darkBrown, 10%);
+
+               &:before {
+                  display: block;
+                  content: '';
+                  position: absolute;
+                  bottom: 0;
+                  left: 0;
+                  right: 0;
+                  height: 3px;
+                  background: $copper;
+               }
+
+               @media screen and (min-width: $screen-md-min) {
+                  background-color: lighten($darkBrown, 5%);
+               }
+            }
+         }
+      }
+
+      .horizontal-glue {
+         flex: 1;
+      }
+
+      .search {
+         // disable for now by hiding UI
+         display: none;
+
+         text-align: right;
+         height: $header-height;
+
+         @media only screen and (min-width: $screen-md-min) {
+            height: auto;
+         }
+
+         .toggle {
+            display: block;
+            text-align: center;
+            width: $header-height;
+            height: $header-height;
+            font-size: 2rem;
+
+            @media only screen and (min-width: $screen-md-min) {
+               display: none;
+            }
+
+            &:hover, &:active, &:focus, &.active {
+               background-color: lighten($darkBrown, 5%);
+               outline: 0;
+            }
+         }
+
+         form {
+            padding: (3/16 * $header-height);
+            background: lighten($darkBrown, 5%);
+
+            display: none;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: $header-height;
+
+            &.active {
+               display: block;
+            }
+
+            @media only screen and (min-width: $screen-md-min) {
+               padding: 0;
+               display: block;
+               position: static;
+               background: transparent;
+            }
+
+            .search-input-group {
+               display: flex;
+               flex-direction: row;
+               justify-content: flex-end;
+
+               input {
+                  flex: 1;
+                  background: transparent;
+                  border: 1px solid #4e534d;
+                  border-right: none;
+                  color: $cream;
+                  font-family: inherit;
+                  font-size: inherit;
+                  height: (5/8 * $header-height);
+                  padding: 0 0.5rem;
+                  margin: 0;
+
+                  &[type=search] {
+                     -moz-appearance: none;
+                     -webkit-appearance: none;
+                     border-radius: 0;
+                  }
+
+                  @media only screen and (min-width: $screen-md-min) {
+                     max-width: 200px;
+                  }
+               }
+
+               button[type='submit'] {
+                  background: transparent;
+                  border: 1px solid #4e534d;
+                  color: $cream;
+                  height: (5/8 * $header-height);
+                  min-width: (5/8 * $header-height);
+                  transition: background-color 0.4s;
+                  margin: 0;
+
+                  &:hover, &:focus, &:active {
+                     background-color: lighten($darkBrown, 10%)
+                  }
+
+                  .label {
+                     font-size: 11px;
+                     letter-spacing: 1px;
+                     text-transform: uppercase;
+                     display: none;
+
+                     @media only screen and (min-width: $screen-sm-min) {
+                        display: inline;
+                     }
+
+                     @media only screen and (min-width: $screen-md-min) {
+                        display: none;
+                     }
+
+                     @media only screen and (min-width: 60em) {
+                        display: inline;
+                     }
+                  }
+               }
+            }
+
+            @include placeholder {
+               color: $cream;
+            }
+
+         }
+      }
+
+      .oxford {
+         display: none;
+         max-height: (10/16 * $header-height);
+         margin: (3/16 * $header-height);
+
+         @media only screen and (min-width: $screen-md-min) {
+            display: block;
+         }
+      }
+   }
+}
