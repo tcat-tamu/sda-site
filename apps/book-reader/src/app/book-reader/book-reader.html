@@ -1,0 +1,21 @@
+<main layout="column" layout-fill>
+  <div layout="row" layout-align="center" flex>
+    <md-sidebnav md-component-id="left" class="md-sidenav-left">
+      Book Info Here!
+    </md-sidenav>
+    <div layout="column" flex>
+      <div ng-switch="vm.copyRef.type" layout="column" layout-padding flex>
+        <hathitrust-reader ng-switch-when="hathitrust" properties="vm.copyRef.properties" flex></hathitrust-reader>
+        <ia-reader ng-switch-when="internetarchive" properties="vm.copyRef.properties" flex></ia-reader>
+        <google-book-reader ng-switch-when="googlebooks" properties="vm.copyRef.properties" flex></google-book-reader>
+        <div ng-switch-default>
+          <p ng-if="vm.copyRef.type">Sorry. We were unable to load a book reader for that resource.</p>
+          <p ng-if="!vm.copyRef.type">
+            Loading book reader&hellip;
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
