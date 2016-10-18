@@ -1,17 +1,17 @@
 (function () {
-   'use strict';
+  'use strict';
 
-   angular
-      .module('sdaBookReader', [
-         'ngAnimate',
-         'ngCookies',
-         'ngTouch',
-         'ngSanitize',
-         'ngResource',
-         'ui.router',
-         'rt.debounce',
-         'trcRefs',
-         'toastr'
-      ]);
+  angular
+    .module('sdaBookReader', [
+      'ngAnimate',
+      'ngCookies',
+      'ngSanitize',
+      'ngMessages',
+      'ngAria',
+      'ngResource',
+      'ui.router',
+      'ngMaterial',
+      'trcBiblio'
+    ]);
 
 })();

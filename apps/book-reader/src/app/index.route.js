@@ -8,15 +8,10 @@
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('sda', {
-        abstract: true,
-        templateUrl: 'app/layout.html'
-      })
-
-      .state('sda.library.bookreader', {
-        url: '/library/read/:workId/:copyId?editionId&volumeId',
-        templateUrl: 'app/library/bookreader/bookreader.html',
-        controller: 'LibraryBookreaderController',
+      .state('home', {
+        url: '/',
+        templateUrl: 'app/book-reader/book-reader.html',
+        controller: 'BookReaderController',
         controllerAs: 'vm'
       });
 

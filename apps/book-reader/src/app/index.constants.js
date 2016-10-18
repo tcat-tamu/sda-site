@@ -1,11 +1,8 @@
-/* global _:false, CSL:false, moment:false */
+/* global */
 (function () {
-   'use strict';
+  'use strict';
 
-   angular
-      .module('sdaBookReader')
-      .constant('_', _)
-      .constant('CSL', CSL)
-      .constant('moment', moment);
+  angular
+    .module('sdaBookReader');
 
 })();
