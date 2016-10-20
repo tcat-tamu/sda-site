@@ -10,6 +10,10 @@
     $stateProvider
       .state('home', {
         url: '/',
+        templateUrl: 'app/layout.html'
+      })
+      .state('read', {
+        url: '/:workId/:copyId?editionId&volumeId',
         templateUrl: 'app/book-reader/book-reader.html',
         controller: 'BookReaderController',
         controllerAs: 'vm'
