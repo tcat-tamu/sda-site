@@ -1,19 +1,31 @@
-<main layout="column" layout-fill>
-  <div layout="row" layout-align="center" flex>
-    <md-sidebnav md-component-id="left" class="md-sidenav-left">
-      Book Info Here!
-    </md-sidenav>
-    <div layout="column" flex>
-      <div ng-switch="vm.copyRef.type" layout="column" layout-padding flex>
-        <hathitrust-reader ng-switch-when="hathitrust" properties="vm.copyRef.properties" flex></hathitrust-reader>
-        <ia-reader ng-switch-when="internetarchive" properties="vm.copyRef.properties" flex></ia-reader>
-        <google-book-reader ng-switch-when="googlebooks" properties="vm.copyRef.properties" flex></google-book-reader>
-        <div ng-switch-default>
-          <p ng-if="vm.copyRef.type">Sorry. We were unable to load a book reader for that resource.</p>
-          <p ng-if="!vm.copyRef.type">
-            Loading book reader&hellip;
-            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-          </p>
+<md-toolbar class="layout-navbar">
+  <div class="md-toolbar-tools">
+    <md-button class="md-accent md-icon-button" ng-click="vm.toggleSidenav('left')" hide-gt-sm>
+      <md-icon>menu</md-icon>
+    </md-button>
+    <a class="logo" href="/">
+      <img src="/assets/images/sda-logo-light.png" alt="SDA">
+    </a>
+    <h1>Book Reader</h1>
+  </div>
+</md-toolbar>
+
+<main layout="row" layout-align="center" flex>
+  <md-sidenav md-component-id="left" class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-sm')">
+    Book Info Here!
+  </md-sidenav>
+  <div layout="column" flex>
+    <div ng-switch="vm.copyRef.type" layout="column" layout-padding flex>
+      <hathitrust-reader ng-switch-when="hathitrust" book-id="vm.copyRef.properties.htid" page="vm.copyRef.properties.seq" flex></hathitrust-reader>
+      <ia-reader ng-switch-when="internetarchive" book-id="vm.copyRef.properties.id" page="vm.copyRef.properties.seq" flex></ia-reader>
+      <google-book-reader ng-switch-when="googlebooks" book-id="vm.copyRef.properties.id" flex></google-book-reader>
+      <div ng-switch-default layout="column" layout-align="center center" flex>
+        <div class="md-display-1" ng-if="vm.loading">
+          Sorry. We were unable to load a book reader for that resource.
+        </div>
+        <div class="md-display-1" ng-if="!vm.loading" layout="column" flex layout-align="center center">
+          <div>Loading book reader&hellip;</div>
+          <md-progress-circular md-mode="indeterminate"></md-progress-circular>
         </div>
       </div>
     </div>

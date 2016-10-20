@@ -15,21 +15,25 @@
          replace: true,
          link: linkFunc,
          scope: {
-            properties: '='
+            bookId: '=',
+            page: '='
          }
       };
 
       return directive;
 
       function linkFunc(scope) {
-         scope.$watch('properties', function (properties) {
+         scope.$watchGroup(['bookId', 'page'], function (newData) {
+           var newBookId = newData[0];
+           var newPage = newData[1];
+
             var params = {
-               id: properties.htid,
+               id: newBookId,
                ui: 'embed'
             };
 
-            if (properties.seq) {
-               params.seq = properties.seq;
+            if (newPage) {
+               params.seq = newPage;
             }
 
             var queryString = _.map(params, function (value, key) {
