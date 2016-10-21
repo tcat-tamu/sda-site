@@ -1,11 +1,9 @@
-/* global _:false, CSL:false, moment:false */
+/* global MathJax: false */
 (function () {
-   'use strict';
+  'use strict';
 
-   angular
-      .module('sdaReader')
-      .constant('_', _)
-      .constant('CSL', CSL)
-      .constant('moment', moment);
+  angular
+    .module('sdaReader')
+    .constant('MathJax', MathJax);
 
 })();

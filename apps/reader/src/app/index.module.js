@@ -5,16 +5,14 @@
     .module('sdaReader', [
       'ngAnimate',
       'ngCookies',
-      'ngTouch',
       'ngSanitize',
+      'ngMessages',
+      'ngAria',
       'ngResource',
       'ui.router',
-      'rt.debounce',
-      'trcRefs',
-      'toastr',
-      'sda',
-      'dotjem.angular.tree',
-      'duScroll'
+      'ngMaterial',
+      'trcArticles',
+      'trcRefs'
     ]);
 
 })();

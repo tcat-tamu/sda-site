@@ -1,0 +1,60 @@
+<md-toolbar class="layout-navbar">
+  <div class="md-toolbar-tools">
+    <md-button class="md-accent md-icon-button" ng-click="vm.toggleSidenav('left')" hide-gt-sm>
+      <md-icon>menu</md-icon>
+    </md-button>
+    <a class="logo" href="/">
+      <img src="/assets/images/sda-logo-light.png" alt="SDA">
+    </a>
+    <h1><a ui-sref="reader">SDA Reader</a></h1>
+  </div>
+</md-toolbar>
+
+<main layout="row" layout-align="center" flex>
+  <md-sidenav md-component-id="left" class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-sm')" layout="column">
+    <md-tabs md-selected="vm.activeTab" flex>
+      <md-tab label="Contents">
+        <div class="toc">
+           <ol dx-start-with="vm.toc" du-scrollspy-context>
+              <li ng-repeat="node in $dxPrior.children" du-scrollspy="{{node.id}}" du-scroll-container="article-content">
+                 <a ui-sref="article({id: vm.node.id, scrollTo: node.id})" ng-click="vm.scrollTo(node.id, true, $event)">{{node.text}}</a>
+                 <ol dx-connect="node"/>
+              </li>
+           </ol>
+        </div>
+      </md-tab>
+      <md-tab label="Links">
+        TODO
+      </md-tab>
+      <md-tab label="Footnotes">
+        <div class="notes">
+          <ol du-scrollspy-context>
+            <li ng-repeat="note in vm.orderedFootnotes track by note.id" ng-class="{active: note.active}" du-scrollspy="{{note.backlinkId}}" du-scroll-container="article-content">
+              <a ui-sref="article({id: vm.article.id, scrollTo: note.backlinkId})" ng-click="vm.activateNote(note, $event)" ng-model="note.content" mathjax></a>
+            </li>
+          </ol>
+        </div>
+      </md-tab>
+      <md-tab label="Bibliography">
+        <div class="refs">
+          <ol class="bibliography">
+            <li ng-repeat="item in vm.bibliography.items" ng-bind-html="item"></li>
+          </ol>
+        </div>
+      </md-tab>
+    </md-tabs>
+  </md-sidenav>
+  <article id="article-content" layout="column" flex layout-padding>
+    <md-content>
+      <h1 class="md-display-1">{{vm.article.title}}</h1>
+      <p class="author-info" ng-if="vm.article.authors && vm.article.authors.length > 0">
+        by
+        <span class="author" ng-repeat="author in vm.article.authors">
+          <a href="mailto:{{author.contact.email}}" ng-if="author.contact.email">{{author.name}}</a>
+          <span ng-if="!author.contact.email">{{author.name}}</span>
+        </span>
+      </p>
+      <article-parser body="vm.article.body" generate-toc="vm.toc = toc" footnotes="vm.article.footnotes" citations="vm.citations"></article-parser>
+    </md-content>
+  </article>
+</main>

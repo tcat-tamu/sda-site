@@ -1,196 +1,54 @@
-@import 'variables';
-
-/**
- *  DO NOT REMOVE: These are used by wiredep to inject SCSS files from bower dependencies.
- */
 // bower:scss
 // endbower
 
-
-@import 'md-layout';
-@import 'typography';
-
-// Utility
-
-%activeUnderline {
-   &:hover, &:focus, &:active {
-      text-decoration: underline;
-   }
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../../bower_components/material-design-icons/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(../../bower_components/material-design-icons/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+       url(../../bower_components/material-design-icons/iconfont/MaterialIcons-Regular.woff) format('woff'),
+       url(../../bower_components/material-design-icons/iconfont/MaterialIcons-Regular.ttf) format('truetype');
 }
 
-// Clearfix by Nicolas Gallagher
-%clearfix {
-   *zoom: 1;
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
 
-   &:before {
-      content: ' ';
-      display: table;
-   }
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
 
-   &:after {
-      clear: both;
-      content: ' ';
-      display: table;
-   }
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
 }
 
-// copied from bootstrap for convenience
-.sr-only {
-   position: absolute;
-   width: 1px;
-   height: 1px;
-   margin: -1px;
-   padding: 0;
-   overflow: hidden;
-   clip: rect(0,0,0,0);
-   border: 0;
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
 }
 
-// Use in conjunction with .sr-only to only display content when it's focused.
-// Useful for "Skip to main content" links; see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
-// Credit: HTML5 Boilerplate
-.sr-only-focusable {
-   &:active, &:focus {
-      position: static;
-      width: auto;
-      height: auto;
-      margin: 0;
-      overflow: visible;
-      clip: auto;
-   }
+md-toolbar .logo img {
+  margin-right: 2rem;
+  max-height: 43px;
 }
 
-
-/*  General  */
-html, body {
-   height: 100%;
-   background: $darkBrown;
-   position: relative;
-}
-
-body {
-   margin: 0;
-   padding: 0;
-   color: $text;
-}
-
-// scrollable content area
-// borrowed from https://github.com/angular/material/blob/eb1695a0d54f6794a08f04169ad8a390b92a1849/src/components/content/content.scss
-.content {
-  display: block;
-  position: relative;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-
-  &.scroll-y {
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-  &.scroll-x {
-    overflow-x: auto;
-    overflow-y: hidden;
-  }
-  &.scroll-xy {
-  }
-
-  // For iOS allow disabling of momentum scrolling
-  // @see issue #2640.
-
-  &.autoScroll {
-    -webkit-overflow-scrolling: auto;
-  }
-}
-
-fieldset {
-   border: 0;
-   margin: 0;
-   padding: 0;
-}
-
-%container {
-   margin: 0 auto;
-   max-width: $container-max-width;
-}
-
-.container {
-   @extend %container;
-}
-
-main, .main {
-   background-color: white;
-}
-
-/*  Forms - (Generic)  */
-form {
-   fieldset {
-      margin-bottom: 2rem;
-   }
-
-   .form-field {
-      margin-bottom: 1rem;
-
-      &:last-child {
-         margin-bottom: 0;
-      }
-
-      label {
-         display: block;
-      }
-
-      input {
-         height: 2.75em;
-      }
-
-      input, textarea {
-         -webkit-appearance: none;
-         border-radius: 0;
-         color: #272927;
-         display: block;
-         padding: 0.5em;
-         width: 100%;
-      }
-   }
-}
-
-.submit {
-   background-color: $copper;
-   border: 0;
-   border-radius: 0;
-   color: white;
-   font-size: 0.8275em;
-   letter-spacing: 1px;
-   padding: 1em 1.5em;
-   text-transform: uppercase;
-   transition: background-color 400ms;
-}
-
-.submit:hover, .submit:focus, .submit:active {
-   background-color: #926439;
-}
-
-.page-banner {
-   padding: $banner-padding;
-   overflow: hidden;
-
-   background-image: url('../assets/images/banners/slider-people.jpg');
-   background-size: cover;
-   background-position: center center;
-
-   text-align: center;
-   color: #fff;
-
-   h1 {
-      margin: 0;
-      color: inherit;
-   }
-
-   .subtitle {
-      font-size: 2em;
-   }
-}
-
-/**
- *  DO NOT REMOVE: These are used by gulp-inject to inject other SCSS files in the project.
- */
 // injector
 // endinjector

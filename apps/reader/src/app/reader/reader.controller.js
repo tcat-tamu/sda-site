@@ -1,37 +1,81 @@
 (function () {
-   'use strict';
+  'use strict';
 
-   angular
-      .module('sdaReader')
-      .controller('ReaderController', ReaderController);
+  angular
+    .module('sdaReader')
+    .controller('ReaderController', ReaderController);
 
-   /** @ngInject */
-   function ReaderController($state, $scope, _) {
-      var vm = this;
+  /** @ngInject */
+  function ReaderController($mdSidenav, $mdToast, articlesRepo) {
+    var vm = this;
 
-      vm.showBanner = true;
+    vm.queryResult = null;
 
-      vm.search = search;
-      vm.query = '';
+    vm.toggleSidenav = toggleSidenav;
+    vm.search = search;
+    vm.displayFirstPage = displayFirstPage;
+    vm.displayPrevPage = displayPrevPage;
+    vm.displayNextPage = displayNextPage;
+    vm.displayLastPage = displayLastPage;
 
-      vm.nodeHasArticles = nodeHasArticles;
+    activate();
 
-      activate();
+    function activate() {
+    }
 
-      function activate() {
-         $scope.$on('set:query', function (e, query) {
-            vm.query = query;
-         });
+    function toggleSidenav(id) {
+      $mdSidenav(id).toggle();
+    }
 
-      }
+    function search(query) {
+      // HACK: articlesRepo.search() not yet implemented
+      return false;
 
-      function nodeHasArticles(node) {
-         return _.size(node.articles) > 0;
-      }
+      vm.loading = true;
+      vm.queryResult = articlesRepo.search(query);
+      vm.queryResult.$promise.then(function () {
+        vm.loading = false;
+      }, function () {
+        vm.loading = false;
+        $mdToast.showSimple('unable to load search results');
+      })
+    }
 
-      function search() {
-         $state.go('sda.reader.search', { query: vm.query });
-      }
-   }
+    function displayLastPage() {
+       if (vm.queryResult.last) {
+          $http.get(vm.queryResult.query.last.uri)
+             .then(function (resp) {
+                vm.queryResult = resp.data;
+             });
+       }
+    }
 
+    function displayNextPage() {
+       if (vm.queryResult.next) {
+          $http.get(vm.queryResult.query.next.uri)
+             .then(function (resp) {
+                vm.queryResult = resp.data;
+             });
+       }
+    }
+
+    function displayPrevPage() {
+       if (vm.queryResult.previous) {
+          $http.get(vm.queryResult.query.previous.uri)
+             .then(function (resp) {
+                vm.queryResult = resp.data;
+             });
+       }
+    }
+
+    function displayFirstPage() {
+       if (vm.queryResult.first) {
+          $http.get(vm.queryResult.query.first.uri)
+             .then(function (resp) {
+                vm.queryResult = resp.data;
+             });
+       }
+    }
+
+  }
 })();

@@ -1,98 +1,136 @@
-<div class="page-banner page-banner--reader flex-none" ng-show="vm.showBanner">
-   <div class="container">
-      <h1>SDA Reader</h1>
-   </div>
-</div>
+<md-toolbar class="layout-navbar">
+  <div class="md-toolbar-tools">
+    <md-button class="md-accent md-icon-button" ng-click="vm.toggleSidenav('left')" hide-gt-sm>
+      <md-icon>menu</md-icon>
+    </md-button>
+    <a class="logo" href="/">
+      <img src="/assets/images/sda-logo-light.png" alt="SDA">
+    </a>
+    <h1><a ui-sref="reader">SDA Reader</a></h1>
+  </div>
+</md-toolbar>
 
-<main class="section--reader flex layout-row layout-align-center">
-   <div class="container flex layout-xs-column layout-sm-column layout-md-row layout-gt-md-row">
-      <sda-tabbed-sidebar class="flex-md-33 flex-gt-md-25">
-         <sda-sidebar-tab title="Themes">
-            <div class="content layout-column layout-padding">
-               <form ng-submit="vm.search()" class="search">
-                  <div class="input-group">
-                     <input type="search" ng-model="vm.query" name="query" id="query" placeholder="search articles..."/>
-                     <button type="submit">
-                        <i class="fa fa-search"></i>
-                        <span class="sr-only">Search</span>
-                     </button>
-                  </div>
-               </form>
-               <div class="collections">
-                  <tree-categorization scope-id="sda" scheme="overviews"></tree-categorization>
-               </div>
-            </div>
-         </sda-sidebar-tab>
-         <sda-sidebar-tab title="Articles">
-            <div class="layout-column layout-padding">
-               <em>Coming soon...</em>
-            </div>
-         </sda-sidebar-tab>
-         <sda-sidebar-tab title="Reviews">
-            <div class="layout-column layout-padding">
-               <em>Coming soon...</em>
-            </div>
-         </sda-sidebar-tab>
-         <sda-sidebar-tab title="Biographies">
-            <div class="layout-column layout-padding">
-               <em>Coming soon...</em>
-            </div>
-         </sda-sidebar-tab>
-      </sda-tabbed-sidebar>
-      <div class="flex layout-column ui-view-container">
-         <div class="flex content" ui-view>
-            <div class="landing layout-xs-column layout-gt-md-row layout-padding">
-               <section class="overview flex-gt-md-66">
-                  <p>
-                    The SDA Reader contains articles that provide an encyclopedic survey of contemporary
-                    research issues in the field and provide critical reflection on select works and people
-                    documented in the historical collection. Following the genre of print-based introductory
-                    readers widely used within philosophy, theology and Humanities disciplines, the SDA
-                    reader provides a starting point those who want an introduction to specific topics and
-                    directions for further research.
-                  </p>
+<main layout="row" layout-align="center" flex>
+  <md-sidenav md-component-id="left" class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-sm')" layout="column">
+    <md-tabs flex>
+      <md-tab label="Themes">
+        <div layout="column">
+          <div layout="row" flex="none">
+            <md-input-container flex>
+              <label>Search articles</label>
+              <md-icon>search</md-icon>
+              <input type="search" ng-model="query" ng-model-options="{debounce: 500}" ng-change="vm.search(query)">
+            </md-input-container>
+          </div>
+          <div class="collections" flex>
+            <tree-categorization scope-id="sda" scheme="overviews"></tree-categorization>
+          </div>
+        </div>
+      </md-tab>
+      <md-tab label="Articles">Coming soon...</md-tab>
+      <md-tab label="Reviews">Coming soon...</md-tab>
+      <md-tab label="Biographies">Coming soon...</md-tab>
+    </md-tabs>
+  </md-sidenav>
+  <div layout="column" flex ui-view>
+    <div ng-if="vm.loading" flex layout="row" layout-align="center center">
+      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <div ng-if="!vm.loading && vm.queryResult">
+       <h1>Search Results <small ng-if="vm.queryResult.query.q">"{{vm.queryResult.query.q}}"</small></h1>
 
-                  <p>The SDA Reader contains four main categories of content.</p>
-                  <ul class="list-style-type:none;">
-                    <li><em>Thematic Overviews</em> provide a systematic survey of key concepts in the field of SDA.
-                        Each overview article introduces a key topic and provides references to both the primary source
-                        material and the research literature for those who wish to explore the issue in more depth.</li>
+       <p ng-if="vm.queryResult.query">
+          Showing {{vm.queryResult.query.totalResults == 0 ? 0 : vm.queryResult.query.offset+1}}&ndash;{{vm.queryResult.query.offset + vm.queryResult.articles.length}} of {{vm.queryResult.query.totalResults}}
+       </p>
 
-                    <li><em>Research Articles</em> provide scholarly treatment of specific topics. These are of a
-                        length, quality, and scope associated with peer-reviewed journal articles and exceptional
-                        conference presentations.</li>
+       <nav class="pagination" ng-if="vm.queryResult.query.numPages > 1">
+          <a href="" ng-click="vm.displayFirstPage()" ng-if="vm.queryResult.query.first">
+             <i class="fa fa-angle-double-left"></i>
+             <span class="sr-only">First</span>
+          </a>
+          <a href="" ng-click="vm.displayPrevPage()" ng-if="vm.queryResult.query.previous">
+             <i class="fa fa-angle-left"></i>
+             <span class="sr-only">Previous</span>
+          </a>
+          <span>{{vm.queryResult.query.pg}}</span>
+          <a href="" ng-click="vm.displayNextPage()" ng-if="vm.queryResult.query.next">
+             <span class="sr-only">Next</span>
+             <i class="fa fa-angle-right"></i>
+          </a>
+          <a href="" ng-click="vm.displayLastPage()" ng-if="vm.queryResult.query.last">
+             <span class="sr-only">Last</span>
+             <i class="fa fa-angle-double-right"></i>
+          </a>
+       </nav>
 
-                    <li><em>Book Reviews</em> offer a critical review of a book within the digital library. Reviews
-                        go beyond the summary information that accompanies each work to offer a critical assesment of
-                        the book's scholarly merit and impact as well as its relevance to contemporary research.</li>
+       <ol ng-if="vm.queryResult.articles">
+          <li class="result" ng-repeat="result in vm.queryResult.articles">
+             <h3><a ui-sref="sda.reader.article({id: result.id})">{{result.title}}</a></h3>
+             <span class="author" ng-repeat="author in result.authors">{{author.name}}, {{author.affiliation}}</span>
+             <p ng-bind-html="result.absHL"></p>
+             <p ng-bind-html="result.contentHL"></p>
+          </li>
+       </ol>
+       <div ng-if="!vm.queryResult.articles">No results</div>
 
-                    <li><em>Biographies</em> describe the professional and personal life of influential people
-                        documented in the digital library. These research articles serve to contextualize the books
-                        written by these individuals and assess their overall impact on the development of thought
-                        on this topic.</li>
-                  </ul>
-               </section>
-               <section class="key-items flex-gt-md-33">
-                  <h2>Perspectives on SDA</h2>
-                  <ul style="list-style-type:none;">
-                     <li><a href="">Philosophers</a></li>
-                     <li><a href="">Theologians</a></li>
-                     <li><a href="">Scientists</a></li>
-                     <li><a href="">Historians</a></li>
-                     <li><a href="">Literary Scholars</a></li>
-                     <li><a href="">Scripture Scholars</a></li>
-                     <li><a href="">Artists</a></li>
-                     <li><a href="">Atheists</a></li>
-                     <li><a href="">Students</a></li>
-                     <li><a href="">Anyone</a></li>
-                  </ul>
-                  <h2>Concept Map</h2>
-                  <div class="cmap-container">
-                    <a href=""><img src="//placehold.it/200x200" /></a>
-                  </div>
-               </section>
-            </div>
-         </div>
-      </div>
-   </div>
+       <nav class="pagination" ng-if="vm.queryResult.query.numPages > 1">
+          <a href="" ng-click="vm.displayFirstPage()" ng-if="vm.queryResult.query.first">
+             <i class="fa fa-angle-double-left"></i>
+             <span class="sr-only">First</span>
+          </a>
+          <a href="" ng-click="vm.displayPrevPage()" ng-if="vm.queryResult.query.previous">
+             <i class="fa fa-angle-left"></i>
+             <span class="sr-only">Previous</span>
+          </a>
+          <span>{{vm.queryResult.query.pg}}</span>
+          <a href="" ng-click="vm.displayNextPage()" ng-if="vm.queryResult.query.next">
+             <span class="sr-only">Next</span>
+             <i class="fa fa-angle-right"></i>
+          </a>
+          <a href="" ng-click="vm.displayLastPage()" ng-if="vm.queryResult.query.last">
+             <span class="sr-only">Last</span>
+             <i class="fa fa-angle-double-right"></i>
+          </a>
+       </nav>
+    </div>
+    <md-content layout="row" layout-padding flex ng-if="!vm.queryResult">
+      <section flex="66">
+        <h1 class="md-display-1">SDA Reader</h1>
+        <p>
+          The SDA Reader contains articles that provide an encyclopedic survey of contemporary research issues in the field and provide critical reflection on select works and people documented in the historical collection. Following the genre of print-based introductory readers widely used within philosophy, theology and Humanities disciplines, the SDA reader provides a starting point those who want an introduction to specific topics and directions for further research.
+        </p>
+
+        <p>The SDA Reader contains four main categories of content.</p>
+
+        <ul class="list-style-type:none;">
+          <li><p><em>Thematic Overviews</em> provide a systematic survey of key concepts in the field of SDA. Each overview article introduces a key topic and provides references to both the primary source material and the research literature for those who wish to explore the issue in more depth.</p></li>
+
+          <li><p><em>Research Articles</em> provide scholarly treatment of specific topics. These are of a length, quality, and scope associated with peer-reviewed journal articles and exceptional conference presentations.</p></li>
+
+          <li><p><em>Book Reviews</em> offer a critical review of a book within the digital library. Reviews go beyond the summary information that accompanies each work to offer a critical assesment of the book's scholarly merit and impact as well as its relevance to contemporary research.</p></li>
+
+          <li><p><em>Biographies</em> describe the professional and personal life of influential people documented in the digital library. These research articles serve to contextualize the books written by these individuals and assess their overall impact on the development of thought on this topic.</p></li>
+        </ul>
+      </section>
+      <aside flex="33">
+        <h2>Perspectives on SDA</h2>
+        <ul style="list-style-type:none;">
+          <li><a href="">Philosophers</a></li>
+          <li><a href="">Theologians</a></li>
+          <li><a href="">Scientists</a></li>
+          <li><a href="">Historians</a></li>
+          <li><a href="">Literary Scholars</a></li>
+          <li><a href="">Scripture Scholars</a></li>
+          <li><a href="">Artists</a></li>
+          <li><a href="">Atheists</a></li>
+          <li><a href="">Students</a></li>
+          <li><a href="">Anyone</a></li>
+        </ul>
+        <h2>Concept Map</h2>
+        <div class="cmap-container">
+          <a href=""><img src="//placehold.it/200x200" /></a>
+        </div>
+      </aside>
+    </md-content>
+  </div>
 </main>
