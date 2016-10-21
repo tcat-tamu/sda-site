@@ -1,0 +1,78 @@
+<div class="citation-editor-layout" layout="column" flex>
+  <div class="citation-editor-container" ng-hide="$ctrl.zoteroItem" layout="column" flex>
+    <div layout="row" layout-wrap>
+      <div layout="row" layout-align="start center" layout-margin class="md-whiteframe-2dp" ng-repeat="item in $ctrl.citation.items">
+        <span ng-bind-html="item.label"></span>
+        <md-button class="md-icon-button" aria-label="Edit" ng-click="$ctrl.edit(item)">
+          <md-icon>edit</md-icon>
+          <md-tooltip>Edit Item</md-tooltip>
+        </md-button>
+        <md-button class="md-icon-button md-warn" aria-label="Remove" ng-click="$ctrl.citation.items.splice($index, 1)">
+          <md-icon>remove</md-icon>
+          <md-tooltip>Remove Item</md-tooltip>
+        </md-button>
+      </div>
+    </div>
+
+
+    <div layout="column">
+      <md-autocomplete
+          md-autoselect
+          md-floating-label="Referenced Item"
+          md-selected-item="$ctrl.selectedBiblioItem"
+          md-selected-item-change="$ctrl.selectBiblioItem($ctrl.selectedBiblioItem)"
+          md-search-text="$ctrl.searchText"
+          md-items="item in $ctrl.search($ctrl.searchText)"
+          md-item-text="item.label | stripTags"
+          md-delay="200"
+          md-require-match
+          required>
+        <md-item-template>
+          <span ng-bind-html="item.label"></span>
+        </md-item-template>
+        <md-not-found>
+          No matches found. <md-button ng-click="$ctrl.createZoteroItem($event)">Create</md-button>
+        </md-not-found>
+      </md-autocomplete>
+
+      <div layout="row">
+        <md-input-container>
+          <label>Locator Type</label>
+          <md-select ng-model="$ctrl.activeCitationItem.locatorType">
+            <md-option></md-option>
+            <md-option ng-repeat="type in $ctrl.locatorTypes" ng-value="type">{{type}}</md-option>
+          </md-select>
+        </md-input-container>
+        <md-input-container flex>
+          <label>Locator</label>
+          <input type="text" ng-model="$ctrl.activeCitationItem.locator">
+        </md-input-container>
+      </div>
+
+      <md-checkbox ng-model="$ctrl.activeCitationItem.suppressAuthor">
+        Suppress Author Name in In-Text Citation
+      </md-checkbox>
+    </div>
+
+
+    <div layout="row" layout-align="end">
+      <md-button class="md-raised" ng-click="$ctrl.addCitationItem($ctrl.activeCitationItem)">
+        Save Item
+      </md-button>
+    </div>
+  </div>
+
+  <div class="zotero-item-editor-container" ng-if="$ctrl.zoteroItem" layout="row" flex>
+    <div layout="column">
+      <md-button class="md-icon-button" ng-click="$ctrl.cancelZoteroItem($event)">
+        <md-icon>cancel</md-icon>
+        <md-tooltip md-direction="right">Cancel New Item</md-tooltip>
+      </md-button>
+      <md-button class="md-icon-button" ng-click="$ctrl.saveZoteroItem($event, $ctrl.zoteroItem)">
+        <md-icon>check_circle</md-icon>
+        <md-tooltip md-direction="right">Save and Cite Item</md-tooltip>
+      </md-button>
+    </div>
+    <zotero-editor item="$ctrl.zoteroItem" flex></zotero-editor>
+  </div>
+</div>

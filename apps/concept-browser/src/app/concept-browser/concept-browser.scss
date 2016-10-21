@@ -1,0 +1,215 @@
+$base: #b88655;
+$base-fg: #fff;
+
+$highlighted: adjust-hue($base, 240deg);
+
+$secondary: rgba(#fff, 0.8);
+$secondary-fg: #000;
+
+$node-opacity: 0.5;
+$node-opacity-highlighted: 1;
+$node-opacity-activated: 1;
+$node-opacity-selected: 1;
+$node-opacity-focused: 1;
+
+$edge-opacity: 0.1;
+$edge-opacity-activated: 1;
+$edge-opacity-selected: 0.8;
+$edge-opacity-focused: 0.5;
+
+// HACK this should be set by config or server; concept browser library doesn't seem appropriate
+$type-colors: (
+  uk\.ac\.ox\.bodleian\.sda\.relationships\.consonance: #1f241d,
+  uk\.ac\.ox\.bodleian\.sda\.relationships\.influence: steelblue,
+  uk\.ac\.ox\.bodleian\.sda\.relationships\.provoked: #900,
+  uk\.ac\.ox\.bodleian\.sda\.relationships\.patternmatch: #1f241d
+);
+
+@keyframes throb {
+  0% {
+    fill: $base;
+  }
+
+  50% {
+    fill: $highlighted;
+  }
+
+  100% {
+    fill: $base;
+  }
+}
+
+.concept-browser {
+  .progress {
+    fill: #1976d2;
+  }
+
+  .loupe circle {
+    stroke: $base;
+    fill: $base-fg;
+    fill-opacity: 0.75;
+  }
+
+  .nodes {
+    .node {
+      cursor: pointer;
+      opacity: $node-opacity;
+
+      &.highlighted {
+        opacity: $node-opacity-highlighted;
+
+        circle {
+          animation: throb 3s linear infinite;
+          stroke: #000;
+          stroke-width: 1pt;
+        }
+      }
+
+      &.focused {
+        opacity: $node-opacity-focused;
+      }
+
+      &.selected {
+        opacity: $node-opacity-selected;
+
+        circle {
+          stroke: #000;
+          stroke-width: 1pt;
+          stroke-opacity: 1;
+        }
+      }
+
+      &.activated {
+        opacity: $node-opacity-activated;
+
+        circle {
+          stroke: #000;
+          stroke-width: 2pt;
+          stroke-opacity: 1;
+        }
+      }
+
+      circle {
+        stroke: #000;
+        stroke-width: 0.5pt;
+        stroke-opacity: 0.5;
+        fill: $base;
+      }
+
+      text {
+        fill: $base-fg;
+        font-size: 7px;
+        text-anchor: middle;
+        cursor: inherit;
+      }
+    }
+  }
+
+  .edges {
+    .edge {
+      stroke-width: 1pt;
+      stroke-opacity: $edge-opacity;
+
+      @each $type, $color in $type-colors {
+        &.#{$type} {
+          stroke: $color;
+        }
+      }
+
+      &.focused {
+        stroke-opacity: $edge-opacity-focused;
+      }
+
+      &.selected {
+        stroke-opacity: $edge-opacity-selected;
+      }
+
+      &.activated {
+        stroke-opacity: $edge-opacity-activated;
+      }
+
+      &.hidden {
+        display: none;
+      }
+    }
+  }
+}
+
+@each $type, $color in $type-colors {
+  #arrowhead-#{$type}, #arrowhead-#{$type}-activated, #arrowhead-#{$type}-selected, #arrowhead-#{$type}-focused {
+    fill: $color;
+  }
+
+  #arrowhead-#{$type} {
+    fill-opacity: $edge-opacity;
+  }
+
+  #arrowhead-#{$type}-focused {
+    fill-opacity: $edge-opacity-focused;
+  }
+
+  #arrowhead-#{$type}-selected {
+    fill-opacity: $edge-opacity-selected;
+  }
+
+  #arrowhead-#{$type}-activated {
+    fill-opacity: $edge-opacity-activated;
+  }
+}
+
+.d3-tip {
+  line-height: 1;
+  font-size: 10px;
+  padding: 5px;
+  background: $secondary;
+  color: $secondary-fg;
+  border-radius: 2px;
+  pointer-events: none;
+  box-shadow: 0 1px 2px rgba(0,0,0, 0.2);
+
+  /* Creates a small triangle extender for the tooltip */
+  &:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: $secondary;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  /* Northward tooltips */
+  &.n:after {
+    content: "\25BC";
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+    text-align: center;
+  }
+
+  /* Eastward tooltips */
+  &.e:after {
+    content: "\25C0";
+    margin: -4px 0 0 0;
+    top: 50%;
+    left: -8px;
+  }
+
+  /* Southward tooltips */
+  &.s:after {
+    content: "\25B2";
+    margin: 0 0 1px 0;
+    top: -8px;
+    left: 0;
+    text-align: center;
+  }
+
+  /* Westward tooltips */
+  &.w:after {
+    content: "\25B6";
+    margin: -4px 0 0 -1px;
+    top: 50%;
+    left: 100%;
+  }
+}

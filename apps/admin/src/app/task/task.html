@@ -1,0 +1,21 @@
+<md-content flex layout="column">
+  <navbar title="Task Management Dashboard" sidenav-id="left"></navbar>
+  <md-content flex layout="row">
+    <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" layout="column">
+      <div ng-if="vm.loading" flex layout="row" layout-align="center center">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      </div>
+      <md-list ng-if="!vm.loading">
+        <md-list-item ng-repeat="task in vm.tasks" ui-sref="task.show({ taskId: task.id })">
+          {{ task.label }}
+        </md-list-item>
+      </md-list>
+    </md-sidenav>
+
+    <md-content flex layout="column" ui-view>
+      <div layout="row" layout-padding layout-margin layout-align="center center">
+          <div class="md-headline">Please select a task from the sidebar.</div>
+        </div>
+    </md-content>
+  </md-content>
+</md-content>

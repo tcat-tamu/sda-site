@@ -1,0 +1,41 @@
+<div layout="column" flex>
+  <div layout="row" layout-margin>
+      <md-autocomplete
+          md-search-text="$ctrl.itemTypeSearchText"
+          md-items="type in $ctrl.types | filter: {label: $ctrl.itemTypeSearchText}"
+          md-item-text="type.label"
+          md-selected-item="$ctrl.itemType"
+          md-selected-item-change="$ctrl.selectType($ctrl.itemType)"
+          md-min-length="0"
+          md-floating-label="Item Type"
+          required>
+        <md-item-template>
+          <span md-highlight-text="$ctrl.itemTypeSearchText" md-highlight-flags="^i">{{type.label}}</span>
+        </md-item-template>
+      </md-autocomplete>
+  </div>
+
+  <div layout="row" ng-repeat="creator in $ctrl.item.creators" layout-align="start center">
+    <zotero-creator-field creator="creator" roles="$ctrl.roles" flex></zotero-creator-field>
+    <md-button ng-click="$ctrl.item.creators.splice($index+1, 0, {})" class="md-icon-button" aria-label="New Creator">
+      <md-icon>add</md-icon>
+      <md-tooltip>New</md-tooltip>
+    </md-button>
+    <md-button ng-disabled="$ctrl.item.creators.length <= 1" ng-click="$ctrl.item.creators.splice($index, 1)" class="md-icon-button md-warn" aria-label="Delete Creator">
+      <md-icon>remove</md-icon>
+      <md-tooltip>Delete</md-tooltip>
+    </md-button>
+  </div>
+
+  <div layout="row" layout-margin ng-repeat="field in $ctrl.fields">
+    <md-input-container flex>
+      <label>{{field.label}}</label>
+      <input type="text" ng-model="$ctrl.item[field.id]">
+    </md-input-container>
+  </div>
+
+  <div ng-if="!$ctrl.itemType" layout-margin>
+    <p>Please select an item type first.</p>
+  </div>
+
+</div>

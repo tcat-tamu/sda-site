@@ -1,0 +1,30 @@
+<div layout="row" layout-margin>
+  <md-input-container>
+    <label>Role</label>
+    <md-select ng-model="$ctrl.creator.creatorType" ng-disabled="!$ctrl.roles || $ctrl.roles.length == 0">
+      <md-option ng-value="role.role" ng-repeat="role in $ctrl.roles">{{role.label}}</md-option>
+    </md-select>
+  </md-input-container>
+  <md-input-container ng-if="verbatim" flex>
+    <label>Name</label>
+    <input type="text" ng-model="$ctrl.creator.name">
+  </md-input-container>
+  <md-input-container ng-if="!verbatim" flex>
+    <label>First Name</label>
+    <input type="text" ng-model="$ctrl.creator.firstName">
+  </md-input-container>
+  <md-input-container ng-if="!verbatim" flex>
+    <label>Last Name</label>
+    <input type="text" ng-model="$ctrl.creator.lastName">
+  </md-input-container>
+  <div layout="column" layout-align="center center">
+    <md-button ng-show="verbatim" ng-click="verbatim = false" class="md-icon-button" aria-label="First/Last Names">
+      <md-icon>people</md-icon>
+      <md-tooltip>First/Last Names</md-tooltip>
+    </md-button>
+    <md-button ng-hide="verbatim" ng-click="verbatim = true" class="md-icon-button" aria-label="Single Name">
+      <md-icon>domain</md-icon>
+      <md-tooltip>Single Name</md-tooltip>
+    </md-button>
+  </div>
+</div>

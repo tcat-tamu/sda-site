@@ -1,0 +1,40 @@
+<div class="panel-volume" flex layout="column">
+  <h1>
+    <span class="authors">
+      <span class="author" ng-repeat="author in volume.authors">
+        {{author.lastName}}.
+      </span>
+    </span>
+    <span class="title">{{title.title}}<span ng-if="title.subtitle">: {{title.subtitle}}</span>.</span>
+    <span class="edition-name">{{edition.editionName}}.</span>
+    <span class="volume-name">Volume {{volume.volumeNumber}}.</span>
+  </h1>
+  <md-tabs flex>
+    <md-tab ng-if="volume.summary">
+      <md-tab-label>
+        <md-icon>subject</md-icon>
+      </md-tab-label>
+      <md-tab-body>
+        <div class="summary" ng-bind-html="volume.summary"></div>
+      </md-tab-body>
+    </md-tab>
+    <md-tab ng-if="volume.copies.length > 0">
+      <md-tab-label>
+        <md-icon>book</md-icon>
+      </md-tab-label>
+      <md-tab-body>
+        <md-list>
+          <md-list-item
+              ng-repeat="item in volume.copies"
+              jqyoui-draggable="{animate:false}"
+              data-jqyoui-options="{revert:'invalid',helper:'clone',appendTo:'body'}"
+              data-drag="true">
+            <div class="md-list-item-text">
+              {{item.title}}
+            </div>
+          </md-list-item>
+        </md-list>
+      </md-tab-body>
+    </md-tab>
+  </md-tabs>
+</div>

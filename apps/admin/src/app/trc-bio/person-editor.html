@@ -1,0 +1,40 @@
+<div class="form-group">
+  <label for="person-name">Primary Name</label>
+  <trc-name-editor id="person-name" ng-model="person.name"></trc-name-editor>
+</div>
+
+<div class="form-group">
+  <label for="person-altnames">Alternate Names</label>
+  <div ng-repeat="name in person.altNames">
+    <trc-name-editor id="person-altnames" ng-model="name"></trc-name-editor>
+    <button ng-click="personEditor.removeName($index)">&minus;</button>
+  </div>
+  <button ng-click="personEditor.addName()">+</button>
+</div>
+
+<div class="form-group">
+  <label for="person-birth">Birth</label>
+  <div ng-if="person.birth">
+    <trc-event-editor id="person-birth" ng-model="person.birth"></trc-event-editor>
+    <button ng-click="personEditor.removeEvent('birth')">&minus;</button>
+  </div>
+  <div ng-if="!person.birth">
+    <button ng-click="personEditor.addEvent('birth')">+</button>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="person-death">Death</label>
+  <div ng-if="person.death">
+    <trc-event-editor id="person-death" ng-model="person.death"></trc-event-editor>
+    <button ng-click="personEditor.removeEvent('death')">&minus;</button>
+  </div>
+  <div ng-if="!person.death">
+    <button ng-click="personEditor.addEvent('death')">+</button>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="control-label" for="person-summary">Summary</label>
+  <textarea id="person-summary" name="person-summary" class="form-control person-summary" ng-model="person.summary"></textarea>
+</div>

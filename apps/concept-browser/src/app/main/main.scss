@@ -1,0 +1,55 @@
+$component-padding: 0.5em;
+
+.node-info {
+  h3.name {
+    margin: 0;
+    padding: $component-padding;
+    font-weight: normal;
+    font-size: 1em;
+
+    > span {
+      display: block;
+    }
+
+    .given {
+      color: $grey7;
+      text-transform: uppercase;
+      font-size: 0.8em;
+    }
+
+    .family {
+      color: $brown9;
+      font-size: 2em;
+    }
+  }
+
+  .summary {
+    padding: $component-padding;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.search-form {
+  border-bottom: 1px solid $copper4;
+  overflow: hidden;
+  transition: width .3s;
+
+  *:focus {
+    outline: 0;
+  }
+
+  input[type='search'] {
+    background: transparent;
+    border: 0;
+    color: inherit;
+  }
+
+  button.clear {
+    background: transparent;
+    border: 0;
+    color: rgba(#fff, 0.56);
+  }
+}

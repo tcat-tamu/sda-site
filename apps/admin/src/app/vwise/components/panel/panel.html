@@ -1,0 +1,42 @@
+<div
+    class="panel"
+    ng-class="{ resizing: vm.resizing }"
+    ng-style="{ left: vp.xPosition, top: vp.yPosition, zIndex: vp.zPosition, width: vp.width, height: vp.height }"
+    jqyoui-draggable="{ onDrag: 'vm.movePanel()', onStop: 'vm.stopMove()' }"
+    ng-click="vm.activatePanel($event)"
+    data-jqyoui-options="{ handle: '.drag-handle' }"
+    data-drag="true"
+    layout="column">
+
+  <div class="panel-control drag-handle" layout="column" layout-align="center center">
+    <md-icon>open_with</md-icon>
+  </div>
+
+  <button class="panel-control close" ng-click="vm.closePanel($event)" layout="column" layout-align="center center">
+    <md-icon>close</md-icon>
+  </button>
+
+  <div class="panel-control resize-handle" ng-style="{ left: vp.width, top: vp.height }" jqyoui-draggable="{ onStart: 'vm.startResize()', onDrag: 'vm.resizePanel()', onStop:'vm.stopResize()'}" data-drag="true" layout="column" layout-align="center center">
+    <md-icon>crop</md-icon>
+  </div>
+
+  <div class="panel-control panel-area panel-area-top" layout="row" layout-align="end center">
+    <button ng-repeat="button in vm.actionButtons" ng-click="button.handler($event)" title="{{button.label}}" layout="column" layout-align="center center">
+      <md-icon ng-if="button.icon">{{button.icon}}</md-icon>
+      <span ng-if="!button.icon">{{button.label}}</span>
+    </button>
+  </div>
+
+  <div class="panel-control panel-area panel-area-right" layout="column" layout-align="start center">
+    <button ng-repeat="button in vm.propertyButtons" ng-click="button.handler($event)" title="{{button.label}}" layout="column" layout-align="center center">
+      <md-icon ng-if="button.icon">{{button.icon}}</md-icon>
+      <span ng-if="!button.icon">{{button.label}}</span>
+    </button>
+  </div>
+
+  <div class="panel-control panel-area panel-area-bottom"></div>
+
+  <div class="panel-control panel-area panel-area-left"></div>
+
+  <div class="content" flex layout="column"></div>
+</div>
