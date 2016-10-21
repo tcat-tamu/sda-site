@@ -1,6 +1,4 @@
 {
-   "directory": "bower_components",
-   "resolvers": [
-      "mercurial-bower-resolver"
-   ]
+  "directory": "bower_components",
+  "registry": "https://build.citd.tamu.edu/bower"
 }

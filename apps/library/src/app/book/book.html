@@ -1,0 +1,86 @@
+<md-content layout="column" layout-padding>
+  <div flex>
+    <h1 class="md-display-1"><work-title title="vm.title"></work-title></h1>
+    <p ng-if="vm.work.authors && vm.work.authors.length > 0">by <work-authors authors="vm.work.authors"></work-authors></p>
+
+    <section class="summary" ng-if="vm.work.summary" ng-bind-html="vm.work.summary"></section>
+
+    <section ng-if="vm.work.editions && vm.work.editions.length > 0">
+      <h2 class="md-title">Editions</h2>
+
+      <div ng-repeat="edition in vm.work.editions">
+        <md-toolbar class="md-hue-3">
+          <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" ng-click="edition.active = !edition.active" aria-label="toggle details">
+              <md-icon>expand_{{edition.active ? 'less' : 'more'}}</md-icon>
+            </md-button>
+            <h3>{{edition.editionName || '[Untitled Edition]'}}</h3>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-if="edition.copies && edition.copies.length > 0" ng-href="/book-reader/#/{{vm.work.id}}/{{edition.copies[0].id}}?editionId={{edition.id}}">
+              <md-icon>book</md-icon>
+              <md-tooltip>Read Online</md-tooltip>
+            </md-button>
+          </div>
+        </md-toolbar>
+
+        <div class="slide" ng-show="edition.active">
+          <p>
+            <work-authors class="authors" authors="edition.authors"></work-authors>
+            <work-title class="title" title="edition.titles"></work-title>
+            <span class="edition">{{edition.editionNumber}}</span>
+            <span class="volume" ng-if="volume">{{volume.volumeNumber}}</span>
+
+            <span class="pubinfo" ng-if="edition.publicationInfo.place || edition.publicationInfo.publisher || edition.publicationInfo.date.description">
+               (<span class="place" ng-if="edition.publicationInfo.place">{{edition.publicationInfo.place}},</span>
+               <span class="publisher" ng-if="edition.publicationInfo.publisher">{{edition.publicationInfo.publisher}}.</span>
+               <time class="date" ng-if="edition.publicationInfo.date.description" datetime="{{edition.publicationInfo.date.calendar}}">{{edition.publicationInfo.date.description}}</time>)
+            </span>
+          </p>
+
+          <section class="summary" ng-if="edition.summary" ng-bind-html="edition.summary"></section>
+
+          <section ng-if="edition.volumes && edition.volumes.length > 0">
+            <h4 class="md-title">Volumes</h4>
+
+            <div ng-repeat="volume in edition.volumes">
+              <md-toolbar class="md-hue-3">
+                <div class="md-toolbar-tools">
+                  <md-button class="md-icon-button" ng-click="volume.active = !volume.active" aria-label="toggle details">
+                    <md-icon>expand_{{volume.active ? 'less': 'more'}}</md-icon>
+                  </md-button>
+                  <h5>Volume {{volume.volumeNumber}}</h5>
+                </div>
+              </md-toolbar>
+
+              <div class="slide" ng-show="volume.active">
+                <p>
+                  <work-authors class="authors" authors="edition.authors"></work-authors>
+                  <work-title class="title" title="edition.titles"></work-title>
+                  <span class="edition">{{edition.editionNumber}}</span>
+                  <span class="volume" ng-if="volume">{{volume.volumeNumber}}</span>
+
+                  <span class="pubinfo" ng-if="edition.publicationInfo.place || edition.publicationInfo.publisher || edition.publicationInfo.date.description">
+                     (<span class="place" ng-if="edition.publicationInfo.place">{{edition.publicationInfo.place}},</span>
+                     <span class="publisher" ng-if="edition.publicationInfo.publisher">{{edition.publicationInfo.publisher}}.</span>
+                     <time class="date" ng-if="edition.publicationInfo.date.description" datetime="{{edition.publicationInfo.date.calendar}}">{{edition.publicationInfo.date.description}}</time>)
+                  </span>
+                </p>
+
+                <section class="summary" ng-if="edition.summary" ng-bind-html="edition.summary"></section>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section ng-if="vm.relationships && vm.relationships.length > 0">
+      <h2 class="md-title">Related Works</h2>
+      <md-list>
+        <md-list-item ng-repeat="relationship in vm.relationships">
+          <!-- TODO: show relationships -->
+        </md-list-item>
+      </md-list>
+    </section>
+  </div>
+</md-content>

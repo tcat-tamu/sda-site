@@ -1,40 +1,56 @@
-(function () {
-   'use strict';
+(function() {
+  'use strict';
 
-   angular
-      .module('sda.library')
-      .controller('LibraryController', LibraryController);
+  angular
+    .module('sdaLibrary')
+    .controller('LibraryController', LibraryController);
 
-   /** @ngInject */
-   function LibraryController($state, $scope) {
-      var vm = this;
+  /** @ngInject */
+  function LibraryController($mdSidenav, $mdToast, worksRepo, peopleRepo) {
+    var vm = this;
 
-      vm.defaultTab = null;
-      vm.showBanner = true;
+    vm.toggleSidenav = toggleSidenav;
 
-      vm.keyBooks = [];
+    vm.searchPeople = searchPeople;
+    vm.peopleLoading = false;
+    vm.peopleResults = null;
 
-      activate();
+    vm.searchBooks = searchBooks;
+    vm.booksLoading = false;
+    vm.booksResults = null;
 
-      function activate() {
-         if ($state.is('sda.library.main.search-books')) {
-            vm.defaultTab = 'books';
-         } else if ($state.is('sda.library.main.search-people')) {
-            vm.defaultTab = 'people';
-         }
+    activate();
 
-         $scope.$on('sda-tabbed-sidebar:change:tab', function (e, newTab) {
-            vm.defaultTab = newTab.id;
-         });
+    function activate() {
+    }
 
-         vm.keyBooks = [
-            { author: 'David Hume', title: 'Philosophical Essays' },
-            { author: 'Thomas Stackhouse', title: 'A Defence of the Christian Religion' },
-            { author: 'William Paley', title: 'Horae Paulinae' },
-            { author: 'Thomas Woolston', title: 'Six Discourses' },
-            { author: 'Nathaniel Lardner', title: 'A Vindication of Three of our Blessed Saviour\'s Miracles' }
-         ]
-      }
-   }
+    function searchPeople(query) {
+      vm.peopleLoading = true;
+      vm.peopleResults = peopleRepo.search(query);
+      vm.peopleResults.$promise.then(function () {
+        vm.peopleLoading = false;
+      }, function () {
+        vm.peopleLoading = false;
+        vm.peopleResults = null;
+        $mdToast.showSimple('Failed to load search results');
+      });
+    }
 
+    function searchBooks(query) {
+      vm.booksLoading = true;
+      vm.booksResults = worksRepo.search(query);
+      vm.booksResults.$promise.then(function () {
+        vm.booksLoading = false;
+      }, function () {
+        vm.booksLoading = false;
+        vm.booksResults = null;
+        $mdToast.showSimple('Failed to load search results');
+      });
+    }
+
+    function toggleSidenav(id) {
+      $mdSidenav(id).toggle();
+    }
+
+  }
 })();

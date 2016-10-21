@@ -1,13 +1,13 @@
-(function () {
-   'use strict';
+(function() {
+  'use strict';
 
-   angular
-      .module('sda')
-      .run(runBlock);
+  angular
+    .module('sdaLibrary')
+    .run(runBlock);
 
-   /** @ngInject */
-   function runBlock($log) {
-      $log.debug('runBlock end');
-   }
+  /** @ngInject */
+  function runBlock($log) {
+    $log.debug('runBlock end');
+  }
 
 })();

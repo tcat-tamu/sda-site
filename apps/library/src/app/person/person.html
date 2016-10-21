@@ -1,0 +1,40 @@
+<md-content layout="row" layout-padding flex>
+  <div flex="66">
+    <h1 class="md-display-1">{{vm.person.name.label}}</h1>
+    <div ng-if="vm.person.summary" ng-bind-html="vm.person.summary"></div>
+    <p ng-if="!vm.person.summary">Summary not available.</p>
+  </div>
+  <aside flex="33">
+    <div ng-if="(vm.person.name | personName) != vm.person.name.label">
+      <h3 class="md-title">Full name</h3>
+      <person-name name="vm.person.name"></person-name>
+    </div>
+    <div ng-if="vm.person.birth">
+      <h3 class="md-title">Born</h3>
+      <date-location event="vm.person.birth"></date-location>
+    </div>
+    <div ng-if="vm.person.death">
+      <h3 class="md-title">Died</h3>
+      <date-location event="vm.person.death"></date-location>
+    </div>
+    <div ng-if="vm.person.names.length > 0">
+       <h3 class="md-title">Other Names</h3>
+       <ul>
+          <li ng-repeat="name in vm.person.altNames">
+             <span class="display">{{name.label}}</span>
+             <span class="full" ng-if="(name | personName) != name.label">
+                (<person-name ng-model="name"></person-name>)
+             </span>
+          </li>
+       </ul>
+    </div>
+    <div ng-if="vm.relatedWorks && vm.relatedWorks.length > 0">
+      <h3 class="md-title">Books</h3>
+      <md-list>
+        <md-list-item ui-sref="^.book({id: work.id})" ng-repeat="work in vm.relatedWorks">
+          <p>{{work.label}}</p>
+        </md-list-item>
+      </md-list>
+    </div>
+  </aside>
+</md-content>
