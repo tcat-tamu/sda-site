@@ -31,8 +31,7 @@ function browserSyncInit(baseDir, browser) {
     target: 'http://localhost:9999',
     pathRewrite: {
       '^/api/catalog/': '/sda/services/'
-    },
-    proxyHost: 'sda.tamu.edu'
+    }
   });
 
   browserSync.instance = browserSync.init({
