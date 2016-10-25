@@ -2,13 +2,17 @@
   'use strict';
 
   angular
-    .module('sda.concept-browser')
+    .module('sdaConceptBrowser')
     .config(config);
 
   /** @ngInject */
   function config($logProvider, $mdThemingProvider, peopleRepoProvider, worksRepoProvider, graphRepoProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
+
+    peopleRepoProvider.url = '/api/catalog/people';
+    worksRepoProvider.url = '/api/catalog/works';
+    graphRepoProvider.url = '/api/catalog/graph';
 
     $mdThemingProvider.definePalette('darkBrown', {
       '50': '#595c59',
@@ -53,14 +57,6 @@
     $mdThemingProvider.theme('default')
       .primaryPalette('darkBrown')
       .accentPalette('copper');
-
-    $mdThemingProvider.theme('sda-dark')
-      .primaryPalette('darkBrown')
-      .dark();
-
-    peopleRepoProvider.url = '/api/catalog/people';
-    worksRepoProvider.url = '/api/catalog/works';
-    graphRepoProvider.url = '/api/catalog/graph';
   }
 
 })();

@@ -9,7 +9,6 @@ var browserSync = require('browser-sync');
 var $ = require('gulp-load-plugins')();
 
 var wiredep = require('wiredep').stream;
-var _ = require('lodash');
 
 gulp.task('styles-reload', ['styles'], function() {
   return buildStyles()
@@ -22,7 +21,8 @@ gulp.task('styles', function() {
 
 var buildStyles = function() {
   var sassOptions = {
-    style: 'expanded'
+    outputStyle: 'expanded',
+    precision: 10
   };
 
   var injectFiles = gulp.src([
@@ -45,7 +45,7 @@ var buildStyles = function() {
     path.join(conf.paths.src, '/app/index.scss')
   ])
     .pipe($.inject(injectFiles, injectOptions))
-    .pipe(wiredep(_.extend({}, conf.wiredep)))
+    .pipe(wiredep(conf.wiredep))
     .pipe($.sourcemaps.init())
     .pipe($.sass(sassOptions)).on('error', conf.errorHandler('Sass'))
     .pipe($.autoprefixer()).on('error', conf.errorHandler('Autoprefixer'))

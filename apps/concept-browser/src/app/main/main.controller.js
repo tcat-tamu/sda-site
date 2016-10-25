@@ -23,7 +23,7 @@
   };
 
   angular
-    .module('sda.concept-browser')
+    .module('sdaConceptBrowser')
     .controller('MainController', MainController);
 
   /** @ngInject */

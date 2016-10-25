@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('sda.concept-browser')
+    .module('sdaConceptBrowser')
     .run(runBlock);
 
   /** @ngInject */

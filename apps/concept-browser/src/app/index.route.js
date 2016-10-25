@@ -2,14 +2,14 @@
   'use strict';
 
   angular
-    .module('sda.concept-browser')
+    .module('sdaConceptBrowser')
     .config(routerConfig);
 
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
-        url: '/{type}',
+        url: '/',
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
         controllerAs: 'main'

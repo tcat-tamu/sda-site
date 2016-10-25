@@ -1,11 +1,9 @@
-/* global d3:false, moment:false, ConceptBrowser:true */
+/* global d3: false */
 (function () {
   'use strict';
 
   angular
-    .module('sda.concept-browser')
-    .constant('d3', d3)
-    .constant('moment', moment)
-    .constant('ConceptBrowser', ConceptBrowser);
+    .module('sdaConceptBrowser')
+    .constant('d3', d3);
 
 })();

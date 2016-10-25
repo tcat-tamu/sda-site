@@ -1,20 +1,16 @@
-@import 'variables';
-
 // bower:scss
 // endbower
-
-@import 'typography';
 
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: url(../../bower_components/material-design-icons/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
   src: local('Material Icons'),
        local('MaterialIcons-Regular'),
-       url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
-       url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.woff) format('woff'),
-       url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+       url(../../bower_components/material-design-icons/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+       url(../../bower_components/material-design-icons/iconfont/MaterialIcons-Regular.woff) format('woff'),
+       url(../../bower_components/material-design-icons/iconfont/MaterialIcons-Regular.ttf) format('truetype');
 }
 
 .material-icons {
@@ -42,23 +38,17 @@
   font-feature-settings: 'liga';
 }
 
-md-sidenav {
-  &, & md-content {
-    background-color: rgba(#fff, 0.8);
-  }
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
 }
 
-md-toolbar {
-  .logo {
-    margin-right: 2rem;
-    max-height: 66%;
-  }
-
-  .ox-brand {
-    max-height: 66%;
-  }
+md-toolbar .logo img {
+  margin-right: 2rem;
+  max-height: 43px;
 }
-
 
 // injector
 // endinjector

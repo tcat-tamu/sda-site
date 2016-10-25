@@ -1,78 +1,8 @@
-<md-sidenav md-component-id="right" class="md-sidenav-right" md-is-open="main.activeNode" md-disable-backdrop md-whiteframe="4" layout="column">
-  <md-toolbar>
-    <div class="md-toolbar-tools">
-      <h2>Node Information</h2>
-      <span flex></span>
-      <md-button class="md-icon-button" ng-click="main.activeNode = null">
-        <md-icon>close</md-icon>
-      </md-button>
-    </div>
-  </md-toolbar>
-  <div flex layout="column" layout-align="center center" ng-if="main.sidebarLoading">
-    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-  </div>
-  <div class="node-info" flex layout="column" ng-if="!main.sidebarLoading">
-    <h3 class="name">
-      <span class="given">{{main.person.name.givenName}}</span>
-      <span class="family">{{main.person.name.familyName}}</span>
-    </h3>
-    <md-tabs flex>
-      <md-tab ng-if="main.person.summary">
-        <md-tab-label>
-          <md-icon>person</md-icon>
-        </md-tab-label>
-        <md-tab-body>
-          <div class="summary" ng-if="main.person.summary" ng-bind-html="main.person.summary"></div>
-        </md-tab-body>
-      </md-tab>
-      <md-tab ng-if="main.works &amp;&amp; main.works.length &gt; 0">
-        <md-tab-label>
-          <md-icon>content_copy</md-icon>
-        </md-tab-label>
-        <md-tab-body>
-          <div class="books">
-            <h4>Books ({{main.works.length}})</h4>
-            <md-list>
-              <md-list-item ng-repeat="work in main.works" ng-href="../#/library/books/{{work.id}}">
-                {{work.label}}
-              </md-list-item>
-            </md-list>
-          </div>
-        </md-tab-body>
-      </md-tab>
-      <md-tab ng-if="main.related &amp;&amp; main.related.length &gt; 0">
-        <md-tab-label>
-          <md-icon>link</md-icon>
-        </md-tab-label>
-        <md-tab-body>
-          <md-list class="relationships">
-            <div ng-repeat="group in main.related">
-              <div ng-if="group.directed">
-                <div ng-if="group.out.nodes.length &gt; 0">
-                  <md-subheader class="md-no-sticky">{{group.out.label}}</md-subheader>
-                  <md-list-item ng-repeat="node in group.out.nodes track by node.id" ng-click="main.activeNode = node">{{node.label}}</md-list-item>
-                </div>
-                <div ng-if="group.in.nodes.length &gt; 0">
-                  <md-subheader class="md-no-sticky">{{group.in.label}}</md-subheader>
-                  <md-list-item ng-repeat="node in group.in.nodes track by node.id" ng-click="main.activeNode = node">{{node.label}}</md-list-item>
-                </div>
-              </div>
-              <div ng-if="!group.directed">
-                <div ng-if="group.none.nodes.length &gt; 0">
-                  <md-subheader class="md-no-sticky">{{group.none.label}}</md-subheader>
-                  <md-list-item ng-repeat="node in group.none.nodes track by node.id" ng-click="main.activeNode = node">{{node.label}}</md-list-item>
-                </div>
-              </div>
-            </div>
-          </md-list>
-        </md-tab-body>
-      </md-tab>
-    </md-tabs>
-  </div>
-</md-sidenav>
-<md-toolbar>
+<md-toolbar class="layout-navbar">
   <div class="md-toolbar-tools">
-    <img class="logo" src="assets/images/sda-logo-light.png" alt="SDA">
+    <a class="logo" href="/">
+      <img src="/assets/images/sda-logo-light.png" alt="SDA">
+    </a>
     <h1>Concept Browser</h1>
     <span flex></span>
     <md-menu>
@@ -134,22 +64,97 @@
     </md-button>
   </div>
 </md-toolbar>
-<div style="overflow: hidden" flex layout="column">
-  <concept-browser
-      flex
-      ng-if="main.graph"
-      ng-model="main.graph"
-      active-node="main.activeNode"
-      size-metric="main.sizeMetric.strategy"
-      select-mode="main.selectMode.strategy"
-      highlighted-nodes="main.highlightedNodes"
-      reln-types="main.relnTypeFilter">
-  </concept-browser>
-  <div ng-if="!main.graph &amp;&amp; main.graphLoading" flex layout="column" layout-align="center center" layout-padding>
-    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-    <div class="text-center md-headline md-secondary">
-      Loading graph data&hellip;<br>
-      This may take a while.
+
+<main layout="row" layout-align="center" flex>
+  <div layout="column" flex>
+    <concept-browser
+        flex
+        ng-if="main.graph"
+        ng-model="main.graph"
+        active-node="main.activeNode"
+        size-metric="main.sizeMetric.strategy"
+        select-mode="main.selectMode.strategy"
+        highlighted-nodes="main.highlightedNodes"
+        reln-types="main.relnTypeFilter">
+    </concept-browser>
+    <div ng-if="!main.graph && main.graphLoading" flex layout="column" layout-align="center center" layout-padding>
+      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      <div class="text-center md-headline md-secondary">
+        Loading graph data&hellip;<br>
+        This may take a while.
+      </div>
     </div>
   </div>
-</div>
+  <md-sidenav md-component-id="right" class="md-sidenav-right" md-is-open="main.activeNode" md-disable-backdrop md-whiteframe="4" layout="column">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Node Information</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="main.activeNode = null">
+          <md-icon>close</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <div flex layout="column" layout-align="center center" ng-if="main.sidebarLoading">
+      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <div class="node-info" flex layout="column" ng-if="!main.sidebarLoading">
+      <h3 class="name">
+        <span class="given">{{main.person.name.givenName}}</span>
+        <span class="family">{{main.person.name.familyName}}</span>
+      </h3>
+      <md-tabs flex>
+        <md-tab ng-if="main.person.summary">
+          <md-tab-label>
+            <md-icon>person</md-icon>
+          </md-tab-label>
+          <md-tab-body>
+            <div class="summary" ng-if="main.person.summary" ng-bind-html="main.person.summary"></div>
+          </md-tab-body>
+        </md-tab>
+        <md-tab ng-if="main.works &amp;&amp; main.works.length &gt; 0">
+          <md-tab-label>
+            <md-icon>content_copy</md-icon>
+          </md-tab-label>
+          <md-tab-body>
+            <div class="books">
+              <h4>Books ({{main.works.length}})</h4>
+              <md-list>
+                <md-list-item ng-repeat="work in main.works" ng-href="../#/library/books/{{work.id}}">
+                  {{work.label}}
+                </md-list-item>
+              </md-list>
+            </div>
+          </md-tab-body>
+        </md-tab>
+        <md-tab ng-if="main.related &amp;&amp; main.related.length &gt; 0">
+          <md-tab-label>
+            <md-icon>link</md-icon>
+          </md-tab-label>
+          <md-tab-body>
+            <md-list class="relationships">
+              <div ng-repeat="group in main.related">
+                <div ng-if="group.directed">
+                  <div ng-if="group.out.nodes.length &gt; 0">
+                    <md-subheader class="md-no-sticky">{{group.out.label}}</md-subheader>
+                    <md-list-item ng-repeat="node in group.out.nodes track by node.id" ng-click="main.activeNode = node">{{node.label}}</md-list-item>
+                  </div>
+                  <div ng-if="group.in.nodes.length &gt; 0">
+                    <md-subheader class="md-no-sticky">{{group.in.label}}</md-subheader>
+                    <md-list-item ng-repeat="node in group.in.nodes track by node.id" ng-click="main.activeNode = node">{{node.label}}</md-list-item>
+                  </div>
+                </div>
+                <div ng-if="!group.directed">
+                  <div ng-if="group.none.nodes.length &gt; 0">
+                    <md-subheader class="md-no-sticky">{{group.none.label}}</md-subheader>
+                    <md-list-item ng-repeat="node in group.none.nodes track by node.id" ng-click="main.activeNode = node">{{node.label}}</md-list-item>
+                  </div>
+                </div>
+              </div>
+            </md-list>
+          </md-tab-body>
+        </md-tab>
+      </md-tabs>
+    </div>
+  </md-sidenav>
+</main>

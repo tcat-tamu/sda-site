@@ -17,7 +17,8 @@ function browserSyncInit(baseDir, browser) {
   var routes = null;
   if(baseDir === conf.paths.src || (util.isArray(baseDir) && baseDir.indexOf(conf.paths.src) !== -1)) {
     routes = {
-      '/bower_components': 'bower_components'
+      '/bower_components': 'bower_components',
+      '/assets': '../../web/assets'
     };
   }
 
@@ -26,25 +27,18 @@ function browserSyncInit(baseDir, browser) {
     routes: routes
   };
 
-  /*
-   * You can add a proxy to your backend by uncommenting the line below.
-   * You just have to configure a context which will we redirected and the target url.
-   * Example: $http.get('/users') requests will be automatically proxified.
-   *
-   * For more details and option, https://github.com/chimurai/http-proxy-middleware/blob/v0.9.0/README.md
-   */
   server.middleware = proxyMiddleware('/api/catalog', {
     target: 'http://localhost:9999',
-    changeOrigin: true,
     pathRewrite: {
-      '^/api/catalog': '/catalog/services'
+      '^/api/catalog/': '/sda/services/'
     }
   });
 
   browserSync.instance = browserSync.init({
     startPath: '/',
     server: server,
-    browser: browser
+    browser: browser,
+    open: false
   });
 }
 

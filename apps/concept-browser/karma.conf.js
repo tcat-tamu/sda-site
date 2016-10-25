@@ -1,3 +1,4 @@
+/* eslint-env node */
 'use strict';
 
 var path = require('path');
@@ -50,7 +51,7 @@ module.exports = function(config) {
 
     ngHtml2JsPreprocessor: {
       stripPrefix: conf.paths.src + '/',
-      moduleName: 'sda.concept-browser'
+      moduleName: ''
     },
 
     logLevel: 'WARN',
