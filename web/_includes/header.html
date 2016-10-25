@@ -14,12 +14,9 @@
     <!-- TODO highlight current page: li.active
          http://stackoverflow.com/questions/8340170/jekyll-automatically-highlight-current-tab-in-menu-bar -->
     <ul class="nav collapsed" id="site-navigation">
-      <li><a href="/library">Library</a></li>
-      <li><a href="/reader">Reader</a></li>
-      <li><a href="/media">Media</a></li>
-      <li><a href="/teaching">Teaching</a></li>
-      <!-- <li><a href="/conferences">Conferences</a></li> -->
-      <li><a href="/about">About</a></li>
+      {% for link in site.data.navigation %}
+        <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+      {% endfor %}
     </ul>
 
     <div class="horizontal-glue"></div>
