@@ -2,11 +2,11 @@
   'use strict';
 
   angular
-    .module('sdaAdminWeb')
+    .module('sdaAdmin')
     .controller('RelationshipEditDialogController', RelationshipEditDialogController);
 
   /** @ngInject */
-  function RelationshipEditDialogController($mdDialog, worksRepo, relationshipsRepo, currentUri, relationship) {
+  function RelationshipEditDialogController($mdDialog, worksRepo, relnRepo, currentUri, relationship) {
     var vm = this;
 
     vm.relationship = relationship;
@@ -29,10 +29,10 @@
     function activate() {
       vm.types = getTypes();
 
-      vm.target = relationshipsRepo.createAnchor();
+      vm.target = relnRepo.createAnchor();
       vm.relationship.targetEntities = [vm.target];
 
-      var self = relationshipsRepo.createAnchor();
+      var self = relnRepo.createAnchor();
       self.entryUris = [currentUri];
       vm.relationship.relatedEntities = [self];
 
@@ -40,7 +40,7 @@
     }
 
     function getTypes() {
-      var rawTypes = relationshipsRepo.getTypes();
+      var rawTypes = relnRepo.getTypes();
       var types = [];
 
       Object.defineProperty(types, '$promise', {

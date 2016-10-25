@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('sdaAdminWeb')
+    .module('sdaAdmin')
     .config(config);
 
   /** @ngInject */
@@ -11,10 +11,17 @@
                   worksRepoProvider,
                   peopleRepoProvider,
                   articlesRepoProvider,
-                  relationshipsRepoProvider,
+                  relnRepoProvider,
                   categorizationServiceProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
+
+    tasksRepoProvider.url = '/api/catalog/v1/tasks';
+    worksRepoProvider.url = '/api/catalog/works';
+    peopleRepoProvider.url = '/api/catalog/people';
+    articlesRepoProvider.url = '/api/catalog/entries/articles';
+    relnRepoProvider.url = '/api/catalog/relationships';
+    categorizationServiceProvider.url = '/api/catalog/categorizations';
 
     $mdThemingProvider.definePalette('darkBrown', {
       '50': '#595c59',
@@ -59,14 +66,6 @@
     $mdThemingProvider.theme('default')
       .primaryPalette('darkBrown')
       .accentPalette('copper');
-
-
-    tasksRepoProvider.url = '/api/catalog/v1/tasks';
-    worksRepoProvider.url = '/api/catalog/works';
-    peopleRepoProvider.url = '/api/catalog/people';
-    articlesRepoProvider.url = '/api/catalog/entries/articles';
-    relationshipsRepoProvider.url = '/api/catalog/relationships';
-    categorizationServiceProvider.url = '/api/catalog/categorizations';
   }
 
 })();

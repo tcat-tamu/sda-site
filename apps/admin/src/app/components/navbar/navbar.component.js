@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('sdaAdminWeb')
+    .module('sdaAdmin')
     .component('navbar', {
       templateUrl: 'app/components/navbar/navbar.html',
       bindings: {

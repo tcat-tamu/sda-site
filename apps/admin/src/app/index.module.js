@@ -2,10 +2,9 @@
   'use strict';
 
   angular
-    .module('sdaAdminWeb', [
+    .module('sdaAdmin', [
       'ngAnimate',
       'ngCookies',
-      // 'ngTouch',
       'ngSanitize',
       'ngMessages',
       'ngAria',
@@ -13,17 +12,13 @@
       'ui.router',
       'ckeditor',
       'ngMaterial',
-      'ngDragDrop',
-      'pouchdb',
-      'slideToggle',
       'trcCore',
-      'trcWorks',
+      'trcBiblio',
       'trcTasks',
       'trcBio',
       'trcReln',
       'trcRefs',
       'trcArticles',
-      'vwise',
       'zotero'
     ]);
 

@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('sdaAdminWeb')
+    .module('sdaAdmin')
     .controller('TaskController', TaskController);
 
   /** @ngInject */

@@ -1,5 +1,5 @@
 {
-  "name": "sda-admin-web",
+  "name": "sda-admin",
   "version": "0.0.0",
   "dependencies": {
     "angular-animate": "~1.5.3",
@@ -19,13 +19,11 @@
     "lodash": "^4.6.1",
     "angular-ckeditor": "^1.0.3",
     "ckeditor": "^4.5.8",
-    "angular-dragdrop": "^1.0.13",
-    "vwise": "*",
     "angular-hotkeys": "chieffancypants/angular-hotkeys#^1.7.0",
     "angular-pouchdb": "^4.3.0",
     "zotero": "^0.0.10",
-    "angular-uuid4": "^0.3.1",
-    "citeproc-js": "Juris-M/citeproc-js#^1.1.122"
+    "citeproc-js": "Juris-M/citeproc-js#^1.1.122",
+    "trc": "^0.0.4"
   },
   "devDependencies": {
     "angular-mocks": "~1.5.3"

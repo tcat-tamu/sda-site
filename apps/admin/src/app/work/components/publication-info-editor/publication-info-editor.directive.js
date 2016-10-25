@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('sdaAdminWeb')
+    .module('sdaAdmin')
     .directive('publicationInfoEditor', publicationInfoEditorDirective);
 
   /** @ngInject */

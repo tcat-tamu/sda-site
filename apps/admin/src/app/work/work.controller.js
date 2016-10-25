@@ -2,11 +2,11 @@
   'use strict';
 
   angular
-    .module('sdaAdminWeb')
+    .module('sdaAdmin')
     .controller('ShowWorkController', ShowWorkController);
 
   /** @ngInject */
-  function ShowWorkController($state, $stateParams, worksRepo, relationshipsRepo, refsRepoFactory, $mdDialog, $mdToast, $q, $timeout, citationEditDialog) {
+  function ShowWorkController($state, $stateParams, worksRepo, relnRepo, refsRepoFactory, $mdDialog, $mdToast, $q, $timeout, citationEditDialog) {
     var refsRepo = null;
     var vm = this;
 
@@ -59,9 +59,9 @@
     function loadRelationships() {
       vm.relationships = [];
       var currentUri = getCurrentUri();
-      var relationships = relationshipsRepo.search(currentUri);
+      var relationships = relnRepo.search(currentUri);
       return relationships.$promise.then(function () {
-        vm.relationships = relationshipsRepo.normalizeRelationships(relationships, currentUri, worksRepo);
+        vm.relationships = relnRepo.normalizeRelationships(relationships, currentUri, worksRepo);
       });
     }
 
@@ -219,7 +219,7 @@
     }
 
     function addRelationship($event) {
-      var relationship = relationshipsRepo.createRelationship();
+      var relationship = relnRepo.createRelationship();
 
       var dialog = {
         targetEvent: $event,
@@ -239,7 +239,7 @@
         // copy updates back to original only after dialog is positively dismised (i.e. not canceled)
         angular.extend(relationship, updatedRelationship);
 
-        return relationshipsRepo.save(relationship);
+        return relnRepo.save(relationship);
       });
 
       savePromise.then(showSavedToast);
@@ -261,7 +261,7 @@
 
       var confirmPromise = $mdDialog.show(confirm);
       var deletePromise = confirmPromise.then(function () {
-        return relationshipsRepo.delete(relationship.id);
+        return relnRepo.delete(relationship.id);
       });
 
       deletePromise.then(showSavedToast);

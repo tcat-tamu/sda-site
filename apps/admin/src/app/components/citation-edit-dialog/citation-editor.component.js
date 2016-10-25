@@ -19,7 +19,7 @@
   var ZOTERO_GROUP_ID = '381134';
 
   angular
-    .module('sdaAdminWeb')
+    .module('sdaAdmin')
     .component('citationEditor', {
       templateUrl: 'app/components/citation-edit-dialog/citation-editor.html',
       controller: CitationEditorController,

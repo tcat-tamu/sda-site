@@ -3,7 +3,7 @@
 
 // TODO admin-page-articles
   angular
-    .module('sdaAdminWeb')
+    .module('sdaAdmin')
     .controller('ArticleEditorSectionController', ArticleEditorSectionController);
 
   /** @ngInject */

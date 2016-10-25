@@ -51,7 +51,7 @@
   ];
 
   angular
-    .module('sdaAdminWeb')
+    .module('sdaAdmin')
     .factory('guessDate', guessDateFactory);
 
   /** @ngInject */

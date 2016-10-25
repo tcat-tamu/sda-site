@@ -3,7 +3,7 @@
   'use strict';
 
   angular
-    .module('sdaAdminWeb')
+    .module('sdaAdmin')
     .constant('_', _)
     .constant('moment', moment);
 
