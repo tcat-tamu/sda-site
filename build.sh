@@ -13,6 +13,7 @@ done
 cd ..
 
 for APP in "${APPS[@]}"; do
+  rm -rf "web/$APP"
   cp -r "apps/$APP/dist" "web/$APP"
 done
 
