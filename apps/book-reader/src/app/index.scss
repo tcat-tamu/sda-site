@@ -45,9 +45,21 @@
   padding: 0.2em 0;
 }
 
-md-toolbar .logo img {
-  margin-right: 2rem;
-  max-height: 43px;
+md-toolbar {
+  .logo {
+    display: flex;
+    flex-direction: column;
+
+    img {
+      margin-right: 2rem;
+      max-height: 43px;
+    }
+  }
+
+  h1 {
+    font-family: inherit;
+    color: inherit;
+  }
 }
 
 
