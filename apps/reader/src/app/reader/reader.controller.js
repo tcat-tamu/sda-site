@@ -6,8 +6,10 @@
     .controller('ReaderController', ReaderController);
 
   /** @ngInject */
-  function ReaderController($mdSidenav, $mdToast, articlesRepo) {
+  function ReaderController($http, $mdSidenav, $mdToast, articlesRepo) {
     var vm = this;
+
+    vm.navigation = [];
 
     vm.queryResult = null;
 
@@ -21,6 +23,9 @@
     activate();
 
     function activate() {
+      $http.get('/assets/data/navigation.json').then(function (res) {
+        vm.navigation = res.data;
+      });
     }
 
     function toggleSidenav(id) {

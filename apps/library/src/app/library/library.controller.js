@@ -6,8 +6,10 @@
     .controller('LibraryController', LibraryController);
 
   /** @ngInject */
-  function LibraryController($mdSidenav, $mdToast, worksRepo, peopleRepo) {
+  function LibraryController($http, $mdSidenav, $mdToast, worksRepo, peopleRepo) {
     var vm = this;
+
+    vm.navigation = [];
 
     vm.toggleSidenav = toggleSidenav;
 
@@ -22,6 +24,9 @@
     activate();
 
     function activate() {
+      $http.get('/assets/data/navigation.json').then(function (res) {
+        vm.navigation = res.data;
+      });
     }
 
     function searchPeople(query) {

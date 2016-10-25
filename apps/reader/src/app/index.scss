@@ -60,6 +60,43 @@ md-toolbar {
     font-family: inherit;
     color: inherit;
   }
+
+  ul.nav {
+    font-size: 16px;
+    list-style: none;
+    margin: 0 0 0 2rem;
+    padding: 0;
+
+    li {
+      a {
+        text-decoration: none;
+        outline: 0;
+        padding: 0 1rem;
+        text-align: center;
+        position: relative;
+        color: #b88554;
+
+        &:active, &:focus, &:hover {
+          background-color: rgba(#fff, 0.05);
+        }
+      }
+
+      &.active a {
+        background-color: rgba(#fff, 0.05);
+
+        &:before {
+          display: block;
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background: #a47140;
+        }
+      }
+    }
+  }
 }
 
 md-sidenav {
