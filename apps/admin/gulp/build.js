@@ -64,7 +64,7 @@ gulp.task('html', ['inject', 'partials', 'ckeditor'], function () {
     .pipe(cssFilter)
     // .pipe($.sourcemaps.init())  // scss piped through stdin, causing sourcemaps plugin to choke
     .pipe($.replace('../../bower_components/material-design-icons/iconfont/', '../fonts/'))
-    .pipe($.cssnano())
+    .pipe($.cssnano({ reduceIdents: false }))
     .pipe($.rev())
     // .pipe($.sourcemaps.write('maps'))
     .pipe(cssFilter.restore)
