@@ -1,114 +1,122 @@
-<md-toolbar class="layout-navbar">
-  <div class="md-toolbar-tools">
+<md-toolbar class="layout-navbar" layout="row" layout-align="center">
+  <div class="md-toolbar-tools container">
     <md-button class="md-accent md-icon-button" ng-click="vm.toggleSidenav('left')" hide-gt-sm>
       <md-icon>menu</md-icon>
     </md-button>
-    <a class="logo" href="/">
-      <img src="/assets/images/sda-logo-light.png" alt="SDA">
+    <a class="logo" href="/" layout="column" layout-align="center center">
+      <img src="/assets/images/sda-logo-light.png" alt="SDA" flex="nogrow">
     </a>
     <h1><a ui-sref="library">Library</a></h1>
   </div>
 </md-toolbar>
 
+<div class="page-banner" layout="row" layout-align="center">
+  <div class="container" flex>
+    <h1>Library</h1>
+  </div>
+</div>
+
 <main layout="row" layout-align="center" flex>
-  <md-sidenav md-component-id="left" class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-sm')" layout="column">
-    <md-tabs md-stretch-tabs="always" flex>
-      <md-tab label="People">
-        <div layout="column">
-          <div layout="row" flex="none">
-            <md-input-container flex>
-              <label>search people</label>
-              <md-icon>search</md-icon>
-              <input type="search" ng-model="peopleQuery" ng-model-options="{debounce: 500}" ng-change="vm.searchPeople(peopleQuery)">
-            </md-input-container>
+  <div class="container" layout="row" flex>
+    <md-sidenav md-component-id="left" class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-sm')" layout="column">
+      <md-tabs md-stretch-tabs="always" flex>
+        <md-tab label="People">
+          <div layout="column">
+            <div layout="row" flex="none">
+              <md-input-container flex>
+                <label>search people</label>
+                <md-icon>search</md-icon>
+                <input type="search" ng-model="peopleQuery" ng-model-options="{debounce: 500}" ng-change="vm.searchPeople(peopleQuery)">
+              </md-input-container>
+            </div>
+            <div layout="row" ng-if="vm.peopleLoading" layout-align="center center" flex>
+              <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+            </div>
+            <md-content ng-if="!vm.peopleLoading && vm.peopleResults" flex>
+              <md-list>
+                <md-list-item class="md-2-line" ng-repeat="person in vm.peopleResults.items" ui-sref=".person({id: person.id})">
+                  <div class="md-list-item-text">
+                    <h3>{{person.label}}</h3>
+                    <p>{{person.summaryExcerpt}}</p>
+                  </div>
+                </md-list-item>
+              </md-list>
+            </md-content>
           </div>
-          <div layout="row" ng-if="vm.peopleLoading" layout-align="center center" flex>
-            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+        </md-tab>
+        <md-tab label="Books">
+          <div layout="column">
+            <div layout="row" flex="none">
+              <md-input-container flex>
+                <label>search books</label>
+                <md-icon>search</md-icon>
+                <input type="search" ng-model="booksQuery" ng-model-options="{debounce: 500}" ng-change="vm.searchBooks(booksQuery)">
+              </md-input-container>
+            </div>
+            <div layout="row" ng-if="vm.peopleLoading" layout-align="center center" flex>
+              <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+            </div>
+            <md-content ng-if="!vm.booksLoading && vm.booksResults" flex>
+              <md-list>
+                <md-list-item class="md-2-line" ng-repeat="book in vm.booksResults.items" ui-sref=".book({id: book.id})">
+                  <div class="md-list-item-text">
+                    <h3>{{book.label}}</h3>
+                    <p>{{book.summaryExcerpt}}</p>
+                  </div>
+                </md-list-item>
+              </md-list>
+            </md-content>
           </div>
-          <md-content ng-if="!vm.peopleLoading && vm.peopleResults" flex>
-            <md-list>
-              <md-list-item class="md-2-line" ng-repeat="person in vm.peopleResults.items" ui-sref=".person({id: person.id})">
-                <div class="md-list-item-text">
-                  <h3>{{person.label}}</h3>
-                  <p>{{person.summaryExcerpt}}</p>
-                </div>
-              </md-list-item>
-            </md-list>
-          </md-content>
-        </div>
-      </md-tab>
-      <md-tab label="Books">
-        <div layout="column">
-          <div layout="row" flex="none">
-            <md-input-container flex>
-              <label>search books</label>
-              <md-icon>search</md-icon>
-              <input type="search" ng-model="booksQuery" ng-model-options="{debounce: 500}" ng-change="vm.searchBooks(booksQuery)">
-            </md-input-container>
+        </md-tab>
+      </md-tabs>
+    </md-sidenav>
+    <div layout="column" flex ui-view>
+      <md-content flex layout="row" layout-padding>
+        <section flex="66">
+          <h1>Overview</h1>
+          <p>
+            Scholarship on Special Divine Action is in practice dominated by a tiny handful of
+            historical texts, like a few islands emerging from a submerged landscape of connected
+            ideas. The SDA library reveals this landscape. The library contains around two
+            thousand key texts by more than a thousand authors, together with biographies,
+            summaries and relationships to assist scholars and students to explore their ideas,
+            debates, and influences.
+          </p>
+          <p>
+            This collection focuses on the period from the rise of early modern science, through
+            the Deist and Enlightenment debates, and into early modernism. This period sets the
+            stage for contemporary conflict narratives that pit science against religion, or the
+            arts, or the humanities generally, as well as the range of positions held today.
+          </p>
+          <h1>Tools</h1>
+          <div class="tools" layout="row" layout-align="center">
+            <a href="/concept-browser">
+              <md-card>
+                <img src="/assets/images/tile-concept-browser.png" class="md-card-image">
+                <md-card-content>
+                  <h3>Concept Browser</h3>
+                </md-card-content>
+              </md-card>
+            </a>
+            <a href="/vwise">
+              <md-card>
+                <img src="/assets/images/tile-vwise.png" class="md-card-image">
+                <md-card-content>
+                  <h3>Visual Workspace</h3>
+                </md-card-content>
+              </md-card>
+            </a>
           </div>
-          <div layout="row" ng-if="vm.peopleLoading" layout-align="center center" flex>
-            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-          </div>
-          <md-content ng-if="!vm.booksLoading && vm.booksResults" flex>
-            <md-list>
-              <md-list-item class="md-2-line" ng-repeat="book in vm.booksResults.items" ui-sref=".book({id: book.id})">
-                <div class="md-list-item-text">
-                  <h3>{{book.label}}</h3>
-                  <p>{{book.summaryExcerpt}}</p>
-                </div>
-              </md-list-item>
-            </md-list>
-          </md-content>
-        </div>
-      </md-tab>
-    </md-tabs>
-  </md-sidenav>
-  <div layout="column" flex ui-view>
-    <md-content flex layout="row" layout-padding>
-      <section flex="66">
-        <h1>Overview</h1>
-        <p>
-          Scholarship on Special Divine Action is in practice dominated by a tiny handful of
-          historical texts, like a few islands emerging from a submerged landscape of connected
-          ideas. The SDA library reveals this landscape. The library contains around two
-          thousand key texts by more than a thousand authors, together with biographies,
-          summaries and relationships to assist scholars and students to explore their ideas,
-          debates, and influences.
-        </p>
-        <p>
-          This collection focuses on the period from the rise of early modern science, through
-          the Deist and Enlightenment debates, and into early modernism. This period sets the
-          stage for contemporary conflict narratives that pit science against religion, or the
-          arts, or the humanities generally, as well as the range of positions held today.
-        </p>
-        <h1>Tools</h1>
-        <div class="tools" layout="row" layout-align="center">
-          <a href="/concept-browser">
-            <md-card>
-              <img src="/assets/images/tile-concept-browser.png" class="md-card-image">
-              <md-card-content>
-                <h3>Concept Browser</h3>
-              </md-card-content>
-            </md-card>
-          </a>
-          <a href="/vwise">
-            <md-card>
-              <img src="/assets/images/tile-vwise.png" class="md-card-image">
-              <md-card-content>
-                <h3>Visual Workspace</h3>
-              </md-card-content>
-            </md-card>
-          </a>
-        </div>
-      </section>
-      <aside flex="33">
-        <h2>Starting Points</h2>
-        <md-list>
-          <md-list-item ng-repeat="book in vm.items">
-            <p><em>Title</em> by Author</p>
-          </md-list-item>
-        </md-list>
-      </aside>
-    </md-content>
+        </section>
+        <aside class="starting-points" flex="33">
+          <h2>Starting Points</h2>
+          <md-list>
+            <md-list-item ng-repeat="book in vm.items">
+              <p><em>Title</em> by Author</p>
+            </md-list-item>
+          </md-list>
+        </aside>
+      </md-content>
+    </div>
   </div>
 </main>

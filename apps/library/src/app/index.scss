@@ -45,9 +45,50 @@
   padding: 0.2em 0;
 }
 
-md-toolbar .logo img {
-  margin-right: 2rem;
-  max-height: 43px;
+md-toolbar {
+  .logo img {
+    margin-right: 2rem;
+    max-height: 43px;
+  }
+
+  h1 {
+    font-family: inherit;
+    color: inherit;
+  }
+}
+
+md-sidenav {
+  background: #f0f3f0;
+  md-content {
+    background: transparent;
+  }
+}
+
+.page-banner {
+  overflow: hidden;
+  background-image: url('/assets/images/banners/slider-floating-books.jpg');
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+  color: #fff;
+
+  h1 {
+    margin: 0;
+    color: inherit;
+  }
+
+  .subtitle {
+    font-size: 2em;
+  }
+
+  .container {
+    padding: 7rem 0;
+    background-color: rgba(#000, 0.4);
+  }
+}
+
+.container {
+  max-width: 1600px;
 }
 
 .title {

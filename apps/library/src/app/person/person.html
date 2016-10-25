@@ -4,7 +4,7 @@
     <div ng-if="vm.person.summary" ng-bind-html="vm.person.summary"></div>
     <p ng-if="!vm.person.summary">Summary not available.</p>
   </div>
-  <aside flex="33">
+  <aside layout="column" layout-padding flex="33">
     <div ng-if="(vm.person.name | personName) != vm.person.name.label">
       <h3 class="md-title">Full name</h3>
       <person-name name="vm.person.name"></person-name>
