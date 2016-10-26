@@ -1,16 +1,16 @@
 ---
 layout: page-2col
-title: A Theologian's Perspective
-permalink: /about/perspectives/theologian
+title: Perspectives on SDA: philosophers
+permalink: /about/perspectives/philosophers
 
 banner: slider-people.jpg
 sidebar: about/nav.html
 ---
 **Why is the study of SDA important for me?**
-*You can’t live without it!*
+*You gain a new world of ideas to explore*
 
-Special divine action is the lifeblood of theology and its very reason for existence. Theology exists either because special divine action is real and its effects need to be understood, or because it is at least believed to be real by large numbers of people, and what they understand need to be understood – as far as possible from their perspective.
+Although philosophers deal principally with first causes and principles of the natural world using natural reason, there is a long and fruitful history of engagement of philosophers with ideas about special divine action. Theology has made use of philosophical ideas such as ‘word/ordering principle’ (λόγος) or ‘substance’ (οὐσία) in descriptions of the effects of special divine action. Conversely, new ideas or emphases, such ‘the will’, ‘the person’ and ‘I-thou relatedness’ have emerged or gained prominence in debates about special divine action and become major topics of philosophical study.
 
-At the present time, it is not uncommon for the ‘no miracles’ dictum of physicalism to seep even into the attitudes of theologians to special divine action. These attitudes are compounded sometimes by a loss of the ability to grasp what a faith perspective is like and the assumption that religious motivations can be reduced to non-religious ones. Faced with the inability of theology to engage with its own subject matter, it then becomes dry, distorted or dies off entirely.
+At the present time, however, philosophical engagement with the topic of special divine action is often limited to a miniscule number of topics and writers – often just David Hume abstracted from all the debates before his time or the contributions and responses of contemporaries. This focus has had a constricting effect insofar as other perspectives are ignored. More subtly, the field has become dominated by questions about isolated interventions regarding non-personal aspects of the world, filtering out the purported effects of inspiration, grace, and particular providence on persons.
 
-The special divine action project will therefore, it is hoped, be of great value in revitalising theology. The project facilitates engagement with thinkers who have previously debated deism or atheism, from a variety of worldviews, and will also help to remind people of what the rich varieties of special divine action look like from a perspective of faith.
+The special divine action project drastically reduces the time and effort required to explore a much wider range of thinkers working in a similar context to Hume, often with different arguments and conclusions. The project will also, it is hoped, serve as a reminder that questions of special divine action involve theological contexts and narratives that go beyond isolated divine interventions, contexts that involve many philosophical ideas and debates. Even treated simply as a playground of ideas or thought experiments, history suggests that their study will stimulate new insights.

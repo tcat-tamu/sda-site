@@ -1,16 +1,16 @@
 ---
 layout: page-2col
-title: A Theologian's Perspective
+title: Perspectives on SDA: Anyone
 permalink: /about/perspectives/theologian
 
 banner: slider-people.jpg
 sidebar: about/nav.html
 ---
 **Why is the study of SDA important for me?**
-*You can’t live without it!*
+*Because of what you are, where you are, and when you are*
 
-Special divine action is the lifeblood of theology and its very reason for existence. Theology exists either because special divine action is real and its effects need to be understood, or because it is at least believed to be real by large numbers of people, and what they understand need to be understood – as far as possible from their perspective.
+Let’s imagine a world, one that may or may not be the world in which we live, in which there is absolutely no special divine action. There are no miracles, there is no inspiration, no providential action, and no grace to transform and elevate human nature. Each being, thought and action is only the effect of some combination of other beings, thoughts and actions, all of which are within the scope of the natural order. To the best of our knowledge, this natural order is slowly decaying, even if there are temporary and isolated pockets of light, life and growth. Given our situation as tending to dissatisfaction, being doomed to die, and in a physical cosmos that is also gradually dying, would there be any hope for us if this is our world?
 
-At the present time, it is not uncommon for the ‘no miracles’ dictum of physicalism to seep even into the attitudes of theologians to special divine action. These attitudes are compounded sometimes by a loss of the ability to grasp what a faith perspective is like and the assumption that religious motivations can be reduced to non-religious ones. Faced with the inability of theology to engage with its own subject matter, it then becomes dry, distorted or dies off entirely.
+Imagine now a situation, one that corresponds to the actual world in which we live, in which there are widespread beliefs in narratives of divine intervention into the natural order. These narratives offer messages of hope, even in the face of personal and cosmic death, and are ably defended by some persons of great intellectual ability. Other persons, also of great intellectual ability, deny that such interventions have happened, or deny that they are possible, or deny that we could know about them. Like passengers on a doomed ocean liner arguing about whether there is a rescue ship on the horizon, there are few people who are aware of their situation who would simply be uninterested in this debate.
 
-The special divine action project will therefore, it is hoped, be of great value in revitalising theology. The project facilitates engagement with thinkers who have previously debated deism or atheism, from a variety of worldviews, and will also help to remind people of what the rich varieties of special divine action look like from a perspective of faith.
+For all those who conclude, at least out of a sense of enlightened self-interest, that these arguments about SDA are worthy of study, then the special divine action project will, it is hoped, benefit them by making this study easy.

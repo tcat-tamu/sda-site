@@ -1,16 +1,16 @@
 ---
 layout: page-2col
-title: A Theologian's Perspective
-permalink: /about/perspectives/theologian
+title: Perspectives on SDA: Artists
+permalink: /about/perspectives/artists
 
 banner: slider-people.jpg
 sidebar: about/nav.html
 ---
 **Why is the study of SDA important for me?**
-*You can’t live without it!*
+*What do you think art is for in the absence of SDA?*
 
-Special divine action is the lifeblood of theology and its very reason for existence. Theology exists either because special divine action is real and its effects need to be understood, or because it is at least believed to be real by large numbers of people, and what they understand need to be understood – as far as possible from their perspective.
+Aristotle claimed that the aim of art is to represent not the outward appearance of things, but their inward significance. So a world in which it is claimed that there is no inward significance to anything would be unlikely to have art, or at least much interesting art. Belief in SDA may not be the only way of discerning or attributing significance to the world, but it is surely one of the most powerful ways. Hence there is a prima facie supposition that SDA is important for artists.
 
-At the present time, it is not uncommon for the ‘no miracles’ dictum of physicalism to seep even into the attitudes of theologians to special divine action. These attitudes are compounded sometimes by a loss of the ability to grasp what a faith perspective is like and the assumption that religious motivations can be reduced to non-religious ones. Faced with the inability of theology to engage with its own subject matter, it then becomes dry, distorted or dies off entirely.
+There is much more specific connection in the actual history of art, which has been interwoven with liturgy and religion from the times of the earliest archaeological findings. Some varieties of monotheism have been cautious or hostile toward representational art, because what is represented has often turned into an idol. Although some Christians have had similar attitudes, the Second Council of Nicaea (787) strongly encouraged the visual arts because of the belief expressed in a formal way by the First Council of Nicaea (325): Jesus Christ is of one being with God. Hence God has become visible, and “that greater than which nothing can be conceived” can be represented in art. The explosion of creativity in the visual arts for at least the next thousand years owes its source principally to this understanding of special divine action.
 
-The special divine action project will therefore, it is hoped, be of great value in revitalising theology. The project facilitates engagement with thinkers who have previously debated deism or atheism, from a variety of worldviews, and will also help to remind people of what the rich varieties of special divine action look like from a perspective of faith.
+Most artists today have abandoned interest in the concretely given supernatural or even its felt absence as a theme. Whether art has flourished as a result is questionable. What is striking is that idiosyncratic initiatives that have once again taken up such themes have often produced some of the most innovative art of the contemporary age, such as the Sagrada Familía of Barcelona. Whether or not one shares the actual beliefs of these artists, it is at least interesting to explore what motivates them. The special divine action project provides resources to assist this exploration.

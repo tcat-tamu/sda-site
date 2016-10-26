@@ -1,16 +1,16 @@
 ---
 layout: page-2col
-title: A Theologian's Perspective
-permalink: /about/perspectives/theologian
+title: Perspectives on SDA: Literary Scholars
+permalink: /about/perspectives/literary
 
 banner: slider-people.jpg
 sidebar: about/nav.html
 ---
 **Why is the study of SDA important for me?**
-*You can’t live without it!*
+*You see the ‘writing on the wall’ and want instead to go from ‘strength to strength’.*
 
-Special divine action is the lifeblood of theology and its very reason for existence. Theology exists either because special divine action is real and its effects need to be understood, or because it is at least believed to be real by large numbers of people, and what they understand need to be understood – as far as possible from their perspective.
+Can we understand great literature or even seriously study many languages such as English, French, Spanish, Italian, or Russian, among others, without that great book-begetting book of special divine action, the Bible? In a parallel fashion, Modern Standard Arabic is derived ultimately from Quranic Arabic. Many languages, such as that of the Turkana people of Kenya, have gained written form due to missionary work, itself motivated ultimately by considerations of special divine action.
 
-At the present time, it is not uncommon for the ‘no miracles’ dictum of physicalism to seep even into the attitudes of theologians to special divine action. These attitudes are compounded sometimes by a loss of the ability to grasp what a faith perspective is like and the assumption that religious motivations can be reduced to non-religious ones. Faced with the inability of theology to engage with its own subject matter, it then becomes dry, distorted or dies off entirely.
+In the case of English, Shakespeare’s works and the King James Bible developed together, shaping the style, language, material, and dramatic narratives of most subsequent great literary works beyond the commonplace. As St Jerome observed, “Ignorance of Scripture is ignorance of Christ,” but today it is clear that ignorance of Scripture is also ignorance of English, along with a host of other languages. A loss of Scriptural sensitivity among students and even many scholars is gradually rendering a great deal of literature opaque, and it is unclear what deist or atheist narratives can or ever could offer comparable inspiration to the rich dramas, visions, parables, genealogies, miracle stories, and speeches of Scripture.
 
-The special divine action project will therefore, it is hoped, be of great value in revitalising theology. The project facilitates engagement with thinkers who have previously debated deism or atheism, from a variety of worldviews, and will also help to remind people of what the rich varieties of special divine action look like from a perspective of faith.
+Hence for those literary scholars who see the “writing on the wall” and “signs of the times,” and who want instead to go from “strength to strength” (to quote the King James Bible), the study of special divine action is prudent and potentially fruitful.

@@ -1,16 +1,16 @@
 ---
 layout: page-2col
-title: A Theologian's Perspective
-permalink: /about/perspectives/theologian
+title: Perspectives on SDA: Historians
+permalink: /about/perspectives/historians
 
 banner: slider-people.jpg
 sidebar: about/nav.html
 ---
 **Why is the study of SDA important for me?**
-*You can’t live without it!*
+*You can benefit from seeing ways in which history has been read as ‘His Story’*
 
-Special divine action is the lifeblood of theology and its very reason for existence. Theology exists either because special divine action is real and its effects need to be understood, or because it is at least believed to be real by large numbers of people, and what they understand need to be understood – as far as possible from their perspective.
+Simply put, accounts of special divine action saturate the annals of history and feature in the lives of many persons who have changed the course of history. Although it can be argued that it is not for historians to adjudicate whether such action has taken place, it is hard to argue that historians should not take account of the powerful effects on human action of belief in special divine action. The experience, perception or inference of grace, inspiration, miracles, and providence, have shaped countless human lives in every kind of society, from slaves and citizens to sovereigns.
 
-At the present time, it is not uncommon for the ‘no miracles’ dictum of physicalism to seep even into the attitudes of theologians to special divine action. These attitudes are compounded sometimes by a loss of the ability to grasp what a faith perspective is like and the assumption that religious motivations can be reduced to non-religious ones. Faced with the inability of theology to engage with its own subject matter, it then becomes dry, distorted or dies off entirely.
+There are also many hidden connections between belief in special divine action and the meaning and practice of historical writing. Many texts of revelation are sacred narratives, composed and preserved in a spirit of confidence in providence over millennia. These practices formed habits that carried over into pioneering historical writing about many other subjects, such as the work of St Bede (d. 738), the ‘Father of English History’. Moreover, the long-term continuity of communities formed by belief in special divine action, such as monasteries and early universities, has been invaluable in providing the conditions required to preserve records and write histories.
 
-The special divine action project will therefore, it is hoped, be of great value in revitalising theology. The project facilitates engagement with thinkers who have previously debated deism or atheism, from a variety of worldviews, and will also help to remind people of what the rich varieties of special divine action look like from a perspective of faith.
+Finally, history may even owe its existence to belief in special divine action. Over the timescale of human lives in many societies it can seem as if there is never anything new under the sun, giving rise to a belief in time being cyclical and lacking real history. Arguably, it is belief in special divine action that is largely responsible for breaking this fatalistic circle and giving birth to history as an unfolding story, with secular notions of progress being a by-product. This project facilitates the study of these beliefs and their effects using primary sources, especially during a crucial period in which champions of theological, non-theological, and anti-theological ideas of progress engaged in disputations. This project will therefore, it is hoped, be a substantial asset to any serious scholar of history.

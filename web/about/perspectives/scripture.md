@@ -1,16 +1,16 @@
 ---
 layout: page-2col
-title: A Theologian's Perspective
+title: Perspectives on SDA: Scripture Scholars
 permalink: /about/perspectives/theologian
 
 banner: slider-people.jpg
 sidebar: about/nav.html
 ---
 **Why is the study of SDA important for me?**
-*You can’t live without it!*
+*You need to see what the writers and believing readers of Scripture see*
 
-Special divine action is the lifeblood of theology and its very reason for existence. Theology exists either because special divine action is real and its effects need to be understood, or because it is at least believed to be real by large numbers of people, and what they understand need to be understood – as far as possible from their perspective.
+To remove consideration of SDA from the reading of scriptures is like trying to remove theology from Dante’s poetry. Experiences of grace, inspiration, miracles, and providence saturate the texts, believed to be composed under divine inspiration. The texts have also been read through most of their history as sacred works, interpreted by many persons who have themselves been recognized as inspired saints, and remaining as centerpieces of sacred liturgy.
 
-At the present time, it is not uncommon for the ‘no miracles’ dictum of physicalism to seep even into the attitudes of theologians to special divine action. These attitudes are compounded sometimes by a loss of the ability to grasp what a faith perspective is like and the assumption that religious motivations can be reduced to non-religious ones. Faced with the inability of theology to engage with its own subject matter, it then becomes dry, distorted or dies off entirely.
+With this background, attempts to read sacred scriptures in ways that presume that there is no SDA, in the same general way in which one would read any other ancient texts, are contrary to the intentions of their writers and the traditions within which they are usually embedded. From this presumption it follows that their reports of SDA within scriptures have invariably to be explained away in terms of natural causes. On this basis, it also follows that the writers made mistaken or dishonest attributions to divine action, perhaps with motivations that can themselves be explained away in worldly terms. Even many people who do not share the worldviews of the writers would judge that interpretations of these texts that are made with these assumptions are likely to be impoverished and distorted. One possible example is the way in which the spiritual sense of Scripture, according to which God writes a second-order meaning into events described in the narratives, was often crystal clear to believers in the past, including to slaves, but is largely opaque to scholars today.
 
-The special divine action project will therefore, it is hoped, be of great value in revitalising theology. The project facilitates engagement with thinkers who have previously debated deism or atheism, from a variety of worldviews, and will also help to remind people of what the rich varieties of special divine action look like from a perspective of faith.
+The Special Divine Action project makes a broader range of informed views about SDA more readily available. In this way, it is hoped that the project will help to ‘break the spell’, namely the assumption that the powerful tools and insights of modern scholarship, including in the sciences, have to be deployed on Scripture in an exclusively atheistic or deistic fashion.
