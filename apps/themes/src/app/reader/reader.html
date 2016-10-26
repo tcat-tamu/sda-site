@@ -7,11 +7,10 @@
       <a class="logo" href="/" layout="column" layout-align="center center">
         <img src="/assets/images/sda-logo-light.png" alt="SDA" flex="nogrow">
       </a>
-      <h1><a ui-sref="reader">Reader</a></h1>
     </div>
     <nav layout="column">
       <ul class="nav" layout="row" flex>
-        <li ng-repeat="link in vm.navigation" ng-class="{active: link.url == '/reader'}" layout="column">
+        <li ng-repeat="link in vm.navigation" ng-class="{active: link.url == '/themes'}" layout="column">
           <a ng-href="{{link.url}}" layout="row" layout-align="center center" flex>
             <span>{{link.label}}</span>
           </a>
@@ -23,7 +22,7 @@
 
 <div class="page-banner" layout="row" layout-align="center">
   <div class="container" flex>
-    <h1>SDA Reader</h1>
+    <h1>SDA Themes</h1>
   </div>
 </div>
 
