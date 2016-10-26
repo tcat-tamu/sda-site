@@ -1,0 +1,18 @@
+<md-button class="md-icon-button" aria-label="read online" ng-if="$ctrl.copies.length == 1" ng-href="{{$ctrl.getUrl($ctrl.copies[0].id)}}">
+  <md-icon>book</md-icon>
+  <md-tooltip>Read Online</md-tooltip>
+</md-button>
+<md-menu ng-if="$ctrl.copies.length > 1">
+  <md-button class="md-icon-button" aria-label="read online" ng-click="$mdOpenMenu($event)">
+    <md-icon>book</md-icon>
+    <md-tooltip>Read Online</md-tooltip>
+  </md-button>
+  <md-menu-content>
+    <md-menu-item ng-repeat="book in $ctrl.copies">
+      <md-button ng-href="{{$ctrl.getUrl(book.id)}}">
+        <md-icon>book</md-icon>
+        {{book.title}}
+      </md-button>
+    </md-menu-item>
+  </md-menu-content>
+</md-menu>
