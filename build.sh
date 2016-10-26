@@ -10,7 +10,7 @@ gulp_build(){
   cp -r "apps/$1/dist" "web/$1"
 }
 
-APPS=(admin book-reader concept-browser library reader vwise)
+APPS=(admin book-reader concept-browser research themes vwise)
 
 for APP in "${APPS[@]}"; do
   gulp_build "$APP" &
