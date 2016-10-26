@@ -23,63 +23,43 @@
 
 <div class="page-banner" layout="row" layout-align="center">
   <div class="container" flex>
-    <h1>Library</h1>
+    <h1>Research</h1>
   </div>
 </div>
 
 <main layout="row" layout-align="center" flex>
   <div class="container" layout="row" flex>
     <md-sidenav md-component-id="left" class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-sm')" layout="column">
-      <md-tabs md-stretch-tabs="always" flex>
-        <md-tab label="People">
-          <div layout="column">
-            <div layout="row" flex="none">
-              <md-input-container flex>
-                <label>search people</label>
-                <md-icon>search</md-icon>
-                <input type="search" ng-model="peopleQuery" ng-model-options="{debounce: 500}" ng-change="vm.searchPeople(peopleQuery)">
-              </md-input-container>
+      <div layout="row" flex="none">
+        <md-input-container flex>
+          <label>search</label>
+          <md-icon>search</md-icon>
+          <input type="search" ng-model="query" ng-model-options="{debounce: 500}" ng-change="vm.search(query)">
+        </md-input-container>
+      </div>
+      <div layout="row" ng-if="vm.loading" layout-align="center center" flex>
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      </div>
+      <md-content ng-if="!vm.loading && vm.results" flex>
+        <md-list ng-if="vm.results.people">
+          <md-subheader class="md-no-sticky">People</md-subheader>
+          <md-list-item class="md-2-line" ng-repeat="person in vm.results.people" ui-sref=".person({id: person.id})">
+            <div class="md-list-item-text">
+              <h3>{{person.label}}</h3>
+              <p>{{person.summaryExcerpt}}</p>
             </div>
-            <div layout="row" ng-if="vm.peopleLoading" layout-align="center center" flex>
-              <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+          </md-list-item>
+        </md-list>
+        <md-list ng-if="vm.results.works">
+          <md-subheader class="md-no-sticky">Works</md-subheader>
+          <md-list-item class="md-2-line" ng-repeat="work in vm.results.works" ui-sref=".book({id: work.id})">
+            <div class="md-list-item-text">
+              <h3>{{work.label}}</h3>
+              <p>{{work.summaryExcerpt}}</p>
             </div>
-            <md-content ng-if="!vm.peopleLoading && vm.peopleResults" flex>
-              <md-list>
-                <md-list-item class="md-2-line" ng-repeat="person in vm.peopleResults.items" ui-sref=".person({id: person.id})">
-                  <div class="md-list-item-text">
-                    <h3>{{person.label}}</h3>
-                    <p>{{person.summaryExcerpt}}</p>
-                  </div>
-                </md-list-item>
-              </md-list>
-            </md-content>
-          </div>
-        </md-tab>
-        <md-tab label="Books">
-          <div layout="column">
-            <div layout="row" flex="none">
-              <md-input-container flex>
-                <label>search books</label>
-                <md-icon>search</md-icon>
-                <input type="search" ng-model="booksQuery" ng-model-options="{debounce: 500}" ng-change="vm.searchBooks(booksQuery)">
-              </md-input-container>
-            </div>
-            <div layout="row" ng-if="vm.peopleLoading" layout-align="center center" flex>
-              <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-            </div>
-            <md-content ng-if="!vm.booksLoading && vm.booksResults" flex>
-              <md-list>
-                <md-list-item class="md-2-line" ng-repeat="book in vm.booksResults.items" ui-sref=".book({id: book.id})">
-                  <div class="md-list-item-text">
-                    <h3>{{book.label}}</h3>
-                    <p>{{book.summaryExcerpt}}</p>
-                  </div>
-                </md-list-item>
-              </md-list>
-            </md-content>
-          </div>
-        </md-tab>
-      </md-tabs>
+          </md-list-item>
+        </md-list>
+      </md-content>
     </md-sidenav>
     <div layout="column" flex ui-view>
       <md-content flex layout="row" layout-padding>

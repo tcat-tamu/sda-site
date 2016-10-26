@@ -6,20 +6,16 @@
     .controller('LibraryController', LibraryController);
 
   /** @ngInject */
-  function LibraryController($http, $mdSidenav, $mdToast, worksRepo, peopleRepo) {
+  function LibraryController($http, $mdSidenav, $mdToast, trcSearch) {
     var vm = this;
 
     vm.navigation = [];
 
     vm.toggleSidenav = toggleSidenav;
 
-    vm.searchPeople = searchPeople;
-    vm.peopleLoading = false;
-    vm.peopleResults = null;
-
-    vm.searchBooks = searchBooks;
-    vm.booksLoading = false;
-    vm.booksResults = null;
+    vm.search = search;
+    vm.loading = false;
+    vm.results = null;
 
     activate();
 
@@ -29,26 +25,14 @@
       });
     }
 
-    function searchPeople(query) {
-      vm.peopleLoading = true;
-      vm.peopleResults = peopleRepo.search(query);
-      vm.peopleResults.$promise.then(function () {
-        vm.peopleLoading = false;
+    function search(query) {
+      vm.loading = true;
+      vm.results = trcSearch.search(query);
+      vm.results.$promise.then(function () {
+        vm.loading = false;
       }, function () {
-        vm.peopleLoading = false;
-        vm.peopleResults = null;
-        $mdToast.showSimple('Failed to load search results');
-      });
-    }
-
-    function searchBooks(query) {
-      vm.booksLoading = true;
-      vm.booksResults = worksRepo.search(query);
-      vm.booksResults.$promise.then(function () {
-        vm.booksLoading = false;
-      }, function () {
-        vm.booksLoading = false;
-        vm.booksResults = null;
+        vm.loading = false;
+        vm.results = null;
         $mdToast.showSimple('Failed to load search results');
       });
     }
