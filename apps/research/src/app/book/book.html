@@ -3,7 +3,14 @@
     <h1 class="md-display-1"><work-title title="vm.title"></work-title></h1>
     <p ng-if="vm.work.authors && vm.work.authors.length > 0"><span>by </span><work-authors authors="vm.work.authors"></work-authors></p>
 
-    <section class="summary" ng-if="vm.work.summary" ng-bind-html="vm.work.summary"></section>
+    <div ng-if="vm.work.summary">
+      <section class="summary" ng-bind-html="vm.work.summary" ng-class="{collapsed: !summaryExpanded}" ng-click="summaryExpanded = true"></section>
+      <div layout="row" layout-align="center center">
+        <md-button ng-click="summaryExpanded = !summaryExpanded" class="md-raised">
+          Show {{summaryExpanded ? 'Less' : 'More'}}
+        </md-button>
+      </div>
+    </div>
 
     <section class="editions" ng-if="vm.work.editions && vm.work.editions.length > 0">
       <h2 class="md-title">Editions</h2>
