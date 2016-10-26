@@ -43,6 +43,12 @@
           work: function ($stateParams, worksRepo) {
             var work = worksRepo.get($stateParams.id);
             return work.$promise;
+          },
+          refs: function ($stateParams, worksRepo, refsRepoFactory) {
+            var refsEndpoint = worksRepo.getReferencesEndpoint($stateParams.id);
+            var refsRepo = refsRepoFactory.getRepo(refsEndpoint);
+            var refs = refsRepo.get();
+            return refs.$promise;
           }
         }
       });

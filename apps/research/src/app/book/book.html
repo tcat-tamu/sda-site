@@ -74,8 +74,6 @@
           </section>
         </div>
       </div>
-      <div flex="33">
-      </div>
     </section>
 
     <section ng-if="vm.relationships && vm.relationships.length > 0">
@@ -86,5 +84,21 @@
         </md-list-item>
       </md-list>
     </section>
+  </div>
+  <div layout="column" layout-padding flex="33">
+    <div ng-if="true">
+      <h2>Related Books</h2>
+      <ul>
+      </ul>
+    </div>
+    <div ng-if="true">
+      <h2>See Also</h2>
+      <ul>
+      </ul>
+    </div>
+    <div ng-if="!(vm.refs.bibliography | empty)">
+      <h2>Bibliography</h2>
+      <bibliography refs="vm.refs" style-id="chicago"></bibliography>
+    </div>
   </div>
 </md-content>
