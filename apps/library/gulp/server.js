@@ -18,7 +18,8 @@ function browserSyncInit(baseDir, browser) {
   if(baseDir === conf.paths.src || (util.isArray(baseDir) && baseDir.indexOf(conf.paths.src) !== -1)) {
     routes = {
       '/bower_components': 'bower_components',
-      '/assets': '../../web/assets'
+      '/assets': '../../web/_site/assets',
+      '/css': '../../web/_site/css'
     };
   }
 
