@@ -27,19 +27,20 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($http, $scope, $q, $mdToast, $mdDialog, $mdMedia, $location, $stateParams, $filter, $timeout, $document, peopleRepo, worksRepo, graphRepo) {
+  function MainController($scope, $mdToast, $stateParams, $filter, $timeout, _, helpDialog, peopleRepo, worksRepo, graphRepo) {
     var vm = this;
 
     vm.toggleSearchForm = toggleSearchForm;
     vm.clearSearchForm = clearSearchForm;
     vm.showSearchForm = false;
     vm.searchQuery = '';
+    vm.graphType = '';
 
-    vm.showHelp = showHelp;
+    vm.showHelp = helpDialog.show;
 
     vm.graph = null;
     vm.activeNode = null;
-    vm.person = null;
+    vm.nodeData = null;
     vm.works = null;
     vm.related = null;
     vm.sidebarLoading = false;
@@ -49,64 +50,8 @@
     vm.relnTypeFilter = [];
     vm.toggleRelnTypeFilter = toggleRelnTypeFilter;
 
-    vm.selectMode = null;
-    vm.selectModes = [];
-
-    vm.sizeMetric = null;
-    vm.sizeMetrics = [];
-
-    vm.highlightedNodes = [];
-
-    activate();
-
-    function activate() {
-      loadSelectModes();
-      loadSizeMetrics();
-
-      var defaultGraphType = 'people';
-      var graphType = $stateParams.type || defaultGraphType;
-      vm.graphLoading = true;
-      getGraphData(graphType).catch(function () {
-        $mdToast.showSimple('Unable to load the "' + graphType + '"graph type. Falling back to "' + defaultGraphType + '".');
-        return getGraphData(defaultGraphType);
-      }).then(function (data) {
-        vm.graphLoading = false;
-        vm.graph = data.graph;
-      }, function () {
-        vm.graphLoading = false;
-        $mdToast.showSimple('Unable to load graph data.');
-      });
-
-      $scope.$watch('main.activeNode', function (node) {
-        if (node) {
-          vm.sidebarLoading = true;
-          loadNodeData(node).then(function () {
-            vm.sidebarLoading = false;
-          }, function () {
-            vm.sidebarLoading = false;
-            $mdToast.showSimple('Unable to load node data');
-          });
-        } else {
-          vm.person = null;
-        }
-      });
-
-      $scope.$watch('searchQuery', function (searchQuery) {
-        vm.highlightedNodes = searchQuery ? $filter('filter')(vm.graph.nodes, { label: searchQuery }) : [];
-      });
-    }
-
-    function toggleRelnTypeFilter(typeId) {
-      var ix = vm.relnTypeFilter.indexOf(typeId);
-      if (ix < 0) {
-        vm.relnTypeFilter.push(typeId);
-      } else {
-        vm.relnTypeFilter.splice(ix, 1);
-      }
-    }
-
-    function loadSelectModes() {
-      vm.selectModes.push({
+    vm.selectModes = [
+      {
         label: 'Neighbors',
         strategy: function (selected) {
           if (!selected) {
@@ -121,9 +66,8 @@
           });
           return [selected].concat(adjacent, incident);
         }
-      });
-
-      vm.selectModes.push({
+      },
+      {
         label: 'Trace',
         strategy: function (selected) {
           if (!selected) {
@@ -145,53 +89,107 @@
 
           return visited;
         }
-      });
-
-      vm.selectModes.push({
+      },
+      {
         label: 'Inbound',
         strategy: function (selected) {
           return selected ? [selected].concat(selected.inEdges.filter(edgeFilter).map(function (edge) {
             return edge.source;
           })) : [];
         }
-      });
-
-      vm.selectModes.push({
+      },
+      {
         label: 'Outbound',
         strategy: function (selected) {
           return selected ? [selected].concat(selected.outEdges.filter(edgeFilter).map(function (edge) {
             return edge.target;
           })) : [];
         }
-      });
+      },
+    ];
+    vm.selectMode = vm.selectModes[0];
 
-      vm.selectMode = vm.selectModes[0];
-    }
-
-    function loadSizeMetrics() {
-      vm.sizeMetrics.push({
+    vm.sizeMetrics = [
+      {
         label: 'PageRank',
         strategy: function (node) {
           return node.metadata.pagerank;
         }
-      });
-
-      vm.sizeMetrics.push({
+      },
+      {
         label: 'Uniform',
         strategy: function () {
           return 1;
         }
-      });
-
-      vm.sizeMetrics.push({
+      },
+      {
         label: 'HITS',
         disabled: true,
         strategy: function () {
           return 1;
         }
+      }
+    ];
+    vm.sizeMetric = vm.sizeMetrics[0];
+
+    vm.highlightedNodes = [];
+
+    activate();
+
+    // HACK: this function is duplicated in the concept browser directive...
+    //       need a way to tell the graph to update from outside the directive...
+    function edgeFilter(edge) {
+      return vm.relnTypeFilter.length === 0 || vm.relnTypeFilter.indexOf(edge.relation) >= 0;
+    }
+
+    function activate() {
+      var defaultGraphType = 'people';
+      vm.graphType = $stateParams.type || defaultGraphType;
+      vm.graphLoading = true;
+
+      var graphP = getGraphData(vm.graphType);
+
+      if (defaultGraphType !== vm.graphType) {
+        graphP = graphP.catch(function () {
+          $mdToast.showSimple('Unable to load the "' + vm.graphType + '"graph type. Falling back to "' + defaultGraphType + '".');
+          return getGraphData(defaultGraphType);
+        });
+      }
+
+      graphP.then(function (data) {
+        vm.graphLoading = false;
+        vm.graph = data.graph;
+      }, function () {
+        vm.graphLoading = false;
+        $mdToast.showSimple('Unable to load graph data.');
       });
 
-      vm.sizeMetric = vm.sizeMetrics[0];
+      $scope.$watch('vm.activeNode', function (node) {
+        if (node) {
+          vm.sidebarLoading = true;
+          loadNodeData(node).then(function () {
+            vm.sidebarLoading = false;
+          }, function () {
+            vm.sidebarLoading = false;
+            $mdToast.showSimple('Unable to load node data');
+          });
+        } else {
+          vm.nodeData = null;
+        }
+      });
+
+      $scope.$watch('searchQuery', function (searchQuery) {
+        vm.highlightedNodes = searchQuery ? $filter('filter')(vm.graph.nodes, { label: searchQuery }) : [];
+      });
+    }
+
+    function toggleRelnTypeFilter(typeId) {
+      var ix = vm.relnTypeFilter.indexOf(typeId);
+      if (ix < 0) {
+        vm.relnTypeFilter.push(typeId);
+      } else {
+        vm.relnTypeFilter.splice(ix, 1);
+      }
     }
 
     function toggleSearchForm() {
@@ -213,84 +211,73 @@
       });
     }
 
-    function showHelp($event) {
-      var config = {
-        targetEvent: $event,
-        fullscreen: $mdMedia('sm') || $mdMedia('xs'),
-        templateUrl: 'app/main/help.html',
-        controller: 'HelpDialogController',
-        clickOutsideToClose: true
-      };
-
-      $mdDialog.show(config)
-    }
-
-    // HACK: this function is duplicated in the concept browser directive...
-    //       need a way to tell the graph to update from outside the directive...
-    function edgeFilter(edge) {
-      return vm.relnTypeFilter.length === 0 || vm.relnTypeFilter.indexOf(edge.relation) >= 0;
-    }
-
     function loadNodeData(node) {
-      // HACK only works for people; should probably refactor to a directive with parallel one for works,
-      //      but how should we determine which directive to display?
-      vm.person = peopleRepo.get(node.id);
+      vm.nodeData = (function () {
+        switch (vm.graphType) {
+          case 'people': return peopleRepo.get(node.id);
+          case 'works': return worksRepo.get(node.id);
+          default: return null;
+        }
+      })();
 
-      var works = worksRepo.searchByAuthor(node.id);
-      var worksP = works.$promise.then(function () {
-        if (!works.items) {
-          throw new Error('unable to load items');
+      vm.related = getRelatedNodes(node);
+
+      return vm.nodeData.$promise;
+    }
+
+    function getRelatedNodes(node) {
+      var related = {};
+
+      node.outEdges.forEach(makeEdgeHandler(related, 'target', 'out'));
+      node.inEdges.forEach(makeEdgeHandler(related, 'source', 'in'));
+
+      return _.values(related).map(function (group) {
+        if (group.in && group.in.nodes) {
+          group.in.nodes = _.values(group.in.nodes);
         }
 
-        vm.works = works.items;
-        return vm.works;
+        if (group.out && group.out.nodes) {
+          group.out.nodes = _.values(group.out.nodes);
+        }
+
+        if (group.none && group.none.nodes) {
+          group.none.nodes = _.values(group.none.nodes);
+        }
+
+        return group;
       });
 
-      var related = {};
+      function makeEdgeHandler(groups, srcProperty, destProperty) {
+        return function (edge) {
+          var type = TYPES[edge.relation];
+          if (!type) return;
+
+          var group = ensureTypeGroup(groups, type);
+          var node = edge[srcProperty];
+          group[type.directed ? destProperty : 'none'].nodes[node.id] = node;
+        }
+      }
 
       function makeTypeGroup(type) {
         var group = { id: type.id, directed: type.directed };
 
         if (type.directed) {
-          group.out = { label: type.title, nodes: [] };
-          group.in = { label: type.reverseTitle, nodes: [] };
+          group.out = { label: type.title, nodes: {} };
+          group.in = { label: type.reverseTitle, nodes: {} };
         } else {
-          group.none = { label: type.title, nodes: [] };
+          group.none = { label: type.title, nodes: {} };
         }
 
         return group;
       }
 
-      function ensureTypeGroup(type) {
-        if (!related.hasOwnProperty(type.id)) {
-          related[type.id] = makeTypeGroup(type);
+      function ensureTypeGroup(groups, type) {
+        if (!groups.hasOwnProperty(type.id)) {
+          groups[type.id] = makeTypeGroup(type);
         }
 
-        return related[type.id];
+        return groups[type.id];
       }
-
-      node.outEdges.map(function (edge) {
-        var type = TYPES[edge.relation];
-        if (!type) return;
-
-        var group = ensureTypeGroup(type);
-        group[type.directed ? 'out' : 'none'].nodes.push(edge.target);
-      });
-
-      node.inEdges.map(function (edge) {
-        var type = TYPES[edge.relation];
-        if (!type) return;
-
-        var group = ensureTypeGroup(type);
-        group[type.directed ? 'in' : 'none'].nodes.push(edge.source);
-      });
-
-      vm.related = [];
-      for (var key in related) if (related.hasOwnProperty(key)) {
-        vm.related.push(related[key]);
-      }
-
-      return $q.all([vm.person.$promise, worksP]);
     }
 
     function getGraphData(type) {

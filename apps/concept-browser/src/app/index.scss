@@ -62,5 +62,33 @@ md-toolbar {
   }
 }
 
+md-sidenav {
+  background: rgba(#f0f3f0, 0.8);
+  md-content {
+    background: transparent;
+  }
+
+  .list-heading {
+    margin-bottom: 0;
+  }
+}
+
+.md-subheader.collapse-handle {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+p.work-result-label {
+  $result-item-indent: 1rem;
+  line-height: 1.3;
+  margin: 1rem 0;
+  text-indent: -$result-item-indent;
+  padding-left: $result-item-indent;
+}
+
+.title {
+  font-style: italic;
+}
+
 // injector
 // endinjector

@@ -1,0 +1,37 @@
+<md-list>
+  <div ng-repeat="group in $ctrl.related">
+    <div ng-if="group.directed && group.out.nodes.length > 0">
+      <md-subheader class="md-no-sticky collapse-handle" ng-click="group.out.expanded = !group.out.expanded">
+        <md-icon>{{group.out.expanded ? 'expand_more' : 'keyboard_arrow_right'}}</md-icon>
+        {{group.out.label}}
+      </md-subheader>
+      <div class="slide" ng-show="group.out.expanded">
+        <md-list-item ng-repeat="node in group.out.nodes track by node.id" ng-click="$ctrl.activate({$node: node})">
+          <p class="work-result-label">{{node.label}}</p>
+        </md-list-item>
+      </div>
+    </div>
+    <div ng-if="group.directed && group.in.nodes.length > 0">
+      <md-subheader class="md-no-sticky collapse-handle" ng-click="group.in.expanded = !group.in.expanded">
+        <md-icon>{{group.in.expanded ? 'expand_more' : 'keyboard_arrow_right'}}</md-icon>
+        {{group.in.label}}
+      </md-subheader>
+      <div class="slide" ng-show="group.in.expanded">
+        <md-list-item ng-repeat="node in group.in.nodes track by node.id" ng-click="$ctrl.activate({$node: node})">
+          <p class="work-result-label">{{node.label}}</p>
+        </md-list-item>
+      </div>
+    </div>
+    <div ng-if="!group.directed && group.none.nodes.length > 0">
+      <md-subheader class="md-no-sticky collapse-handle" ng-click="group.none.expanded = !group.none.expanded">
+        <md-icon>{{group.none.expanded ? 'expand_more' : 'keyboard_arrow_right'}}</md-icon>
+        {{group.none.label}}
+      </md-subheader>
+      <div class="slide" ng-show="group.none.expanded">
+        <md-list-item ng-repeat="node in group.none.nodes track by node.id" ng-click="$ctrl.activate({$node: node})">
+          <p class="work-result-label">{{node.label}}</p>
+        </md-list-item>
+      </div>
+    </div>
+  </div>
+</md-list>

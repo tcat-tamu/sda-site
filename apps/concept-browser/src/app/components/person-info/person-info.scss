@@ -1,0 +1,22 @@
+person-info {
+  .name {
+    margin: 0;
+    font-weight: normal;
+    font-size: 1em;
+
+    > span {
+      display: block;
+    }
+
+    .given {
+      color: #2e2e2e;
+      text-transform: uppercase;
+      font-size: 0.8em;
+    }
+
+    .family {
+      color: #1a1b1a;
+      font-size: 2em;
+    }
+  }
+}
