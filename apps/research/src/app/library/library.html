@@ -40,7 +40,7 @@
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
       </div>
       <md-content ng-if="!vm.loading && vm.results" flex>
-        <md-subheader class="md-no-sticky" ng-click="hidePeople = !hidePeople">
+        <md-subheader class="md-no-sticky collapse-handle" ng-click="hidePeople = !hidePeople">
           <md-icon>{{hidePeople ? 'keyboard_arrow_right' : 'expand_more'}}</md-icon>
           People
         </md-subheader>
@@ -52,7 +52,7 @@
             </div>
           </md-list-item>
         </md-list>
-        <md-subheader class="md-no-sticky" ng-click="hideWorks = !hideWorks">
+        <md-subheader class="md-no-sticky collapse-handle" ng-click="hideWorks = !hideWorks">
           <md-icon>{{hideWorks ? 'keyboard_arrow_right' : 'expand_more'}}</md-icon>
           Works
         </md-subheader>

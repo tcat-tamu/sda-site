@@ -106,6 +106,10 @@ md-sidenav {
   }
 }
 
+.md-subheader.collapse-handle {
+  cursor: pointer;
+}
+
 .page-banner {
   overflow: hidden;
   background-image: url('/assets/images/banners/slider-floating-books.jpg');
