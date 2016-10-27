@@ -6,13 +6,14 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, $mdThemingProvider, worksRepoProvider, peopleRepoProvider, trcSearchProvider) {
+  function config($logProvider, $mdThemingProvider, worksRepoProvider, peopleRepoProvider, trcSearchProvider, relnRepoProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
     worksRepoProvider.url = '/api/catalog/works';
     peopleRepoProvider.url = '/api/catalog/people';
     trcSearchProvider.url = '/api/catalog/search';
+    relnRepoProvider.url = '/api/catalog/relationships';
 
     $mdThemingProvider.definePalette('darkBrown', {
       '50': '#595c59',

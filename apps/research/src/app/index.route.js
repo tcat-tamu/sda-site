@@ -49,6 +49,16 @@
             var refsRepo = refsRepoFactory.getRepo(refsEndpoint);
             var refs = refsRepo.get();
             return refs.$promise;
+          },
+          relns: function ($stateParams, relnRepo, worksRepo) {
+            var currentUri = 'works/' + $stateParams.id;
+            var relns = relnRepo.search(currentUri);
+            return relns.$promise.then(function () {
+              var normRelns = relnRepo.normalizeRelationships(relns, currentUri, worksRepo);
+              return normRelns.$promise;
+            }).catch(function () {
+              return [];
+            });
           }
         }
       });

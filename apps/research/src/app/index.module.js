@@ -13,7 +13,8 @@
       'ngMaterial',
       'trcBiblio',
       'trcBio',
-      'trcRefs'
+      'trcRefs',
+      'trcReln'
     ]);
 
 })();
