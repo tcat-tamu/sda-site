@@ -38,18 +38,15 @@
          var query = _.map(_.omit(options, omitOptions), function (v, k) { return k + '=' + v });
 
          if (scriptId) {
-            var scriptElem = $document.getElementById(scriptId)
-            scriptElem.parentNode.removeChild(scriptElem);
+            $document.remove('#' + scriptId);
          } else {
             scriptId = 'gbooks_load_' + Math.round(Math.random() * 1000);
          }
 
          query = query.join('&');
-         angular.element('<script>', {
-            id: scriptId,
-            type: 'text/javascript',
-            src: getScriptUrl(options) + query
-         }).appendTo(angular.element('body'));
+         var scriptTag = '<script id="' + scriptId + '" type="text/javascript" src="' + getScriptUrl(options) + query + '"></script>';
+
+         $document.find('body').append(scriptTag);
       }
 
       function isGoogleBooksLoaded() {
