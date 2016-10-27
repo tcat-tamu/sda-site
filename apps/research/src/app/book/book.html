@@ -30,18 +30,7 @@
         </h3>
 
         <div class="slide" ng-show="edition.active">
-          <p class="citation">
-            <work-authors class="authors" authors="edition.authors"></work-authors>
-            <work-title class="title" title="edition.titles"></work-title>
-            <span class="edition">{{edition.editionNumber}}</span>
-            <span class="volume" ng-if="volume">{{volume.volumeNumber}}</span>
-
-            <span class="pubinfo" ng-if="edition.publicationInfo.place || edition.publicationInfo.publisher || edition.publicationInfo.date.description">
-               (<span class="place" ng-if="edition.publicationInfo.place">{{edition.publicationInfo.place}},</span>
-               <span class="publisher" ng-if="edition.publicationInfo.publisher">{{edition.publicationInfo.publisher}}.</span>
-               <time class="date" ng-if="edition.publicationInfo.date.description" datetime="{{edition.publicationInfo.date.calendar}}">{{edition.publicationInfo.date.description}}</time>)
-            </span>
-          </p>
+          <citation authors="edition.authors" title="edition.titles" edition="edition.editionName" pub-info="edition.publicationInfo"></citation>
 
           <section class="summary" ng-if="edition.summary" ng-bind-html="edition.summary"></section>
 
@@ -60,19 +49,7 @@
               </h5>
 
               <div class="slide" ng-show="volume.active">
-                <p class="citation">
-                  <work-authors class="authors" authors="edition.authors"></work-authors>
-                  <work-title class="title" title="edition.titles"></work-title>
-                  <span class="edition">{{edition.editionNumber}}</span>
-                  <span class="volume" ng-if="volume">{{volume.volumeNumber}}</span>
-
-                  <span class="pubinfo" ng-if="edition.publicationInfo.place || edition.publicationInfo.publisher || edition.publicationInfo.date.description">
-                     (<span class="place" ng-if="edition.publicationInfo.place">{{edition.publicationInfo.place}},</span>
-                     <span class="publisher" ng-if="edition.publicationInfo.publisher">{{edition.publicationInfo.publisher}}.</span>
-                     <time class="date" ng-if="edition.publicationInfo.date.description" datetime="{{edition.publicationInfo.date.calendar}}">{{edition.publicationInfo.date.description}}</time>)
-                  </span>
-                </p>
-
+                <citation authors="volume.authors" title="volume.titles" edition="edition.editionName" volume="volume.volumeNumber" pub-info="volume.publicationInfo"></citation>
                 <section class="summary" ng-if="edition.summary" ng-bind-html="edition.summary"></section>
               </div>
             </div>
