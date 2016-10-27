@@ -1,38 +1,39 @@
-<md-content layout="row" layout-padding flex>
+<md-content layout="row" layout-padding layout-margin flex>
   <div flex="66">
     <h1 class="md-display-1">{{vm.person.name.label}}</h1>
-    <div ng-if="vm.person.summary" ng-bind-html="vm.person.summary"></div>
-    <p ng-if="!vm.person.summary">Summary not available.</p>
+    <collapsible-summary ng-if="vm.person.summary" content="vm.person.summary"></collapsible-summary>
+    <section class="bibliography" ng-if="!(vm.refs.bibliography | empty)">
+      <h2>Bibliography</h2>
+      <bibliography refs="vm.refs" style-id="chicago"></bibliography>
+    </div>
   </div>
   <aside layout="column" layout-padding flex="33">
-    <div ng-if="(vm.person.name | personName) != vm.person.name.label">
-      <h3 class="md-title">Full name</h3>
+    <div ng-if="(vm.person.name | personName) != vm.person.name.label" layout="row">
+      <strong flex="20">Name</strong>
       <person-name name="vm.person.name"></person-name>
     </div>
-    <div ng-if="vm.person.birth">
-      <h3 class="md-title">Born</h3>
-      <date-location event="vm.person.birth"></date-location>
-    </div>
-    <div ng-if="vm.person.death">
-      <h3 class="md-title">Died</h3>
-      <date-location event="vm.person.death"></date-location>
-    </div>
-    <div ng-if="vm.person.names.length > 0">
-       <h3 class="md-title">Other Names</h3>
-       <ul>
+    <div ng-if="vm.person.altNames.length > 0" layout="row">
+       <strong flex="20">a.k.a.</strong>
+       <ul class="alt-names" layout="column">
           <li ng-repeat="name in vm.person.altNames">
-             <span class="display">{{name.label}}</span>
-             <span class="full" ng-if="(name | personName) != name.label">
-                (<person-name ng-model="name"></person-name>)
-             </span>
+             <span class="display" ng-if="name.label">{{name.label}}</span>
+             <person-name name="name" ng-if="!name.label"></person-name>
           </li>
        </ul>
     </div>
+    <div ng-if="vm.person.birth" layout="row">
+      <strong flex="20">Born</strong>
+      <date-location event="vm.person.birth" layout="column"></date-location>
+    </div>
+    <div ng-if="vm.person.death" layout="row">
+      <strong flex="20">Died</strong>
+      <date-location event="vm.person.death" layout="column"></date-location>
+    </div>
     <div ng-if="vm.relatedWorks && vm.relatedWorks.length > 0">
-      <h3 class="md-title">Books</h3>
+      <h2 class="list-heading">Books</h2>
       <md-list>
-        <md-list-item ui-sref="^.book({id: work.id})" ng-repeat="work in vm.relatedWorks">
-          <p>{{work.label}}</p>
+        <md-list-item ui-sref="^.book({id: work.id})" ng-repeat="work in vm.relatedWorks | orderBy: 'pubYear'">
+          <p class="work-result-label"><span class="title">{{work.title}}</span> <span ng-if="work.pubYear">({{work.pubYear}})</span></p>
         </md-list-item>
       </md-list>
     </div>

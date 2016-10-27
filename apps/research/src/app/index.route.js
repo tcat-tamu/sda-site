@@ -25,6 +25,12 @@
             var person = peopleRepo.get($stateParams.id);
             return person.$promise;
           },
+          refs: function ($stateParams, peopleRepo, refsRepoFactory) {
+            var refsEndpoint = peopleRepo.getReferencesEndpoint($stateParams.id);
+            var refsRepo = refsRepoFactory.getRepo(refsEndpoint);
+            var refs = refsRepo.get();
+            return refs.$promise;
+          },
           relatedWorks: function ($stateParams, worksRepo) {
             var relatedWorks = worksRepo.searchByAuthor($stateParams.id);
             return relatedWorks.$promise.then(function (result) {
