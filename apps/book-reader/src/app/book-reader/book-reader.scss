@@ -1,0 +1,24 @@
+md-sidenav.book-info {
+  > div {
+    margin: 1rem 0;
+
+    &:last-item {}
+  }
+
+  h2 {
+    margin-bottom: 0;
+  }
+
+  .title {
+    color: rgba(#000, 0.87);
+  }
+
+  .by-line {
+    margin-top: 0;
+  }
+
+  .summary {
+    font-size: 0.8em;
+    line-height: 1.4;
+  }
+}

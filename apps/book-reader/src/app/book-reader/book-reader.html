@@ -1,18 +1,28 @@
 <md-toolbar class="layout-navbar">
   <div class="md-toolbar-tools">
-    <md-button class="md-accent md-icon-button" ng-click="vm.toggleSidenav('left')" hide-gt-sm>
+    <md-button class="md-accent md-icon-button" ng-click="vm.toggleSidenav($event)">
       <md-icon>menu</md-icon>
     </md-button>
     <a class="logo" href="/">
       <img src="/assets/images/sda-logo-light.png" alt="SDA">
     </a>
-    <h1>Book Reader</h1>
   </div>
 </md-toolbar>
 
 <main layout="row" layout-align="center" flex>
-  <md-sidenav md-component-id="left" class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-sm')" layout="column">
-    Book Info Here!
+  <md-sidenav class="book-info" md-component-id="left" class="md-sidenav-left" md-is-locked-open="vm.lockSidebar" layout="column" layout-padding>
+    <div>
+      <h1 class="md-title title">
+        <work-title title="vm.work.titles"></work-title>
+      </h1>
+      <p class="by-line">by <work-authors authors="vm.work.authors"></work-authors></p>
+    </div>
+    <collapsible-summary ng-if="vm.work.summary" content="vm.work.summary"></collapsible-summary>
+    <div flex></div>
+    <div ng-if="vm.relns.length > 0">
+      <h2>Related Books</h2>
+      <relationships relns="vm.relns"></relationships>
+    </div>
   </md-sidenav>
   <div layout="column" flex>
     <div ng-switch="vm.copyRef.type" layout="column" layout-padding flex>

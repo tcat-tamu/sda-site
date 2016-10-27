@@ -6,31 +6,23 @@
     .controller('BookReaderController', BookReaderController);
 
   /** @ngInject */
-  function BookReaderController($stateParams, $mdSidenav, worksRepo) {
-    var workId = $stateParams.workId;
-    var editionId = $stateParams.editionId;
-    var volumeId = $stateParams.volumeId;
-    var copyId = $stateParams.copyId;
-
+  function BookReaderController($timeout, $rootScope, copyRef, work, relns) {
     var vm = this;
 
+    vm.copyRef = copyRef;
+    vm.work = work;
+    vm.relns = relns;
+    vm.lockSidebar = true;
+
     vm.toggleSidenav = toggleSidenav;
-    vm.loading = false;
 
-    activate();
+    function toggleSidenav() {
+      vm.lockSidebar = !vm.lockSidebar;
 
-    function activate() {
-      vm.loading = true;
-      vm.copyRef = worksRepo.getDigitalCopy(copyId, workId, editionId, volumeId);
-      vm.copyRef.$promise.then(function () {
-        vm.loading = false;
-      }, function () {
-        vm.loading = false;
-      });
-    }
-
-    function toggleSidenav(id) {
-      $mdSidenav(id).toggle();
+      // HACK: need to tell book reader to refresh its size
+      $timeout(function () {
+        $rootScope.$broadcast('resize');
+      }, 500);
     }
 
   }
