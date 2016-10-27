@@ -17,13 +17,9 @@
   function CollapsibleSummaryController($scope) {
     var vm = this;
 
-    activate();
-
-    function activate() {
-      $scope.$watch('$ctrl.content', function (newContent) {
-        vm.longEnough = (!newContent || newContent.length > CHAR_THRESHOLD);
-      });
-    }
+    $scope.$watch('$ctrl.content', function (newContent) {
+      vm.longEnough = (!newContent || newContent.length > CHAR_THRESHOLD);
+    });
   }
 
 })();
