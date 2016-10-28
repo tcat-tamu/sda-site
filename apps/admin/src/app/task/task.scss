@@ -1,0 +1,60 @@
+$item-height: 3rem;
+
+.item {
+  > .item-heading {
+    position: relative;
+
+    > .md-button {
+      min-height: $item-height;
+      padding: 0 1rem;
+      width: 100%;
+      border-radius: 0;
+      text-transform: none;
+      font-size: inherit;
+      line-height:normal;
+
+      > .md-ripple-container {
+        border-radius: 0;
+      }
+    }
+
+    > .actions {
+      position: absolute;
+      min-height: $item-height;
+      right: 1rem;
+      top: 0;
+    }
+  }
+
+  &.done md-icon {
+    color: #090;
+  }
+
+  &.focused {
+    border-bottom: 1px solid #ddd;
+
+    > .item-heading {
+      border-bottom: 1px solid #ddd;
+      background: $copper3;
+    }
+  }
+
+  > md-content {
+    padding: 1rem;
+  }
+}
+
+.task-info {
+  margin: 1rem;
+
+  .label {
+    display: block;
+    font-size: 1.5em;
+    font-weight: normal;
+    margin: 0 0 0.25em 0;
+  }
+
+  .description {
+    color: rgba(#000, 0.54);
+  }
+}

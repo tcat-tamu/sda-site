@@ -1,0 +1,9 @@
+---
+permalink: admin/.htaccess
+---
+AuthType Basic
+AuthName "SDA Login"
+# (Following line optional)
+AuthBasicProvider file
+AuthUserFile /war_deployment/sda.htpasswd
+Require valid-user

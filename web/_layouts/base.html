@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<head>
+  {% include meta-common.html %}
+</head>
+<body>
+  {% include header.html %}
+  <div class="content flex layout-column">
+    <div class="flex layout-column">
+      {% if page.banner %}
+        <div class="page-banner flex-none" style="background-image: url({{ 'assets/images/banners/' | append: page.banner | relative_url }})">
+          <div class="container">
+            <h1>{{ page.title }}</h1>
+          </div>
+        </div>
+      {% endif %}
+      {{ content }}
+    </div>
+    {% include footer.html toggle=true %}
+  </div>
+  {% include scripts-common.html %}
+</body>
+</html>

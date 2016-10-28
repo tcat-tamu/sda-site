@@ -1,0 +1,58 @@
+{
+  "name": "sda-admin",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular-animate": "~1.5.3",
+    "angular-cookies": "~1.5.3",
+    "angular-touch": "~1.5.3",
+    "angular-sanitize": "~1.5.3",
+    "angular-messages": "~1.5.3",
+    "angular-aria": "~1.5.3",
+    "jquery": "~2.1.4",
+    "angular-resource": "~1.5.3",
+    "angular-ui-router": "~0.2.15",
+    "moment": "~2.10.6",
+    "animate.css": "~3.4.0",
+    "angular": "~1.5.3",
+    "angular-material": "^1.1.1",
+    "material-design-icons": "^2.2.3",
+    "lodash": "^4.6.1",
+    "angular-ckeditor": "^1.0.3",
+    "ckeditor": "^4.5.8",
+    "angular-hotkeys": "chieffancypants/angular-hotkeys#^1.7.0",
+    "angular-pouchdb": "^4.3.0",
+    "zotero": "^0.0.10",
+    "citeproc-js": "Juris-M/citeproc-js#^1.1.122",
+    "trc": "^0.0.4"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.5.3"
+  },
+  "overrides": {
+    "lodash": {
+      "main": "dist/lodash.js"
+    },
+    "material-design-icons": {
+      "main": [
+        "iconfont/MaterialIcons-Regular.eot",
+        "iconfont/MaterialIcons-Regular.ttf",
+        "iconfont/MaterialIcons-Regular.woff",
+        "iconfont/MaterialIcons-Regular.woff2"
+      ]
+    },
+    "angular-material": {
+      "main": [
+        "angular-material.js",
+        "angular-material.scss"
+      ]
+    },
+    "citeproc-js": {
+      "main": [
+        "citeproc.js"
+      ]
+    }
+  },
+  "resolutions": {
+    "angular": "~1.5.3"
+  }
+}

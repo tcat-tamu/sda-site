@@ -1,0 +1,67 @@
+<div id="thematic_overviews">
+ <script type="text/ng-template" id="treeCategoryEntry.html">
+   <div class="category-node" layout="row" layout-align="start center">
+     <!--  Display label for the category node-->
+     <span ng-if="node.entryRef == null" class="node-label">{{ node.label }}</span>
+     <a ui-sref="article.edit({id:node.entryRef.id})" ng-if="node.entryRef != null" class="node-label">{{ node.label }}</a>
+
+     <!-- push buttons to edge -->
+     <span flex></span>
+
+     <!-- node action menu -->
+     <md-menu class="action">
+       <!-- activate handle -->
+       <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button">
+         <md-icon>arrow_drop_down</md-icon>
+       </md-button>
+
+       <md-menu-content>
+         <!-- Associate/Remove  -->
+         <md-menu-item>
+           <md-button ng-if="node.entryRef.id == null"
+                      ng-click="vm.handleAssociateEntry($event, node)">
+             <md-icon>add_circle_outline</md-icon>
+             Create Article
+           </md-button>
+           <md-button ng-if="node.entryRef.id != null"
+                      ng-click="vm.handleRemoveEntry($event, node)">
+             <md-icon>remove_circle_outline</md-icon>
+             Remove Article
+           </md-button>
+         </md-menu-item>
+
+         <md-menu-item>
+           <md-button ng-click="vm.handleCreateChild($event, node)">
+             <!-- Will create a child node at the end of this list. User can drag to re-arrange -->
+             <md-icon>create_new_folder</md-icon>
+             Create Sub-Category
+           </md-button>
+         </md-menu-item>
+
+         <md-menu-item>
+           <md-button ng-click="vm.handleDeleteNode($event, node, parent)">
+             <!-- Will delete this node, all children and associated articles. If leaf node,
+             displays delete instead of delete sweep. Prompts user to confirm. -->
+             <md-icon>delete{{ node.children.length == 0 ? '' : '_sweep' }}</md-icon>
+             Remove Category
+           </md-button>
+         </md-menu-item>
+       </md-menu-content>
+     </md-menu>
+   </div>
+
+   <ol ng-if="node.children.length > 0">
+     <li ng-repeat="node in node.children" ng-include="'treeCategoryEntry.html'" ng-init="parent = $parent.$parent.node"></li>
+   </ol>
+ </script>
+
+ <ol>
+   <li ng-repeat="node in vm.overviews.root.children" ng-include="'treeCategoryEntry.html'" ng-init="parent = vm.overviews.root"></li>
+ </ol>
+
+ <div layout="row" layout-align="center center">
+   <!-- TODO need additional styling -->
+   <md-button ng-click="vm.handleCreateChild($event, vm.overviews.root)" class="md-raised" aria-label="create category">Create Category</md-button>
+ </div>
+
+</div>

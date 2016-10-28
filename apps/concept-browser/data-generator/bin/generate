@@ -1,0 +1,177 @@
+#!/usr/bin/env ruby
+require './config/boot'
+
+require 'json'
+
+require 'app'
+require 'models/person'
+require 'models/relationship'
+require 'pagerank'
+
+# =============================================================================
+# helper definitions
+# =============================================================================
+
+# Generate integers along a poisson distribution
+#
+# from Donald Knuth
+# http://en.wikipedia.org/wiki/Poisson_distribution#Generating_Poisson-distributed_random_variables
+def rand_poisson(expected_value)
+  target_cumulative = Math.exp(-expected_value)
+  accumulator = 0
+  p = rand
+
+  while p > target_cumulative
+    accumulator += 1
+    p *= rand
+  end
+
+  accumulator
+end
+
+# A pseudo-beta distribution in which smaller numbers are more likely
+def rand_beta
+  rand**2
+end
+
+# generate random time instants
+def time_rand(from = 0.0, to = Time.now)
+  Time.at(from + rand * (to.to_f - from.to_f))
+end
+
+# =============================================================================
+# load command-line arguments
+# =============================================================================
+
+options = App::BaseOptionParser.parse(ARGV, exp_conn: 2, pretty: false) do |parser, opts|
+  parser.on('-c NUM', '--conn=NUM', 'Expected outbound node connectivity (default: 2)') do |conn|
+    opts[:exp_conn] = conn.to_i
+  end
+
+  parser.on('-o FILE', '--out=FILE', 'Write output to FILE (defaults to stdout)') do |filename|
+    opts[:out_file] = filename
+  end
+
+  parser.on('-p', '--pretty', 'Pretty-print JSON') do |pretty|
+    opts[:pretty] = pretty
+  end
+end
+App.boot(options)
+
+# =============================================================================
+# build graph
+# =============================================================================
+
+# generate base set of nodes
+nodes = Person.all.map do |person|
+  name = person.name.to_s || 'Name Unknown'
+  birth = (person.birth[:date] && person.birth[:date].year.to_s) || '?'
+  death = (person.death[:date] && person.death[:date].year.to_s) || '?'
+
+  {
+    id: person.id,
+    label: "#{name} (#{birth}-#{death})",
+
+    # related nodes
+    relations: [],
+
+    metadata: {
+      # amount of influence this node has on exponential scale of 1 to 5
+      # each level of influence is 'e' times more influential than the previous
+      # smaller influence is more likely
+      influence: Math.exp((rand_beta * 5).floor).floor
+    }
+  }
+end
+
+nodes.each_with_index do |node, index|
+  # determine number of nodes this node references
+  # (no more than the number of nodes authored before)
+  degree = [rand_poisson(options[:exp_conn]), index + 1].min
+  node[:metadata][:degree] = degree
+
+  # form a lottery from preceding works weighted by each node's influence
+  lottery = nodes.take(index)
+                 .map { |n| [n] * n[:metadata][:influence] }
+                 .flatten
+                 .shuffle
+
+  # pick nodes from lottery for inclusion in related nodes
+  while node[:relations].size < degree && !lottery.empty?
+    candidate = lottery.pop
+    # related nodes must be unique
+    node[:relations] << candidate unless node[:relations].include? candidate
+  end
+
+  # reorder related nodes by author date
+  # node[:relations].sort_by! { |d| d[:id] }
+end
+
+# log relations to console
+if options[:verbose]
+  # compute inbound and outbound adjacency lists
+  adj_list = Hash.new { |h, k| h[k] = { in: [], out: [] } }
+  nodes.each do |source|
+    source[:relations].each do |target|
+      adj_list[source[:id]][:out] << target[:id]
+      adj_list[target[:id]][:in] << source[:id]
+    end
+  end
+
+  adj_list.each do |id, adj|
+    STDERR.write "#{id}: I(#{adj[:in].size}) #{adj[:in].join(', ')} / O(#{adj[:out].size}) #{adj[:out].join(', ')}\n"
+  end
+end
+
+# =============================================================================
+# finalize graph data model
+# =============================================================================
+
+edges = nodes.map do |source|
+  source[:relations].map do |target|
+    # select a random edge type
+    type = Relationship::Types.keys[(rand_beta * Relationship::Types.size).floor]
+
+    {
+      source: source[:id],
+      target: target[:id],
+      relation: type
+    }
+  end
+end.flatten
+
+nodes.each { |node| node.delete :relations }
+
+# =============================================================================
+# analyze graph for metrics
+# =============================================================================
+
+adjacency_list = {}
+nodes.each { |node| adjacency_list[node[:id]] = [] }
+edges.each { |edge| adjacency_list[edge[:source]] << edge[:target] }
+
+pagerank_by_id = pagerank(adjacency_list)
+nodes.each { |node| node[:metadata][:pagerank] = pagerank_by_id[node[:id]] }
+
+# =============================================================================
+# output graph
+# =============================================================================
+
+graph = {
+  graph: {
+    nodes: nodes,
+    edges: edges
+  }
+}
+
+def dump_json(graph, io, pretty)
+  io.write(pretty ? JSON.pretty_generate(graph) : JSON.dump(graph))
+end
+
+if options[:out_file]
+  File.open(options[:out_file], 'w') do |f|
+    dump_json(graph, f, options[:pretty])
+  end
+else
+  dump_json(graph, STDOUT, options[:pretty])
+end

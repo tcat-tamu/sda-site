@@ -1,0 +1,65 @@
+<md-dialog flex="50">
+
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h3>Relationship Editor</h3>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="vm.cancel()">
+        <md-icon>close</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <form name="relationship" ng-submit="vm.close()">
+    <md-dialog-content>
+      <div class="md-dialog-content" layout="column">
+        <md-input-container>
+          <label>type</label>
+          <md-select name="type" ng-model="vm.selectedType" ng-change="vm.setType(vm.selectedType)" required>
+            <md-option ng-repeat="type in vm.types" ng-value="type">
+              {{type.label}}
+            </md-option>
+          </md-select>
+          <div class="errors" ng-messages="relationship.type.$error" ng-if="relationship.$dirty">
+            <div ng-message="required">Required</div>
+          </div>
+        </md-input-container>
+
+        <md-autocomplete
+            md-items="work in vm.getResults(vm.searchText)"
+            md-item-text="work.label"
+            md-search-text="vm.searchText"
+            md-selected-item-change="vm.selectWork(work)"
+            placeholder="search works"
+            required>
+          <md-item-template>
+            <span md-highlight="vm.searchText" md-highlight-flags="^i">{{work.label}}</span>
+          </md-item-template>
+        </md-autocomplete>
+
+        <md-input-container ng-if="vm.targets && vm.targets.length > 1">
+          <label>target</label>
+          <md-select name="target" ng-model="vm.selectedTarget" ng-change="vm.setTarget(vm.selectedTarget)" required>
+            <md-option ng-repeat="target in vm.targets" ng-value="target">
+              {{target.label}}
+            </md-option>
+          </md-select>
+          <div class="errors" ng-messages="relationship.target.$error" ng-if="relationship.$dirty">
+            <div ng-message="required">Required</div>
+          </div>
+        </md-input-container>
+
+        <div class="summary">
+          <h2>Summary</h2>
+          <div ckeditor ng-model="vm.relationship.description"></div>
+        </div>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions>
+      <md-button ng-click="vm.cancel()">Cancel</md-button>
+      <md-button class="md-primary" type="submit">Done</md-button>
+    </md-dialog-actions>
+  </form>
+
+</md-dialog>

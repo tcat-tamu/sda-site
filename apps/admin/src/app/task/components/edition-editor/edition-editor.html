@@ -1,0 +1,107 @@
+<div layout="row">
+  <md-input-container flex>
+    <label>edition name</label>
+    <input type="text" ng-model="edition.editionName" required></input>
+  </md-input-container>
+</div>
+
+<section class="publication" layout="column">
+  <md-toolbar class="md-hue-3">
+    <div class="md-toolbar-tools">
+      <h2>Publication Information</h2>
+    </div>
+  </md-toolbar>
+  <publication-info-editor ng-model="edition.publicationInfo" flex></publication-info-editor>
+</section>
+
+<section class="titles" layout="column">
+  <md-toolbar class="md-hue-3">
+    <div class="md-toolbar-tools">
+      <h2>Titles</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="edition.titles.push({})">
+        <md-icon>add</md-icon>
+      </button>
+    </div>
+  </md-toolbar>
+  <div class="title" layout="row" ng-repeat="title in edition.titles">
+    <title-editor ng-model="title" flex></title-editor>
+    <md-input-container>
+      <md-button class="md-icon-button md-warn" ng-click="edition.titles.splice($index, 1)">
+        <md-icon>delete</md-icon>
+      </md-button>
+    </md-input-container>
+  </div>
+</section>
+
+<section class="authors" layout="column">
+  <md-toolbar class="md-hue-3">
+    <div class="md-toolbar-tools">
+      <h2>Authors</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="edition.authors.push({})">
+        <md-icon>add</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <div class="author" layout="row" ng-repeat="author in edition.authors">
+    <author-ref-editor ng-model="author" flex></author-ref-editor>
+    <md-input-container>
+      <md-button class="md-icon-button md-warn" ng-click="edition.authors.splice($index, 1)">
+        <md-icon>delete</md-icon>
+      </md-icon>
+    </md-input-container>
+  </div>
+</section>
+
+<section class="summary">
+  <h2>Summary</h2>
+  <summary-editor ng-model="edition.summary" flex></summary-editor>
+</section>
+
+<section class="volumes">
+  <md-toolbar class="md-hue-3">
+    <div class="md-toolbar-tools">
+      <h2>Volumes</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="vm.createVolume()">
+        <md-icon>add</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-whiteframe class="volume" layout="column" layout-margin ng-repeat="volume in vm.volumes" ng-class="{'md-whiteframe-2dp': !volume.focused, 'md-whiteframe-8dp': volume.focused}">
+    <h3 layout="row">
+      <div flex layout="row" layout-align="start center" ng-click="volume.focused = !volume.focused">
+        <md-icon>{{ edition.focused ? 'expand_less' : 'expand_more'}}</md-icon>
+        <span>Volume {{volume.model.volumeNumber}}</span>
+        <span flex></span>
+      </div>
+      <md-button class="md-icon-button md-warn" ng-click="vm.deleteVolume($index)">
+        <md-icon>delete</md-icon>
+      </md-button>
+    </h3>
+    <div class="slide" ng-show="volume.focused">
+      <volume-editor ng-model="volume.model" flex></volume-editor>
+    </div>
+  </md-whiteframe>
+</section>
+
+<section class="copies">
+  <md-toolbar class="md-hue-3">
+    <div class="md-toolbar-tools">
+      <h2>Digital Copies</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="edition.copies.push({})">
+        <md-icon>add</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <div class="copy" layout="column" ng-repeat="copy in edition.copies">
+    <div layout="row">
+      <copy-editor ng-model="copy" flex></copy-editor>
+      <md-button class="md-icon-button md-warn" ng-click="edition.copies.splice($index, 1)">
+        <md-icon>delete</md-icon>
+      </md-button>
+    </div>
+  </div>
+</section>

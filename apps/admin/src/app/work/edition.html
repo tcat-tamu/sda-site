@@ -1,0 +1,124 @@
+<nav layout="row" layout-padding>
+  <ol class="breadcrumbs" flex>
+    <li><a ui-sref="editor.work({workId: vm.work.id})">{{vm.workTitle.title}}{{vm.workTitle.title && vm.workTitle.subtitle ? ': ' : ''}}{{vm.workTitle.subtitle}}</a></li>
+    <li>{{vm.edition.editionName}}</li>
+  </ol>
+</nav>
+
+<div layout="row" layout-padding>
+  <div layout="column" flex="60">
+
+    <section class="content citation">
+      <div class="toolbar" layout="row" layout-align="start center">
+        <h2 class="content-heading">Bibliographic Information</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="vm.editBibInfo($event)">
+          <md-icon>edit</md-icon>
+        </md-button>
+      </div>
+      <p>
+        <span class="authors" ng-if="vm.edition.authors && vm.edition.authors.length > 0">
+          <span class="author" ng-repeat="author in vm.edition.authors">
+            <span ng-if="author.authorId">
+              <a ui-sref="editor.person({id: author.authorId})">{{author.lastName}}{{author.lastName && author.firstName ? ', ' : ''}}{{author.firstName}}</a>.
+            </span>
+            <span ng-if="!author.authorId">
+              {{author.lastName}}{{author.lastName && author.firstName ? ', ' : ''}}{{author.firstName}}.
+            </span>
+          </span>
+        </span>
+        <span class="title" ng-if="vm.title">
+          {{vm.title.title}}{{vm.title.title && vm.title.subtitle ? ': ' : ''}}{{vm.title.subtitle}}.
+        </span>
+        <span class="publication" ng-if="vm.edition.publicationInfo">
+          <span ng-if="vm.edition.publicationInfo.place">
+            <span class="place">{{vm.edition.publicationInfo.place}}</span>:
+          </span>
+          <span ng-if="vm.edition.publicationInfo.publisher">
+            <span class="publisher">{{vm.edition.publicationInfo.publisher}}</span>,
+          </span>
+          <span ng-if="vm.edition.publicationInfo.date">
+            <time class="date" datetime="{{vm.edition.publicationInfo.date.calendar}}">{{vm.edition.publicationInfo.date.description}}</time>.
+          </span>
+        </span>
+      </p>
+    </section>
+
+    <section class="content summary">
+      <div class="toolbar" layout="row" layout-align="start center">
+        <h2 class="content-heading">Summary</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="vm.editSummary($event)">
+          <md-icon>edit</md-icon>
+        </md-button>
+      </div>
+      <p ng-if="vm.edition.summary" ng-bind-html="vm.edition.summary"></p>
+    </section>
+
+    <section class="content volumes">
+      <div class="toolbar" layout="row" layout-align="start center">
+        <h2 class="content-heading">Volumes</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="vm.addVolume($event)">
+          <md-icon>add</md-icon>
+        </md-button>
+      </div>
+      <md-list>
+        <md-list-item ng-repeat="volume in vm.edition.volumes" ui-sref="editor.volume({workId: vm.work.id, editionId: vm.edition.id, volumeId: volume.id})">
+          <span>Volume {{volume.volumeNumber}}</span>
+          <md-button class="md-secondary md-icon-button md-warn" ng-click="vm.deleteVolume(volume, $event)">
+            <md-icon>delete</md-icon>
+          </md-button>
+        </md-list-item>
+      </md-list>
+    </section>
+
+  </div>
+
+  <div layout="column" flex="40">
+
+    <section class="content references">
+      <div class="toolbar" layout="row" layout-align="start center">
+        <h2 class="content-heading">Relationships</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="vm.addRelationship($event)">
+          <md-icon>add</md-icon>
+        </md-button>
+      </div>
+      <div ng-repeat="type in vm.relationships">
+        <h3 class="content-heading">{{type.label}}</h3>
+        <md-list>
+          <md-list-item ng-repeat="relationship in type.relationships" ng-click="vm.openRelationship(relationship)">
+            <span ng-repeat="entity in relationship.entities">{{entity.label}}.</span>
+            <md-button class="md-secondary md-warn md-icon-button" ng-click="vm.deleteRelationship(relationship, $event)">
+              <md-icon>delete</md-icon>
+            </md-button>
+          </md-list-item>
+        </md-list>
+      </div>
+    </section>
+
+    <section class="content copies">
+      <div class="toolbar" layout="row" layout-align="start center">
+        <h2 class="content-heading">Digital Copies</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="vm.addCopy($event)">
+          <md-icon>add</md-icon>
+        </md-button>
+      </div>
+      <md-list>
+        <md-list-item ng-repeat="copy in vm.edition.copies" ng-click="vm.editCopy(copy, $event)">
+          <span>{{copy.title}}</span>
+          <md-button class="md-secondary md-icon-button" ng-click="vm.copyToWork(copy)" aria-label="copy to parent work">
+            <md-icon>file_upload</md-icon>
+            <md-tooltip>Copy to Work</md-tooltip>
+          </md-button>
+          <md-button class="md-secondary md-icon-button md-warn" ng-click="vm.deleteCopy(copy, $event)">
+            <md-icon>delete</md-icon>
+          </md-button>
+        </md-list-item>
+      </md-list>
+    </section>
+
+  </div>
+</div>

@@ -1,0 +1,86 @@
+<div layout="row" layout-padding flex="noshrink">
+  <div flex="60">
+
+    <section class="content names">
+      <div class="toolbar" layout="row" layout-align="start center">
+        <h1 class="content-heading">{{vm.person.name.label}}</h1>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="vm.editBioInfo($event)">
+          <md-icon>edit</md-icon>
+        </md-button>
+      </div>
+      <div ng-if="vm.person.altNames && vm.person.altNames.length > 0">
+        <p>Other names:</p>
+        <ul>
+          <li ng-repeat="name in vm.person.altNames">{{name.label}}</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content summary">
+      <div class="toolbar" layout="row" layout-align="start center">
+        <h2 class="content-heading">Summary</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="vm.editSummary($event)">
+          <md-icon>edit</md-icon>
+        </md-button>
+      </div>
+      <p ng-if="vm.person.summary" ng-bind-html="vm.person.summary"></p>
+    </section>
+
+    <section class="content bibliography">
+      <div class="toolbar" layout="row" layout-align="start center">
+        <h2 class="content-heading">Bibliography</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="vm.editBibliography($event)">
+          <md-icon>edit</md-icon>
+        </md-button>
+      </div>
+      <bibliography collection="vm.references"></bibliography>
+    </section>
+
+  </div>
+  <div flex="40">
+
+    <section class="content birth">
+      <div class="toolbar" layout="row" layout-align="start center">
+        <h2 class="content-heading">Birth</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="vm.editEvent('birth', $event)">
+          <md-icon>edit</md-icon>
+        </md-button>
+      </div>
+      <p>
+        <span class="description" ng-if="vm.person.birth.date.description">{{vm.person.birth.date.description}}</span>
+        <span class="location" ng-if="vm.person.birth.location">in {{vm.person.birth.location}}</span>
+      </p>
+
+      <p ng-bind-html="vm.person.birth.description" ng-if="vm.person.birth.description"></p>
+    </section>
+
+    <section class="content death">
+      <div class="toolbar" layout="row" layout-align="start center">
+        <h2 class="content-heading">Death</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="vm.editEvent('death', $event)">
+          <md-icon>edit</md-icon>
+        </md-button>
+      </div>
+      <p>
+        <span class="description" ng-if="vm.person.death.date.description">{{vm.person.death.date.description}}</span>
+        <span class="location" ng-if="vm.person.death.location">in {{vm.person.death.location}}</span>
+      </p>
+
+      <p ng-bind-html="vm.person.death.description" ng-if="vm.person.death.description"></p>
+    </section>
+
+  </div>
+</div>
+<div layout="row" layout-align="end" layout-margin>
+  <div>
+    <md-button aria-label="Delete this person" class="md-warn md-icon-button" ng-click="vm.deletePerson($event, vm.person)">
+      <md-icon>delete</md-icon>
+      <md-tooltip md-direction="left">Delete</md-tooltip>
+    </md-button>
+  </div>
+</div>

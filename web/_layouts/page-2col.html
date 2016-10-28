@@ -1,0 +1,15 @@
+---
+layout: base
+---
+<main class="section--about flex layout-row layout-align-center">
+   <div class="container flex layout-xs-column layout-sm-column layout-md-row layout-gt-md-row">
+      <aside class="sidebar flex-md-33 flex-gt-md-25 layout-column">
+         <div class="content flex layout-column layout-padding">
+           {% include {{ page.sidebar }} %}
+         </div>
+      </aside>
+      <div class="content flex layout-padding">
+        {{ content }}
+      </div>
+   </div>
+</main>

@@ -1,0 +1,46 @@
+<form flex layout="column" layout-padding>
+  <!-- title editor bar -->
+  <md-content layout="row">
+    <md-input-container flex="60" layout-sm="column" layout-align="begin end">
+      <label>Title</label>
+      <input type="text" ng-model="vm.article.title">
+    </md-input-container>
+
+    <section flex="40" layout="row" layout-sm="column" layout-align="end center" layout-wrap>
+      <md-button class="md-raised" ng-click="vm.cancel()">Cancel</md-button>
+      <md-button class="md-raised md-primary" ng-click="vm.save()">Save</md-button>
+    </section>
+  </md-content>
+
+  <!-- TODO add space for authors -->
+  <!-- TODO add save button and auto-save -->
+  <!-- TODO add sidebar for notes, biblio, links, etc -->
+
+  <div id="article_editor" flex layout="column">
+    <div
+        ng-model="vm.article.body"
+        ckeditor="vm.editor.config"
+        ckeditor-bibliography="vm.references"
+        ckeditor-footnotes="vm.article.footnotes">
+    </div>
+
+    <md-tabs flex>
+      <md-tab label="Abstract">
+        <div ckeditor="vm.abstractEditor.config" ng-model="vm.article.abstract"></div>
+      </md-tab>
+      <md-tab label="Bibliography">
+        <bibliography collection="vm.references"></bibliography>
+      </md-tab>
+      <md-tab label="Footnotes">
+        <div class="footnotes" ng-repeat="footnote in vm.article.footnotes" layout="row">
+          <div class="footnote" ng-bind-html="footnote.content" flex></div>
+          <md-button class="md-icon-button" aria-label="edit footnote" ng-click="vm.editFootnote($event, footnote)">
+            <md-icon>edit</md-icon>
+            <md-tooltip>Edit Footnote</md-tooltip>
+          </md-button>
+        </div>
+      </md-tab>
+    </md-tabs>
+  </div>
+  <!-- TODO how to make this fill all available space -->
+</form>

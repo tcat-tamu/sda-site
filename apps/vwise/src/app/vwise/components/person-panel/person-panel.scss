@@ -1,0 +1,16 @@
+.panel .panel-person {
+  h1 {
+    padding: 0;
+    margin: 0;
+    font-size: 1.5em;
+
+    .panel-label {
+      display: inline-block;
+      padding: 0.5rem
+    }
+  }
+
+  .summary {
+    padding: 0.5rem;
+  }
+}

@@ -1,0 +1,16 @@
+<div layout="column">
+  <div layout="row">
+    <md-input-container flex>
+      <label>location</label>
+      <input type="text" ng-model="event.location">
+    </md-input-container>
+
+    <date-editor ng-model="event.date" flex></date-editor>
+  </div>
+  <div layout="row" layout-padding>
+    <div flex>
+      <h2>Description</h2>
+      <div flex ckeditor ng-model="event.description"></div>
+    </div>
+  </div>
+</div>

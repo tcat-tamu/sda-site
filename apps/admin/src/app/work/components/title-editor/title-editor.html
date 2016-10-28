@@ -1,0 +1,23 @@
+<div layout="row">
+  <md-input-container>
+    <label>type</label>
+    <md-select ng-model="title.type" required>
+      <md-option value="bibliographic">bibliographic</md-option>
+      <md-option value="canonical">canonical</md-option>
+      <md-option value="short">short</md-option>
+    </md-select>
+  </md-input-container>
+  <md-input-container flex>
+    <label>title</label>
+    <input type="text" ng-model="title.title" required>
+    <div ng-switch="title.type">
+      <small ng-switch-when="bibliographic">the full title as published on the work</small>
+      <small ng-switch-when="canonical">title by which the work is commonly known in the academic realm</small>
+      <small ng-switch-when="short">shortened title coloquially used by the public</small>
+    </div>
+  </md-input-container>
+  <md-input-container flex>
+    <label>subtitle</label>
+    <input type="text" ng-model="title.subtitle">
+  </md-input-container>
+</div>

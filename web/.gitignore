@@ -1,0 +1,11 @@
+/_site
+/.sass-cache
+.jekyll-metadata
+
+# these apps are built separately
+/admin
+/book-reader
+/concept-browser
+/library
+/reader
+/vwise
