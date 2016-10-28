@@ -1,0 +1,117 @@
+<md-toolbar class="layout-navbar" layout="row" layout-align="center">
+  <div class="md-toolbar-tools container" layout="row" layout-align="start stretch">
+    <div layout="row" layout-align="center center">
+      <md-button class="md-accent md-icon-button" ng-click="vm.toggleSidenav('left')" hide-gt-md>
+        <md-icon>menu</md-icon>
+      </md-button>
+      <a class="logo" href="/" layout="column" layout-align="center center">
+        <img src="/assets/images/sda-logo-light.png" alt="SDA" flex="nogrow">
+      </a>
+    </div>
+    <nav layout="column">
+      <ul class="nav" layout="row" flex>
+        <li ng-repeat="link in vm.navigation" ng-class="{active: link.url == '/research'}" layout="column">
+          <a ng-href="{{link.url}}" layout="row" layout-align="center center" flex>
+            <span>{{link.label}}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</md-toolbar>
+
+<div class="page-banner" layout="row" layout-align="center">
+  <div class="container" flex>
+    <h1>Research</h1>
+  </div>
+</div>
+
+<main layout="row" layout-align="center" flex>
+  <div class="container" layout="row" flex>
+    <md-sidenav md-component-id="left" class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-md')" layout="column">
+      <div layout="row" flex="none">
+        <md-input-container flex>
+          <label>search</label>
+          <md-icon>search</md-icon>
+          <input type="search" ng-model="query" ng-model-options="{debounce: 500}" ng-change="vm.search(query)">
+        </md-input-container>
+      </div>
+      <div layout="row" ng-if="vm.loading" layout-align="center center" flex>
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      </div>
+      <md-content ng-if="!vm.loading && vm.results" flex>
+        <md-subheader class="md-no-sticky collapse-handle" ng-click="hidePeople = !hidePeople">
+          <md-icon>{{hidePeople ? 'keyboard_arrow_right' : 'expand_more'}}</md-icon>
+          People
+        </md-subheader>
+        <md-list ng-if="vm.results.people" class="slide" ng-hide="hidePeople">
+          <md-list-item class="md-2-line" ng-repeat="person in vm.results.people" ui-sref=".person({id: person.id})">
+            <div class="md-list-item-text">
+              <h3>{{person.label}}</h3>
+              <p>{{person.summaryExcerpt}}</p>
+            </div>
+          </md-list-item>
+        </md-list>
+        <md-subheader class="md-no-sticky collapse-handle" ng-click="hideWorks = !hideWorks">
+          <md-icon>{{hideWorks ? 'keyboard_arrow_right' : 'expand_more'}}</md-icon>
+          Works
+        </md-subheader>
+        <md-list ng-if="vm.results.works" class="slide" ng-hide="hideWorks">
+          <md-list-item ng-repeat="work in vm.results.works" ui-sref=".book({id: work.id})">
+            <div class="md-list-item-text">
+              <p class="work-result-label">{{work.label}}</p>
+            </div>
+          </md-list-item>
+        </md-list>
+      </md-content>
+    </md-sidenav>
+    <div layout="column" flex ui-view>
+      <md-content flex layout="row" layout-padding layout-margin>
+        <section flex="66">
+          <h1>Overview</h1>
+          <p>
+            Scholarship on Special Divine Action is in practice dominated by a tiny handful of
+            historical texts, like a few islands emerging from a submerged landscape of connected
+            ideas. The SDA library reveals this landscape. The library contains around two
+            thousand key texts by more than a thousand authors, together with biographies,
+            summaries and relationships to assist scholars and students to explore their ideas,
+            debates, and influences.
+          </p>
+          <p>
+            This collection focuses on the period from the rise of early modern science, through
+            the Deist and Enlightenment debates, and into early modernism. This period sets the
+            stage for contemporary conflict narratives that pit science against religion, or the
+            arts, or the humanities generally, as well as the range of positions held today.
+          </p>
+          <h1>Tools</h1>
+          <div class="tools" layout="row" layout-align="center">
+            <a href="/influence-map">
+              <md-card>
+                <img src="/assets/images/tile-influence-map.png" class="md-card-image">
+                <md-card-content>
+                  <h3>Influence Map</h3>
+                </md-card-content>
+              </md-card>
+            </a>
+            <a href="/vwise">
+              <md-card>
+                <img src="/assets/images/tile-vwise.png" class="md-card-image">
+                <md-card-content>
+                  <h3>Visual Workspace</h3>
+                </md-card-content>
+              </md-card>
+            </a>
+          </div>
+        </section>
+        <aside class="starting-points" flex="33">
+          <h2>Starting Points</h2>
+          <md-list>
+            <md-list-item ng-repeat="book in vm.items">
+              <p><em>Title</em> by Author</p>
+            </md-list-item>
+          </md-list>
+        </aside>
+      </md-content>
+    </div>
+  </div>
+</main>

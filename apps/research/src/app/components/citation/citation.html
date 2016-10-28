@@ -1,0 +1,10 @@
+<work-authors class="authors" authors="$ctrl.authors"></work-authors>
+<work-title class="title" title="$ctrl.title"></work-title>
+<span class="edition" ng-if="$ctrl.edition">{{$ctrl.edition}}.</span>
+<span class="volume" ng-if="$ctrl.volume">{{$ctrl.volume}}.</span>
+
+<span class="pubinfo" ng-if="$ctrl.pubInfo.place || $ctrl.pubInfo.publisher || $ctrl.pubInfo.date.description">
+  (<span class="place" ng-if="$ctrl.pubInfo.place">{{$ctrl.pubInfo.place}},</span>
+  <span class="publisher" ng-if="$ctrl.pubInfo.publisher">{{$ctrl.pubInfo.publisher}}.</span>
+  <time class="date" ng-if="$ctrl.pubInfo.date.description" datetime="{{$ctrl.pubInfo.date.calendar}}">{{$ctrl.pubInfo.date.description}}</time>)
+</span>

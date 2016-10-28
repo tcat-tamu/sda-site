@@ -1,8 +1,8 @@
-- label: Library
-  url: /library
+- label: Research
+  url: /research
 
-- label: Reader
-  url: /reader
+- label: Themes
+  url: /themes
 
 - label: Media
   url: /media

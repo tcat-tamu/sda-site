@@ -1,0 +1,14 @@
+<div layout="column" layout-padding flex>
+  <div>
+    <h1 class="md-title title">
+      <work-title title="$ctrl.work.titles"></work-title>
+    </h1>
+    <p class="by-line">by <work-authors authors="$ctrl.work.authors"></work-authors></p>
+  </div>
+  <collapsible-summary ng-if="$ctrl.work.summary" content="$ctrl.work.summary"></collapsible-summary>
+  <div flex></div>
+  <div ng-if="$ctrl.related.length > 0">
+    <h2>Related Books</h2>
+    <related-nodes related="$ctrl.related" activate="$ctrl.activate({$node: $node})"></related-nodes>
+  </div>
+</div>

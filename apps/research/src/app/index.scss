@@ -1,0 +1,154 @@
+// bower:scss
+// endbower
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../../bower_components/material-design-icons/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(../../bower_components/material-design-icons/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+       url(../../bower_components/material-design-icons/iconfont/MaterialIcons-Regular.woff) format('woff'),
+       url(../../bower_components/material-design-icons/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+md-toolbar {
+  .logo {
+    display: flex;
+    flex-direction: column;
+
+    img {
+      margin-right: 2rem;
+      max-height: 43px;
+    }
+  }
+
+  h1 {
+    font-family: inherit;
+    color: inherit;
+  }
+
+  ul.nav {
+    font-size: 16px;
+    list-style: none;
+    margin: 0 0 0 2rem;
+    padding: 0;
+
+    li {
+      a {
+        text-decoration: none;
+        outline: 0;
+        padding: 0 1rem;
+        text-align: center;
+        position: relative;
+        color: #b88554;
+
+        &:active, &:focus, &:hover {
+          background-color: rgba(#fff, 0.05);
+        }
+      }
+
+      &.active a {
+        background-color: rgba(#fff, 0.05);
+
+        &:before {
+          display: block;
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background: #a47140;
+        }
+      }
+    }
+  }
+}
+
+md-sidenav {
+  background: #f0f3f0;
+  md-content {
+    background: transparent;
+  }
+}
+
+.md-subheader.collapse-handle {
+  cursor: pointer;
+}
+
+.page-banner {
+  overflow: hidden;
+  background-image: url('/assets/images/banners/slider-floating-books.jpg');
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+  color: #fff;
+
+  h1 {
+    margin: 0;
+    color: inherit;
+  }
+
+  .subtitle {
+    font-size: 2em;
+  }
+
+  .container {
+    padding: 7rem 0; // TODO needs less padding on smaller screens
+    background-color: rgba(#000, 0.4);
+  }
+}
+
+.container {
+  max-width: 1600px;
+}
+
+.title {
+  font-style: italic;
+}
+
+p.work-result-label {
+  $result-item-indent: 1rem;
+  line-height: 1.3;
+  margin: 1rem 0;
+  text-indent: -$result-item-indent;
+  padding-left: $result-item-indent;
+}
+
+
+// injector
+// endinjector

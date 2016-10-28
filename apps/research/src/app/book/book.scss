@@ -1,0 +1,50 @@
+h1.title {
+  margin-bottom: 0;
+}
+
+p.by-line {
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+citation {
+  display: block;
+  text-indent: -2em;
+  padding-left: 2em;
+  line-height: 1.5;
+}
+
+.editions > .edition {
+  margin: 1em 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .handle {
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 1em;
+    line-height: 1;
+    margin: 0;
+    color: #000;
+    cursor: pointer;
+    background: #eee8de;
+  }
+
+  .volumes > .volume {
+    margin: 1em 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .handle {
+      background: #ddd;
+    }
+  }
+
+  .slide {
+    padding: 1em;
+  }
+}

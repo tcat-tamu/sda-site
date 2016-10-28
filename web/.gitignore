@@ -5,7 +5,7 @@
 # these apps are built separately
 /admin
 /book-reader
-/concept-browser
-/library
-/reader
+/influence-map
+/research
+/themes
 /vwise

@@ -6,11 +6,13 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, $mdThemingProvider, worksRepoProvider) {
+  function config($logProvider, $mdThemingProvider, worksRepoProvider, relnRepoProvider, googleBooksApiProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
     worksRepoProvider.url = '/api/catalog/works';
+    relnRepoProvider.url = '/api/catalog/relationships';
+    googleBooksApiProvider.configure({ preventLoad: true });
 
     $mdThemingProvider.definePalette('darkBrown', {
       '50': '#595c59',

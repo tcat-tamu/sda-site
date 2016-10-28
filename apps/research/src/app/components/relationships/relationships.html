@@ -1,0 +1,13 @@
+<div ng-repeat="group in $ctrl.relns">
+  <md-subheader class="md-no-sticky collapse-handle" ng-click="group.visible = !group.visible">
+    <md-icon>{{group.visible ? 'expand_more' : 'keyboard_arrow_right'}}</md-icon>
+    {{group.label}}
+  </md-subheader>
+  <md-list class="slide" ng-show="group.visible">
+    <div ng-repeat="reln in group.relationships">
+      <md-list-item ng-repeat="entity in reln.entities" ui-sref="library.book({id: entity.refParams.workId})" aria-label="{{entity.entity.titles | workTitle}}">
+        <citation authors="entity.entity.authors" title="entity.entity.titles" pub-info="entity.entity.publicationInfo" edition="entity.entity.editionName" volume="entity.entity.volumeNumber"></citation>
+      </md-list-item>
+    </div>
+  </md-list>
+</div>

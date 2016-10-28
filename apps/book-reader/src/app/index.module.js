@@ -11,7 +11,8 @@
       'ngResource',
       'ui.router',
       'ngMaterial',
-      'trcBiblio'
+      'trcBiblio',
+      'trcReln'
     ]);
 
 })();
