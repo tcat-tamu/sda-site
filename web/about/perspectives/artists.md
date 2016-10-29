@@ -1,6 +1,6 @@
 ---
 layout: page-2col
-title: Perspectives on SDA: Artists
+title: "Perspectives on SDA: Artists"
 permalink: /about/perspectives/artists
 
 banner: slider-people.jpg

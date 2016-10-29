@@ -1,6 +1,6 @@
 ---
 layout: page-2col
-title: Perspectives on SDA: Atheists
+title: "Perspectives on SDA: Atheists"
 permalink: /about/perspectives/atheists
 
 banner: slider-people.jpg

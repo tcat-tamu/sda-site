@@ -1,6 +1,6 @@
 ---
 layout: page-2col
-title: Perspectives on SDA: Anyone
+title: "Perspectives on SDA: Anyone"
 permalink: /about/perspectives/theologian
 
 banner: slider-people.jpg

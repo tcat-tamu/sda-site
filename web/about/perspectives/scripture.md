@@ -1,6 +1,6 @@
 ---
 layout: page-2col
-title: Perspectives on SDA: Scripture Scholars
+title: "Perspectives on SDA: Scripture Scholars"
 permalink: /about/perspectives/theologian
 
 banner: slider-people.jpg

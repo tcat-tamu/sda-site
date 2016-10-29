@@ -1,6 +1,6 @@
 ---
 layout: page-2col
-title: Perspectives on SDA: Teachers
+title: "Perspectives on SDA: Teachers"
 permalink: /about/perspectives/teachers
 
 banner: slider-people.jpg

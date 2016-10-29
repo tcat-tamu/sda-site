@@ -1,6 +1,6 @@
 ---
 layout: page-2col
-title: Perspectives on SDA: Ministers of Religion
+title: "Perspectives on SDA: Ministers of Religion"
 permalink: /about/perspectives/minister
 
 banner: slider-people.jpg

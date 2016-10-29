@@ -1,6 +1,6 @@
 ---
 layout: page-2col
-title: Perspectives on SDA: Literary Scholars
+title: "Perspectives on SDA: Literary Scholars"
 permalink: /about/perspectives/literary
 
 banner: slider-people.jpg

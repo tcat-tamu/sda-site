@@ -1,6 +1,6 @@
 ---
 layout: page-2col
-title: Perspectives on SDA: Psychologists and Sociologists
+title: "Perspectives on SDA: Psychologists and Sociologists"
 permalink: /about/perspectives/psychologists
 
 banner: slider-people.jpg

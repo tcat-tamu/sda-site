@@ -1,6 +1,6 @@
 ---
 layout: page-2col
-title: Perspectives on SDA: Scientists
+title: "Perspectives on SDA: Scientists"
 permalink: /about/perspectives/scientists
 
 banner: slider-people.jpg

@@ -1,6 +1,6 @@
 ---
 layout: page-2col
-title: Perspectives on SDA: philosophers
+title: "Perspectives on SDA: philosophers"
 permalink: /about/perspectives/philosophers
 
 banner: slider-people.jpg
