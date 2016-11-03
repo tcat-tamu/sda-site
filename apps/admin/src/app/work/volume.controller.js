@@ -6,7 +6,7 @@
     .controller('ShowVolumeController', ShowVolumeController);
 
   /** @ngInject */
-  function ShowVolumeController($state, $stateParams, worksRepo, relnRepo, _, $mdDialog, $mdToast, $q, $timeout, relnEditDialog, copyEditDialog) {
+  function ShowVolumeController($state, $stateParams, worksRepo, relnRepo, _, $mdDialog, $mdToast, $q, $timeout, volumeEditDialog, relnEditDialog, copyEditDialog) {
     var vm = this;
 
     vm.loading = true;
@@ -70,18 +70,7 @@
     }
 
     function editBibInfo($event) {
-      var dialog = {
-        targetEvent: $event,
-        templateUrl: 'app/work/volume-edit-dialog.html',
-        locals: {
-          // create a copy for manipulation
-          volume: angular.copy(vm.volume)
-        },
-        controller: 'VolumeEditDialogController',
-        controllerAs: 'vm'
-      };
-
-      var dialogPromise = $mdDialog.show(dialog);
+      var dialogPromise = $mdDialog.show($event, angular.copy(vm.volume));
 
       dialogPromise.then(function (updatedVolume) {
         // copy updates back to original only after dialog is positively dismissed (i.e. not canceled)

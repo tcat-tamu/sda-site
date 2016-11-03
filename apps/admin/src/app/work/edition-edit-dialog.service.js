@@ -3,7 +3,28 @@
 
   angular
     .module('sdaAdmin')
-    .controller('EditionEditDialogController', EditionEditDialogController);
+    .factory('editionEditDialog', editionEditDialogFactory);
+
+  /** @ngInject */
+  function editionEditDialogFactory($mdDialog) {
+    return {
+      show: showDialog
+    };
+
+    function showDialog($event, edition) {
+      var dialog = {
+        targetEvent: $event,
+        templateUrl: 'app/work/edition-edit-dialog.html',
+        locals: {
+          edition: edition
+        },
+        controller: EditionEditDialogController,
+        controllerAs: 'vm'
+      };
+
+      return $mdDialog.show(dialog);
+    }
+  }
 
   /** @ngInject */
   function EditionEditDialogController($mdDialog, edition) {

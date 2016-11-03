@@ -6,7 +6,7 @@
     .controller('ShowEditionController', ShowEditionController);
 
   /** @ngInject */
-  function ShowEditionController($state, $stateParams, worksRepo, relnRepo, _, $mdDialog, $mdToast, $q, $timeout, relnEditDialog, copyEditDialog) {
+  function ShowEditionController($state, $stateParams, worksRepo, relnRepo, _, $mdDialog, $mdToast, $q, $timeout, editionEditDialog, relnEditDialog, copyEditDialog) {
     var vm = this;
 
     vm.loading = true;
@@ -69,18 +69,7 @@
     }
 
     function editBibInfo($event) {
-      var dialog = {
-        targetEvent: $event,
-        templateUrl: 'app/work/edition-edit-dialog.html',
-        locals: {
-          // create a copy for manipulation
-          edition: angular.copy(vm.edition)
-        },
-        controller: 'EditionEditDialogController',
-        controllerAs: 'vm'
-      };
-
-      var dialogPromise = $mdDialog.show(dialog);
+      var dialogPromise = editionEditDialog.show($event, angular.copy(vm.edition));
 
       dialogPromise.then(function (updatedEdition) {
         // copy updates back to original only after dialog is positively dismissed (i.e. not canceled)
