@@ -6,7 +6,7 @@
     .controller('ShowPersonController', ShowPersonController);
 
   /** @ngInject */
-  function ShowPersonController(peopleRepo, refsRepoFactory, $log, $state, $stateParams, $mdDialog, $mdToast, _, personEditDialog, eventEditDialog, citationEditDialog, summaryEditDialog) {
+  function ShowPersonController(peopleRepo, refsRepoFactory, articlesRepo, $log, $state, $stateParams, $mdDialog, $mdToast, _, personEditDialog, eventEditDialog, citationEditDialog, summaryEditDialog) {
     var refsRepo = null;
     var vm = this;
 
@@ -17,6 +17,7 @@
     vm.editEvent = editEvent;
     vm.editSummary = editSummary;
     vm.editBibliography = editBibliography;
+    vm.createBiographyArticle = createBiographyArticle;
     vm.deletePerson = deletePerson;
 
     activate();
@@ -120,6 +121,37 @@
 
         return $mdToast.show(toast);
       }
+    }
+
+    function createBiographyArticle($event, person) {
+      // prompt for article title
+      var articleTitleDialog = $mdDialog.prompt({
+        targetEvent: $event,
+        title: 'Create Biography',
+        textContent: 'You are creating a new article attached to this person. Please enter a title for this article.',
+        initialValue: person.name.label,
+        ok: 'Create',
+        cancel: 'Cancel'
+      });
+
+      var titleP = $mdDialog.show(articleTitleDialog);
+
+      titleP.then(function (title) {
+        var articleP = articlesRepo.createLinked('biography', title, person.ref.token);
+
+        // redirect to article editor
+        articleP.then(function (article) {
+          $state.go('article.edit', {
+            id: article.id
+          });
+        }, function () {
+          var toast = $mdToast.simple()
+          .textContent('Unable to create article.')
+          .position('bottom right');
+
+          return $mdToast.show(toast);
+        });
+      });
     }
 
     function showSavedToast() {
