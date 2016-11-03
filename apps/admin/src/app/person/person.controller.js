@@ -6,7 +6,7 @@
     .controller('ShowPersonController', ShowPersonController);
 
   /** @ngInject */
-  function ShowPersonController(peopleRepo, refsRepoFactory, $log, $state, $stateParams, $mdDialog, $mdToast, _, citationEditDialog) {
+  function ShowPersonController(peopleRepo, refsRepoFactory, $log, $state, $stateParams, $mdDialog, $mdToast, _, personEditDialog, eventEditDialog, citationEditDialog, summaryEditDialog) {
     var refsRepo = null;
     var vm = this;
 
@@ -46,18 +46,7 @@
     }
 
     function editBioInfo($event) {
-      var dialog = {
-        targetEvent: $event,
-        templateUrl: 'app/person/person-edit-dialog.html',
-        locals: {
-          // create a copy for manipulation
-          person: angular.copy(vm.person)
-        },
-        controller: 'PersonEditDialogController',
-        controllerAs: 'vm'
-      };
-
-      var dialogPromise = $mdDialog.show(dialog);
+      var dialogPromise = personEditDialog.show($event, angular.copy(vm.person));
 
       dialogPromise.then(function (updatedPerson) {
         // copy updates back to original only after dialog is positively dismissed (i.e. not canceled)
@@ -68,18 +57,7 @@
     }
 
     function editEvent(field, $event) {
-      var dialog = {
-        targetEvent: $event,
-        templateUrl: 'app/person/event-edit-dialog.html',
-        locals: {
-          // create a copy for manipulation
-          event: angular.copy(vm.person[field])
-        },
-        controller: 'EventEditDialogController',
-        controllerAs: 'vm'
-      };
-
-      var dialogPromise = $mdDialog.show(dialog);
+      var dialogPromise = eventEditDialog.show($event, angular.copy(vm.person[field]));
 
       dialogPromise.then(function (updatedEvent) {
         // copy updates back to original only after dialog is positively dismissed (i.e. not canceled)
@@ -90,18 +68,7 @@
     }
 
     function editSummary($event) {
-      var dialog = {
-        targetEvent: $event,
-        templateUrl: 'app/components/summary-edit-dialog/summary-edit-dialog.html',
-        locals: {
-          // create a copy for manipulation (even if it is just a string)
-          summary: angular.copy(vm.person.summary)
-        },
-        controller: 'SummaryEditDialogController',
-        controllerAs: 'vm'
-      };
-
-      var dialogPromise = $mdDialog.show(dialog);
+      var dialogPromise = summaryEditDialog.show($event, angular.copy(vm.person.summary));
 
       dialogPromise.then(function (updatedSummary) {
         // copy updates back to original only after dialog is positively dismissed (i.e. not canceled)

@@ -6,7 +6,7 @@
     .controller('ShowWorkController', ShowWorkController);
 
   /** @ngInject */
-  function ShowWorkController($state, $stateParams, worksRepo, relnRepo, refsRepoFactory, $mdDialog, $mdToast, $q, $timeout, citationEditDialog) {
+  function ShowWorkController($state, $stateParams, worksRepo, relnRepo, refsRepoFactory, $mdDialog, $mdToast, $q, $timeout, workEditDialog, relnEditDialog, copyEditDialog, citationEditDialog, summaryEditDialog) {
     var refsRepo = null;
     var vm = this;
 
@@ -66,18 +66,7 @@
     }
 
     function editBibInfo($event) {
-      var dialog = {
-        targetEvent: $event,
-        templateUrl: 'app/work/work-edit-dialog.html',
-        locals: {
-          // create a copy for manipulation
-          work: angular.copy(vm.work)
-        },
-        controller: 'WorkEditDialogController',
-        controllerAs: 'vm'
-      };
-
-      var dialogPromise = $mdDialog.show(dialog);
+      var dialogPromise = workEditDialog.show($event, angular.copy(vm.work));
 
       dialogPromise.then(function (updatedWork) {
         // copy updates back to original only after dialog is positively dismissed (i.e. not canceled)
@@ -88,18 +77,7 @@
     }
 
     function editSummary($event) {
-      var dialog = {
-        targetEvent: $event,
-        templateUrl: 'app/components/summary-edit-dialog/summary-edit-dialog.html',
-        locals: {
-          // create a copy for manipulation (even if it is just a string)
-          summary: angular.copy(vm.work.summary)
-        },
-        controller: 'SummaryEditDialogController',
-        controllerAs: 'vm'
-      };
-
-      var dialogPromise = $mdDialog.show(dialog);
+      var dialogPromise = summaryEditDialog.show($event, angular.copy(vm.work.summary));
 
       dialogPromise.then(function (updatedSummary) {
         // copy updates back to original only after dialog is positively dismissed (i.e. not canceled)
@@ -171,19 +149,7 @@
     }
 
     function editCopy(copy, $event) {
-      var dialog = {
-        targetEvent: $event,
-        templateUrl: 'app/work/copy-edit-dialog.html',
-        locals: {
-          // create a copy for manipulation
-          copy: angular.copy(copy)
-        },
-        controller: 'CopyEditDialogController',
-        controllerAs: 'vm'
-      };
-
-      var dialogPromise = $mdDialog.show(dialog);
-
+      var dialogPromise = copyEditDialog.show($event, angular.copy(copy));
       dialogPromise.then(function (updatedCopy) {
         // copy updates back to original only after dialog is positively dismised (i.e. not canceled)
         angular.extend(copy, updatedCopy);
@@ -220,21 +186,7 @@
 
     function addRelationship($event) {
       var relationship = relnRepo.createRelationship();
-
-      var dialog = {
-        targetEvent: $event,
-        templateUrl: 'app/work/relationship-edit-dialog.html',
-        locals: {
-          // create a copy for manipulation
-          relationship: angular.copy(relationship),
-          currentUri: getCurrentUri()
-        },
-        controller: 'RelationshipEditDialogController',
-        controllerAs: 'vm'
-      };
-
-      var dialogPromise = $mdDialog.show(dialog);
-
+      var dialogPromise = relnEditDialog.show($event, angular.copy(relationship), getCurrentUri());
       var savePromise = dialogPromise.then(function (updatedRelationship) {
         // copy updates back to original only after dialog is positively dismised (i.e. not canceled)
         angular.extend(relationship, updatedRelationship);

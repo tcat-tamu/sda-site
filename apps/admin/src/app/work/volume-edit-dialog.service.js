@@ -3,7 +3,28 @@
 
   angular
     .module('sdaAdmin')
-    .controller('VolumeEditDialogController', VolumeEditDialogController);
+    .factory('volumeEditDialog', volumeEditDialogFactory);
+
+  /** @ngInject */
+  function volumeEditDialogFactory($mdDialog) {
+    return {
+      show: showDialog
+    };
+
+    function showDialog($event, volume) {
+      var dialog = {
+        targetEvent: $event,
+        templateUrl: 'app/work/volume-edit-dialog.html',
+        locals: {
+          volume: volume
+        },
+        controller: VolumeEditDialogController,
+        controllerAs: 'vm'
+      };
+
+      return $mdDialog.show(dialog);
+    }
+  }
 
   /** @ngInject */
   function VolumeEditDialogController($mdDialog, volume) {

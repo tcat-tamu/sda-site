@@ -3,7 +3,28 @@
 
   angular
     .module('sdaAdmin')
-    .controller('WorkEditDialogController', WorkEditDialogController);
+    .factory('workEditDialog', workEditDialogFactory);
+
+  /** @ngInject */
+  function workEditDialogFactory($mdDialog) {
+    return {
+      show: showDialog
+    };
+
+    function showDialog($event, work) {
+      var dialog = {
+        targetEvent: $event,
+        templateUrl: 'app/work/work-edit-dialog.html',
+        locals: {
+          work: work
+        },
+        controller: WorkEditDialogController,
+        controllerAs: 'vm'
+      };
+
+      return $mdDialog.show(dialog);
+    }
+  }
 
   /** @ngInject */
   function WorkEditDialogController($mdDialog, work) {

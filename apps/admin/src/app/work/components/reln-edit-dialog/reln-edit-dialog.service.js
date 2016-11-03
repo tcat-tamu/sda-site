@@ -3,7 +3,31 @@
 
   angular
     .module('sdaAdmin')
-    .controller('RelationshipEditDialogController', RelationshipEditDialogController);
+    .factory('relnEditDialog', relnEditDialogFactory);
+
+  /** @ngInject */
+  function relnEditDialogFactory($mdDialog) {
+    return {
+      show: showDialog
+    };
+
+    function showDialog($event, reln, currentUri) {
+
+      var dialog = {
+        targetEvent: $event,
+        templateUrl: 'app/work/components/reln-edit-dialog/reln-edit-dialog.html',
+        locals: {
+          relationship: reln,
+          currentUri: currentUri
+        },
+        controller: RelationshipEditDialogController,
+        controllerAs: 'vm'
+      };
+
+      return $mdDialog.show(dialog);
+
+    }
+  }
 
   /** @ngInject */
   function RelationshipEditDialogController($mdDialog, worksRepo, relnRepo, currentUri, relationship) {
@@ -33,7 +57,7 @@
       vm.relationship.targetEntities = [vm.target];
 
       var self = relnRepo.createAnchor();
-      self.entryUris = [currentUri];
+      self.relatedEntities = [currentUri];
       vm.relationship.relatedEntities = [self];
 
       vm.relationship.descriptionMimeType = 'text/html';
