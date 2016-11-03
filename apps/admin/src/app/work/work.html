@@ -119,9 +119,13 @@
 </div>
 <div layout="row" layout-align="end" layout-margin>
   <div>
+    <md-button class="md-icon-button" aria-label="Create Book Review" ng-click="vm.createBookReview($event, vm.work)">
+      <md-icon>assignment</md-icon>
+      <md-tooltip direction="top">Create Book Review</md-tooltip>
+    </md-button>
     <md-button aria-label="Delete this work" class="md-warn md-icon-button" ng-click="vm.deleteWork($event, vm.work)">
       <md-icon>delete</md-icon>
-      <md-tooltip md-direction="left">Delete</md-tooltip>
+      <md-tooltip md-direction="top">Delete</md-tooltip>
     </md-button>
   </div>
 </div>
