@@ -29,7 +29,7 @@
         <div ckeditor="vm.abstractEditor.config" ng-model="vm.article.abstract"></div>
       </md-tab>
       <md-tab label="Bibliography">
-        <bibliography collection="vm.references"></bibliography>
+        <bibliography refs="vm.references" style-id="mla"></bibliography>
       </md-tab>
       <md-tab label="Footnotes">
         <div class="footnotes" ng-repeat="footnote in vm.article.footnotes" layout="row">
