@@ -6,7 +6,7 @@
     .controller('ShowPersonController', ShowPersonController);
 
   /** @ngInject */
-  function ShowPersonController(peopleRepo, refsRepoFactory, $log, $state, $stateParams, $mdDialog, $mdToast, _, citationEditDialog, summaryEditDialog) {
+  function ShowPersonController(peopleRepo, refsRepoFactory, $log, $state, $stateParams, $mdDialog, $mdToast, _, personEditDialog, citationEditDialog, summaryEditDialog) {
     var refsRepo = null;
     var vm = this;
 
@@ -46,18 +46,7 @@
     }
 
     function editBioInfo($event) {
-      var dialog = {
-        targetEvent: $event,
-        templateUrl: 'app/person/person-edit-dialog.html',
-        locals: {
-          // create a copy for manipulation
-          person: angular.copy(vm.person)
-        },
-        controller: 'PersonEditDialogController',
-        controllerAs: 'vm'
-      };
-
-      var dialogPromise = $mdDialog.show(dialog);
+      var dialogPromise = personEditDialog.show($event, angular.copy(vm.person));
 
       dialogPromise.then(function (updatedPerson) {
         // copy updates back to original only after dialog is positively dismissed (i.e. not canceled)

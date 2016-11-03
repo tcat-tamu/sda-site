@@ -3,7 +3,28 @@
 
   angular
     .module('sdaAdmin')
-    .controller('PersonEditDialogController', PersonEditDialogController);
+    .factory('personEditDialog', personEditDialogFactory);
+
+  /** @ngInject */
+  function personEditDialogFactory($mdDialog) {
+    return {
+      show: showDialog
+    };
+
+    function showDialog($event, person) {
+      var dialog = {
+        targetEvent: $event,
+        templateUrl: 'app/person/person-edit-dialog.html',
+        locals: {
+          person: person
+        },
+        controller: PersonEditDialogController,
+        controllerAs: 'vm'
+      };
+
+      return $mdDialog.show(dialog);
+    }
+  }
 
   /** @ngInject */
   function PersonEditDialogController(peopleRepo, $mdDialog, person) {
