@@ -6,7 +6,7 @@
     .controller('ShowWorkController', ShowWorkController);
 
   /** @ngInject */
-  function ShowWorkController($state, $stateParams, worksRepo, relnRepo, refsRepoFactory, $mdDialog, $mdToast, $q, $timeout, citationEditDialog) {
+  function ShowWorkController($state, $stateParams, worksRepo, relnRepo, refsRepoFactory, $mdDialog, $mdToast, $q, $timeout, relnEditDialog, citationEditDialog) {
     var refsRepo = null;
     var vm = this;
 
@@ -220,21 +220,7 @@
 
     function addRelationship($event) {
       var relationship = relnRepo.createRelationship();
-
-      var dialog = {
-        targetEvent: $event,
-        templateUrl: 'app/work/relationship-edit-dialog.html',
-        locals: {
-          // create a copy for manipulation
-          relationship: angular.copy(relationship),
-          currentUri: getCurrentUri()
-        },
-        controller: 'RelationshipEditDialogController',
-        controllerAs: 'vm'
-      };
-
-      var dialogPromise = $mdDialog.show(dialog);
-
+      var dialogPromise = relnEditDialog.show($event, angular.copy(relationship), getCurrentUri());
       var savePromise = dialogPromise.then(function (updatedRelationship) {
         // copy updates back to original only after dialog is positively dismised (i.e. not canceled)
         angular.extend(relationship, updatedRelationship);

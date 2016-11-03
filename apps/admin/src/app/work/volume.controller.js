@@ -6,7 +6,7 @@
     .controller('ShowVolumeController', ShowVolumeController);
 
   /** @ngInject */
-  function ShowVolumeController($state, $stateParams, worksRepo, relnRepo, _, $mdDialog, $mdToast, $q, $timeout) {
+  function ShowVolumeController($state, $stateParams, worksRepo, relnRepo, _, $mdDialog, $mdToast, $q, $timeout, relnEditDialog) {
     var vm = this;
 
     vm.loading = true;
@@ -184,21 +184,7 @@
 
     function addRelationship($event) {
       var relationship = relnRepo.createRelationship();
-
-      var dialog = {
-        targetEvent: $event,
-        templateUrl: 'app/work/relationship-edit-dialog.html',
-        locals: {
-          // create a copy for manipulation
-          relationship: angular.copy(relationship),
-          currentUri: getCurrentUri()
-        },
-        controller: 'RelationshipEditDialogController',
-        controllerAs: 'vm'
-      };
-
-      var dialogPromise = $mdDialog.show(dialog);
-
+      var dialogPromise = relnEditDialog.show($event, angular.copy(relationship), getCurrentUri());
       var savePromise = dialogPromise.then(function (updatedRelationship) {
         // copy updates back to original only after dialog is positively dismised (i.e. not canceled)
         angular.extend(relationship, updatedRelationship);
