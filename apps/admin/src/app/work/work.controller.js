@@ -6,7 +6,7 @@
     .controller('ShowWorkController', ShowWorkController);
 
   /** @ngInject */
-  function ShowWorkController($state, $stateParams, worksRepo, relnRepo, refsRepoFactory, $mdDialog, $mdToast, $q, $timeout, relnEditDialog, citationEditDialog) {
+  function ShowWorkController($state, $stateParams, worksRepo, relnRepo, refsRepoFactory, $mdDialog, $mdToast, $q, $timeout, relnEditDialog, copyEditDialog, citationEditDialog) {
     var refsRepo = null;
     var vm = this;
 
@@ -171,19 +171,7 @@
     }
 
     function editCopy(copy, $event) {
-      var dialog = {
-        targetEvent: $event,
-        templateUrl: 'app/work/copy-edit-dialog.html',
-        locals: {
-          // create a copy for manipulation
-          copy: angular.copy(copy)
-        },
-        controller: 'CopyEditDialogController',
-        controllerAs: 'vm'
-      };
-
-      var dialogPromise = $mdDialog.show(dialog);
-
+      var dialogPromise = copyEditDialog.show($event, angular.copy(copy));
       dialogPromise.then(function (updatedCopy) {
         // copy updates back to original only after dialog is positively dismised (i.e. not canceled)
         angular.extend(copy, updatedCopy);
