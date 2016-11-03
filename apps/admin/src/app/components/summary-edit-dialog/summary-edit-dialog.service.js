@@ -3,7 +3,7 @@
 
   angular
     .module('sdaAdmin')
-    .controller('summaryEditDialog', summaryEditDialogFactory);
+    .factory('summaryEditDialog', summaryEditDialogFactory);
 
   /** @ngInject */
   function summaryEditDialogFactory($mdDialog) {
