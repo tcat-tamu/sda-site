@@ -57,12 +57,12 @@
         // TODO need to offer option of create or link
         // TODO magic string
 
-        var type = "overviews";
+        var type = 'thematic';
         var title = node.label;
 
         // TODO  display prompt dialog, allow entry of title, selection of type (but not)
         // TODO error handling!!
-        var article = articlesRepo.create("overviews", title);
+        var article = articlesRepo.create(type, title);
         var articlePromise = articlesRepo.save(article);
         var linkPromise = articlePromise.then(linkArticle);
 
