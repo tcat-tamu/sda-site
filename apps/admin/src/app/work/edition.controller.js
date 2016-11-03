@@ -6,7 +6,7 @@
     .controller('ShowEditionController', ShowEditionController);
 
   /** @ngInject */
-  function ShowEditionController($state, $stateParams, worksRepo, relnRepo, _, $mdDialog, $mdToast, $q, $timeout, editionEditDialog, relnEditDialog, copyEditDialog) {
+  function ShowEditionController($state, $stateParams, worksRepo, relnRepo, _, $mdDialog, $mdToast, $q, $timeout, editionEditDialog, relnEditDialog, copyEditDialog, summaryEditDialog) {
     var vm = this;
 
     vm.loading = true;
@@ -82,18 +82,7 @@
     }
 
     function editSummary($event) {
-      var dialog = {
-        targetEvent: $event,
-        templateUrl: 'app/components/summary-edit-dialog/summary-edit-dialog.html',
-        locals: {
-          // create a copy for manipulation (even if it is just a string)
-          summary: angular.copy(vm.edition.summary)
-        },
-        controller: 'SummaryEditDialogController',
-        controllerAs: 'vm'
-      };
-
-      var dialogPromise = $mdDialog.show(dialog);
+      var dialogPromise = summaryEditDialog.show($event, angular.copy(vm.edition.summary));
 
       dialogPromise.then(function (updatedSummary) {
         // copy updates back to original only after dialog is positively dismissed (i.e. not canceled)
