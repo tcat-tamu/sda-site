@@ -265,12 +265,14 @@
     }
 
     function createBookReviewArticle($event, work) {
+      var title = worksRepo.getTitle(work.titles);
+
       // prompt for article title
       var articleTitleDialog = $mdDialog.prompt({
         targetEvent: $event,
         title: 'Create Biography',
         textContent: 'You are creating a new article attached to this work. Please enter a title for this article.',
-        initialValue: work.name.label,
+        initialValue: title ? title.title + (title.subtitle ? ': ' + title.subtitle : '') : '[untitled work]',
         ok: 'Create',
         cancel: 'Cancel'
       });

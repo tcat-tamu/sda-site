@@ -17,7 +17,7 @@
     vm.editEvent = editEvent;
     vm.editSummary = editSummary;
     vm.editBibliography = editBibliography;
-    vm.createBiographyArticle = createBiographyArticle;
+    vm.createBiography = createBiographyArticle;
     vm.deletePerson = deletePerson;
 
     activate();
