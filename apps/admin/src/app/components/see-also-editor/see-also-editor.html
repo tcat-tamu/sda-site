@@ -1,0 +1,39 @@
+<div layout="column">
+  <md-list>
+    <div ng-repeat="(type, targets) in $ctrl.seeAlso.links">
+      <!-- The type key is a machine identifier (e.g. 'trc.entries.bibliographic')
+      <md-subheader>{{type}}</md-subheader> -->
+      <md-list-item ng-repeat="target in targets" ng-click="$ctrl.openLink($event, target)">
+        <span ng-bind-html="target.label"></span>
+        <md-button class="md-secondary md-icon-button md-warn" aria-label="delete link" ng-click="$ctrl.deleteLink($event, target)">
+          <md-icon>delete</md-icon>
+          <md-tooltip>Delete</md-tooltip>
+        </md-button>
+      </md-list-item>
+    </div>
+  </md-list>
+
+  <form layout="row" novalidate name="newLink" ng-submit="$ctrl.createLink($ctrl.selectedItem)">
+    <md-autocomplete
+        md-items="item in $ctrl.search($ctrl.searchText)"
+        md-item-text="item.label | stripTags"
+        md-search-text="$ctrl.searchText"
+        md-selected-item="$ctrl.selectedItem"
+        md-min-length="3"
+        md-delay="300"
+        md-autoselect
+        md-floating-label="add link"
+        md-select-on-match
+        md-match-case-insensitive
+        flex>
+      <md-item-template>
+        <span ng-bind-html="item.label"></span>
+      </md-item-template>
+      <md-not-found>No matches found</md-not-found>
+    </md-autocomplete>
+    <md-button type="submit" class="md-icon-button" ng-disabled="!$ctrl.selectedItem">
+      <md-icon>add</md-icon>
+      <md-tooltip>Add Link</md-tooltip>
+    </md-button>
+  </form>
+</div>
