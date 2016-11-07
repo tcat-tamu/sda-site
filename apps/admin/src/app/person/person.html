@@ -78,9 +78,13 @@
 </div>
 <div layout="row" layout-align="end" layout-margin>
   <div>
+    <md-button aria-label="Create Biography" class="md-icon-button" ng-click="vm.createBiography($event, vm.person)">
+      <md-icon>assignment_ind</md-icon>
+      <md-tooltip md-direction="top">Create Biography</md-tooltip>
+    </md-button>
     <md-button aria-label="Delete this person" class="md-warn md-icon-button" ng-click="vm.deletePerson($event, vm.person)">
       <md-icon>delete</md-icon>
-      <md-tooltip md-direction="left">Delete</md-tooltip>
+      <md-tooltip md-direction="top">Delete</md-tooltip>
     </md-button>
   </div>
 </div>

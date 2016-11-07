@@ -12,16 +12,20 @@
                   peopleRepoProvider,
                   articlesRepoProvider,
                   relnRepoProvider,
-                  categorizationServiceProvider) {
+                  categorizationServiceProvider,
+                  seeAlsoRepoProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
-    tasksRepoProvider.url = '/api/catalog/v1/tasks';
-    worksRepoProvider.url = '/api/catalog/works';
-    peopleRepoProvider.url = '/api/catalog/people';
-    articlesRepoProvider.url = '/api/catalog/entries/articles';
-    relnRepoProvider.url = '/api/catalog/relationships';
-    categorizationServiceProvider.url = '/api/catalog/categorizations';
+    var API_PREFIX = '/api/catalog';
+
+    tasksRepoProvider.url = API_PREFIX + '/v1/tasks';
+    worksRepoProvider.url = API_PREFIX + '/works';
+    peopleRepoProvider.url = API_PREFIX + '/people';
+    articlesRepoProvider.url = API_PREFIX + '/entries/articles';
+    relnRepoProvider.url = API_PREFIX + '/relationships';
+    categorizationServiceProvider.url = API_PREFIX + '/categorizations';
+    seeAlsoRepoProvider.url = API_PREFIX + '/seealso';
 
     $mdThemingProvider.definePalette('darkBrown', {
       '50': '#595c59',

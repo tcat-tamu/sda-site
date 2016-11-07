@@ -6,7 +6,7 @@
     .controller('ShowWorkController', ShowWorkController);
 
   /** @ngInject */
-  function ShowWorkController($state, $stateParams, worksRepo, relnRepo, refsRepoFactory, $mdDialog, $mdToast, $q, $timeout, workEditDialog, relnEditDialog, copyEditDialog, citationEditDialog, summaryEditDialog) {
+  function ShowWorkController($state, $stateParams, worksRepo, relnRepo, refsRepoFactory, articlesRepo, $mdDialog, $mdToast, $q, $timeout, workEditDialog, relnEditDialog, copyEditDialog, citationEditDialog, summaryEditDialog) {
     var refsRepo = null;
     var vm = this;
 
@@ -26,6 +26,7 @@
     vm.openRelationship = openRelationship;
     vm.addRelationship = addRelationship;
     vm.deleteRelationship = deleteRelationship;
+    vm.createBookReview = createBookReviewArticle;
     vm.deleteWork = deleteWork;
 
     activate();
@@ -261,6 +262,39 @@
 
         return $mdToast.show(toast);
       }
+    }
+
+    function createBookReviewArticle($event, work) {
+      var title = worksRepo.getTitle(work.titles);
+
+      // prompt for article title
+      var articleTitleDialog = $mdDialog.prompt({
+        targetEvent: $event,
+        title: 'Create Book Review',
+        textContent: 'You are creating a new article attached to this work. Please enter a title for this article.',
+        initialValue: title ? title.title + (title.subtitle ? ': ' + title.subtitle : '') : '[untitled work]',
+        ok: 'Create',
+        cancel: 'Cancel'
+      });
+
+      var titleP = $mdDialog.show(articleTitleDialog);
+
+      titleP.then(function (title) {
+        var articleP = articlesRepo.createLinked('book-review', title, work.ref.token);
+
+        // redirect to article editor
+        articleP.then(function (article) {
+          $state.go('article.edit', {
+            id: article.id
+          });
+        }, function () {
+          var toast = $mdToast.simple()
+          .textContent('Unable to create article.')
+          .position('bottom right');
+
+          return $mdToast.show(toast);
+        });
+      });
     }
 
     function showSavedToast() {
