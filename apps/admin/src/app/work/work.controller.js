@@ -270,7 +270,7 @@
       // prompt for article title
       var articleTitleDialog = $mdDialog.prompt({
         targetEvent: $event,
-        title: 'Create Biography',
+        title: 'Create Book Review',
         textContent: 'You are creating a new article attached to this work. Please enter a title for this article.',
         initialValue: title ? title.title + (title.subtitle ? ': ' + title.subtitle : '') : '[untitled work]',
         ok: 'Create',
