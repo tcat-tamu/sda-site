@@ -24,6 +24,9 @@
   function SeeAlsoEditorController($scope, $state, $mdDialog, $mdToast, _, seeAlsoRepo, trcSearch) {
     var vm = this;
 
+    vm.loading = false;
+    vm.seeAlso = null;
+
     vm.searchText = null;
     vm.selectedItem = null;
 
@@ -166,7 +169,11 @@
           return;
         }
 
+        vm.loading = true;
         vm.seeAlso = seeAlsoRepo.get(newToken);
+        vm.seeAlso.$promise.then(function () {
+          vm.loading = false;
+        });
       });
     }
 

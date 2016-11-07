@@ -1,5 +1,8 @@
-<div layout="column">
-  <md-list>
+<div layout="row" layout-align="center center" ng-if="$ctrl.loading">
+  <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+</div>
+<div layout="column" ng-if="!$ctrl.loading && $ctrl.seeAlso">
+  <md-list ng-if="!($ctrl.seeAlso.links | empty)">
     <div ng-repeat="(type, targets) in $ctrl.seeAlso.links">
       <!-- The type key is a machine identifier (e.g. 'trc.entries.bibliographic')
       <md-subheader>{{type}}</md-subheader> -->
@@ -12,6 +15,10 @@
       </md-list-item>
     </div>
   </md-list>
+
+  <div ng-if="$ctrl.seeAlso.links | empty">
+    No links added. Add one below.
+  </div>
 
   <form layout="row" novalidate name="newLink" ng-submit="$ctrl.createLink($ctrl.selectedItem)">
     <md-autocomplete
