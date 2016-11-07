@@ -13,7 +13,8 @@
                   articlesRepoProvider,
                   relnRepoProvider,
                   categorizationServiceProvider,
-                  seeAlsoRepoProvider) {
+                  seeAlsoRepoProvider,
+                  trcSearchProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
@@ -26,6 +27,7 @@
     relnRepoProvider.url = API_PREFIX + '/relationships';
     categorizationServiceProvider.url = API_PREFIX + '/categorizations';
     seeAlsoRepoProvider.url = API_PREFIX + '/seealso';
+    trcSearchProvider.url = API_PREFIX + '/search';
 
     $mdThemingProvider.definePalette('darkBrown', {
       '50': '#595c59',

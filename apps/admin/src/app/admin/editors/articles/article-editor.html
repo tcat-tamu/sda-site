@@ -1,4 +1,4 @@
-<form flex layout="column" layout-padding>
+<div flex layout="column" layout-padding>
   <!-- title editor bar -->
   <md-content layout="row">
     <md-input-container flex="60" layout-sm="column" layout-align="begin end">
@@ -40,7 +40,10 @@
           </md-button>
         </div>
       </md-tab>
+      <md-tab label="See Also">
+        <see-also-editor source-token="vm.article.ref.token"></see-also-editor>
+      </md-tab>
     </md-tabs>
   </div>
   <!-- TODO how to make this fill all available space -->
-</form>
+</div>
