@@ -19,9 +19,7 @@
           <md-subheader>People</md-subheader>
           <md-list>
             <md-list-item ng-repeat="person in vm.peopleResults.items" ui-sref="editor.person({id: person.id})">
-              <div class="md-list-item-text">
-                <span>{{person.label}}</span>
-              </div>
+              <div class="md-list-item-text" ng-bind-html="person.label"></div>
             </md-list-item>
           </md-list>
         </div>
@@ -29,9 +27,7 @@
           <md-subheader>Works</md-subheader>
           <md-list>
             <md-list-item ng-repeat="work in vm.worksResults.items" ui-sref="editor.work({workId: work.id})">
-              <div class="md-list-item-text">
-                <span>{{work.label}}</span>
-              </div>
+              <div class="md-list-item-text" ng-bind-html="work.label"></div>
             </md-list-item>
           </md-list>
         </div>

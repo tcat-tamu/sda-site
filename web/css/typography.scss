@@ -2,3 +2,15 @@
 ---
 @import 'variables';
 @import 'theme/typography';
+
+.bibentry-title, .title {
+  font-style: italic;
+}
+
+.bibentry-label, .work-result-label, .bioentry-label {
+  $result-item-indent: 1rem;
+  line-height: 1.3;
+  margin: 1rem 0;
+  text-indent: -$result-item-indent;
+  padding-left: $result-item-indent;
+}
