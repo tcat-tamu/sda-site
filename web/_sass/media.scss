@@ -1,0 +1,26 @@
+@import 'variables';
+
+$video-aspect-ratio: 9 / 16;
+
+.section--media {
+  .video {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    padding-bottom: $video-aspect-ratio * 100%;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  aside.bio {
+    background: $copper4;
+    color: $cream1;
+  }
+}

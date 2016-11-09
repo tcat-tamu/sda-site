@@ -1,0 +1,27 @@
+---
+layout: base
+---
+<main class="section--media flex layout-row layout-align-center">
+  <div class="container flex layout-row">
+    <aside class="sidebar flex-md-33 flex-gt-md-25 layout-column">
+      media sidebar
+    </aside>
+    <div class="flex layout-column">
+      {% if page.video %}
+        <div class="video">
+          <iframe src="{{ 'https://youtube.com/embed/' | append: page.video }}" frameborder="0" allowfullscreen></iframe>
+        </div>
+      {% endif %}
+      <div class="flex layout-row">
+        <div class="content flex-66 layout-padding">
+          {{ content }}
+        </div>
+        <aside class="bio content flex-33 layout-column layout-padding">
+          <div class="content flex layout-column layout-padding">
+            speaker bio
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</main>
