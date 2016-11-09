@@ -77,26 +77,7 @@
 
   <div layout="column" flex="40">
 
-    <section class="content references">
-      <div class="toolbar" layout="row" layout-align="start center">
-        <h2 class="content-heading">Relationships</h2>
-        <span flex></span>
-        <md-button class="md-icon-button" ng-click="vm.addRelationship($event)">
-          <md-icon>add</md-icon>
-        </md-button>
-      </div>
-      <div ng-repeat="type in vm.relationships">
-        <h3 class="content-heading">{{type.label}}</h3>
-        <md-list>
-          <md-list-item ng-repeat="relationship in type.relationships" ng-click="vm.openRelationship(relationship)">
-            <span ng-repeat="entity in relationship.entities">{{entity.label}}.</span>
-            <md-button class="md-secondary md-warn md-icon-button" ng-click="vm.deleteRelationship(relationship, $event)">
-              <md-icon>delete</md-icon>
-            </md-button>
-          </md-list-item>
-        </md-list>
-      </div>
-    </section>
+    <relationships class="content references" anchor="vm.anchor"></relationships>
 
     <section class="content copies">
       <div class="toolbar" layout="row" layout-align="start center">

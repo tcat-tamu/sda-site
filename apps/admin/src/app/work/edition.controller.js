@@ -6,7 +6,7 @@
     .controller('ShowEditionController', ShowEditionController);
 
   /** @ngInject */
-  function ShowEditionController($state, $stateParams, worksRepo, relnRepo, _, $mdDialog, $mdToast, $q, $timeout, editionEditDialog, relnEditDialog, copyEditDialog, summaryEditDialog) {
+  function ShowEditionController($state, $stateParams, worksRepo, relnRepo, $mdDialog, $mdToast, $q, editionEditDialog, copyEditDialog, summaryEditDialog) {
     var vm = this;
 
     vm.loading = true;
@@ -23,9 +23,6 @@
     vm.editCopy = editCopy;
     vm.deleteCopy = deleteCopy;
     vm.copyToWork = copyToWork;
-    vm.openRelationship = openRelationship;
-    vm.addRelationship = addRelationship;
-    vm.deleteRelationship = deleteRelationship;
 
     activate();
 
@@ -44,27 +41,12 @@
         vm.title = worksRepo.getTitle(vm.edition.titles, ['canonical', 'bibliographic', 'short']);
       });
 
-      var relationshipsPromise = loadRelationships();
-
-      $q.all([vm.work.$promise, vm.edition.$promise, relationshipsPromise]).then(function (){
+      $q.all([vm.work.$promise, vm.edition.$promise]).then(function (){
         vm.loading = false;
-      });
-    }
 
-    function getCurrentUri() {
-      var workId = $stateParams.workId;
-      var editionId = $stateParams.editionId;
-
-      return 'works/' + workId + '/editions/' + editionId;
-    }
-
-    function loadRelationships() {
-
-      vm.relationships = [];
-      var currentUri = getCurrentUri();
-      var relationships = relnRepo.search(currentUri);
-      relationships.$promise.then(function () {
-        vm.relationships = relnRepo.normalizeRelationships(relationships, currentUri, worksRepo);
+        vm.anchor = relnRepo.createAnchor(worksRepo.getEditionLabel(vm.edition), vm.work.ref.token, {
+          editionId: [vm.edition.id]
+        });
       });
     }
 
@@ -187,51 +169,6 @@
         work.copies.push(newCopy);
         return worksRepo.saveWork(work);
       }).then(showSavedToast);
-    }
-
-    function openRelationship(relationship) {
-      // HACK just working with first entity
-      var entity = relationship.entities[0];
-      $state.go('editor.' + entity.type, entity.refParams);
-    }
-
-    function addRelationship($event) {
-      var relationship = relnRepo.createRelationship();
-      var dialogPromise = relnEditDialog.show($event, angular.copy(relationship), getCurrentUri());
-      var savePromise = dialogPromise.then(function (updatedRelationship) {
-        // copy updates back to original only after dialog is positively dismised (i.e. not canceled)
-        angular.extend(relationship, updatedRelationship);
-
-        return relnRepo.save(relationship);
-      });
-
-      savePromise.then(showSavedToast);
-
-      savePromise.then(function () {
-        // HACK give relationships a chance to save on the server
-        $timeout(loadRelationships, 1000);
-      });
-    }
-
-    function deleteRelationship(relationship, $event) {
-      var confirm = $mdDialog.confirm()
-        .targetEvent($event)
-        .title('Confirm Deletion')
-        .textContent('Are you sure you want to delete this relationship?')
-        .ok('Yes')
-        .cancel('No');
-
-      var confirmPromise = $mdDialog.show(confirm);
-      var deletePromise = confirmPromise.then(function () {
-        return relnRepo.delete(relationship.id);
-      });
-
-      deletePromise.then(showSavedToast);
-
-      deletePromise.then(function () {
-        // HACK give relationships a chance to save on the server
-        $timeout(loadRelationships, 1000);
-      });
     }
 
     function showSavedToast() {

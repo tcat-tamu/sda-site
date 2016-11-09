@@ -6,7 +6,7 @@
     .controller('ShowWorkController', ShowWorkController);
 
   /** @ngInject */
-  function ShowWorkController($state, $stateParams, worksRepo, relnRepo, refsRepoFactory, articlesRepo, $mdDialog, $mdToast, $q, $timeout, workEditDialog, relnEditDialog, copyEditDialog, citationEditDialog, summaryEditDialog) {
+  function ShowWorkController($state, $stateParams, worksRepo, relnRepo, refsRepoFactory, articlesRepo, $mdDialog, $mdToast, $q, workEditDialog, copyEditDialog, citationEditDialog, summaryEditDialog) {
     var refsRepo = null;
     var vm = this;
 
@@ -23,9 +23,6 @@
     vm.addCopy = addCopy;
     vm.editCopy = editCopy;
     vm.deleteCopy = deleteCopy;
-    vm.openRelationship = openRelationship;
-    vm.addRelationship = addRelationship;
-    vm.deleteRelationship = deleteRelationship;
     vm.createBookReview = createBookReviewArticle;
     vm.deleteWork = deleteWork;
 
@@ -34,35 +31,20 @@
     function activate() {
       var workId = $stateParams.workId;
 
-      vm.work = worksRepo.get(workId);
+      vm.work = worksRepo.getWork(workId);
 
       vm.work.$promise.then(function () {
-        vm.bcTitle = worksRepo.getTitle(vm.work.titles, ['short', 'canonical', 'bibliographic']);
+        vm.bcTitle = worksRepo.getTitle(vm.work.titles);
         vm.title = worksRepo.getTitle(vm.work.titles, ['canonical', 'bibliographic', 'short']);
+        vm.anchor = relnRepo.createAnchor(worksRepo.getWorkLabel(vm.work), vm.work.ref.token);
       });
-
-      var relationshipsPromise = loadRelationships();
 
       var refsEndpointUrl = worksRepo.getReferencesEndpoint(workId);
       refsRepo = refsRepoFactory.getRepo(refsEndpointUrl);
       vm.references = refsRepo.get();
 
-      $q.all([vm.work.$promise, relationshipsPromise, vm.references.$promise]).then(function () {
+      $q.all([vm.work.$promise, vm.references.$promise]).then(function () {
         vm.loading = false;
-      });
-    }
-
-    function getCurrentUri() {
-      var workId = $stateParams.workId;
-      return 'works/' + workId;
-    }
-
-    function loadRelationships() {
-      vm.relationships = [];
-      var currentUri = getCurrentUri();
-      var relationships = relnRepo.search(currentUri);
-      return relationships.$promise.then(function () {
-        vm.relationships = relnRepo.normalizeRelationships(relationships, currentUri, worksRepo);
       });
     }
 
@@ -177,52 +159,6 @@
             worksRepo.saveWork(vm.work).then(showSavedToast);
           }
         });
-    }
-
-    function openRelationship(relationship) {
-      // HACK just working with first entity
-      var entity = relationship.entities[0];
-      $state.go('editor.' + entity.type, entity.refParams);
-    }
-
-    function addRelationship($event) {
-      var relationship = relnRepo.createRelationship();
-      var dialogPromise = relnEditDialog.show($event, angular.copy(relationship), getCurrentUri());
-      var savePromise = dialogPromise.then(function (updatedRelationship) {
-        // copy updates back to original only after dialog is positively dismised (i.e. not canceled)
-        angular.extend(relationship, updatedRelationship);
-
-        return relnRepo.save(relationship);
-      });
-
-      savePromise.then(showSavedToast);
-
-      savePromise.then(function () {
-        // HACK give relationship a chance to save on the server
-        $timeout(loadRelationships, 1000);
-      });
-
-    }
-
-    function deleteRelationship(relationship, $event) {
-      var confirm = $mdDialog.confirm()
-        .targetEvent($event)
-        .title('Confirm Deletion')
-        .textContent('Are you sure you want to delete this relationship?')
-        .ok('Yes')
-        .cancel('No');
-
-      var confirmPromise = $mdDialog.show(confirm);
-      var deletePromise = confirmPromise.then(function () {
-        return relnRepo.delete(relationship.id);
-      });
-
-      deletePromise.then(showSavedToast);
-
-      deletePromise.then(function () {
-        // HACK give relationship a chance to be deleted from the server
-        $timeout(loadRelationships, 1000);
-      });
     }
 
     function deleteWork($event, work) {

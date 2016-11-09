@@ -6,7 +6,7 @@
     .controller('ShowVolumeController', ShowVolumeController);
 
   /** @ngInject */
-  function ShowVolumeController($state, $stateParams, worksRepo, relnRepo, _, $mdDialog, $mdToast, $q, $timeout, volumeEditDialog, relnEditDialog, copyEditDialog, summaryEditDialog) {
+  function ShowVolumeController($stateParams, worksRepo, relnRepo, $mdDialog, $mdToast, $q, volumeEditDialog, copyEditDialog, summaryEditDialog) {
     var vm = this;
 
     vm.loading = true;
@@ -22,9 +22,6 @@
     vm.editCopy = editCopy;
     vm.deleteCopy = deleteCopy;
     vm.copyToEdition = copyToEdition;
-    vm.openRelationship = openRelationship;
-    vm.addRelationship = addRelationship;
-    vm.deleteRelationship = deleteRelationship;
 
     activate();
 
@@ -45,32 +42,18 @@
         vm.title = worksRepo.getTitle(vm.volume.titles, ['canonical', 'bibliographic', 'short']);
       });
 
-      var relationshipsPromise = loadRelationships();
-
-      $q.all([vm.work.$promise, vm.edition.$promise, vm.volume.$promise, relationshipsPromise]).then(function () {
+      $q.all([vm.work.$promise, vm.edition.$promise, vm.volume.$promise]).then(function () {
         vm.loading = false;
-      });
-    }
 
-    function getCurrentUri() {
-      var workId = $stateParams.workId;
-      var editionId = $stateParams.editionId;
-      var volumeId = $stateParams.volumeId;
-      return 'works/' + workId + '/editions/' + editionId + '/volumes/' + volumeId;
-    }
-
-    function loadRelationships() {
-
-      vm.relationships = [];
-      var currentUri = getCurrentUri();
-      var relationships = relnRepo.search(currentUri);
-      relationships.$promise.then(function () {
-        vm.relationships = relnRepo.normalizeRelationships(relationships, currentUri, worksRepo);
+        vm.anchor = relnRepo.createAnchor(worksRepo.getVolumeLabel(vm.volume, vm.edition.editionName), vm.work.ref.token, {
+          editionId: [vm.edition.id],
+          volumeId: [vm.volume.id]
+        });
       });
     }
 
     function editBibInfo($event) {
-      var dialogPromise = $mdDialog.show($event, angular.copy(vm.volume));
+      var dialogPromise = volumeEditDialog.show($event, angular.copy(vm.volume));
 
       dialogPromise.then(function (updatedVolume) {
         // copy updates back to original only after dialog is positively dismissed (i.e. not canceled)
@@ -140,51 +123,6 @@
         edition.copies.push(newCopy);
         return worksRepo.saveEdition(vm.work.id, edition);
       }).then(showSavedToast);
-    }
-
-    function openRelationship(relationship) {
-      // HACK just working with first entity
-      var entity = relationship.entities[0];
-      $state.go('editor.' + entity.type, entity.refParams);
-    }
-
-    function addRelationship($event) {
-      var relationship = relnRepo.createRelationship();
-      var dialogPromise = relnEditDialog.show($event, angular.copy(relationship), getCurrentUri());
-      var savePromise = dialogPromise.then(function (updatedRelationship) {
-        // copy updates back to original only after dialog is positively dismised (i.e. not canceled)
-        angular.extend(relationship, updatedRelationship);
-
-        return relnRepo.save(relationship);
-      });
-
-      savePromise.then(showSavedToast);
-
-      savePromise.then(function () {
-        // HACK give relationships a chance to save on the server
-        $timeout(loadRelationships, 1000);
-      });
-    }
-
-    function deleteRelationship(relationship, $event) {
-      var confirm = $mdDialog.confirm()
-        .targetEvent($event)
-        .title('Confirm Deletion')
-        .textContent('Are you sure you want to delete this relationship?')
-        .ok('Yes')
-        .cancel('No');
-
-      var confirmPromise = $mdDialog.show(confirm);
-      var deletePromise = confirmPromise.then(function () {
-        return relnRepo.delete(relationship.id);
-      });
-
-      deletePromise.then(showSavedToast);
-
-      deletePromise.then(function () {
-        // HACK give relationships a chance to save on the server
-        $timeout(loadRelationships, 1000);
-      });
     }
 
     function showSavedToast() {
