@@ -6,7 +6,7 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, $mdThemingProvider, worksRepoProvider, peopleRepoProvider, trcSearchProvider, relnRepoProvider) {
+  function config($logProvider, $mdThemingProvider, worksRepoProvider, peopleRepoProvider, trcSearchProvider, relnRepoProvider, seeAlsoRepoProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
@@ -14,6 +14,7 @@
     peopleRepoProvider.url = '/api/catalog/people';
     trcSearchProvider.url = '/api/catalog/search';
     relnRepoProvider.url = '/api/catalog/relationships';
+    seeAlsoRepoProvider.url = '/api/catalog/seealso';
 
     $mdThemingProvider.definePalette('darkBrown', {
       '50': '#595c59',
