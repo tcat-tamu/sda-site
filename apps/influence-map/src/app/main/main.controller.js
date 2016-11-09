@@ -215,7 +215,7 @@
       vm.nodeData = (function () {
         switch (vm.graphType) {
           case 'people': return peopleRepo.get(node.id);
-          case 'works': return worksRepo.get(node.id);
+          case 'works': return worksRepo.getWork(node.id);
           default: return null;
         }
       })();

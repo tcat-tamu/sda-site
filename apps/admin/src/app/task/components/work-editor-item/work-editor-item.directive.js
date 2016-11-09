@@ -36,7 +36,7 @@
 
       function activate() {
         if ($scope.id) {
-          vm.work = worksRepo.get($scope.id);
+          vm.work = worksRepo.getWork($scope.id);
           vm.work.$promise.then(function () {
             vm.loaded = true;
           });

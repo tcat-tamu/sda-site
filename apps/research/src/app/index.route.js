@@ -51,7 +51,7 @@
         resolve: {
           work: function ($stateParams, worksRepo) {
             'ngInject';
-            var work = worksRepo.get($stateParams.id);
+            var work = worksRepo.getWork($stateParams.id);
             return work.$promise;
           },
           refs: function ($stateParams, worksRepo, refsRepoFactory) {

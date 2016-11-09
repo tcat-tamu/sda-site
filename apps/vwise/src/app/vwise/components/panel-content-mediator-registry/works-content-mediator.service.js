@@ -51,7 +51,7 @@
 
 
     function loadWork(id) {
-      var work = worksRepo.get(id);
+      var work = worksRepo.getWork(id);
       return work.$promise;
     }
 

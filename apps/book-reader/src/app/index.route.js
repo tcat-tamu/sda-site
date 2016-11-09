@@ -25,7 +25,7 @@
           },
           work: function ($stateParams, worksRepo) {
             'ngInject';
-            var work = worksRepo.get($stateParams.workId);
+            var work = worksRepo.getWork($stateParams.workId);
             return work.$promise;
           },
           relns: function ($stateParams, relnRepo, worksRepo) {
