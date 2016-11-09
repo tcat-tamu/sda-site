@@ -15,7 +15,7 @@
       <div class="md-dialog-content" layout="column">
         <md-input-container>
           <label>type</label>
-          <md-select name="type" ng-model="vm.selectedType" ng-change="vm.setType(vm.selectedType)" required>
+          <md-select name="type" ng-model="vm.selectedType" required>
             <md-option ng-repeat="type in vm.types" ng-value="type">
               {{type.label}}
             </md-option>
@@ -26,22 +26,29 @@
         </md-input-container>
 
         <md-autocomplete
-            md-items="work in vm.getResults(vm.searchText)"
-            md-item-text="work.label"
+            md-items="work in vm.search(vm.searchText)"
             md-search-text="vm.searchText"
+            md-selected-item="vm.selectedWork"
             md-selected-item-change="vm.selectWork(work)"
-            placeholder="search works"
-            required>
+            md-item-text="work.label | stripTags"
+            md-require-match
+            md-min-length="3"
+            md-delay="300"
+            md-autoselect
+            md-floating-label="search works"
+            md-select-on-match
+            md-match-case-insensitive>
           <md-item-template>
-            <span md-highlight="vm.searchText" md-highlight-flags="^i">{{work.label}}</span>
+            <span ng-bind-html="work.label"></span>
           </md-item-template>
+          <md-not-found>No matches found</md-not-found>
         </md-autocomplete>
 
-        <md-input-container ng-if="vm.targets && vm.targets.length > 1">
+        <md-input-container ng-if="vm.anchors.length > 1">
           <label>target</label>
-          <md-select name="target" ng-model="vm.selectedTarget" ng-change="vm.setTarget(vm.selectedTarget)" required>
-            <md-option ng-repeat="target in vm.targets" ng-value="target">
-              {{target.label}}
+          <md-select name="target" ng-model="vm.selectedAnchor" required>
+            <md-option ng-repeat="anchor in vm.anchors" ng-value="anchor">
+              {{anchor.label}}
             </md-option>
           </md-select>
           <div class="errors" ng-messages="relationship.target.$error" ng-if="relationship.$dirty">
@@ -51,7 +58,7 @@
 
         <div class="summary">
           <h2>Summary</h2>
-          <div ckeditor ng-model="vm.relationship.description"></div>
+          <div ckeditor ng-model="vm.description"></div>
         </div>
       </div>
     </md-dialog-content>

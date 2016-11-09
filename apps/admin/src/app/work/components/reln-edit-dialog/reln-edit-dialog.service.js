@@ -11,15 +11,11 @@
       show: showDialog
     };
 
-    function showDialog($event, reln, currentUri) {
+    function showDialog($event) {
 
       var dialog = {
         targetEvent: $event,
         templateUrl: 'app/work/components/reln-edit-dialog/reln-edit-dialog.html',
-        locals: {
-          relationship: reln,
-          currentUri: currentUri
-        },
         controller: RelationshipEditDialogController,
         controllerAs: 'vm'
       };
@@ -30,21 +26,23 @@
   }
 
   /** @ngInject */
-  function RelationshipEditDialogController($mdDialog, worksRepo, relnRepo, currentUri, relationship) {
+  function RelationshipEditDialogController($filter, $mdDialog, worksRepo, relnRepo) {
+    var stripTags = $filter('stripTags');
     var vm = this;
 
-    vm.relationship = relationship;
-    vm.types = [];
-    vm.selectedType = null;
-    vm.targets = [];
-    vm.selectedTarget = null;
-    vm.searchText = '';
-    vm.isReverse = false;
+    vm.description = null;
 
-    vm.getResults = getResults;
+    vm.types = null;
+    vm.selectedType = null;
+
+    vm.searchText = null;
+    vm.selectedWork = null;
+
+    vm.anchors = null;
+    vm.selectedAnchor = null;
+
+    vm.search = search;
     vm.selectWork = selectWork;
-    vm.setType = setType;
-    vm.setTarget = setTarget;
     vm.close = close;
     vm.cancel = cancel;
 
@@ -52,30 +50,18 @@
 
     function activate() {
       vm.types = getTypes();
-
-      vm.target = relnRepo.createAnchor();
-      vm.relationship.targetEntities = [vm.target];
-
-      var self = relnRepo.createAnchor();
-      self.relatedEntities = [currentUri];
-      vm.relationship.relatedEntities = [self];
-
-      vm.relationship.descriptionMimeType = 'text/html';
     }
 
     function getTypes() {
       var rawTypes = relnRepo.getTypes();
       var types = [];
 
-      Object.defineProperty(types, '$promise', {
-        value: rawTypes.$promise
-      });
-
-      rawTypes.$promise.then(function () {
+      var typesP = rawTypes.$promise.then(function () {
         angular.forEach(rawTypes, function (type) {
           types.push({
             id: type.identifier,
             label: type.title,
+            directed: type.isDirected,
             reverse: false
           });
 
@@ -83,81 +69,73 @@
             types.push({
               id: type.identifier,
               label: type.reverseTitle,
+              directed: type.isDirected,
               reverse: true
             });
           }
         });
+
+        return types;
+      });
+
+
+      Object.defineProperty(types, '$promise', {
+        value: typesP
       });
 
       return types;
     }
 
-    function getResults(query) {
+    function search(query) {
       var results = worksRepo.search(query);
       return results.$promise.then(function () {
         return results.items;
       });
     }
 
-    function setType(type) {
-      vm.relationship.typeId = type.id;
-      if (vm.isReverse && !type.reverse || !vm.isReverse && type.reverse) {
-        var swap = vm.relationship.relatedEntities;
-        vm.relationship.relatedEntities = vm.relationship.targetEntities;
-        vm.relationship.targetEntities = swap;
-      }
-      vm.isReverse = type.reverse;
-    }
+    function selectWork(proxy) {
+      vm.anchors = [];
 
-    function selectWork(workProxy) {
-      vm.targets = [];
-
-      if (!workProxy) {
+      if (!proxy) {
         return;
       }
 
-      var work = worksRepo.getWork(workProxy.id);
+      var baseLabel = stripTags(proxy.label);
+      var baseToken = proxy.ref.token;
 
+      // create default anchor for top-level work
+      vm.selectedAnchor = relnRepo.createAnchor(baseLabel, baseToken);
+      vm.anchors.push(vm.selectedAnchor);
+
+      var work = worksRepo.getWork(proxy.id);
       work.$promise.then(function () {
-        var workUri = 'works/' + work.id;
-        var workTitle = worksRepo.getTitle(work.titles, ['short', 'canonical', 'bibliographic']);
-
-        vm.targets.push({
-          uri: workUri,
-          label: workTitle.title + (workTitle.subtitle ? ': ' + workTitle.subtitle : '')
-        });
-
         work.editions.forEach(function (edition) {
-          var editionUri = workUri + '/editions/' + edition.id;
-          var editionTitle = worksRepo.getTitle(edition.titles, ['short', 'canonical', 'bibliographic']);
-
-          vm.targets.push({
-            uri: editionUri,
-            label: editionTitle.title + (editionTitle.subtitle ? ': ' + editionTitle.subtitle : '') + '. ' + edition.editionName
-          });
+          // create anchor for each edition
+          var editionLabel = baseLabel + '. ' + edition.editionName;
+          vm.anchors.push(relnRepo.createAnchor(editionLabel, baseToken, {
+            editionId: [edition.id]
+          }));
 
           edition.volumes.forEach(function (volume) {
-            var volumeUri = editionUri + '/volumes/' + volume.id;
-            var volumeTitle = worksRepo.getTitle(volume.titles, ['short', 'canonical', 'bibliographic']);
-
-            vm.targets.push({
-              uri: volumeUri,
-              label: volumeTitle.title + (volumeTitle.subtitle ? ': ' + volumeTitle.subtitle : '') + '. ' + edition.editionName + '. Volume ' + volume.volumeNumber
-            });
+            // create anchor for each volume
+            var volumeLabel = editionLabel + '. Volume ' + volume.volumeNumber;
+            vm.anchors.push(relnRepo.createAnchor(volumeLabel, baseToken, {
+              editionId: [edition.id],
+              volumeId: [volume.id]
+            }));
           });
         });
-
-        vm.selectedTarget = vm.targets[0];
-        setTarget(vm.selectedTarget);
       });
     }
 
-    function setTarget(target) {
-      vm.target.entryUris = target && target.uri ? [target.uri] : [];
-    }
-
     function close() {
-      $mdDialog.hide(vm.relationship);
+      $mdDialog.hide({
+        typeId: vm.selectedType.id,
+        directed: vm.selectedType.directed,
+        reverse: vm.selectedType.reverse,
+        target: vm.selectedAnchor,
+        description: vm.description
+      });
     }
 
     function cancel() {
