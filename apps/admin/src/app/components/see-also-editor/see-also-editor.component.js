@@ -158,7 +158,7 @@
      * @return {boolean}
      */
     function alreadyLinked(anchor) {
-      return vm.seeAlso.links[anchor.type].some(function (existing) {
+      return vm.seeAlso.links.hasOwnProperty(anchor.type) && vm.seeAlso.links[anchor.type].some(function (existing) {
         return existing.token === anchor.token;
       });
     }
