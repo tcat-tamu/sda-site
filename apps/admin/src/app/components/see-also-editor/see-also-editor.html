@@ -1,6 +1,16 @@
 <div layout="row" layout-align="center center" ng-if="$ctrl.loading">
   <md-progress-circular md-mode="indeterminate"></md-progress-circular>
 </div>
+
+<div layout="row" layout-align="center center" layout-margin ng-if="!$ctrl.loading && !$ctrl.seeAlso">
+  <div>
+    <md-icon>warning</md-icon>
+  </div>
+  <div>
+    Unable to load links from the server.
+  </div>
+</div>
+
 <div layout="column" ng-if="!$ctrl.loading && $ctrl.seeAlso">
   <md-list ng-if="!($ctrl.seeAlso.links | empty)">
     <div ng-repeat="(type, targets) in $ctrl.seeAlso.links">
