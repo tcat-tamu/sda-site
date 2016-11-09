@@ -1,0 +1,37 @@
+<div class="toolbar" layout="row" layout-align="start center">
+  <h2 class="content-heading">Relationships</h2>
+  <span flex></span>
+  <md-button class="md-icon-button" ng-click="$ctrl.addRelationship($event)" ng-if="!$ctrl.loading && $ctrl.typeGroups">
+    <md-icon>add</md-icon>
+  </md-button>
+</div>
+
+<div ng-repeat="type in $ctrl.typeGroups" ng-if="!$ctrl.loading && $ctrl.typeGroups.length > 0">
+  <h3 class="content-heading">{{type.label}}</h3>
+  <md-list>
+    <!-- TODO: clicking on relationship should open that relationship in an editor; clicking on an anchor should go to the linked item -->
+    <md-list-item ng-repeat="reln in type.relationships" ng-click="$ctrl.openRelationship(reln)">
+      <span ng-repeat="entity in reln.entities">{{entity.label}}.</span>
+      <md-button class="md-secondary md-warn md-icon-button" ng-click="$ctrl.deleteRelationship($event, reln)">
+        <md-icon>delete</md-icon>
+      </md-button>
+    </md-list-item>
+  </md-list>
+</div>
+
+<div ng-if="$ctrl.typeGroups && $ctrl.typeGroups.length == 0">
+  No relationships to display.
+</div>
+
+<div layout="row" layout-align="center center" layout-margin ng-if="!$ctrl.loading && !$ctrl.typeGroups">
+  <div>
+    <md-icon>warning</md-icon>
+  </div>
+  <div>
+    Unable to load relationships from the server.
+  </div>
+</div>
+
+<div layout="row" layout-align="center center" ng-if="$ctrl.loading">
+  <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+</div>
