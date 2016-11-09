@@ -76,30 +76,19 @@
      * @param {Anchor} anchor
      */
     function openLink($event, anchor) {
-      var state = null;
-      var params = {};
-
       switch(anchor.type) {
         case TypeId.WORK:
-          state = 'editor.work';
-          params.workId = anchor.id;
+          $state.go('editor.work', { workId: anchor.id });
           break;
         case TypeId.PERSON:
-          state = 'editor.person';
-          params.id = anchor.id;
+          $state.go('editor.person', { id: anchor.id });
           break;
         case TypeId.ARTICLE:
-          state = 'article.edit';
-          params.id = anchor.id;
+          $state.go('article.edit', { id: anchor.id });
           break;
         default:
+          $mdToast.showSimple('I don\'t know how to follow that link.');
           break;
-      }
-
-      if (!state) {
-        $mdToast.showSimple('I don\'t know how to follow that link.');
-      } else {
-        $state.go(state, params);
       }
     }
 
