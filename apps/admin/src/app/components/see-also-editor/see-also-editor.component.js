@@ -83,20 +83,6 @@
         case TypeId.WORK:
           state = 'editor.work';
           params.workId = anchor.id;
-
-          // TODO: if anchors could ever link to editions and volumes in the future...
-          /*
-          if (anchor.properties.editionId) {
-            state = 'editor.edition';
-            params.editionId = anchor.properties.editionId;
-          }
-
-          if (anchor.properties.editionId && anchor.properties.volumeId) {
-            state = 'editor.volume';
-            params.volumeId = anchor.properties.volumeId;
-          }
-          */
-
           break;
         case TypeId.PERSON:
           state = 'editor.person';
