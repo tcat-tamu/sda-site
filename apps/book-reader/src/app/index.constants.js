@@ -1,8 +1,9 @@
-/* global */
+/* global _:false */
 (function () {
   'use strict';
 
   angular
-    .module('sdaBookReader');
+    .module('sdaBookReader')
+    .constant('_', _);
 
 })();
