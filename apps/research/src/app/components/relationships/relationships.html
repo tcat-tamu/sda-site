@@ -5,8 +5,8 @@
   </md-subheader>
   <md-list class="slide" ng-show="group.visible">
     <div ng-repeat="reln in group.relationships">
-      <md-list-item ng-repeat="entity in reln.entities" ui-sref="library.book({id: entity.refParams.workId})" aria-label="{{entity.entity.titles | workTitle}}">
-        <citation authors="entity.entity.authors" title="entity.entity.titles" pub-info="entity.entity.publicationInfo" edition="entity.entity.editionName" volume="entity.entity.volumeNumber"></citation>
+      <md-list-item ng-repeat="anchor in reln.anchors" ui-sref="library.book({id: anchor.ref.id})" aria-label="{{anchor.label | stripTags}}">
+        <div class="md-list-item-text" ng-bind-html="anchor.label"></div>
       </md-list-item>
     </div>
   </md-list>

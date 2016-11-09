@@ -11,6 +11,7 @@
       'ngResource',
       'ui.router',
       'ngMaterial',
+      'trcCore',
       'trcBiblio',
       'trcBio',
       'trcRefs',

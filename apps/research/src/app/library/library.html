@@ -40,29 +40,31 @@
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
       </div>
       <md-content ng-if="!vm.loading && vm.results" flex>
-        <md-subheader class="md-no-sticky collapse-handle" ng-click="hidePeople = !hidePeople">
-          <md-icon>{{hidePeople ? 'keyboard_arrow_right' : 'expand_more'}}</md-icon>
-          People
-        </md-subheader>
-        <md-list ng-if="vm.results.people" class="slide" ng-hide="hidePeople">
-          <md-list-item class="md-2-line" ng-repeat="person in vm.results.people" ui-sref=".person({id: person.id})">
-            <div class="md-list-item-text">
-              <h3>{{person.label}}</h3>
-              <p>{{person.summaryExcerpt}}</p>
-            </div>
-          </md-list-item>
-        </md-list>
-        <md-subheader class="md-no-sticky collapse-handle" ng-click="hideWorks = !hideWorks">
-          <md-icon>{{hideWorks ? 'keyboard_arrow_right' : 'expand_more'}}</md-icon>
-          Works
-        </md-subheader>
-        <md-list ng-if="vm.results.works" class="slide" ng-hide="hideWorks">
-          <md-list-item ng-repeat="work in vm.results.works" ui-sref=".book({id: work.id})">
-            <div class="md-list-item-text">
-              <p class="work-result-label">{{work.label}}</p>
-            </div>
-          </md-list-item>
-        </md-list>
+        <div ng-if="vm.results.results.people.length > 0">
+          <md-subheader class="md-no-sticky collapse-handle" ng-click="hidePeople = !hidePeople">
+            <md-icon>{{hidePeople ? 'keyboard_arrow_right' : 'expand_more'}}</md-icon>
+            People
+          </md-subheader>
+          <md-list class="slide" ng-hide="hidePeople">
+            <md-list-item class="md-2-line" ng-repeat="person in vm.results.results.people" ui-sref=".person({id: person.id})">
+              <div class="md-list-item-text">
+                <h3 ng-bind-html="person.label"></h3>
+                <p>{{person.summaryExcerpt}}</p>
+              </div>
+            </md-list-item>
+          </md-list>
+        </div>
+        <div ng-if="vm.results.results.works.length > 0">
+          <md-subheader class="md-no-sticky collapse-handle" ng-click="hideWorks = !hideWorks">
+            <md-icon>{{hideWorks ? 'keyboard_arrow_right' : 'expand_more'}}</md-icon>
+            Works
+          </md-subheader>
+          <md-list class="slide" ng-hide="hideWorks">
+            <md-list-item ng-repeat="work in vm.results.results.works" ui-sref=".book({id: work.id})" aria-label="work.label | stripTags">
+              <div class="md-list-item-text" ng-bind-html="work.label"></div>
+            </md-list-item>
+          </md-list>
+        </div>
       </md-content>
     </md-sidenav>
     <div layout="column" flex ui-view>
