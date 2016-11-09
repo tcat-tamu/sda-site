@@ -10,8 +10,8 @@
   <h3 class="content-heading">{{type.label}}</h3>
   <md-list>
     <!-- TODO: clicking on relationship should open that relationship in an editor; clicking on an anchor should go to the linked item -->
-    <md-list-item ng-repeat="reln in type.relationships" ng-click="$ctrl.openRelationship(reln)">
-      <span ng-repeat="entity in reln.entities">{{entity.label}}.</span>
+    <md-list-item ng-repeat="reln in type.relationships" ng-click="$ctrl.openRelationship($event, reln)">
+      <span ng-repeat="anchor in reln.anchors" ng-bind-html="anchor.label"></span>
       <md-button class="md-secondary md-warn md-icon-button" ng-click="$ctrl.deleteRelationship($event, reln)">
         <md-icon>delete</md-icon>
       </md-button>
