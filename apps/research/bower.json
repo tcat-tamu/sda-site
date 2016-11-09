@@ -14,7 +14,7 @@
     "angular-ui-router": "^0.3.1",
     "animate.css": "^3.5.2",
     "material-design-icons": "^3.0.1",
-    "trc": "^0.0.5",
+    "trc": "^0.0.6",
     "citeproc-js": "Juris-M/citeproc-js#^1.1.137"
   },
   "devDependencies": {
