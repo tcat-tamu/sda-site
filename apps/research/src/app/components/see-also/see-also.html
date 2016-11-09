@@ -1,0 +1,22 @@
+<h2>See Also</h2>
+
+<div layout="row" layout-align="center center" ng-if="$ctrl.loading">
+  <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+</div>
+
+<div layout="row" layout-padding layout-align="center center" ng-if="!$ctrl.loading && !$ctrl.seeAlso">
+  <div>
+    <md-icon>warning</md-icon>
+  </div>
+  <div>
+    Unable to load links.
+  </div>
+</div>
+
+<md-list ng-if="!$ctrl.loading && $ctrl.seeAlso">
+  <div ng-repeat="(type, links) in $ctrl.seeAlso.links">
+    <md-list-item ng-repeat="link in links">
+      <div class="md-list-item-text" ng-bind-html="link.label" ng-click="$ctrl.openLink($event, link)"></div>
+    </md-list-item>
+  </div>
+</div>
