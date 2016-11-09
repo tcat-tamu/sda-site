@@ -155,7 +155,6 @@
       var relns = relnRepo.search(vm.anchor.ref, vm.anchor.properties);
 
       var typeGroupsP = relns.$promise.then(function () {
-        console.log(relns);
         vm.typeGroups = relnRepo.normalizeRelationships(relns, vm.anchor.ref);
         return vm.typeGroups.$promise;
       })
