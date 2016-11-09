@@ -17,7 +17,8 @@ gulp.task('partials', function () {
       removeEmptyAttributes: true,
       removeAttributeQuotes: true,
       collapseBooleanAttributes: true,
-      collapseWhitespace: true
+      collapseWhitespace: true,
+      conservativeCollapse: true
     }))
     .pipe($.angularTemplatecache('templateCacheHtml.js', {
       module: 'sdaAdmin',
@@ -76,7 +77,8 @@ gulp.task('html', ['inject', 'partials', 'ckeditor'], function () {
       removeEmptyAttributes: true,
       removeAttributeQuotes: true,
       collapseBooleanAttributes: true,
-      collapseWhitespace: true
+      collapseWhitespace: true,
+      conservativeCollapse: true
     }))
     .pipe(htmlFilter.restore)
 

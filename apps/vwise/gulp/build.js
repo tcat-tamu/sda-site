@@ -17,7 +17,8 @@ gulp.task('partials', function () {
       removeEmptyAttributes: true,
       removeAttributeQuotes: true,
       collapseBooleanAttributes: true,
-      collapseWhitespace: true
+      collapseWhitespace: true,
+      conservativeCollapse: true
     }))
     .pipe($.angularTemplatecache('templateCacheHtml.js', {
       module: 'sdaVwise',
@@ -61,7 +62,8 @@ gulp.task('html', ['inject', 'partials'], function () {
       removeEmptyAttributes: true,
       removeAttributeQuotes: true,
       collapseBooleanAttributes: true,
-      collapseWhitespace: true
+      collapseWhitespace: true,
+      conservativeCollapse: true
     }))
     .pipe(htmlFilter.restore)
     .pipe(gulp.dest(path.join(conf.paths.dist, '/')))
