@@ -19,10 +19,7 @@
     </div>
     <collapsible-summary ng-if="vm.work.summary" content="vm.work.summary"></collapsible-summary>
     <div flex></div>
-    <div ng-if="vm.relns.length > 0">
-      <h2>Related Books</h2>
-      <relationships relns="vm.relns"></relationships>
-    </div>
+    <relationships token="vm.work.ref.token"></relationships>
   </md-sidenav>
   <div layout="column" flex>
     <div ng-switch="vm.copyRef.type" layout="column" layout-padding flex>

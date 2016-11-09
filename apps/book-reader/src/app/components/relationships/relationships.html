@@ -1,13 +1,30 @@
-<div ng-repeat="group in $ctrl.relns">
-  <md-subheader class="md-no-sticky collapse-handle" ng-click="group.visible = !group.visible">
-    <md-icon>{{group.visible ? 'expand_more' : 'keyboard_arrow_right'}}</md-icon>
-    {{group.label}}
-  </md-subheader>
-  <md-list class="slide" ng-show="group.visible">
-    <div ng-repeat="reln in group.relationships">
-      <md-list-item ng-repeat="entity in reln.entities" ng-href="/research/#/books/{{entity.refParams.workId}}" aria-label="{{entity.entity.titles | workTitle}}">
-        <citation authors="entity.entity.authors" title="entity.entity.titles" pub-info="entity.entity.publicationInfo" edition="entity.entity.editionName" volume="entity.entity.volumeNumber"></citation>
-      </md-list-item>
-    </div>
-  </md-list>
+<h2 ng-if="$ctrl.loading || !$ctrl.relns || $ctrl.relns.length > 0">Related Books</h2>
+
+<div layout="row" layout-align="center center" ng-if="$ctrl.loading">
+  <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+</div>
+
+<div layout="row" layout-padding layout-align="center center" ng-if="!$ctrl.loading && !$ctrl.relns">
+  <div>
+    <md-icon>warning</md-icon>
+  </div>
+  <div>
+    Unable to load relationships.
+  </div>
+</div>
+
+<div ng-if="!$ctrl.loading && $ctrl.relns.length > 0">
+  <div ng-repeat="group in $ctrl.relns">
+    <md-subheader class="md-no-sticky collapse-handle" ng-click="group.visible = !group.visible">
+      <md-icon>{{group.visible ? 'expand_more' : 'keyboard_arrow_right'}}</md-icon>
+      {{group.label}}
+    </md-subheader>
+    <md-list class="slide" ng-show="group.visible">
+      <div ng-repeat="reln in group.relationships">
+        <md-list-item ng-repeat="anchor in reln.anchors" ui-sref="library.book({id: anchor.ref.id})" aria-label="{{anchor.label | stripTags}}">
+          <div class="md-list-item-text" ng-bind-html="anchor.label"></div>
+        </md-list-item>
+      </div>
+    </md-list>
+  </div>
 </div>

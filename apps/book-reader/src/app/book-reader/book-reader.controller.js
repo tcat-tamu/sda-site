@@ -6,12 +6,11 @@
     .controller('BookReaderController', BookReaderController);
 
   /** @ngInject */
-  function BookReaderController($timeout, $rootScope, copyRef, work, relns) {
+  function BookReaderController($timeout, $rootScope, copyRef, work) {
     var vm = this;
 
     vm.copyRef = copyRef;
     vm.work = work;
-    vm.relns = relns;
     vm.lockSidebar = true;
 
     vm.toggleSidenav = toggleSidenav;

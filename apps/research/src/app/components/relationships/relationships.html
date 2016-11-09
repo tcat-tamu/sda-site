@@ -1,4 +1,4 @@
-<h2>Related Books</h2>
+<h2 ng-if="$ctrl.loading || !$ctrl.relns || $ctrl.relns.length > 0">Related Books</h2>
 
 <div layout="row" layout-align="center center" ng-if="$ctrl.loading">
   <md-progress-circular md-mode="indeterminate"></md-progress-circular>
@@ -13,7 +13,7 @@
   </div>
 </div>
 
-<div ng-if="!$ctrl.loading && $ctrl.relns">
+<div ng-if="!$ctrl.loading && $ctrl.relns.length > 0">
   <div ng-repeat="group in $ctrl.relns">
     <md-subheader class="md-no-sticky collapse-handle" ng-click="group.visible = !group.visible">
       <md-icon>{{group.visible ? 'expand_more' : 'keyboard_arrow_right'}}</md-icon>

@@ -27,17 +27,6 @@
             'ngInject';
             var work = worksRepo.getWork($stateParams.workId);
             return work.$promise;
-          },
-          relns: function ($stateParams, relnRepo, worksRepo) {
-            'ngInject';
-            var currentUri = 'works/' + $stateParams.workId;
-            var relns = relnRepo.search(currentUri);
-            return relns.$promise.then(function () {
-              var normRelns = relnRepo.normalizeRelationships(relns, currentUri, worksRepo);
-              return normRelns.$promise;
-            }).catch(function () {
-              return [];
-            });
           }
         }
       });
