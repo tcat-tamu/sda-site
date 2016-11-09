@@ -61,12 +61,11 @@
             var refs = refsRepo.get();
             return refs.$promise;
           },
-          relns: function ($stateParams, relnRepo, worksRepo) {
+          relns: function ($stateParams, relnRepo, work) {
             'ngInject';
-            var currentUri = 'works/' + $stateParams.id;
-            var relns = relnRepo.search(currentUri);
+            var relns = relnRepo.search(work.ref.token);
             return relns.$promise.then(function () {
-              var normRelns = relnRepo.normalizeRelationships(relns, currentUri, worksRepo);
+              var normRelns = relnRepo.normalizeRelationships(relns, work.ref.token);
               return normRelns.$promise;
             }).catch(function () {
               return [];
