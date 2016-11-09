@@ -15,7 +15,8 @@
       'trcBiblio',
       'trcBio',
       'trcRefs',
-      'trcReln'
+      'trcReln',
+      'trcSeeAlso'
     ]);
 
 })();

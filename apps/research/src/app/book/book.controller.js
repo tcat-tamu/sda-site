@@ -6,12 +6,11 @@
     .controller('BookController', BookController);
 
   /** @ngInject */
-  function BookController(work, refs, relns, worksRepo) {
+  function BookController(work, refs, worksRepo) {
     var vm = this;
 
     vm.work = work;
     vm.refs = refs;
-    vm.relns = relns;
 
     vm.title = worksRepo.getTitle(work.titles);
   }
