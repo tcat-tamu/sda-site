@@ -60,7 +60,7 @@
             Works
           </md-subheader>
           <md-list class="slide" ng-hide="hideWorks">
-            <md-list-item ng-repeat="work in vm.results.results.works" ui-sref=".book({id: work.id})">
+            <md-list-item ng-repeat="work in vm.results.results.works" ui-sref=".book({id: work.id})" aria-label="work.label | stripTags">
               <div class="md-list-item-text" ng-bind-html="work.label"></div>
             </md-list-item>
           </md-list>
