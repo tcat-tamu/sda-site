@@ -60,16 +60,6 @@
             var refsRepo = refsRepoFactory.getRepo(refsEndpoint);
             var refs = refsRepo.get();
             return refs.$promise;
-          },
-          relns: function ($stateParams, relnRepo, work) {
-            'ngInject';
-            var relns = relnRepo.search(work.ref.token);
-            return relns.$promise.then(function () {
-              var normRelns = relnRepo.normalizeRelationships(relns, work.ref.token);
-              return normRelns.$promise;
-            }).catch(function () {
-              return [];
-            });
           }
         }
       });
