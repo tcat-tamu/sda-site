@@ -53,11 +53,7 @@
   </div>
   <div layout="column" layout-padding flex="33">
     <relationships token="vm.work.ref.token"></relationships>
-    <div ng-if="true">
-      <h2>See Also</h2>
-      <ul>
-      </ul>
-    </div>
+    <see-also token="vm.work.ref.token"></see-also>
     <div ng-if="!(vm.refs.bibliography | empty)">
       <h2>Bibliography</h2>
       <bibliography refs="vm.refs" style-id="chicago"></bibliography>
