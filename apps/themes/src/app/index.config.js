@@ -6,12 +6,14 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, $mdThemingProvider, categorizationRepoProvider, articlesRepoProvider) {
+  function config($logProvider, $mdThemingProvider, categorizationRepoProvider, articlesRepoProvider, sdaSitenavProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
-    categorizationRepoProvider.url = "/api/catalog/categorizations";
-    articlesRepoProvider.url = "/api/catalog/entries/articles";
+    categorizationRepoProvider.url = '/api/catalog/categorizations';
+    articlesRepoProvider.url = '/api/catalog/entries/articles';
+
+    sdaSitenavProvider.url = '/assets/data/navigation.json';
 
     $mdThemingProvider.definePalette('darkBrown', {
       '50': '#595c59',

@@ -12,7 +12,8 @@
       'ui.router',
       'ngMaterial',
       'trcArticles',
-      'trcRefs'
+      'trcRefs',
+      'sda'
     ]);
 
 })();

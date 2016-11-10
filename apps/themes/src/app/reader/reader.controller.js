@@ -20,14 +20,6 @@
     vm.displayNextPage = displayNextPage;
     vm.displayLastPage = displayLastPage;
 
-    activate();
-
-    function activate() {
-      $http.get('/assets/data/navigation.json').then(function (res) {
-        vm.navigation = res.data;
-      });
-    }
-
     function toggleSidenav(id) {
       $mdSidenav(id).toggle();
     }
