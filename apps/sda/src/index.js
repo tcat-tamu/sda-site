@@ -1,16 +1,22 @@
 var angular = require('angular');
 
-var sitenavProviderService = require('./sda-sitenav/sda-sitenav.service');
-var sitenavComponent = require('./sda-sitenav/sda-sitenav.component');
-var headerComponent = require('./sda-header/sda-header.component');
-var seeAlsoComponent = require('./see-also/see-also.component');
+var slide = require('./slide-toggle/slide.animation');
+var sdaSitenavService = require('./sda-sitenav/sda-sitenav.service');
+var sdaSitenavComponent = require('./sda-sitenav/sda-sitenav.component');
+var sdaHeader = require('./sda-header/sda-header.component');
+var seeAlso = require('./see-also/see-also.component');
+var empty = require('./empty/empty.filter');
+var stripTags = require('./strip-tags/strip-tags.filter');
 
 angular
   .module('sda', [
     'ngMaterial',
     'trcSeeAlso'
   ])
-  .provider('sdaSitenav', sitenavProviderService.SdaSitenavProvider)
-  .component('sdaSitenav', sitenavComponent.component)
-  .component('sdaHeader', headerComponent.component)
-  .component('seeAlso', seeAlsoComponent);
+  .animation('.slide', slide.slideToggle)
+  .provider('sdaSitenav', sdaSitenavService.SdaSitenavProvider)
+  .component('sdaSitenav', sdaSitenavComponent.component)
+  .component('sdaHeader', sdaHeader.component)
+  .component('seeAlso', seeAlso)
+  .filter('empty', empty)
+  .filter('stripTags', stripTags);

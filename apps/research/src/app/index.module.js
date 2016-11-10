@@ -16,7 +16,8 @@
       'trcBio',
       'trcRefs',
       'trcReln',
-      'trcSeeAlso'
+      'trcSeeAlso',
+      'sda'
     ]);
 
 })();
