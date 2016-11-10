@@ -11,6 +11,7 @@
       'ngResource',
       'ui.router',
       'ngMaterial',
+      'duScroll',
       'trcArticles',
       'trcRefs',
       'sda'

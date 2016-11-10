@@ -9,24 +9,54 @@
 <main layout="row" layout-align="center" flex>
   <div class="container" layout="row" flex>
     <md-sidenav md-component-id="left" class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-sm')" layout="column">
-      <md-tabs flex>
-        <md-tab label="Themes">
-          <div layout="column">
-            <div layout="row" flex="none">
-              <md-input-container flex>
-                <label>Search articles</label>
-                <md-icon>search</md-icon>
-                <input type="search" ng-model="query" ng-model-options="{debounce: 500}" ng-change="vm.search(query)">
-              </md-input-container>
+      <md-tabs md-stretch-tabs="always" flex>
+        <md-tab aria-label="Themes">
+          <md-tab-label>
+            <md-icon>explore</md-icon>
+            <md-tooltip>Themes</md-tooltip>
+          </md-tab-label>
+          <md-tab-body>
+            <div layout="column">
+              <div layout="row" flex="none">
+                <md-input-container flex>
+                  <label>Search articles</label>
+                  <md-icon>search</md-icon>
+                  <input type="search" ng-model="query" ng-model-options="{debounce: 500}" ng-change="vm.search(query)">
+                </md-input-container>
+              </div>
+              <div class="collections" flex>
+                <tree-categorization scope-id="sda" scheme="overviews"></tree-categorization>
+              </div>
             </div>
-            <div class="collections" flex>
-              <tree-categorization scope-id="sda" scheme="overviews"></tree-categorization>
-            </div>
-          </div>
+          </md-tab-body>
         </md-tab>
-        <md-tab label="Articles">Coming soon...</md-tab>
-        <md-tab label="Reviews">Coming soon...</md-tab>
-        <md-tab label="Biographies">Coming soon...</md-tab>
+        <md-tab aria-label="Articles">
+          <md-tab-label>
+            <md-icon>school</md-icon>
+            <md-tooltip>Articles</md-tooltip>
+          </md-tab-label>
+          <md-tab-body>
+            Coming soon...
+          </md-tab-body>
+        </md-tab>
+        <md-tab aria-label="Reviews">
+          <md-tab-label>
+            <md-icon>book</md-icon>
+            <md-tooltip>Reviews</md-tooltip>
+          </md-tab-label>
+          <md-tab-body>
+            Coming soon...
+          </md-tab-body>
+        </md-tab>
+        <md-tab aria-label="Biographies">
+          <md-tab-label>
+            <md-icon>person</md-icon>
+            <md-tooltip>Biographies</md-tooltip>
+          </md-tab-label>
+          <md-tab-body>
+            Coming soon...
+          </md-tab-body>
+        </md-tab>
       </md-tabs>
     </md-sidenav>
     <div layout="column" flex ui-view>
@@ -90,7 +120,7 @@
             </a>
          </nav>
       </div>
-      <md-content layout="row" layout-padding flex ng-if="!vm.queryResult">
+      <md-content layout="row" layout-padding layout-margin flex ng-if="!vm.queryResult">
         <section flex="66">
           <h1 class="md-display-1">SDA Reader</h1>
           <p>
