@@ -1,6 +1,8 @@
 {
   "globalDependencies": {
     "angular": "registry:dt/angular#1.5.0+20161016133926",
+    "angular-animate": "registry:dt/angular-animate#1.5.0+20160709061515",
+    "angular-material": "registry:dt/angular-material#1.1.0-rc5.0+20161028134338",
     "es6-shim": "registry:dt/es6-shim#0.31.2+20160602141504",
     "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#dc9dabe74a5be62613b17a3605309783a12ff28a",
     "require": "registry:dt/require#2.1.20+20160919185614"

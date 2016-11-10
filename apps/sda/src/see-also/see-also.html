@@ -15,7 +15,7 @@
 
 <md-list ng-if="!$ctrl.loading && $ctrl.seeAlso">
   <div ng-repeat="(type, links) in $ctrl.seeAlso.links">
-    <md-list-item ng-repeat="link in links" ng-click="$ctrl.openLink($event, link)">
+    <md-list-item ng-repeat="link in links" ng-click="$ctrl.openLink($event, link)" aria-label="link.label | stripTags">
       <div class="md-list-item-text" ng-bind-html="link.label"></div>
     </md-list-item>
   </div>
