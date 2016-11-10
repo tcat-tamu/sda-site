@@ -13,7 +13,8 @@
       'ngMaterial',
       'trcBiblio',
       'trcBio',
-      'trcGraph'
+      'trcGraph',
+      'sda'
     ]);
 
 })();
