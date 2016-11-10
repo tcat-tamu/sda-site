@@ -45,12 +45,11 @@ module.exports = {
   },
   externals: {
     angular: true,
-    CSL: true,
-    lodash: {
-      amd: 'lodash',
-      root: '_',
-      commonjs: 'lodash',
-      commonjs2: 'lodash'
+    jquery: {
+      amd: 'jquery',
+      root: '$',
+      commonjs: 'jquery',
+      commonjs2: 'jquery'
     }
   },
   resolve: {
