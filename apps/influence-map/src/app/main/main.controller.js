@@ -213,9 +213,9 @@
 
     function loadNodeData(node) {
       vm.nodeData = (function () {
-        switch (vm.graphType) {
-          case 'people': return peopleRepo.get(node.id);
-          case 'works': return worksRepo.getWork(node.id);
+        switch (node.metadata.type) {
+          case 'trc.entries.biographical': return peopleRepo.get(node.metadata.id);
+          case 'trc.entries.bibliographic': return worksRepo.getWork(node.metadata.id);
           default: return null;
         }
       })();
