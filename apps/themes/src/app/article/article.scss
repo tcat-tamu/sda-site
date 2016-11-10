@@ -1,5 +1,16 @@
 $tok-active-bg: rgba(#000, 0.05);
 
+article-parser {
+  section {
+    margin: 2rem 0;
+    padding: 1rem 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
 .toc > ol {
   list-style: none;
   margin: 0;
