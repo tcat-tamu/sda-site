@@ -1,21 +1,23 @@
-<md-content layout="column" layout-padding layout-margin flex>
-  <h1 class="md-display-1">{{vm.article.title}}</h1>
-  <p class="author-info" ng-if="vm.article.authors && vm.article.authors.length > 0">
-    by
-    <span class="author" ng-repeat="author in vm.article.authors">
-      <a ng-if="author.contact.email" href="mailto:{{author.contact.email}}">{{author.name}}</a>
-      <span ng-if="!author.contact.email">{{author.name}}</span>
-    </span>
-  </p>
+<md-content layout="column" flex>
+  <div layout-padding layout-margin flex>
+    <h1 class="md-display-1">{{vm.article.title}}</h1>
+    <p class="author-info" ng-if="vm.article.authors && vm.article.authors.length > 0">
+      by
+      <span class="author" ng-repeat="author in vm.article.authors">
+        <a ng-if="author.contact.email" href="mailto:{{author.contact.email}}">{{author.name}}</a>
+        <span ng-if="!author.contact.email">{{author.name}}</span>
+      </span>
+    </p>
 
-  <section class="abstract" ng-if="vm.article.abstract">
-    <h2>Summary</h2>
-    <div ng-bind-html="vm.article.abstract"></div>
-  </section>
+    <section class="abstract" ng-if="vm.article.abstract">
+      <h2>Summary</h2>
+      <div ng-bind-html="vm.article.abstract"></div>
+    </section>
 
-  <div layout="row" layout-align="end">
-    <md-button class="md-accent md-raised" ui-sref="article({id: vm.article.id})">
-      Read Full Article
-    </md-button>
+    <div layout="row" layout-align="end">
+      <md-button class="md-accent md-raised" ui-sref="article({id: vm.article.id})">
+        Read Full Article
+      </md-button>
+    </div>
   </div>
 </md-content>
