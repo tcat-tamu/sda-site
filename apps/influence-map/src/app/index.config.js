@@ -6,13 +6,15 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, $mdThemingProvider, peopleRepoProvider, worksRepoProvider, graphRepoProvider) {
+  function config($logProvider, $mdThemingProvider, peopleRepoProvider, worksRepoProvider, graphRepoProvider, sdaSitenavProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
     peopleRepoProvider.url = '/api/catalog/people';
     worksRepoProvider.url = '/api/catalog/works';
     graphRepoProvider.url = '/api/catalog/graph';
+
+    sdaSitenavProvider.url = '/assets/data/navigation.json';
 
     $mdThemingProvider.definePalette('darkBrown', {
       '50': '#595c59',
