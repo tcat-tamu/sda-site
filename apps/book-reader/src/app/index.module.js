@@ -12,7 +12,8 @@
       'ui.router',
       'ngMaterial',
       'trcBiblio',
-      'trcReln'
+      'trcReln',
+      'sda'
     ]);
 
 })();
