@@ -1,0 +1,36 @@
+{
+  "name": "sda",
+  "version": "0.0.0",
+  "license": "Apache-2.0",
+  "author": [
+    "Matthew Barry <mbarry@tamu.edu>"
+  ],
+  "main": "src/index",
+  "dependencies": {
+    "angular": "^1.5.0"
+  },
+  "devDependencies": {
+    "del": "^2.2.2",
+    "eslint": "^3.8.1",
+    "eslint-loader": "^1.6.0",
+    "eslint-plugin-angular": "^1.4.1",
+    "gulp": "^3.9.1",
+    "gulp-filter": "^4.0.0",
+    "gulp-util": "^3.0.7",
+    "html-loader": "^0.4.4",
+    "json-loader": "^0.5.4",
+    "ng-annotate-loader": "^0.2.0",
+    "ts-loader": "^0.9.4",
+    "tslint": "^3.15.1",
+    "tslint-loader": "^2.1.5",
+    "typescript": "^2.0.3",
+    "typings": "^1.4.0",
+    "webpack": "^1.13.2"
+  },
+  "scripts": {
+    "build": "gulp",
+    "serve": "gulp serve",
+    "serve:dist": "gulp serve:dist",
+    "postinstall": "typings install"
+  }
+}

@@ -1,0 +1,13 @@
+<md-toolbar class="layout-navbar" layout="row" layout-align="center">
+  <div class="md-toolbar-tools container" layout="row" layout-align="start stretch">
+    <div layout="row" layout-align="center center">
+      <md-button class="md-accent md-icon-button" ng-click="$ctrl.toggleSidenav($ctrl.mdSidenavId)" hide-gt-sm ng-if="$ctrl.mdSidenavId">
+        <md-icon>menu</md-icon>
+      </md-button>
+      <a class="logo" href="/" layout="column" layout-align="center center">
+        <img src="/assets/images/sda-logo-light.png" alt="SDA" flex="nogrow">
+      </a>
+    </div>
+    <sda-sitenav layout="column" active-url="{{$ctrl.activeUrl}}"></sda-sitenav>
+  </div>
+</md-toolbar>

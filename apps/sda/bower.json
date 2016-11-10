@@ -1,0 +1,13 @@
+{
+  "name": "sda",
+  "main": "dist/sda.js",
+  "dependencies": {
+    "angular": "^1.5.0"
+  },
+  "devDependencies": {},
+  "ignore": [
+    "*",
+    "!dist/",
+    "!dist/*"
+  ]
+}
