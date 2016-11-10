@@ -2,16 +2,23 @@ const webpack = require('webpack');
 const conf = require('./gulp.conf');
 const path = require('path');
 
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const autoprefixer = require('autoprefixer');
+
 const pkg = require('../package.json');
 
 module.exports = {
   module: {
     loaders: [
       {
-        test: /.json$/,
+        test: /\.json$/,
         loaders: [
           'json'
         ]
+      },
+      {
+        test: /\.(css|scss)$/,
+        loader: ExtractTextPlugin.extract('style', 'css!postcss!sass')
       },
       {
         test: /\.ts$/,
@@ -22,7 +29,7 @@ module.exports = {
         ]
       },
       {
-        test: /.html$/,
+        test: /\.html$/,
         loaders: [
           'html'
         ]
@@ -35,7 +42,8 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({
       include: /\.min\.js$/,
       compress: {unused: true, dead_code: true, warnings: false} // eslint-disable-line camelcase
-    })
+    }),
+    new ExtractTextPlugin('[name].css')
   ],
   output: {
     path: path.join(process.cwd(), conf.paths.dist),
@@ -62,13 +70,15 @@ module.exports = {
     ]
   },
   entry: {
-    [pkg.name]: `./${conf.path.src('index')}`,
-    [`${pkg.name}.min`]: `./${conf.path.src('index')}`
+    [pkg.name]: `./${conf.path.src('index')}`
   },
   ts: {
     configFileName: 'tsconfig.json'
   },
   tslint: {
     configuration: require('../tslint.json')
+  },
+  postcss: {
+    plugins: [autoprefixer]
   }
 };

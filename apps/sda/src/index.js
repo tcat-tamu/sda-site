@@ -1,5 +1,7 @@
 var angular = require('angular');
 
+require('./style.scss');
+
 var slide = require('./slide-toggle/slide.animation');
 var sdaSitenavService = require('./sda-sitenav/sda-sitenav.service');
 var sdaSitenavComponent = require('./sda-sitenav/sda-sitenav.component');
