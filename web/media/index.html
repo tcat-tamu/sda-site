@@ -6,8 +6,9 @@ permalink: /media/
 sidebar: media/sidebar.html
 banner: slider-empty-tomb.jpg
 ---
-<ul>
-  {% for page in site.posts %}
+<ul class="media-list">
+  {% assign posts = site.posts | reverse %}
+  {% for page in posts %}
     {% if page.categories contains 'media' %}
       <li>
         <a href="{{ page.url }}">

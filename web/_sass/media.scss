@@ -24,3 +24,38 @@ $video-aspect-ratio: 9 / 16;
     color: $cream1;
   }
 }
+
+ul.media-list {
+  list-style: none;
+
+  li {
+    a {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+
+      text-decoration: none;
+      color: inherit;
+
+      transition: background-color 200ms;
+
+      &:hover {
+        background-color: rgba(#000, 0.1);
+      }
+
+      > * {
+        padding: 1rem;
+      }
+
+      .media-title {
+        font-size: 1.3rem;
+        margin: 0;
+      }
+
+      .media-speakers {
+        font-size: 0.9rem;
+        opacity: 0.54;
+      }
+    }
+  }
+}
