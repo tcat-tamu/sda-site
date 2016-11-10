@@ -9,24 +9,54 @@
 <main layout="row" layout-align="center" flex>
   <div class="container" layout="row" flex>
     <md-sidenav md-component-id="left" class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-sm')" layout="column">
-      <md-tabs flex>
-        <md-tab label="Themes">
-          <div layout="column">
-            <div layout="row" flex="none">
-              <md-input-container flex>
-                <label>Search articles</label>
-                <md-icon>search</md-icon>
-                <input type="search" ng-model="query" ng-model-options="{debounce: 500}" ng-change="vm.search(query)">
-              </md-input-container>
+      <md-tabs md-stretch-tabs="always" flex>
+        <md-tab aria-label="Themes">
+          <md-tab-label>
+            <md-icon>explore</md-icon>
+            <md-tooltip>Themes</md-tooltip>
+          </md-tab-label>
+          <md-tab-body>
+            <div layout="column">
+              <div layout="row" flex="none">
+                <md-input-container flex>
+                  <label>Search articles</label>
+                  <md-icon>search</md-icon>
+                  <input type="search" ng-model="query" ng-model-options="{debounce: 500}" ng-change="vm.search(query)">
+                </md-input-container>
+              </div>
+              <div class="collections" flex>
+                <tree-categorization scope-id="sda" scheme="overviews"></tree-categorization>
+              </div>
             </div>
-            <div class="collections" flex>
-              <tree-categorization scope-id="sda" scheme="overviews"></tree-categorization>
-            </div>
-          </div>
+          </md-tab-body>
         </md-tab>
-        <md-tab label="Articles">Coming soon...</md-tab>
-        <md-tab label="Reviews">Coming soon...</md-tab>
-        <md-tab label="Biographies">Coming soon...</md-tab>
+        <md-tab aria-label="Articles">
+          <md-tab-label>
+            <md-icon>school</md-icon>
+            <md-tooltip>Articles</md-tooltip>
+          </md-tab-label>
+          <md-tab-body>
+            Coming soon...
+          </md-tab-body>
+        </md-tab>
+        <md-tab aria-label="Reviews">
+          <md-tab-label>
+            <md-icon>book</md-icon>
+            <md-tooltip>Reviews</md-tooltip>
+          </md-tab-label>
+          <md-tab-body>
+            Coming soon...
+          </md-tab-body>
+        </md-tab>
+        <md-tab aria-label="Biographies">
+          <md-tab-label>
+            <md-icon>person</md-icon>
+            <md-tooltip>Biographies</md-tooltip>
+          </md-tab-label>
+          <md-tab-body>
+            Coming soon...
+          </md-tab-body>
+        </md-tab>
       </md-tabs>
     </md-sidenav>
     <div layout="column" flex ui-view>
@@ -90,44 +120,46 @@
             </a>
          </nav>
       </div>
-      <md-content layout="row" layout-padding flex ng-if="!vm.queryResult">
-        <section flex="66">
-          <h1 class="md-display-1">SDA Reader</h1>
-          <p>
-            The SDA Reader contains articles that provide an encyclopedic survey of contemporary research issues in the field and provide critical reflection on select works and people documented in the historical collection. Following the genre of print-based introductory readers widely used within philosophy, theology and Humanities disciplines, the SDA reader provides a starting point those who want an introduction to specific topics and directions for further research.
-          </p>
+      <md-content layout="column" flex ng-if="!vm.queryResult">
+        <div layout="row" layout-padding layout-margin flex>
+          <section flex="66">
+            <h1 class="md-display-1">SDA Reader</h1>
+            <p>
+              The SDA Reader contains articles that provide an encyclopedic survey of contemporary research issues in the field and provide critical reflection on select works and people documented in the historical collection. Following the genre of print-based introductory readers widely used within philosophy, theology and Humanities disciplines, the SDA reader provides a starting point those who want an introduction to specific topics and directions for further research.
+            </p>
 
-          <p>The SDA Reader contains four main categories of content.</p>
+            <p>The SDA Reader contains four main categories of content.</p>
 
-          <ul class="list-style-type:none;">
-            <li><p><em>Thematic Overviews</em> provide a systematic survey of key concepts in the field of SDA. Each overview article introduces a key topic and provides references to both the primary source material and the research literature for those who wish to explore the issue in more depth.</p></li>
+            <ul class="list-style-type:none;">
+              <li><p><em>Thematic Overviews</em> provide a systematic survey of key concepts in the field of SDA. Each overview article introduces a key topic and provides references to both the primary source material and the research literature for those who wish to explore the issue in more depth.</p></li>
 
-            <li><p><em>Research Articles</em> provide scholarly treatment of specific topics. These are of a length, quality, and scope associated with peer-reviewed journal articles and exceptional conference presentations.</p></li>
+              <li><p><em>Research Articles</em> provide scholarly treatment of specific topics. These are of a length, quality, and scope associated with peer-reviewed journal articles and exceptional conference presentations.</p></li>
 
-            <li><p><em>Book Reviews</em> offer a critical review of a book within the digital library. Reviews go beyond the summary information that accompanies each work to offer a critical assesment of the book's scholarly merit and impact as well as its relevance to contemporary research.</p></li>
+              <li><p><em>Book Reviews</em> offer a critical review of a book within the digital library. Reviews go beyond the summary information that accompanies each work to offer a critical assesment of the book's scholarly merit and impact as well as its relevance to contemporary research.</p></li>
 
-            <li><p><em>Biographies</em> describe the professional and personal life of influential people documented in the digital library. These research articles serve to contextualize the books written by these individuals and assess their overall impact on the development of thought on this topic.</p></li>
-          </ul>
-        </section>
-        <aside flex="33">
-          <h2>Perspectives on SDA</h2>
-          <ul style="list-style-type:none;">
-            <li><a href="">Philosophers</a></li>
-            <li><a href="">Theologians</a></li>
-            <li><a href="">Scientists</a></li>
-            <li><a href="">Historians</a></li>
-            <li><a href="">Literary Scholars</a></li>
-            <li><a href="">Scripture Scholars</a></li>
-            <li><a href="">Artists</a></li>
-            <li><a href="">Atheists</a></li>
-            <li><a href="">Students</a></li>
-            <li><a href="">Anyone</a></li>
-          </ul>
-          <h2>Concept Map</h2>
-          <div class="cmap-container">
-            <a href=""><img src="//placehold.it/200x200" /></a>
-          </div>
-        </aside>
+              <li><p><em>Biographies</em> describe the professional and personal life of influential people documented in the digital library. These research articles serve to contextualize the books written by these individuals and assess their overall impact on the development of thought on this topic.</p></li>
+            </ul>
+          </section>
+          <aside flex="33">
+            <h2>Perspectives on SDA</h2>
+            <ul style="list-style-type:none;">
+              <li><a href="">Philosophers</a></li>
+              <li><a href="">Theologians</a></li>
+              <li><a href="">Scientists</a></li>
+              <li><a href="">Historians</a></li>
+              <li><a href="">Literary Scholars</a></li>
+              <li><a href="">Scripture Scholars</a></li>
+              <li><a href="">Artists</a></li>
+              <li><a href="">Atheists</a></li>
+              <li><a href="">Students</a></li>
+              <li><a href="">Anyone</a></li>
+            </ul>
+            <h2>Concept Map</h2>
+            <div class="cmap-container">
+              <a href=""><img src="//placehold.it/200x200" /></a>
+            </div>
+          </aside>
+        </div>
       </md-content>
     </div>
   </div>

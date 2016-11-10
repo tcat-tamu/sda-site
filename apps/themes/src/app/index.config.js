@@ -6,12 +6,13 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, $mdThemingProvider, categorizationRepoProvider, articlesRepoProvider, sdaSitenavProvider) {
+  function config($logProvider, $mdThemingProvider, categorizationRepoProvider, articlesRepoProvider, seeAlsoRepoProvider, sdaSitenavProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
     categorizationRepoProvider.url = '/api/catalog/categorizations';
     articlesRepoProvider.url = '/api/catalog/entries/articles';
+    seeAlsoRepoProvider.url = '/api/catalog/seealso';
 
     sdaSitenavProvider.url = '/assets/data/navigation.json';
 
