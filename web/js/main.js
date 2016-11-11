@@ -29,4 +29,21 @@
     $(this).find('i.fa').toggleClass('fa-angle-double-up').toggleClass('fa-angle-double-down')
   });
 
+  // collapsible navigation lists
+  $('.nav-collapsible li').each(function () {
+    var item = $(this);
+
+    if (item.children('ol,ul').length === 0) {
+      return;
+    }
+
+    var handle = $('<span>', { class: 'handle material-icons', text: 'keyboard_arrow_right' }).on('click', function (evt) {
+      evt.stopImmediatePropagation();
+      item.toggleClass('expanded').children('ol,ul').slideToggle(200);
+      $(this).text(($(this).text() === 'expand_more') ? 'keyboard_arrow_right' : 'expand_more');
+    });
+
+    item.prepend(handle);
+  });
+
 })();
