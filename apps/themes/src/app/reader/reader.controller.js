@@ -6,10 +6,13 @@
     .controller('ReaderController', ReaderController);
 
   /** @ngInject */
-  function ReaderController($http, $mdSidenav, $mdToast, articlesRepo) {
+  function ReaderController($stateParams, $http, $mdSidenav, $mdToast, articlesRepo) {
     var vm = this;
 
     vm.navigation = [];
+
+    // spy on preview id parameter if it's set
+    vm.articleId = $stateParams.id;
 
     vm.queryResult = null;
 

@@ -17,32 +17,25 @@
           </md-tab-label>
           <md-tab-body>
             <div layout="column">
-              <div layout="row" flex="none">
-                <md-input-container flex>
-                  <label>Search articles</label>
-                  <md-icon>search</md-icon>
-                  <input type="search" ng-model="query" ng-model-options="{debounce: 500}" ng-change="vm.search(query)">
-                </md-input-container>
-              </div>
+              <!--
+                <div layout="row" flex="none">
+                  <md-input-container flex>
+                    <label>Search articles</label>
+                    <md-icon>search</md-icon>
+                    <input type="search" ng-model="query" ng-model-options="{debounce: 500}" ng-change="vm.search(query)">
+                  </md-input-container>
+                </div>
+              -->
               <div class="collections" flex>
-                <tree-categorization scope-id="sda" scheme="overviews"></tree-categorization>
+                <tree-categorization scope-id="sda" scheme="overviews" active-ref-id="vm.articleId"></tree-categorization>
               </div>
             </div>
           </md-tab-body>
         </md-tab>
-        <md-tab aria-label="Articles">
-          <md-tab-label>
-            <md-icon>school</md-icon>
-            <md-tooltip>Articles</md-tooltip>
-          </md-tab-label>
-          <md-tab-body>
-            Coming soon...
-          </md-tab-body>
-        </md-tab>
-        <md-tab aria-label="Reviews">
+        <md-tab aria-label="Book Reviews">
           <md-tab-label>
             <md-icon>book</md-icon>
-            <md-tooltip>Reviews</md-tooltip>
+            <md-tooltip>Book Reviews</md-tooltip>
           </md-tab-label>
           <md-tab-body>
             Coming soon...
@@ -52,6 +45,15 @@
           <md-tab-label>
             <md-icon>person</md-icon>
             <md-tooltip>Biographies</md-tooltip>
+          </md-tab-label>
+          <md-tab-body>
+            Coming soon...
+          </md-tab-body>
+        </md-tab>
+        <md-tab aria-label="Research Articles">
+          <md-tab-label>
+            <md-icon>school</md-icon>
+            <md-tooltip>Research Articles</md-tooltip>
           </md-tab-label>
           <md-tab-body>
             Coming soon...

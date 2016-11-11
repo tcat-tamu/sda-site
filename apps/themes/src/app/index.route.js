@@ -9,14 +9,14 @@
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('reader', {
-        url: '/',
+        url: '/?id',
         templateUrl: 'app/reader/reader.html',
         controller: 'ReaderController',
         controllerAs: 'vm'
       })
 
       .state('reader.preview', {
-        url: 'preview/:id',
+        url: 'preview',
         templateUrl: 'app/preview/preview.html',
         controller: 'PreviewController',
         controllerAs: 'vm',
