@@ -1,13 +1,13 @@
 <sda-header md-sidenav-id="left" active-url="/research"></sda-header>
 
-<div class="page-banner" layout="row" layout-align="center">
+<div class="page-banner shade" layout="row" layout-align="center">
   <div class="container" flex>
     <h1>Research</h1>
   </div>
 </div>
 
-<main layout="row" layout-align="center" flex>
-  <div class="container" layout="row" flex>
+<div layout="row" layout-align="center" flex>
+  <main class="container" layout="row" flex>
     <md-sidenav md-component-id="left" class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-md')" layout="column">
       <div layout="row" flex="none">
         <md-input-container flex>
@@ -47,8 +47,8 @@
         </div>
       </md-content>
     </md-sidenav>
-    <div layout="column" flex ui-view>
-      <md-content flex layout="row" layout-padding layout-margin>
+    <md-content layout="column" flex ui-view>
+      <div flex="noshrink" layout="row" layout-padding layout-margin>
         <section flex="66">
           <h1>Overview</h1>
           <p>
@@ -93,7 +93,7 @@
             </md-list-item>
           </md-list>
         </aside>
-      </md-content>
-    </div>
-  </div>
-</main>
+      </div>
+    </md-content>
+  </main>
+</div>

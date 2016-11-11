@@ -46,7 +46,7 @@ html, body {
 body {
   margin: 0;
   padding: 0;
-  color: $text;
+  background: $grey6;
 }
 
 // scrollable content area
@@ -87,7 +87,9 @@ fieldset {
 }
 
 main, .main {
-  background-color: white;
+  > .container {
+    background: $grey0;
+  }
 }
 
 /*  Forms - (Generic)  */

@@ -1,5 +1,12 @@
 @import 'variables';
 
+body {
+  margin: 0;
+  padding: 0;
+  color: $grey1;
+  background: $grey6;
+}
+
 md-toolbar {
   .logo {
     display: flex;
@@ -88,4 +95,9 @@ md-sidenav {
 
 .container {
   max-width: $container-max-width;
+}
+
+main {
+  background: $grey0;
+  color: $grey8;
 }

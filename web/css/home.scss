@@ -7,6 +7,11 @@
   'home/billboard',
   'home/nav';
 
+main, .main {
+  background-color: $grey0;
+  color: $text;
+}
+
 .site-header {
   position: absolute;
   top: 0;
