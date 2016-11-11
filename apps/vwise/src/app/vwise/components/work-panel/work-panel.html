@@ -28,14 +28,11 @@
           <md-list>
             <div ng-repeat="relationship in group.relationships">
               <md-list-item
-                  ng-repeat="item in relationship.entities"
+                  ng-repeat="item in relationship.anchors"
                   jqyoui-draggable="{animate:false}"
                   data-jqyoui-options="{revert:'invalid',helper:'clone',appendTo:'body'}"
                   data-drag="true">
-                <div class="md-list-item-text">
-                  <span class="authors"><span class="author" ng-repeat="author in item.entity.authors">{{author.lastName}}.</span></span>
-                  <span class="title">{{item.title.title}}{{item.title.subtitle ? ': ' : ''}}<span ng-if="item.title.subtitle" class="subtitle">{{item.title.subtitle}}</span></span>
-                </div>
+                <div class="md-list-item-text" ng-bind-html="item.label"></div>
               </md-list-item>
             </div>
           </md-list>

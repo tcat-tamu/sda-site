@@ -25,9 +25,7 @@
               jqyoui-draggable="{animate:false}"
               data-jqyoui-options="{revert:'invalid',helper:'clone',appendTo:'body'}"
               data-drag="true">
-            <div class="md-list-item-text">
-              <span>{{item.label}}</span>
-            </div>
+            <div class="md-list-item-text" ng-bind-html="item.label"></div>
           </md-list-item>
         </md-list>
       </div>
@@ -39,9 +37,7 @@
               jqyoui-draggable="{animate:false}"
               data-jqyoui-options="{revert:'invalid',helper:'clone',appendTo:'body'}"
               data-drag="true">
-            <div class="md-list-item-text">
-              <span>{{item.label}}</span>
-            </div>
+            <div class="md-list-item-text" ng-bind-html="item.label"></div>
           </md-list-item>
         </md-list>
       </div>

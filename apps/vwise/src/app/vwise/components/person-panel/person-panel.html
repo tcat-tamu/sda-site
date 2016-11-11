@@ -22,9 +22,7 @@
             jqyoui-draggable="{animate:false}"
             data-jqyoui-options="{revert:'invalid',helper:'clone',appendTo:'body'}"
             data-drag="true">
-            <div class="md-list-item-text">
-              {{item.label}}
-            </div>
+            <div class="md-list-item-text" ng-bind-html="item.label"></div>
           </md-list-item>
         </md-list>
       </md-tab-body>
