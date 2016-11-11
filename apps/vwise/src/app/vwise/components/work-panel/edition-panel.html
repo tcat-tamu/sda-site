@@ -1,12 +1,14 @@
 <div class="panel-edition" flex layout="column">
   <h1>
-    <span class="authors">
-      <span class="author" ng-repeat="author in edition.authors">
-        {{author.lastName}}.
+    <span class="panel-label">
+      <span class="authors">
+        <span class="author" ng-repeat="author in edition.authors">
+          {{author.lastName}}.
+        </span>
       </span>
+      <span class="title">{{title.title}}<span ng-if="title.subtitle">: {{title.subtitle}}</span>.</span>
+      <span class="edition-name">{{edition.editionName}}.</span>
     </span>
-    <span class="title">{{title.title}}<span ng-if="title.subtitle">: {{title.subtitle}}</span>.</span>
-    <span class="edition-name">{{edition.editionName}}.</span>
   </h1>
   <md-tabs flex>
     <md-tab ng-if="edition.summary">
