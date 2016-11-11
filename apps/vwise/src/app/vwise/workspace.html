@@ -14,10 +14,10 @@
       <div ng-if="vm.loading" layout="row" layout-align="center">
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
       </div>
-      <div ng-if="!vm.loading &amp;&amp; vm.peopleResults &amp;&amp; vm.peopleResults.items.length == 0 &amp;&amp; vm.worksResults &amp;&amp; vm.worksResults.items.length == 0" layout="row" layout-padding>
+      <div ng-if="!vm.loading && vm.peopleResults && vm.peopleResults.items.length == 0 && vm.worksResults && vm.worksResults.items.length == 0" layout="row" layout-padding>
         <p>No results for "{{vm.searchQuery}}".</p>
       </div>
-      <div ng-if="!vm.loading &amp;&amp; vm.peopleResults &amp;&amp; vm.peopleResults.items.length > 0">
+      <div ng-if="!vm.loading && vm.peopleResults && vm.peopleResults.items.length > 0">
         <md-subheader>People</md-subheader>
         <md-list>
           <md-list-item
@@ -31,7 +31,7 @@
           </md-list-item>
         </md-list>
       </div>
-      <div ng-if="!vm.loading &amp;&amp; vm.worksResults &amp;&amp; vm.worksResults.items.length > 0">
+      <div ng-if="!vm.loading && vm.worksResults && vm.worksResults.items.length > 0">
         <md-subheader>Works</md-subheader>
         <md-list>
           <md-list-item
