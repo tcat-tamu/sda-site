@@ -19,18 +19,24 @@
     };
 
     Mediator.prototype.initPanelData = function initPanelData(obj) {
+      var workP = loadWork(obj.id);
       return $q.all({
         id: obj.id,
-        work: loadWork(obj.id),
-        relationships: loadRelationships(obj.id)
+        work: workP,
+        relationships: workP.then(function (work) {
+          return loadRelationships(work.ref.token);
+        })
       });
     };
 
     Mediator.prototype.unmarshall = function unmarshall(dto) {
+      var workP = loadWork(dto.id);
       return $q.all({
         id: dto.id,
-        work: loadWork(dto.id),
-        relationships: loadRelationships(dto.id)
+        work: workP,
+        relationships: workP.then(function (work) {
+          return loadRelationships(work.ref.token);
+        })
       });
     };
 
@@ -55,34 +61,27 @@
       return work.$promise;
     }
 
-    function loadRelationships(workId) {
-      var currentUri = 'works/' + workId;
-      var results = relnRepo.search(currentUri);
+    function loadRelationships(token) {
+      var results = relnRepo.search(token);
       return results.$promise.then(function () {
-        var relationships = relnRepo.normalizeRelationships(results, currentUri, worksRepo);
+        var relationships = relnRepo.normalizeRelationships(results, token);
         return relationships.$promise.then(function () {
 
           relationships.forEach(function (group) {
             group.relationships.forEach(function (reln) {
-              reln.entities.forEach(function (entity) {
-
-                entity.entity.$promise.then(function () {
-                  entity.title = worksRepo.getTitle(entity.entity.titles);
-                });
-
-                switch(entity.type) {
-                  case 'work':
-                    entity.id = entity.refParams.workId;
-                    break;
-                  case 'edition':
-                    entity.workId = entity.refParams.workId;
-                    entity.id = entity.refParams.editionId;
-                    break;
-                  case 'volume':
-                    entity.workId = entity.refParams.workId;
-                    entity.editionId = entity.refParams.editionId;
-                    entity.id = entity.refParams.volumeId;
-                    break;
+              reln.anchors.forEach(function (anchor) {
+                if (anchor.properties.hasOwnProperty('editionId') && anchor.properties.hasOwnProperty('volumeId')) {
+                  anchor.type = 'volume';
+                  anchor.workId = anchor.ref.id;
+                  anchor.editionId = anchor.properties.editionId;
+                  anchor.id = anchor.properties.volumeId;
+                } else if (anchor.properties.hasOwnProperty('editionId')) {
+                  anchor.type = 'edition';
+                  anchor.workId = anchor.ref.id;
+                  anchor.id = anchor.properties.editionId;
+                } else {
+                  anchor.type = 'work';
+                  anchor.id = anchor.ref.id;
                 }
               });
             });

@@ -1,14 +1,4 @@
-<md-toolbar class="layout-navbar">
-  <div class="md-toolbar-tools">
-    <md-button class="md-accent md-icon-button" ng-click="vm.toggleSidenav('left')" hide-gt-sm>
-      <md-icon>menu</md-icon>
-    </md-button>
-    <a class="logo" href="/" layout="column" layout-align="center center">
-      <img src="/assets/images/sda-logo-light.png" alt="SDA" flex="nogrow">
-    </a>
-    <h1><a ui-sref="reader">SDA Visual Workspace</a></h1>
-  </div>
-</md-toolbar>
+<sda-header md-sidenav-id="left" active-url="/research"></sda-header>
 
 <div layout="row" flex>
   <md-sidenav md-component-id="left" class="md-sidenav-left" layout="column" md-is-locked-open="vm.sidebarFocused">
@@ -24,10 +14,10 @@
       <div ng-if="vm.loading" layout="row" layout-align="center">
         <md-progress-circular md-mode="indeterminate"></md-progress-circular>
       </div>
-      <div ng-if="!vm.loading &amp;&amp; vm.peopleResults &amp;&amp; vm.peopleResults.items.length == 0 &amp;&amp; vm.worksResults &amp;&amp; vm.worksResults.items.length == 0" layout="row" layout-padding>
+      <div ng-if="!vm.loading && vm.peopleResults && vm.peopleResults.items.length == 0 && vm.worksResults && vm.worksResults.items.length == 0" layout="row" layout-padding>
         <p>No results for "{{vm.searchQuery}}".</p>
       </div>
-      <div ng-if="!vm.loading &amp;&amp; vm.peopleResults &amp;&amp; vm.peopleResults.items.length > 0">
+      <div ng-if="!vm.loading && vm.peopleResults && vm.peopleResults.items.length > 0">
         <md-subheader>People</md-subheader>
         <md-list>
           <md-list-item
@@ -35,13 +25,11 @@
               jqyoui-draggable="{animate:false}"
               data-jqyoui-options="{revert:'invalid',helper:'clone',appendTo:'body'}"
               data-drag="true">
-            <div class="md-list-item-text">
-              <span>{{item.label}}</span>
-            </div>
+            <div class="md-list-item-text" ng-bind-html="item.label"></div>
           </md-list-item>
         </md-list>
       </div>
-      <div ng-if="!vm.loading &amp;&amp; vm.worksResults &amp;&amp; vm.worksResults.items.length > 0">
+      <div ng-if="!vm.loading && vm.worksResults && vm.worksResults.items.length > 0">
         <md-subheader>Works</md-subheader>
         <md-list>
           <md-list-item
@@ -49,9 +37,7 @@
               jqyoui-draggable="{animate:false}"
               data-jqyoui-options="{revert:'invalid',helper:'clone',appendTo:'body'}"
               data-drag="true">
-            <div class="md-list-item-text">
-              <span>{{item.label}}</span>
-            </div>
+            <div class="md-list-item-text" ng-bind-html="item.label"></div>
           </md-list-item>
         </md-list>
       </div>

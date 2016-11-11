@@ -11,7 +11,7 @@
         <div class="summary" ng-bind-html="person.summary"></div>
       </md-tab-body>
     </md-tab>
-    <md-tab ng-if="panel.works &amp;&amp; panel.works.length > 0">
+    <md-tab ng-if="panel.works && panel.works.length > 0">
       <md-tab-label>
         <md-icon>content_copy</md-icon>
       </md-tab-label>
@@ -22,14 +22,12 @@
             jqyoui-draggable="{animate:false}"
             data-jqyoui-options="{revert:'invalid',helper:'clone',appendTo:'body'}"
             data-drag="true">
-            <div class="md-list-item-text">
-              {{item.label}}
-            </div>
+            <div class="md-list-item-text" ng-bind-html="item.label"></div>
           </md-list-item>
         </md-list>
       </md-tab-body>
     </md-tab>
-    <md-tab ng-if="panel.relatedPeople &amp;&amp; panel.relatedPeople.length > 0">
+    <md-tab ng-if="panel.relatedPeople && panel.relatedPeople.length > 0">
       <md-tab-label>
         <md-icon>link</md-icon>
       </md-tab-label>

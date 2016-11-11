@@ -19,7 +19,8 @@
     "angular-hotkeys": "chieffancypants/angular-hotkeys#^1.7.0",
     "angular-pouchdb": "^4.3.0",
     "trc": "^0.0.6",
-    "vwise": "^0.0.1"
+    "vwise": "^0.0.1",
+    "sda": "../sda/"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.8"
@@ -27,6 +28,12 @@
   "overrides": {
     "lodash": {
       "main": "dist/lodash.js"
+    },
+    "sda": {
+      "main": [
+        "index/sda.js",
+        "index/sda.css"
+      ]
     }
   },
   "resolutions": {
