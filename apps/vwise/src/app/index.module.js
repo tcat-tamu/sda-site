@@ -16,7 +16,8 @@
       'trcReln',
       'ngDragDrop',
       'pouchdb',
-      'cfp.hotkeys'
+      'cfp.hotkeys',
+      'sda'
     ]);
 
 })();
