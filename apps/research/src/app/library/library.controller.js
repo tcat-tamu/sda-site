@@ -11,8 +11,6 @@
 
     vm.navigation = [];
 
-    vm.toggleSidenav = toggleSidenav;
-
     vm.search = search;
     vm.loading = false;
     vm.results = null;
@@ -36,10 +34,5 @@
         $mdToast.showSimple('Failed to load search results');
       });
     }
-
-    function toggleSidenav(id) {
-      $mdSidenav(id).toggle();
-    }
-
   }
 })();

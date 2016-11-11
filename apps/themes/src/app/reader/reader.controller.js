@@ -16,16 +16,11 @@
 
     vm.queryResult = null;
 
-    vm.toggleSidenav = toggleSidenav;
     vm.search = search;
     vm.displayFirstPage = displayFirstPage;
     vm.displayPrevPage = displayPrevPage;
     vm.displayNextPage = displayNextPage;
     vm.displayLastPage = displayLastPage;
-
-    function toggleSidenav(id) {
-      $mdSidenav(id).toggle();
-    }
 
     function search(query) {
       // HACK: articlesRepo.search() not yet implemented
