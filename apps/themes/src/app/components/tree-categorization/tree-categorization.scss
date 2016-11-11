@@ -5,8 +5,10 @@ tree-categorization {
     margin-bottom: 0.5em;
     line-height: 1.75em;
 
-
     li {
+      md-icon[ng-click] {
+        cursor: pointer
+      }
       >.category-node {
         white-space: nowrap;
         margin-top:-0.75em;

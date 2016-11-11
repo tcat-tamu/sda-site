@@ -1,6 +1,9 @@
-<span ng-if="node.entryRef == null">{{ node.label }}</span>
-<a ui-sref="reader.preview({id: node.entryRef.id})" ng-if="node.entryRef != null">{{ node.label }}</a>
+<md-icon ng-if="node.children.length === 0"></md-icon>
+<md-icon ng-click="node.expanded = !node.expanded" ng-if="node.children.length > 0">{{node.expanded ? 'expand_more' : 'keyboard_arrow_right'}}</md-icon>
 
-<ol ng-if="node.children.length > 0">
+<span ng-if="!node.entryRef">{{ node.label }}</span>
+<a ui-sref="reader.preview({id: node.entryRef.id})" ng-if="node.entryRef">{{ node.label }}</a>
+
+<ol ng-if="node.children.length > 0" class="slide" ng-show="node.expanded">
    <li ng-repeat="node in node.children" ng-include="'app/components/tree-categorization/tree-categorization-item.html'" ng-init="parent = $parent.$parent.node"></li>
 </ol>
