@@ -7,8 +7,8 @@
 - label: Media
   url: /media
 
-- label: Teaching
-  url: /teaching
+# - label: Teaching
+#   url: /teaching
 
 # - label: Conferences
 #   url: /conferences
