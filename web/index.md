@@ -108,166 +108,166 @@ billboard:
 modules:
   - title: Introduction
     sections:
-      - title: Meaning
+      - title: Videos
         panels:
-          - - title: Overview
+          - - title: Grace
               href: /about
               content: >
-                Review the idea of special divine action in general, as well as its relation to broader notions of divine and supranatural action.
-            - title: Categorisation
+                text comming soon
+            - title: Inspiration
               video: QCkzYqP1yXg
               content: >
-                Examine the definitions of the principal types of purported special divine action and their relation to the natural world.
-          - - title: Paradigms
+                text comming soon
+          - - title: Miracles
               content: >
-                Explore persons, instances, and archetypes that have influenced the meaning and understanding of special divine action.
-            - title: Contemporary
+                text comming soon
+            - title: Providence
               content: >
-                Survey contemporary questions and views regarding the meaning and implications of special divine action.
-      - title: Narratives
+                text comming soon
+      - title: Questions
         panels:
           - - title: Worldviews
               content: >
-                Review how diverse ways of understanding special divine action are shaped by diverse worldviews: unifying pictures or narratives about the world and meaning of life.
+                text comming soon
             - title: Science
               content: >
-                Examine the place and meaning of special divine action within various scientific accounts of the most fundamental causes and principles of the world.
+                text comming soon
           - - title: Philosophy
               content: >
-                Examine the place and meaning of special divine action within various philosophical accounts of the most fundamental causes and principles of the world.
+                text comming soon
             - title: Theology and Religion
               content: >
-                Explore key ideas about special divine action across some of the principal religious traditions, and consider influential questions, controversies, and views in theology.
-      - title: Assessment
+                text comming soon
+      - title: Project
         panels:
           - - title: Overview
               content: >
-                Review the importance and challenges of assessing purported special divine action generally, across a range of perspectives.
+
             - title: Epistemology
               content: >
-                Investigate the characteristics, sources and limits of human knowledge regarding the assessment of special divine action.
+
           - - title: Testimony
               content: >
-                Investigate the issues involved in the communication and assessment of a testimony of special divine action from a first to a second person.
+
             - title: Commentators
               content: >
-                Review a selection of key commentators, holding diverse views, who have shaped many of the important debates about the assessment of special divine action.
-      - title: Imagination
+
+      - title: Albert
         panels:
-          - - title: Mechanistic
+          - - title: Grace
               content: >
-                Explore the notion of a machine as a root metaphor for imagining the operations of the world and special divine action.
-            - title: Illuminative
+                text comming soon
+            - title: inspiration
               content: >
-                Explore the role of light as a metaphor for special divine action and its assessment, especially grace, inspiration, and the discernment of providential action.
-          - - title: Organic
+                text comming soon
+          - - title: Miracles
               content: >
-                Explore the role of organic metaphors for imagining the world and special divine action, especially in terms of nurture or cultivation.
-            - title: Interpersonal
+                text comming soon
+            - title: Providence
               content: >
-                Explore interpersonal action and character formation as a way to understand key aspects of purported special divine action, especially its ultimate purposes.
+                text comming soon
   - title: Study
     sections:
-      - title: Why?
+      - title: Meaning
         panels:
-          - - title: Humanities
+          - - title: Grace
               content: >
-                Examine why the topic of special divine action is important to a wide range of disciplines in the humanities including history, literature, scripture, and theology.
-            - title: Creativity
+                Grace is associated with the idea of blessing, beauty, and salvation. The novel meaning of grace in theology is that of a seed in the ground of human nature, a transformation or second birth into a new life as a child of God.
+            - title: Inspiration
               content: >
-                Examine why the topic of special divine action is important for creativity, including art, architecture, literature, and music.
-          - - title: Sciences
+                Inspiration is insight with a sense of divine illumination. This experience is like a light shining in darkness or a shift to a new and higher perspective, allowing us to see the things we know fit together in a new way.
+          - - title: Miracles
               content: >
-                Examine why the topic of special divine action is important to the sciences, and to the history and philosophy of science.
-            - title: General
+                A miracle is an object of wonder without a natural cause, attributed to special divine action. Rather than ‘breaking the laws of nature’ in a machine-like cosmos, a miracle is better considered as exceeding the productive power of nature.
+            - title: Providence
               content: >
-                Examine why the topic of special divine action is important for anyone reflecting on the meaning of life and human hope.
-      - title: Schools
+                Providence implies the notion of divine direction of cosmic and human affairs with wise benevolence. In a providential cosmos, time is not simply a succession of moments but has a more organic meaning, marking progress towards some fruitful goal.
+      - title: Narratives
         panels:
-          - - title: Overview
+          - - title: Philosophies of God
               content: >
-                Review and make use of summaries, ideas, and links to resources to support students, teachers, and schools.
-            - title: Humanities
+                Investigate the meaning, knowledge and assessment of special divine action within influential narratives of God and creation, including: deism; panentheism; open theism; process theology; agnosticism and atheism; impersonal conceptions of God; Trinitarianism; Unitarianism; concurrentism; ‘OmniGod’; occasionalism; and classical theism.
+            - title: Theology and religion
               content: >
-                Explore ideas and resources of the project for subjects in the humanities including art, geography, history, languages and literature, and music.
-          - - title: Sciences
+                Explore the meaning, knowledge and assessment of special divine action as developed within influential theological and religious traditions including: Hinduism; Buddhism; Zoroastrianism; Judaism; the Greek and Roman world; Christianity (Old Testament, New Testament, Post-Apocalyptic); and Islam.
+          - - title: Philosophies of the world
               content: >
-                Explore ideas and resources of the project for the sciences and the history of science.
-            - title: Religion
+                Survey diverse philosophies of the world for framing the meaning and assessment of special divine action: materialism; determinism; indeterminism; hylomorphism; emergentism and holism; panpsychism; physics (interventionism; non-interventionist/interventionist non-violations; fine tuning); laws of nature; dualism; diverse understandings of causation.
+            - title: Historical development
               content: >
-                Explore ideas and resources of the project for philosophy, theology, and religious studies.
-      - title: Universities
+                View perspectives on special divine action over the history of philosophy and in the philosophy of history. Examine recurring issues including the problem of evil, and key commentators including Aquinas, Spinoza, Hume, Kant, Bolzero, Newman, and C. S. Lewis.
+      - title: Assessment
         panels:
-          - - title: Overview
+          - - title: Encounter
               content: >
-                Review and utilise summaries, ideas, and links to resources of the project to support work at the university level, including online course materials.
-            - title: Humanities
+                Investigate the reported experiential and sometimes transformative aspects of encountering purported special divine action. These overviews also examine special questions regarding the weighing of evidence drawn from testimony and ways in which experience shapes faith and faith shapes experience.
+            - title: Teaching
               content: >
-                Explore ideas and resources of the project for a wide range of subjects in the humanities.
-          - - title: Sciences
+                Enhance teaching in schools, colleges, universities and personal study with a suite of resources including animations, short video introductions, interviews, lectures at academic conferences, and two entire online courses by Prof. MrcGrew on the “Deist Controversy” and “The Great Debate”.
+          - - title: Big Questions
               content: >
-                Explore ideas and resources of the project for the sciences, and for the philosophy and history of science.
-            - title: Religion
+                Watch or listen to interviews with cultural critics, historians, philosophers, polymaths, scientists, scripture scholars, and theologians, on the big questions of special divine action. Interviews with Prof. McGrew and Dr Audenaert also introduce the SDA project and its digital humanities tools.
+            - title: Commentators
               content: >
-                Explore ideas and resources of the project for theology, religious studies, philosophical theology, and scripture scholarship.
-      - title: Other
+                Learn about the key commentators on special divine action, across a wide range of viewpoints, as starting points for exploring the digital humanities database. Also follow links to thematic summaries of key figures who have shaped the historical development of worldviews.
+      - title: Imagination
         panels:
-          - - title: Personal
+          - - title: Watchmaker
               content: >
-                Explore ideas and the possible personal implications of questions, view, and debates about special divine action.
-            - title: Media
+                Analyse the mechanistic worldview of early modern science and new biological discoveries that gave rise to the image of God as a watchmaker. Appreciate the influence, limitations, and criticisms of this metaphor, from philosophical, theological, and scientific perspectives.
+            - title: Gardener
               content: >
-                Review terms, key ideas and resources of the project for those covering issues of special divine action in the media.
-          - - title: Politics
+                Stroll through the ‘Garden of God’ in Genesis, the Persian term ‘paradise,’ and the Father being the ‘vinedresser’ (John 15:1). Muse about divine action in the manner of a gardener in a philosophical story, the ‘Parable of the Garden’.
+          - - title: Illuminator
               content: >
-                Examine ideas about special divine action that are important for those engaged in politics, political philosophy and history.
-            - title: Religious
+                See the power of illumination as a metaphor for divine inspiration and as an ancient theory of knowledge generally, such as Plato’s myth of the cave. Contemplate parallels and overlaps with new research into understanding, insight, and gestalt perception.
+            - title: Spouse
               content: >
-                Understand the landscape of ideas and debates about special divine action, in ways that are important for religious ministry.
+                Delight in the astounding and beautiful image of special divine action in the manner of a covenant, the espousal of the soul to God in the Song of Songs, and the Wedding Feast of the Lamb in the Book of Revelation.
   - title: Research
     sections:
-      - title: Overview
-        panels:
-          - - title: Motivation
-              content: >
-                Review the challenges to research into issues associated with special divine action, and the ways in which this project addresses these challenges.
-            - title: Connections
-              content: >
-                Examine the ways in which the project connects persons and documents to reveal landscapes of ideas and influences.
-          - - title: Questions
-              content: >
-                Investigate sample research questions and guidelines for formulating new questions suitable for making use of the resources of the project.
-            - title: Guided Tour
-              content: >
-                Explore the resources of the project through a guided tour of the website.
       - title: Sources
         panels:
-          - - title: Texts
+          - - title: Overview
               content: >
-                Explore the historical database of texts, including articles, summaries, reviews, and connections.
-            - title: Articles
+                text comming soon
+            - title: Historicl material
               content: >
-                Refer to the thematic overviews that summarise the key themes associated with special divine action.
-          - - title: People
+                text comming soon
+          - - title: Themes
               content: >
-                Explore the historical database of persons, including summaries and connections.
-            - title: Audiovisual
+                text comming soon
+            - title: Editorial approach
               content: >
-                Investigate the audiovisual resources of the project, including videos, audio recordings, and short animations.
+                text comming soon
+      - title: Directions
+        panels:
+          - - title: Relevance
+              content: >
+                text comming soon
+            - title: Benefits for research
+              content: >
+                text comming soon
+          - - title: Finding research questions
+              content: >
+                text comming soon
+            - title: Sample research questions
+              content: >
+                text comming soon
       - title: Tools
         panels:
-          - - title: Source Map
+          - - title: Getting started
               content: >
-                Explore the maps of influences that connect key historical source texts, with an adjustable 'fish-eye' magnified view.
-            - title: Spacetime
+                text comming soon
+            - title: Influence landscape
               content: >
-                Explore the distributions of key historical source texts ordered by space and time.
-          - - title: Topic Map
+                text comming soon
+          - - title: Visual workspace
               content: >
-                Explore a map of key topics associated with special divine action, and use this map to link to thematic summaries.
-            - title: Relationships
+                text comming soon
+            - title: online lectures
               content: >
-                Use a browser to access information and relationships of project materials.
+                text comming soon
       - title: Search
         content: >
           <form class="content layout-row layout-fill layout-align-center-start layout-padding panel search-form">
