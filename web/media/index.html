@@ -8,14 +8,14 @@ banner: slider-empty-tomb.jpg
 ---
 <ul class="media-list">
   {% assign posts = site.posts | reverse %}
-  {% for page in posts %}
-    {% if page.categories contains 'media' %}
+  {% for video in posts %}
+    {% if video.categories contains 'media' and video.categories contains '01-introduction' %}
       <li>
-        <a href="{{ page.url }}">
-          <h3 class="media-title">{{ page.title }}</h3>
-          {% if page.speakers %}
+        <a href="{{ video.url }}">
+          <h3 class="media-title">{{ video.title }}</h3>
+          {% if video.speakers %}
             <span class="media-speakers">
-              {% for speaker in page.speakers %}
+              {% for speaker in video.speakers %}
                 <span class="media-speaker">{{ speaker }}</span>{% unless forloop.last %}, {% endunless %}
               {% endfor %}
             </span>

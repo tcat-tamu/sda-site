@@ -12,11 +12,15 @@ layout: base
       <div class="content flex-66 layout-padding">
         {{ content }}
       </div>
+      {% if page.bio %}
       <aside class="bio content flex-33 layout-column layout-padding">
         <div class="content flex layout-column layout-padding">
-          speaker bio
+          {% for bio in page.bio %}
+            {% include {{ bio }} %}
+          {% endfor %}  
         </div>
       </aside>
+      {% endif %}
     </div>
   </div>
 </main>
