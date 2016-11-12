@@ -24,6 +24,10 @@ baseurl: ""
 # the base hostname & protocol for your site, e.g. http://example.com
 url: ""
 
+# Google Analytics configuration
+ga_tracking_id: UA-87254463-1
+ga_tracking_domain: auto
+
 # Build settings
 
 markdown: kramdown
