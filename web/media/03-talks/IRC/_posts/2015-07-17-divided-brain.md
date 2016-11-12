@@ -1,6 +1,6 @@
 ---
 layout: media
-permalink: /media/talks/IRC/divided-brain/
+permalink: /media/presentations//IRC/divided-brain/
 
 title: The Divided Brain and the Spiritual Sense of Scripture
 duration: '1:31:51'

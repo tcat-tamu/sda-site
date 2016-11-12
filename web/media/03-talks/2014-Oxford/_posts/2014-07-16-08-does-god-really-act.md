@@ -1,6 +1,6 @@
 ---
 layout: media
-permalink: /media/talks/2014-Oxford/does-god-really-act/
+permalink: /media/presentations//2014-Oxford/does-god-really-act/
 
 title: Does ‘the God Who Acts’ Really Act?
 duration: '1:34:50'

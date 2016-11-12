@@ -1,6 +1,6 @@
 ---
 layout: media
-permalink: /media/talks/2015-MIT/four-types-of-sda/
+permalink: /media/presentations//2015-MIT/four-types-of-sda/
 
 title: Scientific Perspectives on Four Types of Special Divine Action
 duration: '57:54'

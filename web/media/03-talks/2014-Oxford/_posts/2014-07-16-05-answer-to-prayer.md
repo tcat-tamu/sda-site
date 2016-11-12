@@ -1,6 +1,6 @@
 ---
 layout: media
-permalink: /media/talks/2014-Oxford/made-to-happen/
+permalink: /media/presentations//2014-Oxford/made-to-happen/
 
 title: What is it for a Prayer to be Answered?
 duration: '38:47'

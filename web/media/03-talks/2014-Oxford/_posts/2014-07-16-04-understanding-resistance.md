@@ -1,6 +1,6 @@
 ---
 layout: media
-permalink: /media/talks/2014-Oxford/understanding-resistance/
+permalink: /media/presentations//2014-Oxford/understanding-resistance/
 
 title: Understanding Cultural and Theological Resistance to Special Divine Action
 duration: '1:12:31'

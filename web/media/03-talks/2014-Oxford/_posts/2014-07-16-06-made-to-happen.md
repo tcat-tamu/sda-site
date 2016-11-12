@@ -1,6 +1,6 @@
 ---
 layout: media
-permalink: /media/talks/2014-Oxford/made-to-happen/
+permalink: /media/presentations//2014-Oxford/made-to-happen/
 
 title: The Strange Idea that What Happens Has to be Made to Happen
 duration: '44:32'

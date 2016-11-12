@@ -1,6 +1,6 @@
 ---
 layout: media
-permalink: /media/talks/2014-Oxford/historian-and-the-miraculous/
+permalink: /media/presentations//2014-Oxford/historian-and-the-miraculous/
 
 title: The Historian and the Miraculous
 duration: '46:12'

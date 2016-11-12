@@ -1,27 +1,35 @@
 ---
 layout: page-2col
 
-title: 'Presentations : Special Divine Action (Oxford 2014)'
-permalink: /media/presentations//2014-Oxford/
+title: 'Media Centre : Presentations'
+permalink: /media/presentations/
 sidebar: media/sidebar.html
 banner: slider-empty-tomb.jpg
 ---
-<ul class="media-list">
+<p>
+  Research presentations from sholars at several different venues.
+  <ul class="media-list">
+  <table>
   {% assign posts = site.posts | reverse %}
   {% for video in posts %}
-    {% if video.categories contains '03-presentations' and video.categories contains '2014-Oxford' %}
+    {% if video.categories contains 'media' and video.categories contains '03-presentations' %}
       <li>
         <a href="{{ video.url }}">
-          <h3 class="media-title">{{ video.title }}</h3>
+            <tr><td><h3 class="media-title">{{ video.title }}</h3></td>
+
           {% if video.speakers %}
+            <td>
             <span class="media-speakers">
               {% for speaker in video.speakers %}
                 <span class="media-speaker">{{ speaker }}</span>{% unless forloop.last %}, {% endunless %}
               {% endfor %}
             </span>
+            </td>
           {% endif %}
+          </tr>
         </a>
       </li>
     {% endif %}
   {% endfor %}
+</table>
 </ul>

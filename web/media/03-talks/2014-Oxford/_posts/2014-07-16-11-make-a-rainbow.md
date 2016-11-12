@@ -1,6 +1,6 @@
 ---
 layout: media
-permalink: /media/talks/2014-Oxford/make-a-rainbow/
+permalink: /media/presentations//2014-Oxford/make-a-rainbow/
 
 title: To Make a Rainbow – God’s Work in Nature
 duration: '1:22:39'

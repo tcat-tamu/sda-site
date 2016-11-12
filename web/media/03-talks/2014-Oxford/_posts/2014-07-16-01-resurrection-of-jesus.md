@@ -1,6 +1,6 @@
 ---
 layout: media
-permalink: /media/talks/2014-Oxford/resurrection-of-jesus/
+permalink: /media/presentations//2014-Oxford/resurrection-of-jesus/
 
 title: The Probability of the Resurrection of Jesus
 duration: '53:44'

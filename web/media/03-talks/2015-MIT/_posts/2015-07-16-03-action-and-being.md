@@ -1,6 +1,6 @@
 ---
 layout: media
-permalink: /media/talks/2015-MIT/action-and-being/
+permalink: /media/presentations//2015-MIT/action-and-being/
 
 title: Divine Action and Human Being
 duration: '26:43'

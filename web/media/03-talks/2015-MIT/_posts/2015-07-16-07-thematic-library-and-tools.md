@@ -1,6 +1,6 @@
 ---
 layout: media
-permalink: /media/talks/2015-MIT/sda-project-trc/
+permalink: /media/presentations//2015-MIT/sda-project-trc/
 
 title: 'The Special Divine Action project: The Thematic Library and Tools'
 duration: '13:32'

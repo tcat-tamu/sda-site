@@ -1,6 +1,6 @@
 ---
 layout: media
-permalink: /media/talks/2014-Oxford/mysterianism/
+permalink: /media/presentations//2014-Oxford/mysterianism/
 
 title: Mysterianism and the Mind of God
 duration: '1:21:41'

@@ -1,6 +1,6 @@
 ---
 layout: media
-permalink: /media/talks/IRC/sda-modern-science/
+permalink: /media/presentations//IRC/sda-modern-science/
 
 title: Divine Action and Modern Science
 duration: '1:19:23'

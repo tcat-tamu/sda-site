@@ -1,6 +1,6 @@
 ---
 layout: media
-permalink: /media/talks/2014-Oxford/miracle-reports-today/
+permalink: /media/presentations//2014-Oxford/miracle-reports-today/
 
 title: Miracle Reports in the Gospels and Today
 duration: '1:21:29'

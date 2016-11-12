@@ -1,6 +1,6 @@
 ---
 layout: media
-permalink: /media/talks/2014-Oxford/second-personal-knowledge/
+permalink: /media/presentations//2014-Oxford/second-personal-knowledge/
 
 title: 'Second-Personal Knowledge of Divine Action: A View from the Apostle Paul'
 duration: '1:24:23'

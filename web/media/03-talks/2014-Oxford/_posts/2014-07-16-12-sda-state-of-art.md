@@ -1,6 +1,6 @@
 ---
 layout: media
-permalink: /media/talks/2014-Oxford/sda-state-of-art/
+permalink: /media/presentations//2014-Oxford/sda-state-of-art/
 
 title: 'Special Divine Action: The State of the Art and the Uses of History'
 duration: '31:48'

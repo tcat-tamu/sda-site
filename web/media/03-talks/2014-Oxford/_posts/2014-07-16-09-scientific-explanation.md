@@ -1,6 +1,6 @@
 ---
 layout: media
-permalink: /media/talks/2014-Oxford/scientific-explanation/
+permalink: /media/presentations//2014-Oxford/scientific-explanation/
 
 title: Natural Causes, Divine Action, and Scientific Explanation
 duration: '1:27:48'

@@ -2,14 +2,14 @@
 layout: page-2col
 
 title: 'Presentations : Ian Ramsey Centre Seminars'
-permalink: /media/talks/IRC/
+permalink: /media/presentations//IRC/
 sidebar: media/sidebar.html
 banner: slider-empty-tomb.jpg
 ---
 <ul class="media-list">
   {% assign posts = site.posts | reverse %}
   {% for video in posts %}
-    {% if video.categories contains '03-talks' and video.categories contains 'IRC' %}
+    {% if video.categories contains '03-presentations' and video.categories contains 'IRC' %}
       <li>
         <a href="{{ video.url }}">
           <h3 class="media-title">{{ video.title }}</h3>

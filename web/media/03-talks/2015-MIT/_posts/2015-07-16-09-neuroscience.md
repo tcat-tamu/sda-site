@@ -1,6 +1,6 @@
 ---
 layout: media
-permalink: /media/talks/2015-MIT/neuroscience/
+permalink: /media/presentations//2015-MIT/neuroscience/
 
 title: 'Science and Personal Action, Human and Divine: What Does Neuroscience Have to Offer?'
 duration: '53:46'
