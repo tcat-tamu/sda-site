@@ -6,7 +6,7 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, $mdThemingProvider, categorizationRepoProvider, articlesRepoProvider, seeAlsoRepoProvider, sdaSitenavProvider) {
+  function config($logProvider, $mdThemingProvider, categorizationRepoProvider, articlesRepoProvider, seeAlsoRepoProvider, sdaSitenavProvider, analyticsProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
@@ -15,6 +15,8 @@
     seeAlsoRepoProvider.url = '/api/catalog/seealso';
 
     sdaSitenavProvider.url = '/assets/data/navigation.json';
+
+    analyticsProvider.id = 'UA-87254463-1';
 
     $mdThemingProvider.definePalette('darkBrown', {
       '50': '#595c59',

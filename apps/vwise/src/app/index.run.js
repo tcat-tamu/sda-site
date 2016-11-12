@@ -6,7 +6,7 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log,
+  function runBlock($log, $rootScope, $location, analytics,
       panelContentMediatorRegistry,
       peopleContentMediator,
       worksContentMediator,
@@ -18,6 +18,12 @@
       noteContentMediator,
       passthruContentMediator) {
     $log.debug('runBlock end');
+
+    $rootScope.$on('$stateChangeSuccess', function () {
+      analytics('send', 'pageview', {
+        page: $location.url()
+      });
+    });
 
     panelContentMediatorRegistry.register(peopleContentMediator);
     panelContentMediatorRegistry.register(worksContentMediator);

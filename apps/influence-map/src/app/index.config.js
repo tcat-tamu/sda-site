@@ -6,7 +6,7 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, $mdThemingProvider, peopleRepoProvider, worksRepoProvider, graphRepoProvider, sdaSitenavProvider) {
+  function config($logProvider, $mdThemingProvider, peopleRepoProvider, worksRepoProvider, graphRepoProvider, sdaSitenavProvider, analyticsProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
@@ -15,6 +15,8 @@
     graphRepoProvider.url = '/api/catalog/graph';
 
     sdaSitenavProvider.url = '/assets/data/navigation.json';
+
+    analyticsProvider.id = 'UA-87254463-1';
 
     $mdThemingProvider.definePalette('darkBrown', {
       '50': '#595c59',

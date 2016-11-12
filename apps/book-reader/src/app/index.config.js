@@ -6,7 +6,7 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, $mdThemingProvider, worksRepoProvider, relnRepoProvider, googleBooksApiProvider, sdaSitenavProvider) {
+  function config($logProvider, $mdThemingProvider, worksRepoProvider, relnRepoProvider, googleBooksApiProvider, sdaSitenavProvider, analyticsProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
@@ -15,6 +15,8 @@
     googleBooksApiProvider.configure({ preventLoad: true });
 
     sdaSitenavProvider.url = '/assets/data/navigation.json';
+
+    analyticsProvider.id = 'UA-87254463-1';
 
     $mdThemingProvider.definePalette('darkBrown', {
       '50': '#595c59',

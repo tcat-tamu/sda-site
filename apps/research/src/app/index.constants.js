@@ -1,8 +1,9 @@
-/* global */
+/* global ga: false */
 (function () {
   'use strict';
 
   angular
-    .module('sdaLibrary');
+    .module('sdaLibrary')
+    .constant('ga', ga);
 
 })();

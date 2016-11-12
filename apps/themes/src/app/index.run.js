@@ -6,7 +6,7 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log, $rootScope) {
+  function runBlock($log, $rootScope, $location, analytics) {
     $log.debug('runBlock end');
 
     // enable nested scrollspy behavior
@@ -16,6 +16,12 @@
 
     $rootScope.$on('duScrollspy:becameInactive', function($event, $element){
       $element.parents('li').removeClass('active');
+    });
+
+    $rootScope.$on('$stateChangeSuccess', function () {
+      analytics('send', 'pageview', {
+        page: $location.url()
+      });
     });
   }
 
