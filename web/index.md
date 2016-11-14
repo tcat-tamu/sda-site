@@ -188,7 +188,7 @@ modules:
                 Explore the meaning, knowledge and assessment of special divine action as developed within influential theological and religious traditions including: Hinduism; Buddhism; Zoroastrianism; Judaism; the Greek and Roman world; Christianity (Old Testament, New Testament, Post-Apocalyptic); and Islam.
           - - title: Philosophies of the world
               content: >
-                Survey diverse philosophies of the world for framing the meaning and assessment of special divine action: materialism; determinism; indeterminism; hylomorphism; emergentism and holism; panpsychism; physics (interventionism; non-interventionist/interventionist non-violations; fine tuning); laws of nature; dualism; diverse understandings of causation.
+                Survey diverse philosophies of the world for framing the meaning and assessment of special divine action: materialism; determinism; indeterminism; hylomorphism; emergentism and holism; panpsychism; paradigms of physics; laws of nature; dualism; models of causation.
             - title: Historical development
               content: >
                 View perspectives on special divine action over the history of philosophy and in the philosophy of history. Examine recurring issues including the problem of evil, and key commentators including Aquinas, Spinoza, Hume, Kant, Bolzero, Newman, and C. S. Lewis.
@@ -227,7 +227,7 @@ modules:
           - - title: Overview
               content: >
                 text coming soon
-            - title: Historicl material
+            - title: Historical material
               content: >
                 text coming soon
           - - title: Themes
