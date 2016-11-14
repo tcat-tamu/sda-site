@@ -22,9 +22,9 @@
               {% if section.content %}
                 {{ section.content }}
               {% elsif section.panels %}
-                <div class="layout-row layout-wrap layout-fill layout-padding border">
+                <div class="layout-row layout-wrap layout-fill">
                   {% for column in section.panels %}
-                    <div class="flex-50 flex-xs-100 layout-column layout-padding border">
+                    <div class="flex-50 flex-xs-100 layout-column">
                       {% for panel in column %}
                         <div class="panel flex-50 layout-column">
                           <div class="panel-content flex layout-column{% if panel.image %} panel-content-image{% endif %}" {% if panel.image %} style="background-image: url({{ '/assets/images/' | append: panel.image | relative_url }});"{% endif %}>
