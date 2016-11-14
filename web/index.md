@@ -115,6 +115,7 @@ modules:
               content: >
                 Review the idea of special divine action in general, as well as its relation to broader notions of divine and supranatural action.
             - title: Categorisation
+              video: QCkzYqP1yXg
               content: >
                 Examine the definitions of the principal types of purported special divine action and their relation to the natural world.
           - - title: Paradigms

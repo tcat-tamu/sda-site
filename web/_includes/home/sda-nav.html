@@ -32,6 +32,11 @@
                               <h3>{{ panel.title }}</h3>
                               <p>{{ panel.content }}</p>
                             </a>
+                          {% elsif panel.video %}
+                          <a class="flex" href="#{{ module.title | slugify }}-{{ section.title | slugify }}-{{ panel.title | slugify }}-video" data-toggle="modal">
+                              <h3>{{ panel.title }}</h3>
+                              <p>{{ panel.content }}</p>
+                            </a>
                           {% else %}
                             <div class="flex">
                               <h3>{{ panel.title }}</h3>

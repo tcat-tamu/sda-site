@@ -4,6 +4,7 @@
   {% include meta-common.html %}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.9/jquery.fullPage.min.css">
   <link rel="stylesheet" href="{{ 'css/home.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ 'css/bootstrap.css' | relative_url }}">
 </head>
 <body>
   {% include header.html %}
@@ -100,11 +101,36 @@
 
   </main>
 
+  {% for module in page.modules %}
+    {% for section in module.sections %}
+      {% for column in section.panels %}
+        {% for panel in column %}
+          {% if panel.video %}
+          <div class="nav-video modal fade" id="{{ module.title | slugify }}-{{ section.title | slugify }}-{{ panel.title | slugify }}-video" tabindex="-1" role="dialog" aria-labelledby="{{ module.title | slugify }}-{{ section.title | slugify }}-{{ panel.title | slugify }}-video-label">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="{{ module.title | slugify }}-{{ section.title | slugify }}-{{ panel.title | slugify }}-video-label">{{ panel.title }}</h4>
+                  </div>
+                  <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/{{ panel.video }}" frameborder="0" allowfullscreen></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    {% endfor %}
+  {% endfor %}
+
   {% include scripts-common.html %}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.9/jquery.fullPage.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.9/vendors/jquery.easings.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.9/vendors/jquery.slimscroll.min.js"></script>
   <script src="{{ 'js/home.js' | relative_url }}"></script>
+  <script src="{{ 'js/bootstrap.js' | relative_url }}"></script>
 
 </body>
 </html>
