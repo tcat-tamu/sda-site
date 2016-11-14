@@ -1,0 +1,26 @@
+---
+layout: base
+---
+<main class="section--media flex layout-row layout-align-center">
+  <div class="container flex layout-column">
+    {% if page.video %}
+      <div class="video">
+        <iframe src="{{ 'https://youtube.com/embed/' | append: page.video }}" frameborder="0" allowfullscreen></iframe>
+      </div>
+    {% endif %}
+    <div class="flex layout-row">
+      <div class="content flex-66 layout-padding">
+        {{ content }}
+      </div>
+      {% if page.bio %}
+      <aside class="bio content flex-33 layout-column layout-padding">
+        <div class="content flex layout-column layout-padding">
+          {% for bio in page.bio %}
+            {% include {{ bio }} %}
+          {% endfor %}  
+        </div>
+      </aside>
+      {% endif %}
+    </div>
+  </div>
+</main>
