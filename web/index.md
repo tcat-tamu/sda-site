@@ -6,7 +6,7 @@ layout: home
 
 billboard:
   - banner:
-      image: slider-female.jpg
+      image: 01-wonder.jpg
       style: basic-title right
       content: >
         <h2>Does God Act?</h2>
@@ -19,11 +19,10 @@ billboard:
     content: >
       One fact is certain: belief in these special divine actions has had an immense impact on human society and civilisation. Such beliefs shape, often decisively, the way we think about the world, what we do in the world, and what we hope for now and in the future.
     more:
-      url: about/overview.html
-      label: Read More
-
+        url: about/overview/
+        label: Read About the Project
   - banner:
-      image: slider-floating-books.jpg
+      image: 02-digital-bodleian.jpg
       style: upper-box textbg-copper
       content: >
         <h2>Digital Library</h2>
@@ -35,12 +34,8 @@ billboard:
       What do centuries of scholarship teach about special divine action in relation to our philosophical, religious, and scientific worldviews?
     content: >
       The Special Divine Action Project assists scholars by providing access to digital versions  of key works,  topical essays, biographies and tools to explore the influences, provocations and convergences among these works in science, philosophy, theology and religion.
-    more:
-      url: about/digitallibrary.html
-      label: Read More
-
   - banner:
-      image: slider-empty-tomb.jpg
+      image: 03-mind-map.jpg
       style: upper-box textbg-copper
       content: >
         <h2>Student and Teacher Support</h2>
@@ -52,12 +47,8 @@ billboard:
       How can I study, teach or research the questions, perspectives and debates about special divine action in my school, college or university?
     content: >
       The Special Divine Action Project supports study and teaching in universities, colleges, and schools, providing introductions, biographies, reviews, reading lists, audio-visual materials, course materials, course development and cluster group competitions.
-    more:
-      url: about/digitallibrary.html
-      label: Read More
-
   - banner:
-      image: slider-radcliffe.jpg
+      image: 04-media-mcgrath-banner.jpg
       style: upper-box
       content: >
         <h2>Conferences and Publications</h2>
@@ -69,9 +60,8 @@ billboard:
       What research is being done by academics today on special divine action? How can I contribute or engage with such work?
     content: >
       Research activities of the Special Divine Action Project include conferences with leading academics worldwide, competitively selected short papers, opportunities for debates and discussion, and keynote videos online together with a range of academic publications.
-
   - banner:
-      image: slider-people.jpg
+      image: 05-albert.png
       style: upper-box textbg-copper
       content: >
         <h2>Public Engagement</h2>
@@ -188,7 +178,7 @@ modules:
                 Explore the meaning, knowledge and assessment of special divine action as developed within influential theological and religious traditions including: Hinduism; Buddhism; Zoroastrianism; Judaism; the Greek and Roman world; Christianity (Old Testament, New Testament, Post-Apocalyptic); and Islam.
           - - title: Philosophies of the world
               content: >
-                Survey diverse philosophies of the world for framing the meaning and assessment of special divine action: materialism; determinism; indeterminism; hylomorphism; emergentism and holism; panpsychism; physics (interventionism; non-interventionist/interventionist non-violations; fine tuning); laws of nature; dualism; diverse understandings of causation.
+                Survey diverse philosophies of the world for framing the meaning and assessment of special divine action: materialism; determinism; indeterminism; hylomorphism; emergentism and holism; panpsychism; paradigms of physics; laws of nature; dualism; models of causation.
             - title: Historical development
               content: >
                 View perspectives on special divine action over the history of philosophy and in the philosophy of history. Examine recurring issues including the problem of evil, and key commentators including Aquinas, Spinoza, Hume, Kant, Bolzero, Newman, and C. S. Lewis.
@@ -227,7 +217,7 @@ modules:
           - - title: Overview
               content: >
                 text coming soon
-            - title: Historicl material
+            - title: Historical material
               content: >
                 text coming soon
           - - title: Themes
@@ -257,7 +247,7 @@ modules:
                 text coming soon
             - title: Influence landscape
               content: >
-                text coming soon
+
           - - title: Visual workspace
               content: >
                 text coming soon

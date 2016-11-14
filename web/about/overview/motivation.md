@@ -1,7 +1,7 @@
 ---
 layout: page-2col
 title: SDA Project Motivation
-permalink: /about/overview/motivation
+permalink: /about/overview/motivation/
 
 banner: slider-people.jpg
 sidebar: about/nav.html
