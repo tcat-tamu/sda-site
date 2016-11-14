@@ -26,9 +26,18 @@
                   {% for column in section.panels %}
                     <div class="flex-50 flex-xs-100 layout-column layout-padding border">
                       {% for panel in column %}
-                        <div class="panel flex-50">
-                          <h3>{{ panel.title }}</h3>
-                          <p>{{ panel.content }}</p>
+                        <div class="panel flex-50 layout-column">
+                          {% if panel.href %}
+                            <a href="{{ panel.href | relative_url }}" class="flex">
+                              <h3>{{ panel.title }}</h3>
+                              <p>{{ panel.content }}</p>
+                            </a>
+                          {% else %}
+                            <div class="flex">
+                              <h3>{{ panel.title }}</h3>
+                              <p>{{ panel.content }}</p>
+                            </div>
+                          {% endif %}
                         </div>
                       {% endfor %}
                     </div>

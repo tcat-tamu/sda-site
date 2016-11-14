@@ -97,7 +97,7 @@ billboard:
 #       - (2)
 #     - - (3)
 #       - (4)
-#       
+#
 # results in the following panel layout
 #
 #   ┌─────┬─────┐
@@ -111,6 +111,7 @@ modules:
       - title: Meaning
         panels:
           - - title: Overview
+              href: /about
               content: >
                 Review the idea of special divine action in general, as well as its relation to broader notions of divine and supranatural action.
             - title: Categorisation

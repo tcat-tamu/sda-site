@@ -173,6 +173,11 @@
           }
 
           .panel {
+            > a {
+              text-decoration: none;
+              color: inherit;
+            }
+
             figure {
               position: relative;
               overflow: hidden;
