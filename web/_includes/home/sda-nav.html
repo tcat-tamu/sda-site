@@ -27,22 +27,24 @@
                     <div class="flex-50 flex-xs-100 layout-column layout-padding border">
                       {% for panel in column %}
                         <div class="panel flex-50 layout-column">
-                          {% if panel.href %}
-                            <a href="{{ panel.href | relative_url }}" class="flex">
-                              <h3>{{ panel.title }}</h3>
-                              <p>{{ panel.content }}</p>
-                            </a>
-                          {% elsif panel.video %}
-                          <a class="flex" href="#{{ module.title | slugify }}-{{ section.title | slugify }}-{{ panel.title | slugify }}-video" data-toggle="modal">
-                              <h3>{{ panel.title }}</h3>
-                              <p>{{ panel.content }}</p>
-                            </a>
-                          {% else %}
-                            <div class="flex">
-                              <h3>{{ panel.title }}</h3>
-                              <p>{{ panel.content }}</p>
-                            </div>
-                          {% endif %}
+                          <div class="panel-content flex layout-column{% if panel.image %} panel-content-image{% endif %}" {% if panel.image %} style="background-image: url({{ '/assets/images/' | append: panel.image | relative_url }});"{% endif %}>
+                            {% if panel.href %}
+                              <a href="{{ panel.href | relative_url }}" class="flex">
+                                <h3>{{ panel.title }}</h3>
+                                <p>{{ panel.content }}</p>
+                              </a>
+                            {% elsif panel.video %}
+                              <a class="flex" href="#{{ module.title | slugify }}-{{ section.title | slugify }}-{{ panel.title | slugify }}-video" data-toggle="modal">
+                                <h3>{{ panel.title }}</h3>
+                                <p>{{ panel.content }}</p>
+                              </a>
+                            {% else %}
+                              <div class="flex">
+                                <h3>{{ panel.title }}</h3>
+                                <p>{{ panel.content }}</p>
+                              </div>
+                            {% endif %}
+                          </div>
                         </div>
                       {% endfor %}
                     </div>

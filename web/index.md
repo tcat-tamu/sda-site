@@ -111,33 +111,29 @@ modules:
       - title: Videos
         panels:
           - - title: Grace
+              image: nav-tiles/grace.jpg
               href: /about
-              content: >
-                text comming soon
-            - title: Inspiration
+            - title: Miracles
+              image: nav-tiles/miracles.jpg
+          - - title: Inspiration
+              image: nav-tiles/inspiration.jpg
               video: QCkzYqP1yXg
-              content: >
-                text comming soon
-          - - title: Miracles
-              content: >
-                text comming soon
             - title: Providence
-              content: >
-                text comming soon
+              image: nav-tiles/providence.jpg
       - title: Questions
         panels:
           - - title: Worldviews
               content: >
-                text comming soon
+                text coming soon
             - title: Science
               content: >
-                text comming soon
+                text coming soon
           - - title: Philosophy
               content: >
-                text comming soon
+                text coming soon
             - title: Theology and Religion
               content: >
-                text comming soon
+                text coming soon
       - title: Project
         panels:
           - - title: Overview
@@ -156,16 +152,16 @@ modules:
         panels:
           - - title: Grace
               content: >
-                text comming soon
+                text coming soon
             - title: inspiration
               content: >
-                text comming soon
+                text coming soon
           - - title: Miracles
               content: >
-                text comming soon
+                text coming soon
             - title: Providence
               content: >
-                text comming soon
+                text coming soon
   - title: Study
     sections:
       - title: Meaning
@@ -230,44 +226,44 @@ modules:
         panels:
           - - title: Overview
               content: >
-                text comming soon
+                text coming soon
             - title: Historicl material
               content: >
-                text comming soon
+                text coming soon
           - - title: Themes
               content: >
-                text comming soon
+                text coming soon
             - title: Editorial approach
               content: >
-                text comming soon
+                text coming soon
       - title: Directions
         panels:
           - - title: Relevance
               content: >
-                text comming soon
+                text coming soon
             - title: Benefits for research
               content: >
-                text comming soon
+                text coming soon
           - - title: Finding research questions
               content: >
-                text comming soon
+                text coming soon
             - title: Sample research questions
               content: >
-                text comming soon
+                text coming soon
       - title: Tools
         panels:
           - - title: Getting started
               content: >
-                text comming soon
+                text coming soon
             - title: Influence landscape
               content: >
-                text comming soon
+                text coming soon
           - - title: Visual workspace
               content: >
-                text comming soon
+                text coming soon
             - title: online lectures
               content: >
-                text comming soon
+                text coming soon
       - title: Search
         content: >
           <form class="content layout-row layout-fill layout-align-center-start layout-padding panel search-form">

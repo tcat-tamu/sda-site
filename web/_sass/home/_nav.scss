@@ -173,9 +173,31 @@
           }
 
           .panel {
-            > a {
-              text-decoration: none;
-              color: inherit;
+
+            .panel-content {
+              > div, > a {
+                padding: 1rem;
+                text-decoration: none;
+                color: inherit;
+              }
+
+              &-image {
+                background-size: cover;
+                background-position: center center;
+
+                > div, > a {
+                  opacity: 1;
+                  transition: opacity 200ms;
+                  background: rgba(#000, 0.54);
+                  color: rgba(#fff, 0.87);
+                }
+
+                &:hover {
+                  > div, > a {
+                    opacity: 0;
+                  }
+                }
+              }
             }
 
             figure {
