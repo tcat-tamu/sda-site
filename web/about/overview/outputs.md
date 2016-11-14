@@ -1,7 +1,7 @@
 ---
 layout: page-2col
 title: Research Outputs
-permalink: /about/overview/outputs
+permalink: /about/overview/outputs/
 
 banner: slider-people.jpg
 sidebar: about/nav.html

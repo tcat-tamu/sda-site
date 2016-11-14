@@ -1,7 +1,7 @@
 ---
 layout: page-2col
 title: Why 'Special' Divine Action
-permalink: /about/overview/why-special
+permalink: /about/overview/why-special/
 
 banner: slider-people.jpg
 sidebar: about/nav.html

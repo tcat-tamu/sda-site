@@ -13,8 +13,13 @@
         </div>
       </div>
     {% endfor %}
+    <ol class="control-nav">
+      {% for slide in page.billboard %}
+      <li><a href="" class="control-nav-trigger" data-index="{{ forloop.index }}">{{ forloop.index }}</a></li>
+      {% endfor %}
+    </ol>
   </div>
-  <div class="brow-container">
+  <!-- <div class="brow-container">
     <div class="brow">
       {% for slide in page.billboard %}
         {% if slide.video %}
@@ -29,14 +34,9 @@
           </a>
         {% endif %}
       {% endfor %}
-      <ol class="control-nav">
-        {% for slide in page.billboard %}
-          <li><a href="" class="control-nav-trigger" data-index="{{ forloop.index }}">{{ forloop.index }}</a></li>
-        {% endfor %}
-      </ol>
     </div>
-  </div>
-  <div class="intro-text">
+  </div> -->
+  <!-- <div class="intro-text">
     {% for slide in page.billboard %}
       <section class="slide container slide-{{ forloop.index }}">
         <div class="leadin">
@@ -50,5 +50,5 @@
         </div>
       </section>
     {% endfor %}
-  </div>
+  </div> -->
 </section>

@@ -1,7 +1,7 @@
 ---
 layout: page-2col
 title: Our Approach
-permalink: /about/overview/approach
+permalink: /about/overview/approach/
 
 banner: slider-people.jpg
 sidebar: about/nav.html
