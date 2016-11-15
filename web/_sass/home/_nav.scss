@@ -173,7 +173,6 @@
           }
 
           .panel {
-
             .panel-content {
               > div, > a {
                 padding: 1rem;
@@ -198,6 +197,11 @@
                   }
                 }
               }
+            }
+
+            .play-icon {
+              font-size: 5rem;
+              font-color: rgba(#fff, 0.47);
             }
 
             figure {

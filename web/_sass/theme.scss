@@ -162,4 +162,8 @@ form {
 
 .material-icons {
   color: rgba(#000, 0.54);
+
+  &.inverse {
+    color: rgba(#fff, 0.54);
+  }
 }

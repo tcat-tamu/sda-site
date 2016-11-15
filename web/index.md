@@ -113,6 +113,7 @@ modules:
       - title: Questions
         panels:
           - - title: Worldviews
+              video: foobar
               content: >
                 text coming soon
             - title: Science
