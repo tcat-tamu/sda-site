@@ -13,6 +13,17 @@
     $.fn.fullpage.moveSectionDown();
   });
 
+  $('iframe[data-src]').each(function () {
+    var embed = $(this);
+    embed.parents('.modal')
+      .on('show.bs.modal', function (evt) {
+        embed.attr('src', embed.data('src'));
+      })
+      .on('hide.bs.modal', function (evt) {
+        embed.attr('src', '');
+      });
+  });
+
   billboard($('.billboard'));
 
   nav($('.main-nav'));

@@ -1,54 +1,31 @@
 <section class="billboard">
   <div class="banners">
     <a href="" class="prev">
-      <i class="fa fa-chevron-left"></i>
+      <i class="material-icons">chevron_left</i>
     </a>
     <a href="" class="next">
-      <i class="fa fa-chevron-right"></i>
+      <i class="material-icons">chevron_right</i>
     </a>
     {% for slide in page.billboard %}
-    <div class="banner banner-{{ forloop.index }}" style="background-image:url({{ 'assets/images/banners/' | append: slide.banner.image | relative_url }});{% if slide.banner.focus %} background-position: {{ slide.banner.focus.x | times: 100 }}% {{ slide.banner.y | times: 100 }}%;{% endif %}">
+      <div class="banner banner-{{ forloop.index }}" style="background-image:url({{ 'assets/images/banners/' | append: slide.banner.image | relative_url }});{% if slide.banner.focus %} background-position: {{ slide.banner.focus.x | times: 100 }}% {{ slide.banner.focus.y | times: 100 }}%;{% endif %}">
         <div class="container">
-          <aside class="content {{ slide.banner.style }}">{{ slide.banner.content }}</aside>
+          <aside class="content {{ slide.banner.style }}">
+            {{ slide.banner.content }}
+            {% if slide.banner.video %}
+              <div class="flex-none layout-row layout-align-center-center play-icon">
+                <a href="#banner{{ forloop.index }}-video" data-toggle="modal">
+                  <i class="material-icons">play_circle_filled</i>
+                </a>
+              </div>
+            {% endif %}
+          </aside>
         </div>
       </div>
     {% endfor %}
-    <ol class="control-nav">
-      {% for slide in page.billboard %}
-      <li><a href="" class="control-nav-trigger" data-index="{{ forloop.index }}">{{ forloop.index }}</a></li>
-      {% endfor %}
-    </ol>
   </div>
-  <!-- <div class="brow-container">
-    <div class="brow">
-      {% for slide in page.billboard %}
-        {% if slide.video %}
-          <a href="{{slide.video.url}}" class="play-video play-video-{{ forloop.index }}">
-            <img src="{{ 'assets/images/icon-video-play.png' | relative_url }}" alt="play video">
-            <span class="video-details">
-              <span class="title">{{slide.video.label}}</span>
-              {% if slide.video.length %}
-                <span class="length">({{slide.video.length}})</span>
-              {% endif %}
-            </span>
-          </a>
-        {% endif %}
-      {% endfor %}
-    </div>
-  </div> -->
-  <!-- <div class="intro-text">
+  <ol class="control-nav layout-row layout-align-center-center">
     {% for slide in page.billboard %}
-      <section class="slide container slide-{{ forloop.index }}">
-        <div class="leadin">
-          <p>{{ slide.leadin }}</p>
-        </div>
-        <div class="text">
-          <p>{{ slide.content }}</p>
-          {% if slide.more %}
-            <a href="{{ slide.more.url }}" class="read-more">{{ slide.more.label }}</a>
-          {% endif %}
-        </div>
-      </section>
+      <li><a href="" class="control-nav-trigger" data-index="{{ forloop.index }}">{{ forloop.index }}</a></li>
     {% endfor %}
-  </div> -->
+  </ol>
 </section>

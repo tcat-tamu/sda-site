@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   height: 100%;
+  position: relative;
 
   .banners {
     flex-grow: 1;
@@ -16,9 +17,8 @@
       color: #fff;
       text-decoration: none;
       position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 20%;
+      top: 50%;
+      margin-top: -1.5rem;
       z-index: 2;
       opacity: 0.3;
       transition: 400ms;
@@ -26,7 +26,6 @@
       flex-direction: column;
       justify-content: center;
       padding: 0.5em;
-      font-size: 300%;
 
       &:hover {
         opacity: 1;
@@ -35,17 +34,22 @@
       &:active, &:focus {
         outline: 0;
       }
+
+      > i {
+        font-size: 3rem;
+        color: $md-light-overlay5;
+        background: $md-dark-overlay3;
+        border-radius: 3px;
+      }
     }
 
     .prev {
       left: 0;
-      background-image: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0));
       align-items: flex-start;
     }
 
     .next {
       right: 0;
-      background-image: linear-gradient(to left, rgba(0,0,0,0.8), rgba(0,0,0,0));
       align-items: flex-end;
     }
 
@@ -78,9 +82,106 @@
 
         .content {
           position: absolute;
-          color: white;
-          padding: 1rem;
-          bottom: 10%;
+          color: $md-dark-overlay4;
+
+          @media all and (min-width: $screen-xs-min) {
+            max-width: 50%;
+          }
+
+          @media all and (min-width: $screen-md-min) {
+            max-width: 40%;
+          }
+
+          h2 {
+            color: $copper5;
+            font-size: 2.1em;
+            line-height: 1;
+            margin: 0;
+            @media all and (min-width: 40em) {
+              font-size: 2.4em;
+            }
+          }
+
+          p {
+            margin: 0.25em 0 0 0;
+            line-height: 1.4;
+            display: none;
+
+            @media all and (min-width: $screen-xs-min) {
+              display: block;
+            }
+          }
+
+          .play-icon {
+            a:active, a:focus, a:hover {
+              outline: 0;
+            }
+
+            i {
+              font-size: 3em;
+            }
+          }
+
+          &.bottom {
+            bottom: 1rem;
+          }
+
+          &.top {
+            top: 2rem;
+          }
+
+          &.left {
+            left: 1rem;
+          }
+
+          &.right {
+            right: 1rem;
+          }
+
+          &.dark {
+            color: $md-light-overlay4;
+
+            .play-icon i {
+              color: $md-light-overlay4;
+            }
+          }
+
+          &.overlay {
+            padding: 1rem;
+            background-color: $md-dark-overlay4;
+            color: $md-light-overlay5;
+          }
+
+          @media all and (min-width: 20em) {
+            font-size: 1.125em;
+          }
+
+          @media all and (min-width: 30em) {
+          }
+
+          @media all and (min-width: 40em) {
+            font-size: 1.25em;
+          }
+
+          @media all and (min-width: 50em) {
+          }
+
+          @media all and (min-width: 60em) {
+            font-size: 1.5em;
+          }
+
+          @media all and (min-width: 70em) {
+          }
+
+          @media all and (min-width: 80em) {
+            font-size: 1.75em;
+          }
+
+          @media all and (min-width: 90em) {
+          }
+
+          @media all and (min-width: 100em) {
+          }
 
           /* Slide content is implemented using several different core templates.
            * Each template provides slots for different textual elements and lays
@@ -110,62 +211,13 @@
               }
             }
 
-            &.right {
-              right: 1rem;
-              text-align: left;
-            }
-
             &.textbg {
               background-color: rgba($darkBrown, .5);
             }
 
-            @media only all and (min-width: 20em) {
-              font-size: 1.125em;
-              // padding-top: 37.5%;
-            }
-
-            @media only all and (min-width: 30em) {
-              // padding-bottom: 12%;
-              // padding-top: 35%;
-            }
-
-            @media only all and (min-width: 40em) {
-              font-size: 1.25em;
-              // padding-top: 32.5%;
-            }
-
-            @media only all and (min-width: 50em) {
-              // padding-bottom: 10%;
-              // padding-top: 30%;
-            }
-
-            @media only all and (min-width: 60em) {
-              font-size: 1.5em;
-              // padding-top: 27.5%;
-            }
-
-            @media only all and (min-width: 70em) {
-              // padding-bottom: 8%;
-              // padding-top: 25%;
-            }
-
-            @media only all and (min-width: 80em) {
-              font-size: 1.75em;
-              // padding-top: 22.5%;
-            }
-
-            @media only all and (min-width: 90em) {
-              // padding-top: 22.5%;
-            }
-
-            @media only all and (min-width: 100em) {
-              // padding-bottom: 10rem;
-              // padding-top: 23rem;
-            }
           }
 
           &.upper-box {
-            color: white;
             top: 1rem;
             left: 1rem;
             bottom: auto;
@@ -177,7 +229,7 @@
             }
 
             h3 {
-              color: white;
+              color: inherit;
               font-size: 1.1em;
               margin-left: 1em;
               margin-top: 0.25em;
@@ -185,7 +237,6 @@
             }
 
             p.blurb {
-              color: white;
               @extend %AvenirLTStd-Roman;
               font-size: 0.8em;
               margin: 0.5em 0 0;
@@ -206,13 +257,13 @@
               }
             }
 
-            @media only all and (min-width: 20em) {
+            @media all and (min-width: 20em) {
               max-width: 80%;
               font-size: 1.125em;
               padding-top: 7.5%;
             }
 
-            @media only all and (min-width: 30em) {
+            @media all and (min-width: 30em) {
               //  max-width: 70%;
               padding-top: 2rem;
 
@@ -221,277 +272,75 @@
               }
             }
 
-            @media only all and (min-width: 40em) {
+            @media all and (min-width: 40em) {
               // max-width: 60%;
               font-size: 1.25em;
             }
 
-            @media only all and (min-width: 50em) {
+            @media all and (min-width: 50em) {
               // max-width: 57.5%;
             }
 
-            @media only all and (min-width: 60em) {
+            @media all and (min-width: 60em) {
               //max-width: 55%;
               font-size: 1.5em;
             }
 
-            @media only all and (min-width: 70em) {
+            @media all and (min-width: 70em) {
               //max-width: 52.5%;
             }
 
-            @media only all and (min-width: 80em) {
+            @media all and (min-width: 80em) {
               // max-width: 50%;
               font-size: 1.75em;
             }
 
-            @media only all and (min-width: 90em) {
+            @media all and (min-width: 90em) {
               //max-width: 47.5%;
             }
 
-            @media only all and (min-width: 100em) {
+            @media all and (min-width: 100em) {
               //max-width: 45%;
             }
           }
-
-          &.showsize h2:before {
-            content: 'sm ';
-            @media only all and (min-width: 20em) {
-              content: '20 ';
-            }
-
-            @media only all and (min-width: 30em) {
-              content: '30 ';
-            }
-
-            @media only all and (min-width: 40em) {
-              content: '40 ';
-            }
-
-            @media only all and (min-width: 50em) {
-              content: '50 ';
-            }
-
-            @media only all and (min-width: 60em) {
-              content: '60 ';
-            }
-
-            @media only all and (min-width: 70em) {
-              content: '70 ';
-            }
-
-            @media only all and (min-width: 80em) {
-              content: '80 ';
-            }
-
-            @media only all and (min-width: 90em) {
-              content: '90 ';
-            }
-
-            @media only all and (min-width: 100em) {
-              content: '100 ';
-            }
-
-          }
-
-          h2 {
-            color: white;
-            @extend %CenturyStd-Book;
-            font-size: 2.1em;
-            line-height: 1;
-            margin: 0;
-            @media only all and (min-width: 40em) {
-              font-size: 2.4em;
-            }
-          }
         }
       }
     }
   }
 
-  > .brow-container {
-    @extend %container;
+  .control-nav {
+    position: absolute;
+    bottom: 1rem;
+    z-index: 1;
+
+    list-style: none;
     margin: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
+    padding: 0;
 
-    @media only screen and (min-width: 51em) {
-      justify-content: flex-end;
-    }
+    li {
+      padding: 0.25rem;
 
-    .brow {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      align-content: stretch;
-      background-color: rgba(164,113,64,1);
-      border-bottom: 4px solid #dcc3ab;
-      max-height: 50px;
-      min-height: 50px;
-      overflow: hidden;
-      padding: 0 0.5rem;
-
-      @media only all and (min-width: 51em) {
-        width: 60%;
-        flex-grow: 0;
-        align-self: flex-end;
-      }
-
-      a.play-video {
-        color: inherit;
-        text-decoration: none;
+      a {
         display: block;
-        color: white;
-        font-size: 0.9em;
-        overflow: hidden;
+        height: 0.5rem;
+        width: 0.5rem;
+        line-height: 0;
+        text-indent: -9999px;
+        border-radius: 50%;
+        border: 1px solid $md-light-overlay5;
+        cursor: pointer;
 
-        img {
-          vertical-align: middle;
+        transition: background-color 300ms;
+
+        box-shadow: 0 0 0.5rem #000;
+        background: $md-dark-overlay3;
+
+        &:focus, &:hover {
+          background-color: $md-light-overlay3;
         }
 
-        .video-details {
-          padding-left: 0.5em;
-
-          .title {
-            font-size: 0.7em;
-            text-transform: uppercase;
-
-            @media only all and (min-width: 35em) {
-              font-size: 1em;
-            }
-
-            @media only all and (min-width: 40em) {
-              font-size: 0.9em;
-            }
-          }
-
-          .length {
-            color: darken($lightBrown, 30%);
-            @extend %CenturyStd-Book;
-            display: none;
-
-            @media only all and (min-width: 51em) {
-              color: darken($lightBrown, 25%);
-              display: inline-block;
-            }
-          }
-        }
-      }
-
-      ol.control-nav {
-        flex: 1;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        line-height: 1;
-        text-align: right;
-
-        > li {
-          display: inline-block;
-          margin: 0 5px;
-
-          &:last-child {
-            margin-right: 0;
-          }
-
-          a {
-            @include hide-text;
-            background: #b88554;
-            border-radius: 50%;
-            display: block;
-            height: 20px;
-            width: 20px;
-            transition: 400ms;
-
-            &.active {
-              cursor: default;
-            }
-
-            &.active, &:active, &:focus, &:hover {
-              background-color: white;
-            }
-
-            @media only all and (min-width: 51em) {
-              background: #b88554;
-              position: relative;
-              z-index: 2;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .intro-text {
-    display: flex;
-    color: #484b47;
-    line-height: 2;
-    max-width: 40em;
-    padding: 2rem 1.5rem 3rem;
-
-    @media only all and (min-width: 51em) {
-      clear: both;
-      max-width: none;
-      padding: 0 0 3rem;
-    }
-
-    .slide {
-      display: flex;
-      flex-direction: column;
-
-      @media only all and (min-width: 51em) {
-        flex-direction: row;
-      }
-
-      .leadin {
-        flex: 1;
-        @extend %CenturyStd-Book;
-        background-color: white;
-        color: #20251f;
-        font-size: 1.2em;
-        line-height: 1.6;
-        overflow: hidden;
-
-        p {
-          margin: 0;
-        }
-
-        @media only all and (min-width: 40em) {
-          font-size: 1.35em;
-        }
-
-        @media only all and (min-width: 50em) {
-          font-size: 1.5em;
-        }
-
-        @media only all and (min-width: 51em) {
-          padding: 1rem 2rem;
-        }
-
-        @media only all and (min-width: 60em) {
-          font-size: 1.65em;
-          padding-top: 2rem;
-        }
-      }
-
-      .text {
-        flex: 1.5;
-        display: none;
-
-        @media only all and (min-width: 51em) {
-          padding: 1rem 3rem;
-          display: block;
-        }
-
-        .read-more {
-          @extend %AvenirLTStd-Heavy;
-          @extend %activeUnderline;
-          font-size: 0.75em;
-          letter-spacing: 2px;
-          text-decoration: none;
-          text-transform: uppercase;
-          white-space: nowrap;
+        &.active {
+          background-color: $md-light-overlay5;
         }
       }
     }

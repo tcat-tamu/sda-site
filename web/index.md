@@ -7,10 +7,12 @@ layout: home
 billboard:
   - banner:
       image: 01-wonder.jpg
-      focus: { x: 0.75, y: 1 }
-      style: basic-title right
+      focus: { x: 0.66, y: 0.85 }
+      style: top left
+      video: ktYkecCsUFU
       content: >
         <h2>Does God Act?</h2>
+        <p>Explore one of the most profound influences on ideas, culture and civilisation</p>
     video:
       url: 'https://youtu.be/HmSKMbq7Fk8'
       label: Introducing the Project
@@ -24,9 +26,11 @@ billboard:
         label: Read About the Project
   - banner:
       image: 02-digital-bodleian.jpg
+      focus: { x: 0.42, y: 0.5 }
       style: upper-box textbg-copper
       content: >
         <h2>Digital Library</h2>
+        <p>Discover the landscape of insights and influences that shape our understanding</p>
     video:
       url: 'https://youtu.be/EMjg86wlGU0'
       label: The State of the Art and the Uses of History
@@ -35,19 +39,19 @@ billboard:
       What do centuries of scholarship teach about special divine action in relation to our philosophical, religious, and scientific worldviews?
     content: >
       The Special Divine Action Project assists scholars by providing access to digital versions  of key works,  topical essays, biographies and tools to explore the influences, provocations and convergences among these works in science, philosophy, theology and religion.
-  - banner:
-      image: 03-mind-map.jpg
-      style: upper-box textbg-copper
-      content: >
-        <h2>Student and Teacher Support</h2>
-    video:
-      url: 'https://youtu.be/-AJfNBuOIpY'
-      label: The Historian and the Miraculous
-      length: '1:16:36'
-    leadin: >
-      How can I study, teach or research the questions, perspectives and debates about special divine action in my school, college or university?
-    content: >
-      The Special Divine Action Project supports study and teaching in universities, colleges, and schools, providing introductions, biographies, reviews, reading lists, audio-visual materials, course materials, course development and cluster group competitions.
+  # - banner:
+  #     image: 03-mind-map.jpg
+  #     style: upper-box textbg-copper
+  #     content: >
+  #       <h2>Student and Teacher Support</h2>
+  #   video:
+  #     url: 'https://youtu.be/-AJfNBuOIpY'
+  #     label: The Historian and the Miraculous
+  #     length: '1:16:36'
+  #   leadin: >
+  #     How can I study, teach or research the questions, perspectives and debates about special divine action in my school, college or university?
+  #   content: >
+  #     The Special Divine Action Project supports study and teaching in universities, colleges, and schools, providing introductions, biographies, reviews, reading lists, audio-visual materials, course materials, course development and cluster group competitions.
   - banner:
       image: 04-media-mcgrath-banner.jpg
       focus: { x: 0.1, y: 0.5 }

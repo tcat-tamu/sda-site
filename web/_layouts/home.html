@@ -94,12 +94,29 @@
 
   </main>
 
+  {% for slide in page.billboard %}
+    {% if slide.banner.video %}
+      <div class="billboard-video modal fade" id="banner{{ forloop.index }}-video" tabindex="-1" role="dialog" aria-labelledby="banner{{ forloop.index }}-video-label">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 id="banner{{ forloop.index }}-video-label" class="modal-title">Video</h4>
+            </div>
+            <div class="video-container">
+              <iframe data-src="https://www.youtube.com/embed/{{ slide.banner.video }}?autoplay=1" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
   {% for module in page.modules %}
     {% for section in module.sections %}
       {% for column in section.panels %}
         {% for panel in column %}
           {% if panel.video %}
-          <div class="nav-video modal fade" id="{{ module.title | slugify }}-{{ section.title | slugify }}-{{ panel.title | slugify }}-video" tabindex="-1" role="dialog" aria-labelledby="{{ module.title | slugify }}-{{ section.title | slugify }}-{{ panel.title | slugify }}-video-label">
+            <div class="nav-video modal fade" id="{{ module.title | slugify }}-{{ section.title | slugify }}-{{ panel.title | slugify }}-video" tabindex="-1" role="dialog" aria-labelledby="{{ module.title | slugify }}-{{ section.title | slugify }}-{{ panel.title | slugify }}-video-label">
               <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -107,7 +124,7 @@
                     <h4 class="modal-title" id="{{ module.title | slugify }}-{{ section.title | slugify }}-{{ panel.title | slugify }}-video-label">{{ panel.title }}</h4>
                   </div>
                   <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/{{ panel.video }}" frameborder="0" allowfullscreen></iframe>
+                    <iframe data-src="https://www.youtube.com/embed/{{ panel.video }}?autoplay=1" frameborder="0" allowfullscreen></iframe>
                   </div>
                 </div>
               </div>
