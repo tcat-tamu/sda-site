@@ -27,10 +27,10 @@ billboard:
   - banner:
       image: 02-digital-bodleian.jpg
       focus: { x: 0.42, y: 0.5 }
-      style: upper-box textbg-copper
+      style: dark top right
       content: >
         <h2>Digital Library</h2>
-        <p>Discover the landscape of insights and influences that shape our understanding</p>
+        <p>Research the landscape of insights and influences that shape our understanding</p>
     video:
       url: 'https://youtu.be/EMjg86wlGU0'
       label: The State of the Art and the Uses of History
@@ -55,9 +55,10 @@ billboard:
   - banner:
       image: 04-media-mcgrath-banner.jpg
       focus: { x: 0.1, y: 0.5 }
-      style: upper-box
+      style: overlay bottom left
       content: >
-        <h2>Conferences and Publications</h2>
+        <h2>Media Centre</h2>
+        <p>Browse our extensive multimedia library with more than 100 videos</p>
     video:
       url: 'https://youtu.be/TXqhB_RqEzI'
       label: Cultural and Theological Resistance
@@ -68,9 +69,11 @@ billboard:
       Research activities of the Special Divine Action Project include conferences with leading academics worldwide, competitively selected short papers, opportunities for debates and discussion, and keynote videos online together with a range of academic publications.
   - banner:
       image: 05-albert.png
-      style: upper-box textbg-copper
+      style: overlay bottom left
+      video: 58iqoZfxtE8
       content: >
-        <h2>Public Engagement</h2>
+        <h2>Albert Explores</h2>
+        <p>Join Albert for fun exploration of key themes in Special Divine Action</p>
 
     video:
       url: 'https://youtu.be/waxSBeqbzOI'
@@ -132,32 +135,28 @@ modules:
               video: uKoXGbtNWR8
       - title: Project
         panels:
-          - - title: Overview
-              content: >
-
-            - title: Epistemology
-              content: >
-
-          - - title: Testimony
-              content: >
-
-            - title: Commentators
-              content: >
-
+          - - title: How does the special divine action project link facts to narratives?
+              video: UFBnwxQhKw8
+            - title: 'The special divine action project: background, rationale, and impact'
+              video: RSi2bu2sFLk
+          - - title: How does a thematic research collection address the issues of SDA?
+              video: NvsQ0ZSl9rg
+            - title: Scientific perspectives on four types of special divine action
+              video: 9ErR56Bosm0
       - title: Albert
         panels:
           - - title: Grace
-              content: >
-                text coming soon
-            - title: inspiration
-              content: >
-                text coming soon
+              image: nav-tiles/albert/grace.jpg
+              video: 5fAvu2k3u8g
+            - title: Inspiration
+              image: nav-tiles/albert/inspiration.jpg
+              video: FTeHXM1GfWY
           - - title: Miracles
-              content: >
-                text coming soon
+              image: nav-tiles/albert/miracles.jpg
+              video: lRrr1JLV1JM
             - title: Providence
-              content: >
-                text coming soon
+              image: nav-tiles/albert/providence.jpg
+              video: dN9YhngPNGI
   - title: Study
     sections:
       - title: Meaning

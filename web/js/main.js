@@ -26,7 +26,15 @@
   $('.footer-toggle').on('click', function (evt) {
     evt.preventDefault();
     $('#footer-content').slideToggle(200);
-    $(this).find('i.fa').toggleClass('fa-angle-double-up').toggleClass('fa-angle-double-down')
+
+    var icon = $(this).find('i');
+    var iconName = icon.text();
+
+    if (iconName === 'arrow_drop_up') {
+      icon.text('arrow_drop_down');
+    } else {
+      icon.text('arrow_drop_up');
+    }
   });
 
   // collapsible navigation lists

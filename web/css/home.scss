@@ -72,7 +72,9 @@ main, .main {
 
   .scroll-indicator {
     position: absolute;
-    display: block;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     bottom: 1rem;
     right: 1rem;
     text-decoration: none;
@@ -82,10 +84,18 @@ main, .main {
     .label {
       opacity: 0;
       transition: opacity 400ms;
+      margin-right: 0.75rem;
     }
 
-    .icon {
-      text-align: center;
+    i {
+      background: $copper4;
+      border-radius: 3px;
+      color: $md-light-overlay5;
+      font-size: 2rem;
+      display: block;
+      height: 2rem;
+      width: 2rem;
+      line-height: 1;
     }
 
     &:focus, &:hover {

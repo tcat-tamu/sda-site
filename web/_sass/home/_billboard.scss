@@ -113,11 +113,19 @@
           }
 
           .play-icon {
-            a:active, a:focus, a:hover {
-              outline: 0;
+            margin-top: 1.5rem;
+
+            a {
+              display: block;
+              text-decoration: none;
+
+              &:active, &:focus, &:hover {
+                outline: 0;
+              }
             }
 
             i {
+              display: block;
               font-size: 3em;
             }
           }
@@ -148,8 +156,7 @@
 
           &.overlay {
             padding: 1rem;
-            background-color: $md-dark-overlay4;
-            color: $md-light-overlay5;
+            background-color: rgba(#fff, 0.75);
           }
 
           @media all and (min-width: 20em) {

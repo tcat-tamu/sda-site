@@ -37,10 +37,9 @@
                                 </div>
                               </a>
                             {% elsif panel.video %}
-                              <a class="flex layout-column" href="#{{ module.title | slugify }}-{{ section.title | slugify }}-{{ panel.title | slugify }}-video" data-toggle="modal">
+                            <a class="flex layout-column{% unless panel.image %} layout-align-center-center{% endunless %}" href="#{{ module.title | slugify }}-{{ section.title | slugify }}-{{ panel.title | slugify }}-video" data-toggle="modal">
                                 {% if panel.title %}<h3>{{ panel.title }}</h3>{% endif %}
                                 {% if panel.content %}<p>{{ panel.content }}</p>{% endif %}
-                                <span class="flex"></span>
                                 <div class="flex-none layout-row layout-align-center-center play-icon">
                                   <i class="material-icons{% if panel.image %} inverse{% endif %}">play_circle_filled</i>
                                 </div>

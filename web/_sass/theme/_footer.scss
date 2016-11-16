@@ -50,12 +50,15 @@
       right: 10%;
       background-color: $darkBrown;
       color: $lightBrown;
-      padding: 0.3em 1em;
       line-height: 1em;
-      top: -1.6em;
+      top: -1.5em;
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
       text-decoration: none;
+
+      i {
+        color: inherit;
+      }
 
       &:focus {
         outline: 0;
