@@ -1,5 +1,5 @@
 <section class="main-nav layout-fill layout-xs-column layout-sm-column layout-row">
-  <ul class="buckets layout-column">
+  <ul class="buckets layout-sm-row layout-gt-sm-column">
     {% for module in page.modules %}
       <li class="bucket flex layout-column" ng-repeat="module in vm.modules" ng-class="{active:module.active}">
         <a class="flex layout-column layout-align-sm-center-center layout-align-gt-sm-center-start" href="#{{ module.title | slugify }}" ng-click="vm.setActive(module)"><span>{{ module.title }}</span></a>
