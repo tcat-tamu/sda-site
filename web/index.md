@@ -7,6 +7,7 @@ layout: home
 billboard:
   - banner:
       image: 01-wonder.jpg
+      focus: { x: 0.75, y: 1 }
       style: basic-title right
       content: >
         <h2>Does God Act?</h2>
@@ -49,6 +50,7 @@ billboard:
       The Special Divine Action Project supports study and teaching in universities, colleges, and schools, providing introductions, biographies, reviews, reading lists, audio-visual materials, course materials, course development and cluster group competitions.
   - banner:
       image: 04-media-mcgrath-banner.jpg
+      focus: { x: 0.1, y: 0.5 }
       style: upper-box
       content: >
         <h2>Conferences and Publications</h2>
@@ -102,9 +104,11 @@ modules:
         panels:
           - - title: Grace
               image: nav-tiles/grace.jpg
+              focus: { x: 0.69, y: 0.46 }
               video: GIjPV11WcwY
             - title: Miracles
               image: nav-tiles/miracles.jpg
+              focus: { x: 0.25, y: 0.33 }
               video: MRFSnBM2OBQ
           - - title: Inspiration
               image: nav-tiles/inspiration.jpg

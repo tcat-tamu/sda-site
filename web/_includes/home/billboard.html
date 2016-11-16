@@ -7,7 +7,7 @@
       <i class="fa fa-chevron-right"></i>
     </a>
     {% for slide in page.billboard %}
-      <div class="banner banner-{{ forloop.index }}" style="background-image:url({{ 'assets/images/banners/' | append: slide.banner.image | relative_url }})">
+    <div class="banner banner-{{ forloop.index }}" style="background-image:url({{ 'assets/images/banners/' | append: slide.banner.image | relative_url }});{% if slide.banner.focus %} background-position: {{ slide.banner.focus.x | times: 100 }}% {{ slide.banner.y | times: 100 }}%;{% endif %}">
         <div class="container">
           <aside class="content {{ slide.banner.style }}">{{ slide.banner.content }}</aside>
         </div>
