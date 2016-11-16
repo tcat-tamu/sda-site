@@ -102,29 +102,26 @@ modules:
         panels:
           - - title: Grace
               image: nav-tiles/grace.jpg
-              href: /about
+              video: GIjPV11WcwY
             - title: Miracles
               image: nav-tiles/miracles.jpg
+              video: MRFSnBM2OBQ
           - - title: Inspiration
               image: nav-tiles/inspiration.jpg
-              video: QCkzYqP1yXg
+              video: 6-4bPc71qgc
             - title: Providence
               image: nav-tiles/providence.jpg
+              video: Ktz-KVmsKV8
       - title: Questions
         panels:
-          - - title: Worldviews
-              video: foobar
-              content: >
-                text coming soon
-            - title: Science
-              content: >
-                text coming soon
-          - - title: Philosophy
-              content: >
-                text coming soon
-            - title: Theology and Religion
-              content: >
-                text coming soon
+          - - title: Do miracles break the laws of nature, as David Hume claimed?
+              video: OPf6jsmeU4E
+            - title: What does St Paul mean by divine participation?
+              video: ifZyiKs49F0
+          - - title: Why should humanists be interested in special divine action?
+              video: e7YSxVeWBHg
+            - title: Do you have advice for young scholars interested in SDA?
+              video: uKoXGbtNWR8
       - title: Project
         panels:
           - - title: Overview
@@ -158,15 +155,19 @@ modules:
       - title: Meaning
         panels:
           - - title: Grace
+              href: /about
               content: >
                 Grace is associated with the idea of blessing, beauty, and salvation. The novel meaning of grace in theology is that of a seed in the ground of human nature, a transformation or second birth into a new life as a child of God.
             - title: Inspiration
+              href: /about
               content: >
                 Inspiration is insight with a sense of divine illumination. This experience is like a light shining in darkness or a shift to a new and higher perspective, allowing us to see the things we know fit together in a new way.
           - - title: Miracles
+              href: /about
               content: >
                 A miracle is an object of wonder without a natural cause, attributed to special divine action. Rather than ‘breaking the laws of nature’ in a machine-like cosmos, a miracle is better considered as exceeding the productive power of nature.
             - title: Providence
+              href: /about
               content: >
                 Providence implies the notion of divine direction of cosmic and human affairs with wise benevolence. In a providential cosmos, time is not simply a succession of moments but has a more organic meaning, marking progress towards some fruitful goal.
       - title: Narratives

@@ -2,7 +2,7 @@
   <ul class="buckets layout-column">
     {% for module in page.modules %}
       <li class="bucket flex layout-column" ng-repeat="module in vm.modules" ng-class="{active:module.active}">
-        <a class="flex layout-column layout-align-center" href="#{{ module.title | slugify }}" ng-click="vm.setActive(module)"><span>{{ module.title }}</span></a>
+        <a class="flex layout-column layout-align-sm-center-center layout-align-gt-sm-center-start" href="#{{ module.title | slugify }}" ng-click="vm.setActive(module)"><span>{{ module.title }}</span></a>
       </li>
     {% endfor %}
   </ul>
@@ -27,7 +27,7 @@
                     <div class="flex-50 flex-xs-100 layout-column">
                       {% for panel in column %}
                         <div class="panel flex-50 layout-column">
-                          <div class="panel-content flex layout-column{% if panel.image %} panel-content-image{% endif %}" {% if panel.image %} style="background-image: url({{ '/assets/images/' | append: panel.image | relative_url }});"{% endif %}>
+                          <div class="panel-content flex layout-column{% if panel.href %} panel-content-link{% endif %}{% if panel.image %} panel-content-image{% endif %}{% if panel.video %} panel-content-video{% endif %}" {% if panel.image %} style="background-image: url({{ '/assets/images/' | append: panel.image | relative_url }});{% if panel.focus %} background-position: {{ panel.focus.x | times: 100 }}% {{ panel.focus.y | times: 100 }}%;{% endif %}"{% endif %}>
                             {% if panel.href %}
                               <a href="{{ panel.href | relative_url }}" class="flex">
                                 <h3>{{ panel.title }}</h3>
@@ -37,8 +37,9 @@
                               <a class="flex layout-column" href="#{{ module.title | slugify }}-{{ section.title | slugify }}-{{ panel.title | slugify }}-video" data-toggle="modal">
                                 {% if panel.title %}<h3>{{ panel.title }}</h3>{% endif %}
                                 {% if panel.content %}<p>{{ panel.content }}</p>{% endif %}
-                                <div class="flex layout-row layout-align-center-center">
-                                  <i class="play-icon material-icons{% if panel.image %} inverse{% endif %}">play_circle_filled</i>
+                                <span class="flex"></span>
+                                <div class="flex-none layout-row layout-align-center-center play-icon">
+                                  <i class="material-icons{% if panel.image %} inverse{% endif %}">play_circle_filled</i>
                                 </div>
                               </a>
                             {% else %}

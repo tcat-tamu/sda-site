@@ -1,3 +1,5 @@
+@import 'variables';
+
 @mixin ng-fade {
   opacity: 1;
   transition: opacity 0.4s;
@@ -175,33 +177,93 @@
           .panel {
             .panel-content {
               > div, > a {
-                padding: 1rem;
+                padding: 3rem;
                 text-decoration: none;
                 color: inherit;
+
+                &:active, &:focus, &:hover {
+                  outline: 0;
+                }
+              }
+
+              &-video {
+                text-align: center;
+
+                h3 {
+                  transition: color 200ms;
+                  color: $grey5;
+                }
+
+                .play-icon > i {
+                  color: rgba(#000, 0.13);
+                  font-size: 4rem;
+
+                  border-radius: 50%;
+                  border: 2pt solid rgba(#000, 0.13);
+                  transition: all 200ms;
+                }
+
+                &:hover, &:focus, &:active {
+                  h3 {
+                    color: $grey6;
+                  }
+
+                  .play-icon > i {
+                    color: rgba(#000, 0.54);
+                    border-color: $copper5;
+                  }
+                }
               }
 
               &-image {
+                text-align: left;
                 background-size: cover;
                 background-position: center center;
 
                 > div, > a {
-                  opacity: 1;
-                  transition: opacity 200ms;
-                  background: rgba(#000, 0.54);
+                  padding: 1rem;
+                  position: relative;
+                  transition: background-color 200ms;
+                  background-color: rgba(#000, 0.54);
                   color: rgba(#fff, 0.87);
+
+                  h3 {
+                    font-size: 1.8em;
+                    font-family: CenturyStd-Book;
+                    color: $copper4;
+                  }
+
+                  > h3, > p {
+                    transition: opacity 200ms;
+                  }
+
+                  .play-icon {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+
+                    > i {
+                      color: rgba(#fff, 0.47);
+                      border: 0;
+                    }
+                  }
                 }
 
-                &:hover {
+                &:hover, &:focus, &:active {
                   > div, > a {
-                    opacity: 0;
+                    background-color: rgba(#000, 0);
+                    > h3, > p {
+                      opacity: 0;
+                    }
+                  }
+
+                  .play-icon > i {
+                    color: inherit;
                   }
                 }
               }
-            }
-
-            .play-icon {
-              font-size: 5rem;
-              font-color: rgba(#fff, 0.47);
             }
 
             figure {
@@ -217,9 +279,11 @@
             }
 
             h3 {
-              font-size: 1.8em;
+              font-size: 1.3em;
               line-height: 1.2;
               margin: 0 0 1rem;
+              font-family: AvenirLTStd-Heavy;
+              color: $grey6;
             }
 
             p {
