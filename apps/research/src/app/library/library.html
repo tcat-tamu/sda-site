@@ -29,7 +29,7 @@
             <md-list-item class="md-2-line" ng-repeat="person in vm.results.results.people" ui-sref=".person({id: person.id})">
               <div class="md-list-item-text">
                 <h3 ng-bind-html="person.label"></h3>
-                <p>{{person.summaryExcerpt}}</p>
+                <p ng-bind-html="person.summaryExcerpt"></p>
               </div>
             </md-list-item>
           </md-list>
