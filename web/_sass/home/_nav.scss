@@ -186,6 +186,21 @@
                 }
               }
 
+              &-link {
+                .read-more {
+                  line-height: 1;
+                  font-size: 4rem;
+                  transition: color 200ms;
+                  color: rgba(#000, 0.13);
+                }
+
+                &:hover, &:focus, &:active {
+                  .read-more {
+                    color: $copper4;
+                  }
+                }
+              }
+
               &-video {
                 text-align: center;
 

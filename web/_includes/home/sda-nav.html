@@ -32,6 +32,9 @@
                               <a href="{{ panel.href | relative_url }}" class="flex">
                                 <h3>{{ panel.title }}</h3>
                                 <p>{{ panel.content }}</p>
+                                <div class="flex layout-row layout-align-end-end read-more">
+                                  <span>&raquo;</span>
+                                </div>
                               </a>
                             {% elsif panel.video %}
                               <a class="flex layout-column" href="#{{ module.title | slugify }}-{{ section.title | slugify }}-{{ panel.title | slugify }}-video" data-toggle="modal">
