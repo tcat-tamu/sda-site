@@ -555,7 +555,7 @@
         .on('mouseout', blur)
         .on('dblclick', activate)
         .on('click', function (node) {
-          if (d3.event.ctrlKey) {
+          if (d3.event.ctrlKey || d3.event.metaKey || d3.event.shiftKey) {
             if (selected.indexOf(node) < 0) {
               select(node);
             } else {
