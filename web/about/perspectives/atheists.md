@@ -1,11 +1,7 @@
 ---
-layout: page-2col
+layout: about
 title: "Perspectives on SDA: Atheists"
-permalink: /about/perspectives/atheists
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
+permalink: /about/perspectives/atheists/
 ---
 **Why is the study of SDA important for me?**
 *You want to know how others think and to develop your own ideas for humane flourishing*

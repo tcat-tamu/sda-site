@@ -1,11 +1,7 @@
 ---
-layout: page-2col
+layout: about
 title: "Perspectives on SDA: Anyone"
-permalink: /about/perspectives/theologian
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
+permalink: /about/perspectives/anyone/
 ---
 **Why is the study of SDA important for me?**
 *Because of what you are, where you are, and when you are*

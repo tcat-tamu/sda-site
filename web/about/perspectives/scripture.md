@@ -1,11 +1,7 @@
 ---
-layout: page-2col
+layout: about
 title: "Perspectives on SDA: Scripture Scholars"
-permalink: /about/perspectives/theologian
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
+permalink: /about/perspectives/scripture/
 ---
 **Why is the study of SDA important for me?**
 *You need to see what the writers and believing readers of Scripture see*

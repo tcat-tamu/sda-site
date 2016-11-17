@@ -1,11 +1,7 @@
 ---
-layout: page-2col
+layout: about
 title: "Perspectives on SDA: Literary Scholars"
-permalink: /about/perspectives/literary
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
+permalink: /about/perspectives/literary/
 ---
 **Why is the study of SDA important for me?**
 *You see the ‘writing on the wall’ and want instead to go from ‘strength to strength’.*

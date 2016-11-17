@@ -1,11 +1,7 @@
 ---
-layout: page-2col
+layout: about
 title: "Perspectives on SDA: Teachers"
-permalink: /about/perspectives/teachers
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
+permalink: /about/perspectives/teachers/
 ---
 **Why is the study of SDA important for me?**
 *You want inspiration and success, helped by materials that are easy to use*

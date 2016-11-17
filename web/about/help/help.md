@@ -1,10 +1,6 @@
 ---
-layout: page-2col
+layout: about
 title: Getting Started
-permalink: /about/help
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
+permalink: /about/help/
 ---
 Coming soon . . .

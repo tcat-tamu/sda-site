@@ -1,11 +1,7 @@
 ---
-layout: page-2col
+layout: about
 title: Contact Ud
-permalink: /about/contact
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
+permalink: /about/contact/
 ---
 
 Once we figure out how.

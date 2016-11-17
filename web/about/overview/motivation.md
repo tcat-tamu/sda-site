@@ -1,11 +1,7 @@
 ---
-layout: page-2col
+layout: about
 title: SDA Project Motivation
 permalink: /about/overview/motivation/
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
 ---
 Does God act? Whatever one’s initial answer, few people would disagree that the question is important, perhaps among the most important of all questions that we face. Belief in a God who merely starts or sustains the universe, but has no relation to created beings through additional or special divine action (SDA), would be at best an object of refined intellectual curiosity. Prayer and liturgy, among the most defining characteristics of homo sapiens, would largely be devoid of meaning without the expectation of a God who acts, and the story of civilisation is interwoven with belief in special divine action. Besides the stimulation of intellectual life, questions about SDA are also of the greatest personal importance. Taking the longest of long-term perspectives, what, ultimately, do we individuals and as a species have to look forward to apart from death in a slowly dying universe if there is not, ultimately, some kind of special divine action?
 

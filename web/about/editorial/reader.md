@@ -1,10 +1,6 @@
 ---
-layout: page-2col
+layout: about
 title: SDA Reader
-permalink: /about/editorial/reader
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
+permalink: /about/editorial/reader/
 ---
 Coming soon . . .

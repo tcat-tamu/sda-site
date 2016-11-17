@@ -1,10 +1,6 @@
 ---
-layout: page-2col
+layout: about
 title: Digital Library
-permalink: /about/editorial/library
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
+permalink: /about/editorial/library/
 ---
 Coming soon . . .

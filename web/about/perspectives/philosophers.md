@@ -1,11 +1,7 @@
 ---
-layout: page-2col
+layout: about
 title: "Perspectives on SDA: philosophers"
-permalink: /about/perspectives/philosophers
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
+permalink: /about/perspectives/philosophers/
 ---
 **Why is the study of SDA important for me?**
 *You gain a new world of ideas to explore*

@@ -1,11 +1,7 @@
 ---
-layout: page-2col
+layout: about
 title: "Perspectives on SDA: Artists"
-permalink: /about/perspectives/artists
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
+permalink: /about/perspectives/artists/
 ---
 **Why is the study of SDA important for me?**
 *What do you think art is for in the absence of SDA?*

@@ -1,11 +1,7 @@
 ---
-layout: page-2col
+layout: about
 title: Why 'Special' Divine Action
 permalink: /about/overview/why-special/
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
 ---
 The word ‘special’ in the phrase ‘special divine action’ (SDA) distinguishes the subject matter of this project from a more general sense of divine action, namely the operation of a first or uncaused cause. SDA is usually considered as particular to time and place, as in the case of the inscription in Nazareth that states that the Word became flesh here. Such action is also generally considered to take place in response to some state of affairs in the world and often understood in terms of an intervention in the ordinary course of nature.
 

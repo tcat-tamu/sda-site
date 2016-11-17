@@ -1,4 +1,4 @@
-<h2 ng-if="$ctrl.showHeading">See Also</h2>
+<h2 ng-if="$ctrl.showHeading && !($ctrl.seeAlso.links | empty)">See Also</h2>
 
 <div layout="row" layout-align="center center" ng-if="$ctrl.loading">
   <md-progress-circular md-mode="indeterminate"></md-progress-circular>

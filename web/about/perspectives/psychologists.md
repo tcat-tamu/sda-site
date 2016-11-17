@@ -1,11 +1,7 @@
 ---
-layout: page-2col
+layout: about
 title: "Perspectives on SDA: Psychologists and Sociologists"
-permalink: /about/perspectives/psychologists
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
+permalink: /about/perspectives/psychologists/
 ---
 **Why is the study of SDA important for me?**
 *You are interested in the human mind and the cultures arising from the ways in which the mind grasps truth.*

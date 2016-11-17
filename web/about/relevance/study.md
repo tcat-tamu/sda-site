@@ -1,9 +1,5 @@
 ---
-layout: page-2col
+layout: about
 title: Study Directions
-permalink: /about/relevance/study
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
+permalink: /about/relevance/study/
 ---

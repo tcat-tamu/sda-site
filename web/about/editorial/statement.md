@@ -1,9 +1,5 @@
 ---
-layout: page-2col
+layout: about
 title: Editorial Introduction
-permalink: /about/editorial/introduction
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
+permalink: /about/editorial/introduction/
 ---

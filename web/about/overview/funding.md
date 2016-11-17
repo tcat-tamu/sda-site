@@ -1,10 +1,6 @@
 ---
-layout: page-2col
+layout: about
 title: Funding and Support
 permalink: /about/overview/funding/
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
 ---
 A wise man once said, 'follow the money.' This is where ours came from.

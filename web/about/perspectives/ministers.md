@@ -1,11 +1,7 @@
 ---
-layout: page-2col
+layout: about
 title: "Perspectives on SDA: Ministers of Religion"
-permalink: /about/perspectives/minister
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
+permalink: /about/perspectives/ministers/
 ---
 **Why is the study of SDA important for me?**
 *You want your ministry to be fruitful*

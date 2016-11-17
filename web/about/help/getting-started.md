@@ -1,10 +1,6 @@
 ---
-layout: page-2col
+layout: about
 title: 5 Minute Introduction
-permalink: /about/help/getting-started
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
+permalink: /about/help/getting-started/
 ---
 Coming soon . . .

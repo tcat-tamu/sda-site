@@ -1,11 +1,7 @@
 ---
-layout: page-2col
+layout: about
 title: A Theologian's Perspective
-permalink: /about/perspectives/theologian
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
+permalink: /about/perspectives/theologians/
 ---
 **Why is the study of SDA important for me?**
 *You can’t live without it!*

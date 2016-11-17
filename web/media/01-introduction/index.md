@@ -2,7 +2,7 @@
 layout: media-list
 
 title: Media Centre
-permalink: /media/intro-videos/
+permalink: /media/
 
 subtitle: Introduction
 list_category: 01-introduction

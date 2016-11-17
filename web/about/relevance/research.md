@@ -1,11 +1,7 @@
 ---
-layout: page-2col
+layout: about
 title: Research Directions
-permalink: /about/relevance/research
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
+permalink: /about/relevance/research/
 ---
 *Could you identify a few directions for research and study?*
 

@@ -1,11 +1,7 @@
 ---
-layout: page-2col
+layout: about
 title: "Perspectives on SDA: Historians"
-permalink: /about/perspectives/historians
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
+permalink: /about/perspectives/historians/
 ---
 **Why is the study of SDA important for me?**
 *You can benefit from seeing ways in which history has been read as ‘His Story’*

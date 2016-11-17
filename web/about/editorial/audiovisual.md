@@ -1,10 +1,6 @@
 ---
-layout: page-2col
+layout: about
 title: Audiovisual material
-permalink: /about/editorial/audiovisual
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
+permalink: /about/editorial/audiovisual/
 ---
 Coming soon . . .

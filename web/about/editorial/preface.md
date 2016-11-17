@@ -1,10 +1,6 @@
 ---
-layout: page-2col
+layout: about
 title: Preface
-permalink: /about/editorial/preface
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
+permalink: /about/editorial/preface/
 ---
 Coming soon . . .

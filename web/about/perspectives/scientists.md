@@ -1,11 +1,7 @@
 ---
-layout: page-2col
+layout: about
 title: "Perspectives on SDA: Scientists"
-permalink: /about/perspectives/scientists
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
+permalink: /about/perspectives/scientists/
 ---
 **Why is the study of SDA important for me?**
 *You can benefit from examining sources of scientific understanding, motivation, and ethics*

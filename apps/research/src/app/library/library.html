@@ -47,7 +47,7 @@
         </div>
       </md-content>
     </md-sidenav>
-    <md-content layout="column" flex-noshrink ui-view>
+    <md-content layout="column" flex ui-view>
       <div flex="noshrink" layout="row" layout-padding layout-margin>
         <section flex="66">
           <div class="tools" layout="row" layout-align="center">
@@ -72,8 +72,10 @@
         <aside class="starting-points" flex="33">
           <h2>Starting Points</h2>
           <md-list>
-            <md-list-item ng-repeat="book in vm.items">
-              <p><em>Title</em> by Author</p>
+            <md-list-item ng-repeat="book in vm.startingPoints">
+              <div class="md-list-item-text bibentry-label">
+                <a ui-sref=".person({id: book.authorId})" ng-bind-html="book.author"></a>, <a class="title" ng-bind-html="book.work" ui-sref=".book({id: book.workId})"></a>
+              </div>
             </md-list-item>
           </md-list>
         </aside>

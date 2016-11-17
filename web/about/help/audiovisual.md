@@ -1,10 +1,6 @@
 ---
-layout: page-2col
+layout: about
 title: Getting Started with the Audiovisual Material
-permalink: /about/help/audiovisual
-
-banner:
-  image: slider-people.jpg
-sidebar: about/nav.html
+permalink: /about/help/audiovisual/
 ---
 Coming soon . . .
