@@ -44,11 +44,17 @@ $cream: $cream1;
 
 $sidebar-bg: $grey1;
 
-// Media query breakpoints (bootstrap naming conventions)
+// Media query breakpoints (bootstrap conventions)
 $screen-xs-min: 35em;
 $screen-sm-min: 51em;
 $screen-md-min: 51em;
 $screen-lg-min: 70em;
+
+// Media query breakpoints (material conventions)
+$md-layout-breakpoint-xs: 50em;
+$md-layout-breakpoint-sm: 60em;
+$md-layout-breakpoint-md: 80em;
+$md-layout-breakpoint-lg: 120em;
 
 
 // layout component dimensions

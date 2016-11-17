@@ -35,6 +35,10 @@ ul.nav, ol.nav {
     @include nav-list;
     padding-left: $nav-indent-nested;
     display: none;
+
+    @media screen and (min-width: $md-layout-breakpoint-sm) {
+      display: block;
+    }
   }
 
   a {

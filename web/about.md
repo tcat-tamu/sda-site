@@ -3,7 +3,8 @@ layout: page-2col
 title: About
 permalink: /about/
 
-banner: slider-people.jpg
+banner:
+  image: slider-people.jpg
 sidebar: about/nav.html
 ---
 

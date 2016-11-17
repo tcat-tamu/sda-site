@@ -3,14 +3,18 @@
 <head>
   {% include meta-common.html %}
 </head>
-<body>
+<body class="layout-column">
   {% include header.html %}
-  <div class="content flex layout-column">
-    <div class="flex layout-column">
-      {% if page.banner %}
-        <div class="page-banner flex-none" style="background-image: url({{ 'assets/images/banners/' | append: page.banner | relative_url }})">
+  <div class="flex-noshrink layout-column">
+    <div class="flex-noshrink layout-column">
+      {% assign banner = page.banner | default: layout.banner %}
+      {% if banner %}
+      <div class="page-banner flex-none" style="background-image: url({{ 'assets/images/banners/' | append: banner.image | relative_url }});{% if banner.focus %}background-position: {{ banner.focus.x | times: 100 }}% {{ banner.focus.y | times: 100 }}%;{% endif %}">
           <div class="container">
-            <h1>{{ page.title }}</h1>
+            {% assign hide_title = page.hide_title | default: layout.hide_title %}
+            {% unless hide_title %}
+              <h1>{{ page.title }}</h1>
+            {% endunless %}
           </div>
         </div>
       {% endif %}

@@ -3,7 +3,8 @@ layout: page-2col
 title: Resources and Tools
 permalink: /about/overview/resources/
 
-banner: slider-people.jpg
+banner:
+  image: slider-people.jpg
 sidebar: about/nav.html
 ---
 ## Thematic Overview ##

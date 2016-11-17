@@ -3,7 +3,8 @@ layout: page-2col
 title: "Perspectives on SDA: Ministers of Religion"
 permalink: /about/perspectives/minister
 
-banner: slider-people.jpg
+banner:
+  image: slider-people.jpg
 sidebar: about/nav.html
 ---
 **Why is the study of SDA important for me?**

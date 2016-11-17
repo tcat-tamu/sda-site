@@ -45,13 +45,20 @@
       return;
     }
 
-    var handle = $('<span>', { class: 'handle material-icons', text: 'keyboard_arrow_right' }).on('click', function (evt) {
+    var handle = $('<span>', { class: 'handle material-icons', text: item.children('ol,ul').is(':hidden') ? 'keyboard_arrow_right' : 'expand_more' }).on('click', function (evt) {
       evt.stopImmediatePropagation();
       item.toggleClass('expanded').children('ol,ul').slideToggle(200);
       $(this).text(($(this).text() === 'expand_more') ? 'keyboard_arrow_right' : 'expand_more');
     });
 
     item.prepend(handle);
+  });
+
+  $(window).on('resize', function () {
+    $('.nav-collapsible li').each(function () {
+      $(this).find('.handle')
+        .text($(this).children('ol,ul').is(':hidden') ? 'keyboard_arrow_right' : 'expand_more');
+    });
   });
 
 })();

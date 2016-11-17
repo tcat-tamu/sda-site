@@ -3,7 +3,8 @@ layout: page-2col
 title: Contact Ud
 permalink: /about/contact
 
-banner: slider-people.jpg
+banner:
+  image: slider-people.jpg
 sidebar: about/nav.html
 ---
 

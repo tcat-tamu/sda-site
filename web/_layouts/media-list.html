@@ -1,0 +1,48 @@
+---
+layout: page-2col
+
+hide_title: true
+sidebar: media/sidebar.html
+banner:
+  image: 04-media-mcgrath.jpg
+  focus: { x: 0.33, y: 0.20 }
+---
+<div class="section--media-list">
+  <div class="media-list-meta">
+    <h1>{{ page.title }}</h1>
+    <div class="layout-row layout-align-start-end">
+      <span class="subtitle">{{ page.subtitle }}</span>
+      <span class="flex"></span>
+      <span class="flex-none series">{{ page.series }}</span>
+    </div>
+  </div>
+
+  <div class="media-list-content">{{ content }}</div>
+
+  {% if page.list_category %}
+    <ul class="media-list">
+      {% assign posts = site.categories.media | reverse %}
+      {% for video in posts %}
+        {% if video.categories contains page.list_category %}
+          <li>
+            <a href="{{ video.url }}">
+              <h3 class="media-title">{{ video.title }}</h3>
+
+              {% if video.duration %}
+                <span class="media-duration">({{ video.duration }})</span>
+              {% endif %}
+
+              {% if video.speakers %}
+                <span class="media-speakers">
+                  {% for speaker in video.speakers %}
+                    <span class="media-speaker">{{ speaker }}</span>{% unless forloop.last %}, {% endunless %}
+                  {% endfor %}
+                </span>
+              {% endif %}
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>

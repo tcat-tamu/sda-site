@@ -3,7 +3,8 @@ layout: page-2col
 title: Our Approach
 permalink: /about/overview/approach/
 
-banner: slider-people.jpg
+banner:
+  image: slider-people.jpg
 sidebar: about/nav.html
 ---
 Questions about divine action are scarcely new and have been studied extensively since the rise of early modern science, but much of what has been written is surprisingly little read today. Debates, scholarship and teaching in universities and schools are dominated by a tiny handful of texts, like a few scattered rocks emerging from the sea. The deeper landscape of ideas remains largely submerged from view, often because of pressures on time and a lack of practical access.

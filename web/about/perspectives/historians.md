@@ -3,7 +3,8 @@ layout: page-2col
 title: "Perspectives on SDA: Historians"
 permalink: /about/perspectives/historians
 
-banner: slider-people.jpg
+banner:
+  image: slider-people.jpg
 sidebar: about/nav.html
 ---
 **Why is the study of SDA important for me?**

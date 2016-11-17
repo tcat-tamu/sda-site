@@ -3,7 +3,8 @@ layout: page-2col
 title: Research Directions
 permalink: /about/relevance/research
 
-banner: slider-people.jpg
+banner:
+  image: slider-people.jpg
 sidebar: about/nav.html
 ---
 *Could you identify a few directions for research and study?*
