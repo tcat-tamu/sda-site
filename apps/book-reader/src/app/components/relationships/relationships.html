@@ -21,7 +21,7 @@
     </md-subheader>
     <md-list class="slide" ng-show="group.visible">
       <div ng-repeat="reln in group.relationships">
-        <md-list-item ng-repeat="anchor in reln.anchors" ui-sref="library.book({id: anchor.ref.id})" aria-label="{{anchor.label | stripTags}}">
+        <md-list-item ng-repeat="anchor in reln.anchors" ng-href="/research/#/books/{{anchor.ref.id}}" aria-label="{{anchor.label | stripTags}}">
           <div class="md-list-item-text" ng-bind-html="anchor.label"></div>
         </md-list-item>
       </div>
