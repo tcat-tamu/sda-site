@@ -15,7 +15,8 @@
   };
 
   /** @ngInject */
-  function cslConfig(citeprocProvider) {
+  function cslConfig(citeprocProvider, refsRendererProvider) {
+    refsRendererProvider.typemapUrl = '/assets/typemap/zotero-csl.json';
     angular.forEach(CSL_LOCALES, addLocale);
     angular.forEach(CSL_STYLES, addStyle);
 
