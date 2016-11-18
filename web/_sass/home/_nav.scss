@@ -305,6 +305,34 @@
               font-size: 0.9em;
             }
           }
+
+          .section-footer {
+            display: block;
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.3em;
+            text-decoration: none;
+            color: inherit;
+            opacity: 0.54;
+            transition: opacity 200ms;
+
+            .read-more {
+              display: inline-block;
+              color: $copper5;
+              font-size: 2rem;
+              font-weight: bold;
+              line-height: 0.8;
+              transition: transform 400ms;
+            }
+
+            &:hover, &:focus, &:active {
+              opacity: 1;
+
+              .read-more {
+                transform: translate(1rem, 0);
+              }
+            }
+          }
         }
       }
     }

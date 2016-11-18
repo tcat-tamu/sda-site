@@ -18,11 +18,11 @@
         </ul>
         <div class="panels flex">
           {% for section in module.sections %}
-            <div id="{{ module.title | slugify }}-{{ section.title | slugify }}" class="panel-set" ng-show="vm.active">
+            <div id="{{ module.title | slugify }}-{{ section.title | slugify }}" class="panel-set layout-column" ng-show="vm.active">
               {% if section.content %}
                 {{ section.content }}
               {% elsif section.panels %}
-                <div class="layout-row layout-wrap layout-fill">
+                <div class="layout-row layout-wrap flex">
                   {% for column in section.panels %}
                     <div class="flex-50 flex-xs-100 layout-column">
                       {% for panel in column %}
@@ -56,6 +56,20 @@
                     </div>
                   {% endfor %}
                 </div>
+              {% endif %}
+              {% if section.footer %}
+                {% if section.footer.href %}
+                  <a href="{{ section.footer.href | relative_url }}"class="section-footer flex-none">
+                    {{ section.footer.content }}
+                    <span class="read-more">
+                      <span>&raquo;</span>
+                    </span>
+                  </a>
+                {% else %}
+                  <div class="section-footer flex-none">
+                    {{ section.footer.content }}
+                  </div>
+                {% endif %}
               {% endif %}
             </div>
           {% endfor %}

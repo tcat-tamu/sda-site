@@ -124,6 +124,9 @@ modules:
               image: nav-tiles/providence.jpg
               video: Ktz-KVmsKV8
       - title: Questions
+        footer:
+          content: Explore additional short videos on big questions
+          href: /media/big-questions
         panels:
           - - title: Do miracles break the laws of nature, as David Hume claimed?
               video: OPf6jsmeU4E
