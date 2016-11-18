@@ -70,9 +70,10 @@
         </md-tab>
       </md-tabs>
     </md-sidenav>
-    <md-content flex layout="row" layout-align="center" id="article-content">
+    <md-content flex layout="row" id="article-content">
       <article layout="column" flex layout-padding layout-margin>
-          <h1 class="md-display-1">{{vm.article.title}}</h1>
+        <div class="article-meta">
+          <h1 class="article-title">{{vm.article.title}}</h1>
           <p class="author-info" ng-if="vm.article.authors && vm.article.authors.length > 0">
             by
             <span class="author" ng-repeat="author in vm.article.authors">
@@ -80,7 +81,8 @@
               <span ng-if="!author.contact.email">{{author.name}}</span>
             </span>
           </p>
-          <article-parser body="vm.article.body" generate-toc="vm.toc = toc" footnotes="vm.article.footnotes" citations="vm.citations"></article-parser>
+        </div>
+        <article-parser body="vm.article.body" generate-toc="vm.toc = toc" footnotes="vm.article.footnotes" citations="vm.citations"></article-parser>
       </article>
     </md-content>
   </main>

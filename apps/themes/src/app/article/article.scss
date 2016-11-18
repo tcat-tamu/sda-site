@@ -7,12 +7,61 @@ $tok-active-bg: rgba(#000, 0.05);
 
     article-parser {
       section {
-        margin: 2rem 0;
+        margin: 1rem 0;
         padding: 1rem 0;
 
         &:first-child {
           margin-top: 0;
         }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        section {
+          padding-bottom: 0;
+        }
+      }
+    }
+
+    .article-meta {
+      border-bottom: 1px solid rgba(#000, 0.13);
+
+      .article-title {
+        font-size: 2.5em;
+        margin-bottom: 0em;
+      }
+    }
+
+    h1 {
+      font-size: 2.1em;
+    }
+
+    h2 {
+      font-size: 1.9em;
+    }
+
+    h3 {
+      font-size: 1.7em;
+    }
+
+    h4 {
+      font-size: 1.5em;
+    }
+
+    h5 {
+      font-size: 1.3em;
+    }
+
+    h6 {
+      font-size: 1.1em;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 0.3rem;
+
+      + p {
+        margin-top: 0;
       }
     }
   }
