@@ -21,7 +21,7 @@
 
 
   /** @ngInject */
-  function RelationshipsController($scope, $state, $timeout, $mdDialog, $mdToast, _, relnRepo, relnEditDialog) {
+  function RelationshipsController($scope, $state, $timeout, $mdDialog, sdaToast, _, relnRepo, relnEditDialog) {
     var vm = this;
 
     vm.typeGroups = null;
@@ -70,7 +70,7 @@
       }
 
       if (!state) {
-        $mdToast.showSimple('I don\'t know how to follow that link.');
+        sdaToast.error('I don\'t know how to follow that link.');
       } else {
         $state.go(state, params);
       }
@@ -106,9 +106,11 @@
 
         var saveP = relnRepo.save(relationship);
         saveP.then(function () {
-          $mdToast.showSimple('Saved.');
+          sdaToast.success('Saved.');
           // HACK give relationship a chance to save on the server
           $timeout(loadRelationships, 1000);
+        }, function () {
+          sdaToast.error('Unable to save relationship');
         });
       });
 
@@ -127,9 +129,11 @@
         var deleteP = relnRepo.delete(reln.id);
 
         deleteP.then(function () {
-          $mdToast.showSimple('Relationship deleted.');
+          sdaToast.success('Relationship deleted.');
           // HACK give relationship a chance to be deleted from the server
           $timeout(loadRelationships, 1000);
+        }, function () {
+          sdaToast.error('Unable to delete relationship');
         });
       });
     }
@@ -159,11 +163,12 @@
         return vm.typeGroups.$promise;
       })
 
-      typeGroupsP.then(function () {
-        vm.loading = false;
-      }, function () {
+      typeGroupsP.catch(function () {
+        sdaToast.error('Unable to load relationship data from the server');
+      }).then(function () {
         vm.loading = false;
       });
+
 
       return typeGroupsP;
     }

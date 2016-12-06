@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController(worksRepo, peopleRepo, $state, $stateParams, $mdSidenav, _, $q, $mdDialog, $mdToast) {
+  function MainController(worksRepo, peopleRepo, $state, $stateParams, $mdSidenav, _, $q, $mdDialog, sdaToast) {
     var vm = this;
 
     vm.loading = false;
@@ -42,6 +42,8 @@
       ])
         .then(function () {
           vm.loading = false;
+        }, function () {
+          sdaToast.error('Unable to load data from the server');
         });
     }
 
@@ -58,15 +60,18 @@
 
       var dialogPromise = $mdDialog.show(dialog);
 
-      var savePromise = dialogPromise.then(function (person) {
-        return peopleRepo.save(person);
+      dialogPromise.then(function (person) {
+        var savePromise = peopleRepo.save(person);
+
+        savePromise.then(showSavedToast, showErrorToast);
+
+        savePromise.then(function (person) {
+          $state.go('editor.person', { id: person.id });
+        });
+
+        return savePromise;
       });
 
-      savePromise.then(showSavedToast);
-
-      savePromise.then(function (person) {
-        $state.go('editor.person', { id: person.id });
-      });
     }
 
     function createWork($event) {
@@ -82,23 +87,25 @@
 
       var dialogPromise = $mdDialog.show(dialog);
 
-      var savePromise = dialogPromise.then(function (work) {
-        return worksRepo.saveWork(work);
-      });
+      dialogPromise.then(function (work) {
+        var savePromise = worksRepo.saveWork(work);
 
-      savePromise.then(showSavedToast);
+        savePromise.then(showSavedToast, showErrorToast);
 
-      savePromise.then(function (work) {
-        $state.go('editor.work', { workId: work.id });
+        savePromise.then(function (work) {
+          $state.go('editor.work', { workId: work.id });
+        });
+
+        return savePromise;
       });
     }
 
     function showSavedToast() {
-      var toast = $mdToast.simple()
-        .textContent('Saved')
-        .position('bottom right');
+      return sdaToast.success('Saved.');
+    }
 
-      return $mdToast.show(toast);
+    function showErrorToast() {
+      return sdaToast.error('Unable to save.')
     }
   }
 })();

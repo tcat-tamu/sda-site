@@ -25,7 +25,7 @@
    // NOTE this needs to move toward being a more general puropose control
 
    /** @ngInject */
-   function TreeCategorizationController($scope, $log, $mdDialog, $mdToast, $state, $q,
+   function TreeCategorizationController($scope, $log, $mdDialog, sdaToast, $state, $q,
      articlesRepo, categorizationService) {
 
      var vm = this;
@@ -146,12 +146,9 @@
         $mdDialog.show(removeCatgorizationDialog).then(function() {
            // TODO dispaly success/failure toasts
            repo.nodes.remove(node, true, parent).then(function () {
-             return 'category deleted';
+             return sdaToast.success('category deleted');
            }, function () {
-             return 'unable to delete category';
-           })
-           .then(function (msg) {
-             $mdToast.showSimple(msg);
+             return sdaToast.error('unable to delete category');
            });
          });
 

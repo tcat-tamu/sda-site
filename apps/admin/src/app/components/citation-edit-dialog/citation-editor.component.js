@@ -30,7 +30,7 @@
     });
 
   /** @ngInject */
-  function CitationEditorController($filter, $q, $log, $mdDialog, zotero, _, refsRepoFactory, refsRenderer) {
+  function CitationEditorController($filter, $q, $log, $mdDialog, zotero, _, sdaToast, refsRepoFactory, refsRenderer) {
     var vm = this;
 
     // referenced item autocomplete models
@@ -90,9 +90,16 @@
         // library.searchItems returns a native Promise.
         // we wrap that in a $q promise for consistency
         var resultsP = $q.when(library.searchItems(query))
-        return resultsP.then(function (items) {
+
+        var adaptedResultsP = resultsP.then(function (items) {
           return $q.all(items.map(adaptItem).map(wrapItem));
         });
+
+        adaptedResultsP.catch(function () {
+          sdaToast.error('Unable to load search results.');
+        });
+
+        return adaptedResultsP;
       });
     }
 
@@ -263,6 +270,8 @@
         selectBiblioItem(item);
         vm.searchText = stripTags(item.label);
         vm.zoteroItem = null;
+      }, function () {
+        sdaToast.error('Unable to save zotero data');
       });
     }
   }

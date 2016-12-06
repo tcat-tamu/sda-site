@@ -6,7 +6,7 @@
     .controller('TaskController', TaskController);
 
   /** @ngInject */
-  function TaskController($mdSidenav, $mdToast, tasksRepo) {
+  function TaskController($mdSidenav, sdaToast, tasksRepo) {
     var vm = this;
 
     vm.loading = false;
@@ -18,12 +18,12 @@
     function activate() {
       vm.loading = true;
       vm.tasks = tasksRepo.all();
+      var tasksPromise = vm.tasks.$promise;
 
-      vm.tasks.$promise.then(function () {
+      tasksPromise.catch(function () {
+        sdaToast.error('Unable to load tasks from server');
+      }).then(function () {
         vm.loading = false;
-      }, function () {
-        vm.loading = false;
-        $mdToast.show($mdToast.simple().textContent('Unable to load tasks from server'));
       });
     }
 

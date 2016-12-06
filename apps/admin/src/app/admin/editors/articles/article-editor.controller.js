@@ -30,7 +30,7 @@
   };
 
   /** @ngInject */
-  function ArticleEditorController($q, $log, $stateParams, $scope, $mdBottomSheet, articlesRepo, refsRepoFactory) {
+  function ArticleEditorController($q, $log, $stateParams, $scope, $mdBottomSheet, sdaToast, articlesRepo, refsRepoFactory) {
     var refsRepoUrl = articlesRepo.getReferencesEndpoint($stateParams.id);
     var refsRepo = refsRepoFactory.getRepo(refsRepoUrl);
 
@@ -83,6 +83,8 @@
         // start watching for opportunities to remove unused citations and footnotes
         $scope.$watch('vm.article.body', cleanArticleHandler);
         $scope.$watchCollection('vm.article.footnotes', cleanRefsHandler);
+      }, function () {
+        return sdaToast.error('Failed to load data from the server');
       });
 
       /* initialization logic here */
@@ -92,11 +94,18 @@
      * API METHODS
      * ================================ */
      function save() {
-        articlesRepo.save(vm.article);
-        refsRepo.save(vm.references);
+       return $q.all([
+         articlesRepo.save(vm.article),
+         refsRepo.save(vm.references)
+       ]).then(function () {
+         sdaToast.success('Saved');
+       }, function () {
+         sdaToast.error('Unable to save article.');
+       });
      }
 
      function cancel() {
+       // TODO: not sure what this is supposed to do
        alert('cancel');
      }
 
