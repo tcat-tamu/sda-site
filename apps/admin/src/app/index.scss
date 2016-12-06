@@ -87,6 +87,14 @@ md-fab-speed-dial.md-fab-straddle {
   }
 }
 
+md-toast {
+  &.sda-toast-error {
+    .md-toast-content {
+      background: $red-500;
+    }
+  }
+}
+
 ol,ul {
   &.breadcrumbs {
     margin: 0;
