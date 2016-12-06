@@ -45,10 +45,6 @@
         });
     }
 
-    function createArticle($event) {
-
-    }
-    
     function createPerson($event) {
       var dialog = {
         targetEvent: $event,
