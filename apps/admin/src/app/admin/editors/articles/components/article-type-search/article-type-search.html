@@ -1,0 +1,15 @@
+<div layout="column">
+  <div layout="row" flex="none">
+    <md-input-container flex>
+      <label>search</label>
+      <md-icon>search</md-icon>
+      <input type="search" ng-model="$ctrl.query" ng-model-options="{debounce: 300}" ng-change="$ctrl.search($ctrl.query)">
+    </md-input-container>
+  </div>
+
+  <md-list layout="column">
+    <md-list-item ng-repeat="article in $ctrl.results.articles" ui-sref="article.edit({id: article.id})">
+      <span class="md-list-item-text">{{article.title}}</span>
+    </md-list-item>
+  </md-list>
+</div>
