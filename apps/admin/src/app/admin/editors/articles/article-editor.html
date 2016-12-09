@@ -1,22 +1,40 @@
 <div flex layout="column" layout-padding>
   <!-- title editor bar -->
-  <md-content layout="row">
-    <md-input-container flex="60" layout-sm="column" layout-align="begin end">
+  <md-content layout="row" flex="none">
+    <md-input-container flex>
       <label>Title</label>
       <input type="text" ng-model="vm.article.title">
     </md-input-container>
 
-    <section flex="40" layout="row" layout-sm="column" layout-align="end center" layout-wrap>
-      <md-button class="md-raised" ng-click="vm.cancel()">Cancel</md-button>
+    <div flex="none">
       <md-button class="md-raised md-primary" ng-click="vm.save()">Save</md-button>
-    </section>
+    </div>
   </md-content>
 
-  <!-- TODO add space for authors -->
+  <div layout="column" flex="none" class="authors">
+    <h3 layout="row">
+      <span>Authors</span>
+      <span flex></span>
+      <span>
+        <md-button class="md-icon-button" aria-label="add author" ng-click="vm.article.authors.push({})">
+          <md-icon>add</md-icon>
+          <md-tooltip>Add Author</md-tooltip>
+        </md-button>
+      </span>
+    </h3>
+    <div layout="row" ng-repeat="author in vm.article.authors">
+      <article-author-editor author="author" flex></article-author-editor>
+      <md-button class="md-icon-button md-warn" ng-click="vm.article.authors.splice($index, 1)" ng-if="vm.article.authors.length > 1">
+        <md-icon>delete</md-icon>
+        <md-tooltip>Remove Author</md-tooltip>
+      </md-button>
+    </div>
+  </div>
+
   <!-- TODO add save button and auto-save -->
   <!-- TODO add sidebar for notes, biblio, links, etc -->
 
-  <div id="article_editor" flex layout="column">
+  <div id="article_editor" flex="noshrink" layout="column">
     <div
         ng-model="vm.article.body"
         ckeditor="vm.editor.config"
@@ -24,7 +42,7 @@
         ckeditor-footnotes="vm.article.footnotes">
     </div>
 
-    <md-tabs flex>
+    <md-tabs flex="noshrink">
       <md-tab label="Abstract">
         <div ckeditor="vm.abstractEditor.config" ng-model="vm.article.abstract"></div>
       </md-tab>

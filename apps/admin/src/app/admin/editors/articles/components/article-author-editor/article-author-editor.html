@@ -1,0 +1,36 @@
+<div layout="column" layout-gt-sm="row" layout-align-gt-sm="start center">
+  <div layout="row" layout-align="start center" flex-gt-sm>
+    <md-button class="md-icon-button" ng-click="$ctrl.institution = !$ctrl.institution">
+      <md-icon>{{$ctrl.institution ? 'person' : 'domain'}}</md-icon>
+    </md-button>
+
+    <div layout="row" flex ng-show="$ctrl.institution">
+      <md-input-container flex>
+        <label>name</label>
+        <input type="text" ng-model="$ctrl.author.name">
+      </md-input-container>
+    </div>
+
+    <div layout="row" flex ng-hide="$ctrl.institution">
+      <md-input-container flex>
+        <label>first name</label>
+        <input type="text" ng-model="$ctrl.author.firstname">
+      </md-input-container>
+      <md-input-container flex>
+        <label>last name</label>
+        <input type="text" ng-model="$ctrl.author.lastname">
+      </md-input-container>
+    </div>
+  </div>
+
+  <div layout="row" flex-gt-sm>
+    <md-input-container flex>
+      <label>affiliation</label>
+      <input type="text" ng-model="$ctrl.author.properties.affiliation">
+    </md-input-container flex>
+    <md-input-container flex>
+      <label>email</label>
+      <input type="text" ng-model="$ctrl.author.properties.email">
+    </md-input-container>
+  </div>
+</div>

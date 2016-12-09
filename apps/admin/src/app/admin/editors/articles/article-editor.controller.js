@@ -51,8 +51,6 @@
     var vm = this;
 
     vm.save = save;
-    vm.cancel = cancel;
-    vm.body = "test";
 
     vm.abstractEditor = {
       config: angular.extend({}, CKEDITOR_CONFIG, {
@@ -108,9 +106,18 @@
       $log.info("Loading article editor", articlesRepo)
 
       vm.article = articlesRepo.get($stateParams.id);
-      vm.references = refsRepo.get();
+      var articlePromise = vm.article.$promise;
+      articlePromise.then(function (article) {
+        // ensure article has at least 1 author
+        if (article.authors.length === 0) {
+          article.authors.push({});
+        }
+      });
 
-      $q.all([vm.article.$promise, vm.references.$promise]).then(function () {
+      vm.references = refsRepo.get();
+      var refsPromise = vm.references.$promise;
+
+      $q.all([articlePromise, refsPromise]).then(function () {
         // start watching for opportunities to remove unused citations and footnotes
         $scope.$watch('vm.article.body', cleanArticleHandler);
         $scope.$watchCollection('vm.article.footnotes', cleanRefsHandler);
@@ -133,11 +140,6 @@
        }, function () {
          sdaToast.error('Unable to save article.');
        });
-     }
-
-     function cancel() {
-       // TODO: not sure what this is supposed to do
-       alert('cancel');
      }
 
      /**
