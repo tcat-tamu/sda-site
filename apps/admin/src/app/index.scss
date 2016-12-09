@@ -95,6 +95,12 @@ md-toast {
   }
 }
 
+md-input-container {
+  &.no-space .md-errors-spacer:empty {
+    display: none;
+  }
+}
+
 ol,ul {
   &.breadcrumbs {
     margin: 0;
