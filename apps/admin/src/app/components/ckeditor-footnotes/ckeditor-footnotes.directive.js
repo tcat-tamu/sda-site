@@ -6,7 +6,7 @@
     .directive('ckeditorFootnotes', ckeditorFootnotesDirective);
 
   /** @ngInject */
-  function ckeditorFootnotesDirective($document, $mdBottomSheet, articlesRepo, refsRepoFactory) {
+  function ckeditorFootnotesDirective($document, footnoteEditDialog, articlesRepo, refsRepoFactory) {
     var directive = {
       restrict: 'A',
       require: ['ckeditor', 'ckeditorFootnotes', '?ckeditorBibliography'],
@@ -60,18 +60,11 @@
 
         var newReferences = ckeditorBibliography ? refsRepoFactory.createRefCollection() : null;
 
-        var config = {
-          templateUrl: 'app/components/ckeditor-footnotes/footnote-edit-dialog.html',
-          controller: 'FootnoteEditDialogController',
-          controllerAs: 'vm',
-          clickOutsideToClose: false,
-          locals: {
-            footnote: newFootnote,
-            references: newReferences
-          }
-        };
-
-        var promise = $mdBottomSheet.show(config);
+        var promise = footnoteEditDialog.show(null, newFootnote, {
+          references: newReferences,
+          // TODO: allow footnote ckeditor to be configured
+          ckeditor: scope.$eval(attrs.ckeditor)
+        });
 
         promise.then(function () {
           ctrl.value[newFootnote.id] = newFootnote;

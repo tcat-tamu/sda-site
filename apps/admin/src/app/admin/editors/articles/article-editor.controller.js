@@ -6,6 +6,7 @@
     .controller('ArticleEditorController', ArticleEditorController);
 
   var CKEDITOR_CONFIG = {
+    /*
     toolbarGroups: [
       { name: 'styles', groups: [ 'styles' ] },
       { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
@@ -20,6 +21,19 @@
       { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
       { name: 'others', groups: [ 'others' ] },
     ],
+    */
+
+    toolbar: [
+      { name: 'styles', items: [ 'Styles', 'Format' ] },
+      { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'Subscript', 'Superscript', '-', 'RemoveFormat' ] },
+      { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] },
+      { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+      { name: 'insert', items: [ 'Citation', 'Footnote', '-', 'Image', 'Table', 'HorizontalRule', 'SpecialChar' ] },
+      { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
+      { name: 'editing', items: [ 'Scayt' ] },
+      { name: 'tools', items: [ 'Maximize' ] },
+      { name: 'document', items: [ 'Source' ] }
+    ],
 
     // See http://docs.ckeditor.com/#!/api/CKEDITOR.config-cfg-format_tags
     format_tags: 'p;h1;h2;h3;h4;h5;h6;pre;address',
@@ -30,7 +44,7 @@
   };
 
   /** @ngInject */
-  function ArticleEditorController($q, $log, $stateParams, $scope, $mdBottomSheet, sdaToast, articlesRepo, refsRepoFactory) {
+  function ArticleEditorController($q, $log, $stateParams, $scope, footnoteEditDialog, sdaToast, articlesRepo, refsRepoFactory) {
     var refsRepoUrl = articlesRepo.getReferencesEndpoint($stateParams.id);
     var refsRepo = refsRepoFactory.getRepo(refsRepoUrl);
 
@@ -52,6 +66,23 @@
           'HorizontalRule',
           'Maximize',
           'Source'
+        ].join(',')
+      })
+    };
+
+    vm.footnoteEditor = {
+      config: angular.extend({}, CKEDITOR_CONFIG, {
+        removeButtons: [
+          'Styles',
+          'Format',
+          'Subscript',
+          'Superscript',
+          'Cut',
+          'Copy',
+          'Footnote',
+          'HorizontalRule',
+          'Maximize',
+          'Source',
         ].join(',')
       })
     };
@@ -119,18 +150,10 @@
        var newFootnote = angular.copy(footnote);
        var newReferences = refsRepoFactory.createRefCollection();
 
-       var config = {
-         templateUrl: 'app/components/ckeditor-footnotes/footnote-edit-dialog.html',
-         controller: 'FootnoteEditDialogController',
-         controllerAs: 'vm',
-         clickOutsideToClose: false,
-         locals: {
-           footnote: newFootnote,
-           references: newReferences
-         }
-       };
-
-       var promise = $mdBottomSheet.show(config);
+       var promise = footnoteEditDialog.show($event, newFootnote, {
+         references: newReferences,
+         ckeditor: vm.footnoteEditor
+       });
 
        promise.then(function () {
          vm.article.footnotes[newFootnote.id] = newFootnote;
