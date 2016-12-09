@@ -75,7 +75,7 @@
             angular.merge(ckeditorBibliography.value, updatedReferences);
           }
 
-          editor.insertHtml('<sup contenteditable="false" class="footnote" id="' + newFootnote.backlinkId + '" data-footnote="' + newFootnote.id + '">#</a>');
+          editor.insertHtml('<sup contenteditable="false" class="footnote" id="' + newFootnote.backlinkId + '" data-footnote="' + newFootnote.id + '">#</sup>');
           done();
         }, function () {
           done();
