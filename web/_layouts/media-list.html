@@ -21,27 +21,25 @@ banner:
 
   {% if page.list_category %}
     <ul class="media-list">
-      {% assign posts = site.categories.media | reverse %}
+      {% assign posts = site.categories[page.list_category] | reverse %}
       {% for video in posts %}
-        {% if video.categories contains page.list_category %}
-          <li>
-            <a href="{{ video.url }}">
-              <h3 class="media-title">{{ video.title }}</h3>
+        <li>
+          <a href="{{ video.url }}">
+            <h3 class="media-title">{{ video.title }}</h3>
 
-              {% if video.duration %}
-                <span class="media-duration">({{ video.duration }})</span>
-              {% endif %}
+            {% if video.duration %}
+              <span class="media-duration">({{ video.duration }})</span>
+            {% endif %}
 
-              {% if video.speakers %}
-                <span class="media-speakers">
-                  {% for speaker in video.speakers %}
-                    <span class="media-speaker">{{ speaker }}</span>{% unless forloop.last %}, {% endunless %}
-                  {% endfor %}
-                </span>
-              {% endif %}
-            </a>
-          </li>
-        {% endif %}
+            {% if video.speakers %}
+              <span class="media-speakers">
+                {% for speaker in video.speakers %}
+                  <span class="media-speaker">{{ speaker }}</span>{% unless forloop.last %}, {% endunless %}
+                {% endfor %}
+              </span>
+            {% endif %}
+          </a>
+        </li>
       {% endfor %}
     </ul>
   {% endif %}
