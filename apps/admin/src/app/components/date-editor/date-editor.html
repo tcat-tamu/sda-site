@@ -1,0 +1,11 @@
+<div layout="row">
+  <md-input-container flex>
+    <label>date</label>
+    <input type="text" ng-model="date.description">
+  </md-input-container>
+
+  <md-input-container flex>
+    <label>ISO-8601 date</label>
+    <input type="datetime" ng-model="date.calendar" ng-change="calendarAutoSet = false">
+  </md-input-container>
+</div>

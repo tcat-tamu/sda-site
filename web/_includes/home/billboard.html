@@ -1,0 +1,31 @@
+<section class="billboard">
+  <div class="banners">
+    <a href="" class="prev">
+      <i class="material-icons">chevron_left</i>
+    </a>
+    <a href="" class="next">
+      <i class="material-icons">chevron_right</i>
+    </a>
+    {% for slide in page.billboard %}
+      <div class="banner banner-{{ forloop.index }}" style="background-image:url({{ 'assets/images/banners/' | append: slide.banner.image | relative_url }});{% if slide.banner.focus %} background-position: {{ slide.banner.focus.x | times: 100 }}% {{ slide.banner.focus.y | times: 100 }}%;{% endif %}">
+        <div class="container">
+          <aside class="content {{ slide.banner.style }}">
+            {{ slide.banner.content }}
+            {% if slide.banner.video %}
+              <div class="flex-none layout-row layout-align-center-center play-icon">
+                <a href="#banner{{ forloop.index }}-video" data-toggle="modal">
+                  <i class="material-icons">play_circle_filled</i>
+                </a>
+              </div>
+            {% endif %}
+          </aside>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <ol class="control-nav layout-row layout-align-center-center">
+    {% for slide in page.billboard %}
+      <li><a href="" class="control-nav-trigger" data-index="{{ forloop.index }}">{{ forloop.index }}</a></li>
+    {% endfor %}
+  </ol>
+</section>

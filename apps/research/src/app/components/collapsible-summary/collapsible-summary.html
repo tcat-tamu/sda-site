@@ -1,0 +1,6 @@
+<section class="summary" ng-bind-html="$ctrl.content" ng-class="{collapsed: ($ctrl.longEnough && !$ctrl.summaryExpanded)}" ng-click="$ctrl.summaryExpanded = true"></section>
+<div layout="row" layout-align="center center" ng-if="$ctrl.longEnough">
+  <md-button ng-click="$ctrl.summaryExpanded = !$ctrl.summaryExpanded" class="md-raised">
+    Show {{$ctrl.summaryExpanded ? 'Less' : 'More'}}
+  </md-button>
+</div>

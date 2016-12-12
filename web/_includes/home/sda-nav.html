@@ -1,0 +1,80 @@
+<section class="main-nav layout-fill layout-xs-column layout-sm-column layout-row">
+  <ul class="buckets layout-sm-row layout-gt-sm-column">
+    {% for module in page.modules %}
+      <li class="bucket flex layout-column" ng-repeat="module in vm.modules" ng-class="{active:module.active}">
+        <a class="flex layout-column layout-align-sm-center-center layout-align-gt-sm-center-start" href="#{{ module.title | slugify }}" ng-click="vm.setActive(module)"><span>{{ module.title }}</span></a>
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="modules flex">
+    {% for module in page.modules %}
+      <div id="{{ module.title | slugify }}" class="module layout-column" ng-show="vm.active">
+        <ul class="controls layout-row layout-wrap">
+          {% for section in module.sections %}
+            <li class="flex flex-xs-50" ng-repeat="section in vm.sections" ng-class="{active:section.active}">
+              <a href="#{{ module.title | slugify }}-{{ section.title | slugify }}" ng-click="vm.setActive(section)">{{ section.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+        <div class="panels flex">
+          {% for section in module.sections %}
+            <div id="{{ module.title | slugify }}-{{ section.title | slugify }}" class="panel-set layout-column" ng-show="vm.active">
+              {% if section.content %}
+                {{ section.content }}
+              {% elsif section.panels %}
+                <div class="layout-row layout-wrap flex">
+                  {% for column in section.panels %}
+                    <div class="flex-50 flex-xs-100 layout-column">
+                      {% for panel in column %}
+                        <div class="panel flex-50 layout-column">
+                          <div class="panel-content flex layout-column{% if panel.href %} panel-content-link{% endif %}{% if panel.image %} panel-content-image{% endif %}{% if panel.video %} panel-content-video{% endif %}" {% if panel.image %} style="background-image: url({{ '/assets/images/' | append: panel.image | relative_url }});{% if panel.focus %} background-position: {{ panel.focus.x | times: 100 }}% {{ panel.focus.y | times: 100 }}%;{% endif %}"{% endif %}>
+                            {% if panel.href %}
+                              <a href="{{ panel.href | relative_url }}" class="flex">
+                                <h3>{{ panel.title }}</h3>
+                                <p>{{ panel.content }}</p>
+                                <div class="flex layout-row layout-align-end-end read-more">
+                                  <span>&raquo;</span>
+                                </div>
+                              </a>
+                            {% elsif panel.video %}
+                            <a class="flex layout-column{% unless panel.image %} layout-align-center-center{% endunless %}" href="#{{ module.title | slugify }}-{{ section.title | slugify }}-{{ panel.title | slugify }}-video" data-toggle="modal">
+                                {% if panel.title %}<h3>{{ panel.title }}</h3>{% endif %}
+                                {% if panel.content %}<p>{{ panel.content }}</p>{% endif %}
+                                <div class="flex-none layout-row layout-align-center-center play-icon">
+                                  <i class="material-icons{% if panel.image %} inverse{% endif %}">play_circle_filled</i>
+                                </div>
+                              </a>
+                            {% else %}
+                              <div class="flex">
+                                <h3>{{ panel.title }}</h3>
+                                <p>{{ panel.content }}</p>
+                              </div>
+                            {% endif %}
+                          </div>
+                        </div>
+                      {% endfor %}
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %}
+              {% if section.footer %}
+                {% if section.footer.href %}
+                  <a href="{{ section.footer.href | relative_url }}"class="section-footer flex-none">
+                    {{ section.footer.content }}
+                    <span class="read-more">
+                      <span>&raquo;</span>
+                    </span>
+                  </a>
+                {% else %}
+                  <div class="section-footer flex-none">
+                    {{ section.footer.content }}
+                  </div>
+                {% endif %}
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>

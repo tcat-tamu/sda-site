@@ -1,0 +1,489 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/e6ddf85/
+ArticleEditorController	src/app/admin/editors/articles/article.controller.js	/^  function ArticleEditorController(articlesRepo, $log, $stateParams, $mdDialog, $mdToast) {$/;"	f
+AuthorRefEditorController	src/app/work/components/author-ref-editor/author-ref-editor.directive.js	/^    function AuthorRefEditorController($scope, peopleRepo) {$/;"	f	function:authorRefEditorDirective
+CopyEditDialogController	src/app/work/copy-edit-dialog.controller.js	/^  function CopyEditDialogController($mdDialog, copy) {$/;"	f
+CopyEditorController	src/app/work/components/copy-editor/copy-editor.directive.js	/^  function CopyEditorController($scope) {$/;"	f
+EditionEditDialogController	src/app/work/edition-edit-dialog.controller.js	/^  function EditionEditDialogController($mdDialog, edition) {$/;"	f
+EditionEditorController	src/app/work/components/edition-editor/edition-editor.directive.js	/^    function EditionEditorController($scope, worksRepo, _) {$/;"	f	function:editionEditorDirective
+EventEditDialogController	src/app/person/event-edit-dialog.controller.js	/^  function EventEditDialogController($mdDialog, event) {$/;"	f
+GoogleBooksRefHandler	src/app/work/components/copy-editor/copy-editor.directive.js	/^  function GoogleBooksRefHandler() {$/;"	f
+HathiTrustRefHandler	src/app/work/components/copy-editor/copy-editor.directive.js	/^  function HathiTrustRefHandler() {$/;"	f
+InternetArchiveRefHandler	src/app/work/components/copy-editor/copy-editor.directive.js	/^  function InternetArchiveRefHandler() {$/;"	f
+MainController	src/app/main/main.controller.js	/^  function MainController(worksRepo, peopleRepo, $state, $stateParams, $mdSidenav, _, $q, $mdDia/;"	f
+NameEditorController	src/app/trc-bio/name-editor.directive.js	/^    function NameEditorController() {$/;"	f	function:trcNameEditorDirective
+PersonEditDialogController	src/app/person/person-edit-dialog.controller.js	/^  function PersonEditDialogController(peopleRepo, $mdDialog, person) {$/;"	f
+PersonEditorController	src/app/trc-bio/person-editor.directive.js	/^    function PersonEditorController($scope, peopleRepo) {$/;"	f	function:trcPersonEditorDirective
+RelationshipEditDialogController	src/app/work/relationship-edit-dialog.controller.js	/^  function RelationshipEditDialogController($mdDialog, worksRepo, relationshipsRepo, currentUri,/;"	f
+ShowEditionController	src/app/work/edition.controller.js	/^  function ShowEditionController($state, $stateParams, worksRepo, relationshipsRepo, _, $mdDialo/;"	f
+ShowPersonController	src/app/person/person.controller.js	/^  function ShowPersonController(peopleRepo, $stateParams, $mdDialog, $mdToast) {$/;"	f
+ShowTaskController	src/app/task/show.controller.js	/^  function ShowTaskController($state, $stateParams, $mdSidenav, tasksRepo, $q) {$/;"	f
+ShowVolumeController	src/app/work/volume.controller.js	/^  function ShowVolumeController($state, $stateParams, worksRepo, relationshipsRepo, _, $mdDialog/;"	f
+ShowWorkController	src/app/work/work.controller.js	/^  function ShowWorkController($state, $stateParams, worksRepo, relationshipsRepo, $mdDialog, $md/;"	f
+SummaryEditDialogController	src/app/components/summary-edit-dialog/summary-edit-dialog.controller.js	/^  function SummaryEditDialogController($mdDialog, summary) {$/;"	f
+TaskController	src/app/task/task.controller.js	/^  function TaskController($mdSidenav, $mdToast, tasksRepo) {$/;"	f
+VolumeEditDialogController	src/app/work/volume-edit-dialog.controller.js	/^  function VolumeEditDialogController($mdDialog, volume) {$/;"	f
+WorkEditDialogController	src/app/work/work-edit-dialog.controller.js	/^  function WorkEditDialogController($mdDialog, work) {$/;"	f
+WorkEditorController	src/app/work/components/work-editor/work-editor.directive.js	/^    function WorkEditorController($scope, worksRepo, _) {$/;"	f	function:workEditorDirective
+WorkEditorItemController	src/app/task/components/work-editor/work-editor-item.directive.js	/^    function WorkEditorItemController($scope, worksRepo) {$/;"	f	function:workEditorItemDirective
+activate	src/app/admin/editors/articles/article.controller.js	/^    function activate() {$/;"	f	function:ArticleEditorController
+activate	src/app/main/main.controller.js	/^    function activate() {$/;"	f	function:MainController
+activate	src/app/person/person.controller.js	/^    function activate() {$/;"	f	function:ShowPersonController
+activate	src/app/task/components/work-editor/work-editor-item.directive.js	/^      function activate() {$/;"	f	function:WorkEditorItemController
+activate	src/app/task/show.controller.js	/^    function activate() {$/;"	f	function:ShowTaskController
+activate	src/app/task/task.controller.js	/^    function activate() {$/;"	f	function:TaskController
+activate	src/app/work/components/author-ref-editor/author-ref-editor.directive.js	/^      function activate() {$/;"	f	function:AuthorRefEditorController
+activate	src/app/work/components/copy-editor/copy-editor.directive.js	/^    function activate() {$/;"	f	function:CopyEditorController
+activate	src/app/work/components/edition-editor/edition-editor.directive.js	/^      function activate() {$/;"	f	function:EditionEditorController
+activate	src/app/work/components/work-editor/work-editor.directive.js	/^      function activate() {$/;"	f	function:WorkEditorController
+activate	src/app/work/edition.controller.js	/^    function activate() {$/;"	f	function:ShowEditionController
+activate	src/app/work/relationship-edit-dialog.controller.js	/^    function activate() {$/;"	f	function:RelationshipEditDialogController
+activate	src/app/work/volume.controller.js	/^    function activate() {$/;"	f	function:ShowVolumeController
+activate	src/app/work/work.controller.js	/^    function activate() {$/;"	f	function:ShowWorkController
+active	src/app/slide-toggle/slide-toggle.directive.js	/^            active: '=slideToggle'$/;"	p	class:slideToggle.directive.scope
+adaptAnchor	src/app/trc-reln/repository.service.js	/^      function adaptAnchor(anchor) {$/;"	f	function:relationshipsRepoFactory
+adaptCommon	src/app/trcWorks/works-repo.service.js	/^      function adaptCommon(entity) {$/;"	f	function:worksRepoFactory
+adaptEdition	src/app/trcWorks/works-repo.service.js	/^      function adaptEdition(edition) {$/;"	f	function:worksRepoFactory
+adaptEvent	src/app/trc-bio/repository.service.js	/^      function adaptEvent(evt) {$/;"	f	function:peopleRepoFactory
+adaptMeta	src/app/trc-bio/repository.service.js	/^      function adaptMeta(meta) {$/;"	f	function:peopleRepoFactory
+adaptName	src/app/trc-bio/repository.service.js	/^      function adaptName(name) {$/;"	f	function:peopleRepoFactory
+adaptPerson	src/app/trc-bio/repository.service.js	/^      function adaptPerson(person) {$/;"	f	function:peopleRepoFactory
+adaptProvenance	src/app/trc-reln/repository.service.js	/^      function adaptProvenance(provenance) {$/;"	f	function:relationshipsRepoFactory
+adaptRelationship	src/app/trc-reln/repository.service.js	/^      function adaptRelationship(reln) {$/;"	f	function:relationshipsRepoFactory
+adaptVolume	src/app/trcWorks/works-repo.service.js	/^      function adaptVolume(volume) {$/;"	f	function:worksRepoFactory
+adaptWork	src/app/trcWorks/works-repo.service.js	/^      function adaptWork(work) {$/;"	f	function:worksRepoFactory
+addAuthor	src/app/work/edition-edit-dialog.controller.js	/^    function addAuthor(field) {$/;"	f	function:EditionEditDialogController
+addAuthor	src/app/work/volume-edit-dialog.controller.js	/^    function addAuthor(field) {$/;"	f	function:VolumeEditDialogController
+addAuthor	src/app/work/work-edit-dialog.controller.js	/^    function addAuthor(field) {$/;"	f	function:WorkEditDialogController
+addCopy	src/app/work/edition.controller.js	/^    function addCopy($event) {$/;"	f	function:ShowEditionController
+addCopy	src/app/work/volume.controller.js	/^    function addCopy($event) {$/;"	f	function:ShowVolumeController
+addCopy	src/app/work/work.controller.js	/^    function addCopy($event) {$/;"	f	function:ShowWorkController
+addEdition	src/app/work/work.controller.js	/^    function addEdition($event) {$/;"	f	function:ShowWorkController
+addEvent	src/app/trc-bio/person-editor.directive.js	/^      function addEvent(key) {$/;"	f	function:PersonEditorController
+addHandler	src/app/work/components/copy-editor/copy-editor.directive.js	/^    function addHandler(handler) {$/;"	f	function:CopyEditorController
+addName	src/app/person/person-edit-dialog.controller.js	/^    function addName() {$/;"	f	function:PersonEditDialogController
+addName	src/app/trc-bio/person-editor.directive.js	/^      function addName() {$/;"	f	function:PersonEditorController
+addRelationship	src/app/work/edition.controller.js	/^    function addRelationship($event) {$/;"	f	function:ShowEditionController
+addRelationship	src/app/work/volume.controller.js	/^    function addRelationship($event) {$/;"	f	function:ShowVolumeController
+addRelationship	src/app/work/work.controller.js	/^    function addRelationship($event) {$/;"	f	function:ShowWorkController
+addTitle	src/app/work/edition-edit-dialog.controller.js	/^    function addTitle() {$/;"	f	function:EditionEditDialogController
+addTitle	src/app/work/volume-edit-dialog.controller.js	/^    function addTitle() {$/;"	f	function:VolumeEditDialogController
+addTitle	src/app/work/work-edit-dialog.controller.js	/^    function addTitle() {$/;"	f	function:WorkEditDialogController
+addVolume	src/app/work/edition.controller.js	/^    function addVolume($event) {$/;"	f	function:ShowEditionController
+article	src/app/admin/editors/articles/article.controller.js	/^    vm.article = {$/;"	c	class:vm
+articlesRepoFactory	src/app/trcArticles/repository.service.js	/^    function articlesRepoFactory($q, $resource) {$/;"	f	function:articlesRepoProvider
+articlesRepoProvider	src/app/trcArticles/repository.service.js	/^  function articlesRepoProvider() {$/;"	f
+authorRefEditorDirective	src/app/work/components/author-ref-editor/author-ref-editor.directive.js	/^  function authorRefEditorDirective() {$/;"	f
+body	src/app/admin/editors/articles/article.controller.js	/^      body: "Click here to edit article"$/;"	p	class:vm.article
+cancel	src/app/admin/editors/articles/article.controller.js	/^     function cancel() {$/;"	f	function:ArticleEditorController
+cancel	src/app/components/summary-edit-dialog/summary-edit-dialog.controller.js	/^    function cancel() {$/;"	f	function:SummaryEditDialogController
+cancel	src/app/person/event-edit-dialog.controller.js	/^    function cancel() {$/;"	f	function:EventEditDialogController
+cancel	src/app/person/person-edit-dialog.controller.js	/^    function cancel() {$/;"	f	function:PersonEditDialogController
+cancel	src/app/work/copy-edit-dialog.controller.js	/^    function cancel() {$/;"	f	function:CopyEditDialogController
+cancel	src/app/work/edition-edit-dialog.controller.js	/^    function cancel() {$/;"	f	function:EditionEditDialogController
+cancel	src/app/work/relationship-edit-dialog.controller.js	/^    function cancel() {$/;"	f	function:RelationshipEditDialogController
+cancel	src/app/work/volume-edit-dialog.controller.js	/^    function cancel() {$/;"	f	function:VolumeEditDialogController
+cancel	src/app/work/work-edit-dialog.controller.js	/^    function cancel() {$/;"	f	function:WorkEditDialogController
+close	src/app/components/summary-edit-dialog/summary-edit-dialog.controller.js	/^    function close() {$/;"	f	function:SummaryEditDialogController
+close	src/app/person/event-edit-dialog.controller.js	/^    function close() {$/;"	f	function:EventEditDialogController
+close	src/app/person/person-edit-dialog.controller.js	/^    function close() {$/;"	f	function:PersonEditDialogController
+close	src/app/work/copy-edit-dialog.controller.js	/^    function close() {$/;"	f	function:CopyEditDialogController
+close	src/app/work/edition-edit-dialog.controller.js	/^    function close() {$/;"	f	function:EditionEditDialogController
+close	src/app/work/relationship-edit-dialog.controller.js	/^    function close() {$/;"	f	function:RelationshipEditDialogController
+close	src/app/work/volume-edit-dialog.controller.js	/^    function close() {$/;"	f	function:VolumeEditDialogController
+close	src/app/work/work-edit-dialog.controller.js	/^    function close() {$/;"	f	function:WorkEditDialogController
+config	src/app/admin/editors/articles/article.controller.js	/^      config: {$/;"	c	class:vm.editor
+config	src/app/components/summary-editor/summary-editor.directive.js	/^      scope.config = {$/;"	c	class:summaryEditorDirective.scope
+config	src/app/index.config.js	/^  function config($logProvider, \/* toastrConfig, *\/ $mdThemingProvider, tasksRepoProvider, wor/;"	f
+controller	src/app/main/main.controller.js	/^        controller: 'PersonEditDialogController',$/;"	p	class:MainController.createPerson.dialog
+controller	src/app/main/main.controller.js	/^        controller: 'WorkEditDialogController',$/;"	p	class:MainController.createWork.dialog
+controller	src/app/person/person.controller.js	/^        controller: 'EventEditDialogController',$/;"	p	class:ShowPersonController.editEvent.dialog
+controller	src/app/person/person.controller.js	/^        controller: 'PersonEditDialogController',$/;"	p	class:ShowPersonController.editBioInfo.dialog
+controller	src/app/person/person.controller.js	/^        controller: 'SummaryEditDialogController',$/;"	p	class:ShowPersonController.editSummary.dialog
+controller	src/app/task/components/work-editor/work-editor-item.directive.js	/^      controller: WorkEditorItemController,$/;"	p	class:workEditorItemDirective.directive
+controller	src/app/trc-bio/name-editor.directive.js	/^      controller: NameEditorController,$/;"	p	class:trcNameEditorDirective.directive
+controller	src/app/trc-bio/person-editor.directive.js	/^      controller: PersonEditorController,$/;"	p	class:trcPersonEditorDirective.directive
+controller	src/app/work/components/author-ref-editor/author-ref-editor.directive.js	/^      controller: AuthorRefEditorController,$/;"	p	class:authorRefEditorDirective.directive
+controller	src/app/work/components/copy-editor/copy-editor.directive.js	/^      controller: CopyEditorController,$/;"	p	class:copyEditorDirective.directive
+controller	src/app/work/components/edition-editor/edition-editor.directive.js	/^      controller: EditionEditorController,$/;"	p	class:editionEditorDirective.directive
+controller	src/app/work/components/work-editor/work-editor.directive.js	/^      controller: WorkEditorController,$/;"	p	class:workEditorDirective.directive
+controller	src/app/work/edition.controller.js	/^        controller: 'CopyEditDialogController',$/;"	p	class:ShowEditionController.editCopy.dialog
+controller	src/app/work/edition.controller.js	/^        controller: 'EditionEditDialogController',$/;"	p	class:ShowEditionController.editBibInfo.dialog
+controller	src/app/work/edition.controller.js	/^        controller: 'RelationshipEditDialogController',$/;"	p	class:ShowEditionController.addRelationship.dialog
+controller	src/app/work/edition.controller.js	/^        controller: 'SummaryEditDialogController',$/;"	p	class:ShowEditionController.editSummary.dialog
+controller	src/app/work/volume.controller.js	/^        controller: 'CopyEditDialogController',$/;"	p	class:ShowVolumeController.editCopy.dialog
+controller	src/app/work/volume.controller.js	/^        controller: 'RelationshipEditDialogController',$/;"	p	class:ShowVolumeController.addRelationship.dialog
+controller	src/app/work/volume.controller.js	/^        controller: 'SummaryEditDialogController',$/;"	p	class:ShowVolumeController.editSummary.dialog
+controller	src/app/work/volume.controller.js	/^        controller: 'VolumeEditDialogController',$/;"	p	class:ShowVolumeController.editBibInfo.dialog
+controller	src/app/work/work.controller.js	/^        controller: 'CopyEditDialogController',$/;"	p	class:ShowWorkController.editCopy.dialog
+controller	src/app/work/work.controller.js	/^        controller: 'RelationshipEditDialogController',$/;"	p	class:ShowWorkController.addRelationship.dialog
+controller	src/app/work/work.controller.js	/^        controller: 'SummaryEditDialogController',$/;"	p	class:ShowWorkController.editSummary.dialog
+controller	src/app/work/work.controller.js	/^        controller: 'WorkEditDialogController',$/;"	p	class:ShowWorkController.editBibInfo.dialog
+controllerAs	src/app/main/main.controller.js	/^        controllerAs: 'vm'$/;"	p	class:MainController.createPerson.dialog
+controllerAs	src/app/main/main.controller.js	/^        controllerAs: 'vm'$/;"	p	class:MainController.createWork.dialog
+controllerAs	src/app/person/person.controller.js	/^        controllerAs: 'vm'$/;"	p	class:ShowPersonController.editBioInfo.dialog
+controllerAs	src/app/person/person.controller.js	/^        controllerAs: 'vm'$/;"	p	class:ShowPersonController.editEvent.dialog
+controllerAs	src/app/person/person.controller.js	/^        controllerAs: 'vm'$/;"	p	class:ShowPersonController.editSummary.dialog
+controllerAs	src/app/task/components/work-editor/work-editor-item.directive.js	/^      controllerAs: 'vm'$/;"	p	class:workEditorItemDirective.directive
+controllerAs	src/app/trc-bio/name-editor.directive.js	/^      controllerAs: 'nameEditor'$/;"	p	class:trcNameEditorDirective.directive
+controllerAs	src/app/trc-bio/person-editor.directive.js	/^      controllerAs: 'personEditor'$/;"	p	class:trcPersonEditorDirective.directive
+controllerAs	src/app/work/components/author-ref-editor/author-ref-editor.directive.js	/^      controllerAs: 'vm'$/;"	p	class:authorRefEditorDirective.directive
+controllerAs	src/app/work/components/copy-editor/copy-editor.directive.js	/^      controllerAs: 'vm'$/;"	p	class:copyEditorDirective.directive
+controllerAs	src/app/work/components/edition-editor/edition-editor.directive.js	/^      controllerAs: 'vm'$/;"	p	class:editionEditorDirective.directive
+controllerAs	src/app/work/components/work-editor/work-editor.directive.js	/^      controllerAs: 'vm'$/;"	p	class:workEditorDirective.directive
+controllerAs	src/app/work/edition.controller.js	/^        controllerAs: 'vm'$/;"	p	class:ShowEditionController.addRelationship.dialog
+controllerAs	src/app/work/edition.controller.js	/^        controllerAs: 'vm'$/;"	p	class:ShowEditionController.editBibInfo.dialog
+controllerAs	src/app/work/edition.controller.js	/^        controllerAs: 'vm'$/;"	p	class:ShowEditionController.editCopy.dialog
+controllerAs	src/app/work/edition.controller.js	/^        controllerAs: 'vm'$/;"	p	class:ShowEditionController.editSummary.dialog
+controllerAs	src/app/work/volume.controller.js	/^        controllerAs: 'vm'$/;"	p	class:ShowVolumeController.addRelationship.dialog
+controllerAs	src/app/work/volume.controller.js	/^        controllerAs: 'vm'$/;"	p	class:ShowVolumeController.editBibInfo.dialog
+controllerAs	src/app/work/volume.controller.js	/^        controllerAs: 'vm'$/;"	p	class:ShowVolumeController.editCopy.dialog
+controllerAs	src/app/work/volume.controller.js	/^        controllerAs: 'vm'$/;"	p	class:ShowVolumeController.editSummary.dialog
+controllerAs	src/app/work/work.controller.js	/^        controllerAs: 'vm'$/;"	p	class:ShowWorkController.addRelationship.dialog
+controllerAs	src/app/work/work.controller.js	/^        controllerAs: 'vm'$/;"	p	class:ShowWorkController.editBibInfo.dialog
+controllerAs	src/app/work/work.controller.js	/^        controllerAs: 'vm'$/;"	p	class:ShowWorkController.editCopy.dialog
+controllerAs	src/app/work/work.controller.js	/^        controllerAs: 'vm'$/;"	p	class:ShowWorkController.editSummary.dialog
+copy	src/app/work/components/copy-editor/copy-editor.directive.js	/^        copy: '=ngModel'$/;"	p	class:copyEditorDirective.directive.scope
+copy	src/app/work/edition.controller.js	/^          copy: angular.copy(copy)$/;"	p	class:ShowEditionController.editCopy.dialog.locals
+copy	src/app/work/volume.controller.js	/^          copy: angular.copy(copy)$/;"	p	class:ShowVolumeController.editCopy.dialog.locals
+copy	src/app/work/work.controller.js	/^          copy: angular.copy(copy)$/;"	p	class:ShowWorkController.editCopy.dialog.locals
+copyEditorDirective	src/app/work/components/copy-editor/copy-editor.directive.js	/^  function copyEditorDirective() {$/;"	f
+createAnchor	src/app/trc-reln/repository.service.js	/^      function createAnchor() {$/;"	f	function:relationshipsRepoFactory
+createArticle	src/app/main/main.controller.js	/^    function createArticle($event) {$/;"	f	function:MainController
+createDateDescription	src/app/trc-bio/repository.service.js	/^      function createDateDescription() {$/;"	f	function:peopleRepoFactory
+createEdition	src/app/trcWorks/works-repo.service.js	/^      function createEdition() {$/;"	f	function:worksRepoFactory
+createEdition	src/app/work/components/work-editor/work-editor.directive.js	/^      function createEdition() {$/;"	f	function:WorkEditorController
+createEvent	src/app/trc-bio/repository.service.js	/^      function createEvent() {$/;"	f	function:peopleRepoFactory
+createMeta	src/app/trc-bio/repository.service.js	/^      function createMeta() {$/;"	f	function:peopleRepoFactory
+createName	src/app/trc-bio/repository.service.js	/^      function createName() {$/;"	f	function:peopleRepoFactory
+createPerson	src/app/main/main.controller.js	/^    function createPerson($event) {$/;"	f	function:MainController
+createPerson	src/app/trc-bio/repository.service.js	/^      function createPerson() {$/;"	f	function:peopleRepoFactory
+createProvenance	src/app/trc-reln/repository.service.js	/^      function createProvenance() {$/;"	f	function:relationshipsRepoFactory
+createRelationship	src/app/trc-reln/repository.service.js	/^      function createRelationship() {$/;"	f	function:relationshipsRepoFactory
+createVolume	src/app/trcWorks/works-repo.service.js	/^      function createVolume() {$/;"	f	function:worksRepoFactory
+createVolume	src/app/work/components/edition-editor/edition-editor.directive.js	/^      function createVolume() {$/;"	f	function:EditionEditorController
+createWork	src/app/main/main.controller.js	/^    function createWork($event) {$/;"	f	function:MainController
+createWork	src/app/trcWorks/works-repo.service.js	/^      function createWork() {$/;"	f	function:worksRepoFactory
+currentUri	src/app/work/edition.controller.js	/^          currentUri: getCurrentUri()$/;"	p	class:ShowEditionController.addRelationship.dialog.locals
+currentUri	src/app/work/volume.controller.js	/^          currentUri: getCurrentUri()$/;"	p	class:ShowVolumeController.addRelationship.dialog.locals
+currentUri	src/app/work/work.controller.js	/^          currentUri: getCurrentUri()$/;"	p	class:ShowWorkController.addRelationship.dialog.locals
+date	src/app/components/date-editor/date-editor.directive.js	/^        date: '=ngModel'$/;"	p	class:dateEditorDirective.directive.scope
+dateEditorDirective	src/app/components/date-editor/date-editor.directive.js	/^  function dateEditorDirective() {$/;"	f
+deleteAuthor	src/app/work/edition-edit-dialog.controller.js	/^    function deleteAuthor(field, authorRef) {$/;"	f	function:EditionEditDialogController
+deleteAuthor	src/app/work/volume-edit-dialog.controller.js	/^    function deleteAuthor(field, authorRef) {$/;"	f	function:VolumeEditDialogController
+deleteAuthor	src/app/work/work-edit-dialog.controller.js	/^    function deleteAuthor(field, authorRef) {$/;"	f	function:WorkEditDialogController
+deleteCopy	src/app/work/edition.controller.js	/^    function deleteCopy(copy, $event) {$/;"	f	function:ShowEditionController
+deleteCopy	src/app/work/volume.controller.js	/^    function deleteCopy(copy, $event) {$/;"	f	function:ShowVolumeController
+deleteCopy	src/app/work/work.controller.js	/^    function deleteCopy(copy, $event) {$/;"	f	function:ShowWorkController
+deleteEdition	src/app/work/components/work-editor/work-editor.directive.js	/^      function deleteEdition(ix) {$/;"	f	function:WorkEditorController
+deleteEdition	src/app/work/work.controller.js	/^    function deleteEdition(edition, $event) {$/;"	f	function:ShowWorkController
+deleteName	src/app/person/person-edit-dialog.controller.js	/^    function deleteName(name) {$/;"	f	function:PersonEditDialogController
+deletePerson	src/app/trc-bio/repository.service.js	/^      function deletePerson(id) {$/;"	f	function:peopleRepoFactory
+deleteRelationship	src/app/trc-reln/repository.service.js	/^      function deleteRelationship(id) {$/;"	f	function:relationshipsRepoFactory
+deleteRelationship	src/app/work/edition.controller.js	/^    function deleteRelationship(relationship, $event) {$/;"	f	function:ShowEditionController
+deleteRelationship	src/app/work/volume.controller.js	/^    function deleteRelationship(relationship, $event) {$/;"	f	function:ShowVolumeController
+deleteRelationship	src/app/work/work.controller.js	/^    function deleteRelationship(relationship, $event) {$/;"	f	function:ShowWorkController
+deleteTitle	src/app/work/edition-edit-dialog.controller.js	/^    function deleteTitle(title) {$/;"	f	function:EditionEditDialogController
+deleteTitle	src/app/work/volume-edit-dialog.controller.js	/^    function deleteTitle(title) {$/;"	f	function:VolumeEditDialogController
+deleteTitle	src/app/work/work-edit-dialog.controller.js	/^    function deleteTitle(title) {$/;"	f	function:WorkEditDialogController
+deleteVolume	src/app/work/components/edition-editor/edition-editor.directive.js	/^      function deleteVolume(ix) {$/;"	f	function:EditionEditorController
+deleteVolume	src/app/work/edition.controller.js	/^    function deleteVolume(volume, $event) {$/;"	f	function:ShowEditionController
+deleteWork	src/app/trcWorks/works-repo.service.js	/^      function deleteWork(workId) {$/;"	f	function:worksRepoFactory
+dialog	src/app/main/main.controller.js	/^      var dialog = {$/;"	c	class:MainController.createPerson
+dialog	src/app/main/main.controller.js	/^      var dialog = {$/;"	c	class:MainController.createWork
+dialog	src/app/person/person.controller.js	/^      var dialog = {$/;"	c	class:ShowPersonController.editBioInfo
+dialog	src/app/person/person.controller.js	/^      var dialog = {$/;"	c	class:ShowPersonController.editEvent
+dialog	src/app/person/person.controller.js	/^      var dialog = {$/;"	c	class:ShowPersonController.editSummary
+dialog	src/app/work/edition.controller.js	/^      var dialog = {$/;"	c	class:ShowEditionController.addRelationship
+dialog	src/app/work/edition.controller.js	/^      var dialog = {$/;"	c	class:ShowEditionController.editBibInfo
+dialog	src/app/work/edition.controller.js	/^      var dialog = {$/;"	c	class:ShowEditionController.editCopy
+dialog	src/app/work/edition.controller.js	/^      var dialog = {$/;"	c	class:ShowEditionController.editSummary
+dialog	src/app/work/volume.controller.js	/^      var dialog = {$/;"	c	class:ShowVolumeController.addRelationship
+dialog	src/app/work/volume.controller.js	/^      var dialog = {$/;"	c	class:ShowVolumeController.editBibInfo
+dialog	src/app/work/volume.controller.js	/^      var dialog = {$/;"	c	class:ShowVolumeController.editCopy
+dialog	src/app/work/volume.controller.js	/^      var dialog = {$/;"	c	class:ShowVolumeController.editSummary
+dialog	src/app/work/work.controller.js	/^      var dialog = {$/;"	c	class:ShowWorkController.addRelationship
+dialog	src/app/work/work.controller.js	/^      var dialog = {$/;"	c	class:ShowWorkController.editBibInfo
+dialog	src/app/work/work.controller.js	/^      var dialog = {$/;"	c	class:ShowWorkController.editCopy
+dialog	src/app/work/work.controller.js	/^      var dialog = {$/;"	c	class:ShowWorkController.editSummary
+directive	src/app/components/date-editor/date-editor.directive.js	/^    var directive = {$/;"	c	class:dateEditorDirective
+directive	src/app/components/summary-editor/summary-editor.directive.js	/^    var directive = {$/;"	c	class:summaryEditorDirective
+directive	src/app/person/components/event-editor/publication-info-editor.directive.js	/^    var directive = {$/;"	c	class:eventEditorDirective
+directive	src/app/person/components/name-editor/name-editor.directive.js	/^    var directive = {$/;"	c	class:nameEditorDirective
+directive	src/app/slide-toggle/slide-toggle.directive.js	/^      var directive = {$/;"	c	class:slideToggle
+directive	src/app/task/components/work-editor/work-editor-item.directive.js	/^    var directive = {$/;"	c	class:workEditorItemDirective
+directive	src/app/trc-bio/event-editor.directive.js	/^    var directive = {$/;"	c	class:trcEventEditorDirective
+directive	src/app/trc-bio/name-editor.directive.js	/^    var directive = {$/;"	c	class:trcNameEditorDirective
+directive	src/app/trc-bio/person-editor.directive.js	/^    var directive = {$/;"	c	class:trcPersonEditorDirective
+directive	src/app/work/components/author-ref-editor/author-ref-editor.directive.js	/^    var directive = {$/;"	c	class:authorRefEditorDirective
+directive	src/app/work/components/copy-editor/copy-editor.directive.js	/^    var directive = {$/;"	c	class:copyEditorDirective
+directive	src/app/work/components/edition-editor/edition-editor.directive.js	/^    var directive = {$/;"	c	class:editionEditorDirective
+directive	src/app/work/components/publication-info-editor/publication-info-editor.directive.js	/^    var directive = {$/;"	c	class:publicationInfoEditorDirective
+directive	src/app/work/components/title-editor/title-editor.directive.js	/^    var directive = {$/;"	c	class:titleEditorDirective
+directive	src/app/work/components/volume-editor/volume-editor.directive.js	/^    var directive = {$/;"	c	class:volumeEditorDirective
+directive	src/app/work/components/work-editor/work-editor.directive.js	/^    var directive = {$/;"	c	class:workEditorDirective
+editBibInfo	src/app/work/edition.controller.js	/^    function editBibInfo($event) {$/;"	f	function:ShowEditionController
+editBibInfo	src/app/work/volume.controller.js	/^    function editBibInfo($event) {$/;"	f	function:ShowVolumeController
+editBibInfo	src/app/work/work.controller.js	/^    function editBibInfo($event) {$/;"	f	function:ShowWorkController
+editBioInfo	src/app/person/person.controller.js	/^    function editBioInfo($event) {$/;"	f	function:ShowPersonController
+editCopy	src/app/work/edition.controller.js	/^    function editCopy(copy, $event) {$/;"	f	function:ShowEditionController
+editCopy	src/app/work/volume.controller.js	/^    function editCopy(copy, $event) {$/;"	f	function:ShowVolumeController
+editCopy	src/app/work/work.controller.js	/^    function editCopy(copy, $event) {$/;"	f	function:ShowWorkController
+editEvent	src/app/person/person.controller.js	/^    function editEvent(field, $event) {$/;"	f	function:ShowPersonController
+editSummary	src/app/person/person.controller.js	/^    function editSummary($event) {$/;"	f	function:ShowPersonController
+editSummary	src/app/work/edition.controller.js	/^    function editSummary($event) {$/;"	f	function:ShowEditionController
+editSummary	src/app/work/volume.controller.js	/^    function editSummary($event) {$/;"	f	function:ShowVolumeController
+editSummary	src/app/work/work.controller.js	/^    function editSummary($event) {$/;"	f	function:ShowWorkController
+edition	src/app/work/components/edition-editor/edition-editor.directive.js	/^        edition: '=ngModel'$/;"	p	class:editionEditorDirective.directive.scope
+edition	src/app/work/edition.controller.js	/^          edition: angular.copy(vm.edition)$/;"	p	class:ShowEditionController.editBibInfo.dialog.locals
+editionEditorDirective	src/app/work/components/edition-editor/edition-editor.directive.js	/^  function editionEditorDirective() {$/;"	f
+editionId	src/app/trc-reln/repository.service.js	/^          editionId: editionId$/;"	p	class:makeEditionEntity.entity.refParams
+editionId	src/app/trc-reln/repository.service.js	/^          editionId: editionId,$/;"	p	class:makeVolumeEntity.entity.refParams
+editor	src/app/admin/editors/articles/article.controller.js	/^    vm.editor = {$/;"	c	class:vm
+entity	src/app/trc-reln/repository.service.js	/^        entity: edition$/;"	p	class:makeEditionEntity.entity
+entity	src/app/trc-reln/repository.service.js	/^        entity: volume$/;"	p	class:makeVolumeEntity.entity
+entity	src/app/trc-reln/repository.service.js	/^        entity: work$/;"	p	class:makeWorkEntity.entity
+entity	src/app/trc-reln/repository.service.js	/^      var entity = {$/;"	c	class:makeEditionEntity
+entity	src/app/trc-reln/repository.service.js	/^      var entity = {$/;"	c	class:makeVolumeEntity
+entity	src/app/trc-reln/repository.service.js	/^      var entity = {$/;"	c	class:makeWorkEntity
+event	src/app/person/components/event-editor/publication-info-editor.directive.js	/^        event: '=ngModel'$/;"	p	class:eventEditorDirective.directive.scope
+event	src/app/person/person.controller.js	/^          event: angular.copy(vm.person[field])$/;"	p	class:ShowPersonController.editEvent.dialog.locals
+event	src/app/trc-bio/event-editor.directive.js	/^        event: '=ngModel'$/;"	p	class:trcEventEditorDirective.directive.scope
+eventEditorDirective	src/app/person/components/event-editor/publication-info-editor.directive.js	/^  function eventEditorDirective() {$/;"	f
+fetchStage	src/app/task/show.controller.js	/^    function fetchStage(stageId) {$/;"	f	function:ShowTaskController
+findAll	src/app/trcWorks/works-repo.service.js	/^      function findAll() {$/;"	f	function:worksRepoFactory
+findById	src/app/trc-bio/repository.service.js	/^      function findById(id) {$/;"	f	function:peopleRepoFactory
+findById	src/app/trc-reln/repository.service.js	/^      function findById(id) {$/;"	f	function:relationshipsRepoFactory
+focusItem	src/app/task/show.controller.js	/^    function focusItem(item, $event) {$/;"	f	function:ShowTaskController
+format_tags	src/app/admin/editors/articles/article.controller.js	/^        format_tags: 'p;h1;h2;h3;h4;h5;h6;pre;address'$/;"	p	class:vm.editor.config
+fwd	src/app/trc-reln/repository.service.js	/^              fwd: [],$/;"	p	class:relnsByTypeDir
+getAllTasks	src/app/trcTasks/tasks-repo.service.js	/^      function getAllTasks() {$/;"	f	function:tasksRepoFactory
+getCurrentUri	src/app/work/edition.controller.js	/^    function getCurrentUri() {$/;"	f	function:ShowEditionController
+getCurrentUri	src/app/work/volume.controller.js	/^    function getCurrentUri() {$/;"	f	function:ShowVolumeController
+getCurrentUri	src/app/work/work.controller.js	/^    function getCurrentUri() {$/;"	f	function:ShowWorkController
+getEdition	src/app/trcWorks/works-repo.service.js	/^      function getEdition(workId, editionId) {$/;"	f	function:worksRepoFactory
+getItems	src/app/trcTasks/tasks-repo.service.js	/^      function getItems(taskId, stageId, options) {$/;"	f	function:tasksRepoFactory
+getResults	src/app/work/components/author-ref-editor/author-ref-editor.directive.js	/^      function getResults(query) {$/;"	f	function:AuthorRefEditorController
+getResults	src/app/work/relationship-edit-dialog.controller.js	/^    function getResults(query) {$/;"	f	function:RelationshipEditDialogController
+getTask	src/app/trcTasks/tasks-repo.service.js	/^      function getTask(taskId) {$/;"	f	function:tasksRepoFactory
+getTitleByTypePreference	src/app/trcWorks/works-repo.service.js	/^      function getTitleByTypePreference(titles, types) {$/;"	f	function:worksRepoFactory
+getType	src/app/trc-reln/repository.service.js	/^      function getType(id) {$/;"	f	function:relationshipsRepoFactory
+getTypes	src/app/trc-reln/repository.service.js	/^      function getTypes(options) {$/;"	f	function:relationshipsRepoFactory
+getTypes	src/app/work/relationship-edit-dialog.controller.js	/^    function getTypes() {$/;"	f	function:RelationshipEditDialogController
+getVolume	src/app/trcWorks/works-repo.service.js	/^      function getVolume(workId, editionId, volumeId) {$/;"	f	function:worksRepoFactory
+getWork	src/app/trcWorks/works-repo.service.js	/^      function getWork(workId) {$/;"	f	function:worksRepoFactory
+getWorkflow	src/app/trcTasks/tasks-repo.service.js	/^      function getWorkflow(taskId) {$/;"	f	function:tasksRepoFactory
+handle	src/app/work/components/copy-editor/copy-editor.directive.js	/^    function handle(url) {$/;"	f	function:GoogleBooksRefHandler
+handle	src/app/work/components/copy-editor/copy-editor.directive.js	/^    function handle(url) {$/;"	f	function:HathiTrustRefHandler
+handle	src/app/work/components/copy-editor/copy-editor.directive.js	/^    function handle(url) {$/;"	f	function:InternetArchiveRefHandler
+id	src/app/task/components/work-editor/work-editor-item.directive.js	/^        id: '=id'$/;"	p	class:workEditorItemDirective.directive.scope
+link	src/app/components/summary-editor/summary-editor.directive.js	/^      link: linkFunc$/;"	p	class:summaryEditorDirective.directive
+link	src/app/slide-toggle/slide-toggle.directive.js	/^         link: linkFunc$/;"	p	class:slideToggle.directive
+link	src/app/task/components/work-editor/work-editor-item.directive.js	/^      link: linkFunc,$/;"	p	class:workEditorItemDirective.directive
+linkFunc	src/app/components/summary-editor/summary-editor.directive.js	/^    function linkFunc(scope) {$/;"	f	function:summaryEditorDirective
+linkFunc	src/app/slide-toggle/slide-toggle.directive.js	/^      function linkFunc(scope, el, attr) {$/;"	f	function:slideToggle
+linkFunc	src/app/task/components/work-editor/work-editor-item.directive.js	/^    function linkFunc($scope) {$/;"	f	function:workEditorItemDirective
+loadRelationships	src/app/work/edition.controller.js	/^    function loadRelationships() {$/;"	f	function:ShowEditionController
+loadRelationships	src/app/work/volume.controller.js	/^    function loadRelationships() {$/;"	f	function:ShowVolumeController
+loadRelationships	src/app/work/work.controller.js	/^    function loadRelationships() {$/;"	f	function:ShowWorkController
+locals	src/app/main/main.controller.js	/^        locals: {$/;"	c	class:MainController.createPerson.dialog
+locals	src/app/main/main.controller.js	/^        locals: {$/;"	c	class:MainController.createWork.dialog
+locals	src/app/person/person.controller.js	/^        locals: {$/;"	c	class:ShowPersonController.editBioInfo.dialog
+locals	src/app/person/person.controller.js	/^        locals: {$/;"	c	class:ShowPersonController.editEvent.dialog
+locals	src/app/person/person.controller.js	/^        locals: {$/;"	c	class:ShowPersonController.editSummary.dialog
+locals	src/app/work/edition.controller.js	/^        locals: {$/;"	c	class:ShowEditionController.addRelationship.dialog
+locals	src/app/work/edition.controller.js	/^        locals: {$/;"	c	class:ShowEditionController.editBibInfo.dialog
+locals	src/app/work/edition.controller.js	/^        locals: {$/;"	c	class:ShowEditionController.editCopy.dialog
+locals	src/app/work/edition.controller.js	/^        locals: {$/;"	c	class:ShowEditionController.editSummary.dialog
+locals	src/app/work/volume.controller.js	/^        locals: {$/;"	c	class:ShowVolumeController.addRelationship.dialog
+locals	src/app/work/volume.controller.js	/^        locals: {$/;"	c	class:ShowVolumeController.editBibInfo.dialog
+locals	src/app/work/volume.controller.js	/^        locals: {$/;"	c	class:ShowVolumeController.editCopy.dialog
+locals	src/app/work/volume.controller.js	/^        locals: {$/;"	c	class:ShowVolumeController.editSummary.dialog
+locals	src/app/work/work.controller.js	/^        locals: {$/;"	c	class:ShowWorkController.addRelationship.dialog
+locals	src/app/work/work.controller.js	/^        locals: {$/;"	c	class:ShowWorkController.editBibInfo.dialog
+locals	src/app/work/work.controller.js	/^        locals: {$/;"	c	class:ShowWorkController.editCopy.dialog
+locals	src/app/work/work.controller.js	/^        locals: {$/;"	c	class:ShowWorkController.editSummary.dialog
+makeEditionEntity	src/app/trc-reln/repository.service.js	/^    function makeEditionEntity(workId, editionId, worksRepo) {$/;"	f
+makePropertiesObject	src/app/work/components/copy-editor/copy-editor.directive.js	/^    function makePropertiesObject(src, id, seq) {$/;"	f	function:InternetArchiveRefHandler
+makeVolumeEntity	src/app/trc-reln/repository.service.js	/^    function makeVolumeEntity(workId, editionId, volumeId, worksRepo) {$/;"	f
+makeWorkEntity	src/app/trc-reln/repository.service.js	/^    function makeWorkEntity(workId, worksRepo) {$/;"	f
+name	src/app/person/components/name-editor/name-editor.directive.js	/^        name: '=ngModel'$/;"	p	class:nameEditorDirective.directive.scope
+name	src/app/trc-bio/name-editor.directive.js	/^        name: '=ngModel'$/;"	p	class:trcNameEditorDirective.directive.scope
+nameEditorDirective	src/app/person/components/name-editor/name-editor.directive.js	/^  function nameEditorDirective() {$/;"	f
+normalizeRelationships	src/app/trc-reln/repository.service.js	/^      function normalizeRelationships(relationships, currentUri, worksRepo) {$/;"	f	function:relationshipsRepoFactory
+openMenu	src/app/main/main.controller.js	/^    function openMenu() {$/;"	f	function:MainController
+openMenu	src/app/task/task.controller.js	/^    function openMenu() {$/;"	f	function:TaskController
+openRelationship	src/app/work/edition.controller.js	/^    function openRelationship(relationship) {$/;"	f	function:ShowEditionController
+openRelationship	src/app/work/volume.controller.js	/^    function openRelationship(relationship) {$/;"	f	function:ShowVolumeController
+openRelationship	src/app/work/work.controller.js	/^    function openRelationship(relationship) {$/;"	f	function:ShowWorkController
+options	src/app/trc-reln/repository.service.js	/^          options = { uri: options };$/;"	c
+parseProperties	src/app/work/components/copy-editor/copy-editor.directive.js	/^    function parseProperties(type, url) {$/;"	f	function:CopyEditorController
+parseQueryString	src/app/work/components/copy-editor/copy-editor.directive.js	/^  function parseQueryString(query, sep) {$/;"	f
+parseUrl	src/app/work/components/copy-editor/copy-editor.directive.js	/^  function parseUrl(url) {$/;"	f
+peopleRepoFactory	src/app/trc-bio/repository.service.js	/^    function peopleRepoFactory($q, $resource) {$/;"	f	function:peopleRepoProvider
+peopleRepoProvider	src/app/trc-bio/repository.service.js	/^  function peopleRepoProvider() {$/;"	f
+person	src/app/main/main.controller.js	/^          person: peopleRepo.create()$/;"	p	class:MainController.createPerson.dialog.locals
+person	src/app/person/person.controller.js	/^          person: angular.copy(vm.person)$/;"	p	class:ShowPersonController.editBioInfo.dialog.locals
+person	src/app/trc-bio/person-editor.directive.js	/^        person: '=ngModel'$/;"	p	class:trcPersonEditorDirective.directive.scope
+pubInfo	src/app/work/components/publication-info-editor/publication-info-editor.directive.js	/^        pubInfo: '=ngModel'$/;"	p	class:publicationInfoEditorDirective.directive.scope
+publicationInfoEditorDirective	src/app/work/components/publication-info-editor/publication-info-editor.directive.js	/^  function publicationInfoEditorDirective() {$/;"	f
+ref	src/app/work/components/author-ref-editor/author-ref-editor.directive.js	/^        ref: '=ngModel'$/;"	p	class:authorRefEditorDirective.directive.scope
+refParams	src/app/trc-reln/repository.service.js	/^        refParams: {$/;"	c	class:makeEditionEntity.entity
+refParams	src/app/trc-reln/repository.service.js	/^        refParams: {$/;"	c	class:makeVolumeEntity.entity
+refParams	src/app/trc-reln/repository.service.js	/^        refParams: {$/;"	c	class:makeWorkEntity.entity
+relationship	src/app/work/edition.controller.js	/^          relationship: angular.copy(relationship),$/;"	p	class:ShowEditionController.addRelationship.dialog.locals
+relationship	src/app/work/volume.controller.js	/^          relationship: angular.copy(relationship),$/;"	p	class:ShowVolumeController.addRelationship.dialog.locals
+relationship	src/app/work/work.controller.js	/^          relationship: angular.copy(relationship),$/;"	p	class:ShowWorkController.addRelationship.dialog.locals
+relationshipsRepoFactory	src/app/trc-reln/repository.service.js	/^    function relationshipsRepoFactory($q, $resource) {$/;"	f	function:relationshipsRepoProvider
+relationshipsRepoProvider	src/app/trc-reln/repository.service.js	/^  function relationshipsRepoProvider() {$/;"	f
+relnsByTypeDir	src/app/trc-reln/repository.service.js	/^            relnsByTypeDir[typeId] = {$/;"	c
+removeButtons	src/app/admin/editors/articles/article.controller.js	/^        removeButtons: 'Subscript,Superscript,About,Cut,Copy,Maximize,Styles',$/;"	p	class:vm.editor.config
+removeButtons	src/app/components/summary-editor/summary-editor.directive.js	/^        removeButtons: 'Subscript,Superscript,About,Cut,Copy,Maximize,Styles'$/;"	p	class:summaryEditorDirective.scope.config
+removeEvent	src/app/trc-bio/person-editor.directive.js	/^      function removeEvent(key) {$/;"	f	function:PersonEditorController
+removeName	src/app/trc-bio/person-editor.directive.js	/^      function removeName(ix) {$/;"	f	function:PersonEditorController
+resolveEntityUri	src/app/trc-reln/repository.service.js	/^      function resolveEntityUri(uri, worksRepo) {$/;"	f	function:relationshipsRepoProvider
+restrict	src/app/components/date-editor/date-editor.directive.js	/^      restrict: 'E',$/;"	p	class:dateEditorDirective.directive
+restrict	src/app/components/summary-editor/summary-editor.directive.js	/^      restrict: 'E',$/;"	p	class:summaryEditorDirective.directive
+restrict	src/app/person/components/event-editor/publication-info-editor.directive.js	/^      restrict: 'E',$/;"	p	class:eventEditorDirective.directive
+restrict	src/app/person/components/name-editor/name-editor.directive.js	/^      restrict: 'E',$/;"	p	class:nameEditorDirective.directive
+restrict	src/app/slide-toggle/slide-toggle.directive.js	/^         restrict: 'A',$/;"	p	class:slideToggle.directive
+restrict	src/app/task/components/work-editor/work-editor-item.directive.js	/^      restrict: 'E',$/;"	p	class:workEditorItemDirective.directive
+restrict	src/app/trc-bio/event-editor.directive.js	/^      restrict: 'E',$/;"	p	class:trcEventEditorDirective.directive
+restrict	src/app/trc-bio/name-editor.directive.js	/^      restrict: 'E',$/;"	p	class:trcNameEditorDirective.directive
+restrict	src/app/trc-bio/person-editor.directive.js	/^      restrict: 'E',$/;"	p	class:trcPersonEditorDirective.directive
+restrict	src/app/work/components/author-ref-editor/author-ref-editor.directive.js	/^      restrict: 'E',$/;"	p	class:authorRefEditorDirective.directive
+restrict	src/app/work/components/copy-editor/copy-editor.directive.js	/^      restrict: 'E',$/;"	p	class:copyEditorDirective.directive
+restrict	src/app/work/components/edition-editor/edition-editor.directive.js	/^      restrict: 'E',$/;"	p	class:editionEditorDirective.directive
+restrict	src/app/work/components/publication-info-editor/publication-info-editor.directive.js	/^      restrict: 'E',$/;"	p	class:publicationInfoEditorDirective.directive
+restrict	src/app/work/components/title-editor/title-editor.directive.js	/^      restrict: 'E',$/;"	p	class:titleEditorDirective.directive
+restrict	src/app/work/components/volume-editor/volume-editor.directive.js	/^      restrict: 'E',$/;"	p	class:volumeEditorDirective.directive
+restrict	src/app/work/components/work-editor/work-editor.directive.js	/^      restrict: 'E',$/;"	p	class:workEditorDirective.directive
+rev	src/app/trc-reln/repository.service.js	/^              rev: []$/;"	p	class:relnsByTypeDir
+routerConfig	src/app/index.route.js	/^  function routerConfig($stateProvider, $urlRouterProvider) {$/;"	f
+runBlock	src/app/index.run.js	/^  function runBlock($log) {$/;"	f
+save	src/app/admin/editors/articles/article.controller.js	/^     function save() {$/;"	f	function:ArticleEditorController
+save	src/app/trcWorks/works-repo.service.js	/^      function save() {$/;"	f	function:worksRepoFactory
+saveEdition	src/app/trcWorks/works-repo.service.js	/^      function saveEdition(workId, edition) {$/;"	f	function:worksRepoFactory
+savePerson	src/app/trc-bio/repository.service.js	/^      function savePerson(person) {$/;"	f	function:peopleRepoFactory
+saveRelationship	src/app/trc-reln/repository.service.js	/^      function saveRelationship(reln) {$/;"	f	function:relationshipsRepoFactory
+saveVolume	src/app/trcWorks/works-repo.service.js	/^      function saveVolume(workId, editionId, volume) {$/;"	f	function:worksRepoFactory
+saveWork	src/app/trcWorks/works-repo.service.js	/^      function saveWork(work) {$/;"	f	function:worksRepoFactory
+scope	src/app/components/date-editor/date-editor.directive.js	/^      scope: {$/;"	c	class:dateEditorDirective.directive
+scope	src/app/components/summary-editor/summary-editor.directive.js	/^      scope: {$/;"	c	class:summaryEditorDirective.directive
+scope	src/app/person/components/event-editor/publication-info-editor.directive.js	/^      scope: {$/;"	c	class:eventEditorDirective.directive
+scope	src/app/person/components/name-editor/name-editor.directive.js	/^      scope: {$/;"	c	class:nameEditorDirective.directive
+scope	src/app/slide-toggle/slide-toggle.directive.js	/^         scope: {$/;"	c	class:slideToggle.directive
+scope	src/app/task/components/work-editor/work-editor-item.directive.js	/^      scope: {$/;"	c	class:workEditorItemDirective.directive
+scope	src/app/trc-bio/event-editor.directive.js	/^      scope: {$/;"	c	class:trcEventEditorDirective.directive
+scope	src/app/trc-bio/name-editor.directive.js	/^      scope: {$/;"	c	class:trcNameEditorDirective.directive
+scope	src/app/trc-bio/person-editor.directive.js	/^      scope: {$/;"	c	class:trcPersonEditorDirective.directive
+scope	src/app/work/components/author-ref-editor/author-ref-editor.directive.js	/^      scope: {$/;"	c	class:authorRefEditorDirective.directive
+scope	src/app/work/components/copy-editor/copy-editor.directive.js	/^      scope: {$/;"	c	class:copyEditorDirective.directive
+scope	src/app/work/components/edition-editor/edition-editor.directive.js	/^      scope: {$/;"	c	class:editionEditorDirective.directive
+scope	src/app/work/components/publication-info-editor/publication-info-editor.directive.js	/^      scope: {$/;"	c	class:publicationInfoEditorDirective.directive
+scope	src/app/work/components/title-editor/title-editor.directive.js	/^      scope: {$/;"	c	class:titleEditorDirective.directive
+scope	src/app/work/components/volume-editor/volume-editor.directive.js	/^      scope: {$/;"	c	class:volumeEditorDirective.directive
+scope	src/app/work/components/work-editor/work-editor.directive.js	/^      scope: {$/;"	c	class:workEditorDirective.directive
+search	src/app/main/main.controller.js	/^    function search(query) {$/;"	f	function:MainController
+search	src/app/trc-bio/repository.service.js	/^      function search(query) {$/;"	f	function:peopleRepoFactory
+search	src/app/trc-reln/repository.service.js	/^      function search(options) {$/;"	f	function:relationshipsRepoFactory
+search	src/app/trcWorks/works-repo.service.js	/^      function search(query) {$/;"	f	function:worksRepoFactory
+searchByAuthor	src/app/trcWorks/works-repo.service.js	/^      function searchByAuthor(authorId) {$/;"	f	function:worksRepoFactory
+selectWork	src/app/work/relationship-edit-dialog.controller.js	/^    function selectWork(workProxy) {$/;"	f	function:RelationshipEditDialogController
+setLinkedAuthor	src/app/work/components/author-ref-editor/author-ref-editor.directive.js	/^      function setLinkedAuthor(person) {$/;"	f	function:AuthorRefEditorController
+setTarget	src/app/work/relationship-edit-dialog.controller.js	/^    function setTarget(target) {$/;"	f	function:RelationshipEditDialogController
+setType	src/app/work/relationship-edit-dialog.controller.js	/^    function setType(type) {$/;"	f	function:RelationshipEditDialogController
+showSavedToast	src/app/main/main.controller.js	/^    function showSavedToast() {$/;"	f	function:MainController
+showSavedToast	src/app/person/person.controller.js	/^    function showSavedToast() {$/;"	f	function:ShowPersonController
+showSavedToast	src/app/work/edition.controller.js	/^    function showSavedToast() {$/;"	f	function:ShowEditionController
+showSavedToast	src/app/work/volume.controller.js	/^    function showSavedToast() {$/;"	f	function:ShowVolumeController
+showSavedToast	src/app/work/work.controller.js	/^    function showSavedToast() {$/;"	f	function:ShowWorkController
+slideToggle	src/app/slide-toggle/slide-toggle.directive.js	/^   function slideToggle() {$/;"	f
+summary	src/app/components/summary-editor/summary-editor.directive.js	/^        summary: '=ngModel'$/;"	p	class:summaryEditorDirective.directive.scope
+summary	src/app/person/person.controller.js	/^          summary: angular.copy(vm.person.summary)$/;"	p	class:ShowPersonController.editSummary.dialog.locals
+summary	src/app/work/edition.controller.js	/^          summary: angular.copy(vm.edition.summary)$/;"	p	class:ShowEditionController.editSummary.dialog.locals
+summary	src/app/work/volume.controller.js	/^          summary: angular.copy(vm.volume.summary)$/;"	p	class:ShowVolumeController.editSummary.dialog.locals
+summary	src/app/work/work.controller.js	/^          summary: angular.copy(vm.work.summary)$/;"	p	class:ShowWorkController.editSummary.dialog.locals
+summaryEditorDirective	src/app/components/summary-editor/summary-editor.directive.js	/^  function summaryEditorDirective() {$/;"	f
+targetEvent	src/app/main/main.controller.js	/^        targetEvent: $event,$/;"	p	class:MainController.createPerson.dialog
+targetEvent	src/app/main/main.controller.js	/^        targetEvent: $event,$/;"	p	class:MainController.createWork.dialog
+targetEvent	src/app/person/person.controller.js	/^        targetEvent: $event,$/;"	p	class:ShowPersonController.editBioInfo.dialog
+targetEvent	src/app/person/person.controller.js	/^        targetEvent: $event,$/;"	p	class:ShowPersonController.editEvent.dialog
+targetEvent	src/app/person/person.controller.js	/^        targetEvent: $event,$/;"	p	class:ShowPersonController.editSummary.dialog
+targetEvent	src/app/work/edition.controller.js	/^        targetEvent: $event,$/;"	p	class:ShowEditionController.addRelationship.dialog
+targetEvent	src/app/work/edition.controller.js	/^        targetEvent: $event,$/;"	p	class:ShowEditionController.editBibInfo.dialog
+targetEvent	src/app/work/edition.controller.js	/^        targetEvent: $event,$/;"	p	class:ShowEditionController.editCopy.dialog
+targetEvent	src/app/work/edition.controller.js	/^        targetEvent: $event,$/;"	p	class:ShowEditionController.editSummary.dialog
+targetEvent	src/app/work/volume.controller.js	/^        targetEvent: $event,$/;"	p	class:ShowVolumeController.addRelationship.dialog
+targetEvent	src/app/work/volume.controller.js	/^        targetEvent: $event,$/;"	p	class:ShowVolumeController.editBibInfo.dialog
+targetEvent	src/app/work/volume.controller.js	/^        targetEvent: $event,$/;"	p	class:ShowVolumeController.editCopy.dialog
+targetEvent	src/app/work/volume.controller.js	/^        targetEvent: $event,$/;"	p	class:ShowVolumeController.editSummary.dialog
+targetEvent	src/app/work/work.controller.js	/^        targetEvent: $event,$/;"	p	class:ShowWorkController.addRelationship.dialog
+targetEvent	src/app/work/work.controller.js	/^        targetEvent: $event,$/;"	p	class:ShowWorkController.editBibInfo.dialog
+targetEvent	src/app/work/work.controller.js	/^        targetEvent: $event,$/;"	p	class:ShowWorkController.editCopy.dialog
+targetEvent	src/app/work/work.controller.js	/^        targetEvent: $event,$/;"	p	class:ShowWorkController.editSummary.dialog
+tasksRepoFactory	src/app/trcTasks/tasks-repo.service.js	/^    function tasksRepoFactory($resource) {$/;"	f	function:tasksRepoProvider
+tasksRepoProvider	src/app/trcTasks/tasks-repo.service.js	/^  function tasksRepoProvider() {$/;"	f
+templateUrl	src/app/components/date-editor/date-editor.directive.js	/^      templateUrl: 'app\/components\/date-editor\/date-editor.html',$/;"	p	class:dateEditorDirective.directive
+templateUrl	src/app/components/summary-editor/summary-editor.directive.js	/^      templateUrl: 'app\/components\/summary-editor\/summary-editor.html',$/;"	p	class:summaryEditorDirective.directive
+templateUrl	src/app/main/main.controller.js	/^        templateUrl: 'app\/person\/person-edit-dialog.html',$/;"	p	class:MainController.createPerson.dialog
+templateUrl	src/app/main/main.controller.js	/^        templateUrl: 'app\/work\/work-edit-dialog.html',$/;"	p	class:MainController.createWork.dialog
+templateUrl	src/app/person/components/event-editor/publication-info-editor.directive.js	/^      templateUrl: 'app\/person\/components\/event-editor\/event-editor.html',$/;"	p	class:eventEditorDirective.directive
+templateUrl	src/app/person/components/name-editor/name-editor.directive.js	/^      templateUrl: 'app\/person\/components\/name-editor\/name-editor.html',$/;"	p	class:nameEditorDirective.directive
+templateUrl	src/app/person/person.controller.js	/^        templateUrl: 'app\/components\/summary-edit-dialog\/summary-edit-dialog.html',$/;"	p	class:ShowPersonController.editSummary.dialog
+templateUrl	src/app/person/person.controller.js	/^        templateUrl: 'app\/person\/event-edit-dialog.html',$/;"	p	class:ShowPersonController.editEvent.dialog
+templateUrl	src/app/person/person.controller.js	/^        templateUrl: 'app\/person\/person-edit-dialog.html',$/;"	p	class:ShowPersonController.editBioInfo.dialog
+templateUrl	src/app/task/components/work-editor/work-editor-item.directive.js	/^      templateUrl: 'app\/task\/components\/work-editor\/work-editor-item.html',$/;"	p	class:workEditorItemDirective.directive
+templateUrl	src/app/trc-bio/event-editor.directive.js	/^      templateUrl: 'app\/trc-bio\/event-editor.html',$/;"	p	class:trcEventEditorDirective.directive
+templateUrl	src/app/trc-bio/name-editor.directive.js	/^      templateUrl: 'app\/trc-bio\/name-editor.html',$/;"	p	class:trcNameEditorDirective.directive
+templateUrl	src/app/trc-bio/person-editor.directive.js	/^      templateUrl: 'app\/trc-bio\/person-editor.html',$/;"	p	class:trcPersonEditorDirective.directive
+templateUrl	src/app/work/components/author-ref-editor/author-ref-editor.directive.js	/^      templateUrl: 'app\/work\/components\/author-ref-editor\/author-ref-editor.html',$/;"	p	class:authorRefEditorDirective.directive
+templateUrl	src/app/work/components/copy-editor/copy-editor.directive.js	/^      templateUrl: 'app\/work\/components\/copy-editor\/copy-editor.html',$/;"	p	class:copyEditorDirective.directive
+templateUrl	src/app/work/components/edition-editor/edition-editor.directive.js	/^      templateUrl: 'app\/work\/components\/edition-editor\/edition-editor.html',$/;"	p	class:editionEditorDirective.directive
+templateUrl	src/app/work/components/publication-info-editor/publication-info-editor.directive.js	/^      templateUrl: 'app\/work\/components\/publication-info-editor\/publication-info-editor.html/;"	p	class:publicationInfoEditorDirective.directive
+templateUrl	src/app/work/components/title-editor/title-editor.directive.js	/^      templateUrl: 'app\/work\/components\/title-editor\/title-editor.html',$/;"	p	class:titleEditorDirective.directive
+templateUrl	src/app/work/components/volume-editor/volume-editor.directive.js	/^      templateUrl: 'app\/work\/components\/volume-editor\/volume-editor.html',$/;"	p	class:volumeEditorDirective.directive
+templateUrl	src/app/work/components/work-editor/work-editor.directive.js	/^      templateUrl: 'app\/work\/components\/work-editor\/work-editor.html',$/;"	p	class:workEditorDirective.directive
+templateUrl	src/app/work/edition.controller.js	/^        templateUrl: 'app\/components\/summary-edit-dialog\/summary-edit-dialog.html',$/;"	p	class:ShowEditionController.editSummary.dialog
+templateUrl	src/app/work/edition.controller.js	/^        templateUrl: 'app\/work\/copy-edit-dialog.html',$/;"	p	class:ShowEditionController.editCopy.dialog
+templateUrl	src/app/work/edition.controller.js	/^        templateUrl: 'app\/work\/edition-edit-dialog.html',$/;"	p	class:ShowEditionController.editBibInfo.dialog
+templateUrl	src/app/work/edition.controller.js	/^        templateUrl: 'app\/work\/relationship-edit-dialog.html',$/;"	p	class:ShowEditionController.addRelationship.dialog
+templateUrl	src/app/work/volume.controller.js	/^        templateUrl: 'app\/components\/summary-edit-dialog\/summary-edit-dialog.html',$/;"	p	class:ShowVolumeController.editSummary.dialog
+templateUrl	src/app/work/volume.controller.js	/^        templateUrl: 'app\/work\/copy-edit-dialog.html',$/;"	p	class:ShowVolumeController.editCopy.dialog
+templateUrl	src/app/work/volume.controller.js	/^        templateUrl: 'app\/work\/relationship-edit-dialog.html',$/;"	p	class:ShowVolumeController.addRelationship.dialog
+templateUrl	src/app/work/volume.controller.js	/^        templateUrl: 'app\/work\/volume-edit-dialog.html',$/;"	p	class:ShowVolumeController.editBibInfo.dialog
+templateUrl	src/app/work/work.controller.js	/^        templateUrl: 'app\/components\/summary-edit-dialog\/summary-edit-dialog.html',$/;"	p	class:ShowWorkController.editSummary.dialog
+templateUrl	src/app/work/work.controller.js	/^        templateUrl: 'app\/work\/copy-edit-dialog.html',$/;"	p	class:ShowWorkController.editCopy.dialog
+templateUrl	src/app/work/work.controller.js	/^        templateUrl: 'app\/work\/relationship-edit-dialog.html',$/;"	p	class:ShowWorkController.addRelationship.dialog
+templateUrl	src/app/work/work.controller.js	/^        templateUrl: 'app\/work\/work-edit-dialog.html',$/;"	p	class:ShowWorkController.editBibInfo.dialog
+title	src/app/work/components/title-editor/title-editor.directive.js	/^        title: '=ngModel'$/;"	p	class:titleEditorDirective.directive.scope
+titleEditorDirective	src/app/work/components/title-editor/title-editor.directive.js	/^  function titleEditorDirective() {$/;"	f
+toolbarGroups	src/app/admin/editors/articles/article.controller.js	/^        toolbarGroups: [$/;"	p	class:vm.editor.config
+toolbarGroups	src/app/components/summary-editor/summary-editor.directive.js	/^        toolbarGroups: [$/;"	p	class:summaryEditorDirective.scope.config
+transition	src/app/trcTasks/tasks-repo.service.js	/^      function transition(taskId, item, transition) {$/;"	f	function:tasksRepoFactory
+transitionItem	src/app/task/show.controller.js	/^    function transitionItem(item, transition, $event) {$/;"	f	function:ShowTaskController
+trcEventEditorDirective	src/app/trc-bio/event-editor.directive.js	/^  function trcEventEditorDirective() {$/;"	f
+trcNameEditorDirective	src/app/trc-bio/name-editor.directive.js	/^  function trcNameEditorDirective() {$/;"	f
+trcPersonEditorDirective	src/app/trc-bio/person-editor.directive.js	/^  function trcPersonEditorDirective() {$/;"	f
+type	src/app/trc-reln/repository.service.js	/^        type: 'edition',$/;"	p	class:makeEditionEntity.entity
+type	src/app/trc-reln/repository.service.js	/^        type: 'volume',$/;"	p	class:makeVolumeEntity.entity
+type	src/app/trc-reln/repository.service.js	/^        type: 'work',$/;"	p	class:makeWorkEntity.entity
+uri	src/app/trc-reln/repository.service.js	/^          options = { uri: options };$/;"	p	class:options
+volume	src/app/work/components/volume-editor/volume-editor.directive.js	/^        volume: '=ngModel'$/;"	p	class:volumeEditorDirective.directive.scope
+volume	src/app/work/volume.controller.js	/^          volume: angular.copy(vm.volume)$/;"	p	class:ShowVolumeController.editBibInfo.dialog.locals
+volumeEditorDirective	src/app/work/components/volume-editor/volume-editor.directive.js	/^  function volumeEditorDirective() {$/;"	f
+volumeId	src/app/trc-reln/repository.service.js	/^          volumeId: volumeId$/;"	p	class:makeVolumeEntity.entity.refParams
+work	src/app/main/main.controller.js	/^          work: worksRepo.createWork()$/;"	p	class:MainController.createWork.dialog.locals
+work	src/app/work/components/work-editor/work-editor.directive.js	/^        work: '=ngModel'$/;"	p	class:workEditorDirective.directive.scope
+work	src/app/work/work.controller.js	/^          work: angular.copy(vm.work)$/;"	p	class:ShowWorkController.editBibInfo.dialog.locals
+workEditorDirective	src/app/work/components/work-editor/work-editor.directive.js	/^  function workEditorDirective() {$/;"	f
+workEditorItemDirective	src/app/task/components/work-editor/work-editor-item.directive.js	/^  function workEditorItemDirective($log) {$/;"	f
+workId	src/app/trc-reln/repository.service.js	/^          workId: workId$/;"	p	class:makeWorkEntity.entity.refParams
+workId	src/app/trc-reln/repository.service.js	/^          workId: workId,$/;"	p	class:makeEditionEntity.entity.refParams
+workId	src/app/trc-reln/repository.service.js	/^          workId: workId,$/;"	p	class:makeVolumeEntity.entity.refParams
+worksRepoFactory	src/app/trcWorks/works-repo.service.js	/^    function worksRepoFactory($resource, _) {$/;"	f	function:worksRepoProvider
+worksRepoProvider	src/app/trcWorks/works-repo.service.js	/^  function worksRepoProvider() {$/;"	f

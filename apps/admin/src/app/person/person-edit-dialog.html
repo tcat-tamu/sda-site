@@ -1,0 +1,65 @@
+<md-dialog flex="80">
+
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h3>Biographic Information Editor</h3>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="vm.cancel()">
+        <md-icon>close</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <form ng-submit="vm.close()">
+    <md-dialog-content>
+      <div class="md-dialog-content">
+
+        <section class="name" layout="column">
+          <md-toolbar class="md-hue-3">
+            <div class="md-toolbar-tools">
+              <h2>Canonical Name</h2>
+            </div>
+          </md-toolbar>
+          <div class="name">
+            <name-editor ng-model="vm.person.name" flex></name-editor>
+          </div>
+        </section>
+
+        <section class="alt-names" layout="column">
+          <md-toolbar class="md-hue-3">
+            <div class="md-toolbar-tools">
+              <h2>Alternate Names</h2>
+              <span flex></span>
+              <md-button class="md-icon-button" ng-click="vm.addName()">
+                <md-icon>add</md-icon>
+              </md-button>
+            </div>
+          </md-toolbar>
+          <div class="name" layout="row" ng-repeat="name in vm.person.altNames">
+            <md-input-container>
+              <label>role</label>
+              <md-select ng-model="name.role">
+                <md-option ng-repeat="role in vm.nameRoles" value="{{role.value}}">
+                  {{role.label}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+            <name-editor ng-model="name" flex></name-editor>
+            <md-input-container>
+              <md-button class="md-icon-button md-warn" ng-click="vm.deleteName(name)">
+                <md-icon>delete</md-icon>
+              </md-icon>
+            </md-input-container>
+          </div>
+        </section>
+
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions>
+      <md-button ng-click="vm.cancel()">Cancel</md-button>
+      <md-button class="md-primary" type="submit">Done</md-button>
+    </md-dialog-actions>
+  </form>
+
+</md-dialog>

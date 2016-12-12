@@ -1,0 +1,17 @@
+- label: Research
+  url: /research
+
+- label: Themes
+  url: /themes
+
+- label: Media
+  url: /media
+
+# - label: Teaching
+#   url: /teaching
+
+# - label: Conferences
+#   url: /conferences
+
+- label: About
+  url: /about

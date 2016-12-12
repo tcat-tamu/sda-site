@@ -1,0 +1,61 @@
+<md-content flex layout="column">
+  <navbar title="Editorial Tools" sidenav-id="left"></navbar>
+
+  <md-content flex layout="row">
+    <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" ui-view="sidebar" layout="column">
+      <form layout="row" flex="none">
+        <md-input-container flex>
+          <label for="searchQuery">Search</label>
+          <md-icon>search</md-icon>
+          <input type="search" name="searchQuery" id="searchQuery" ng-model="vm.searchQuery" ng-change="vm.search(vm.searchQuery)" required>
+        </md-input-container>
+      </form>
+
+      <md-content flex>
+        <div ng-if="vm.loading" layout="row" layout-align="center">
+          <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+        </div>
+        <div ng-if="!vm.loading &amp;&amp; vm.peopleResults &amp;&amp; vm.peopleResults.items.length > 0">
+          <md-subheader>People</md-subheader>
+          <md-list>
+            <md-list-item ng-repeat="person in vm.peopleResults.items" ui-sref="editor.person({id: person.id})">
+              <div class="md-list-item-text" ng-bind-html="person.label"></div>
+            </md-list-item>
+          </md-list>
+        </div>
+        <div ng-if="!vm.loading &amp;&amp; vm.worksResults &amp;&amp; vm.worksResults.items.length > 0">
+          <md-subheader>Works</md-subheader>
+          <md-list>
+            <md-list-item ng-repeat="work in vm.worksResults.items" ui-sref="editor.work({workId: work.id})">
+              <div class="md-list-item-text" ng-bind-html="work.label"></div>
+            </md-list-item>
+          </md-list>
+        </div>
+      </md-content>
+
+      <md-fab-speed-dial md-direction="up" class="md-scale md-fab-bottom-right md-fab-straddle">
+        <md-fab-trigger>
+          <md-button aria-label="New..." class="md-fab">
+            <md-icon>add</md-icon>
+          </md-button>
+        </md-fab-trigger>
+        <md-fab-actions>
+          <md-button aria-label="New Article" class="md-fab md-mini" ng-click="vm.createArticle($event)">
+            <md-tooltip md-direction="left">New Article</md-tooltip>
+            <md-icon>description</md-icon>
+          </md-button>
+          <md-button aria-label="New Person" class="md-fab md-mini" ng-click="vm.createPerson($event)">
+            <md-tooltip md-direction="left">New Person</md-tooltip>
+            <md-icon>person</md-icon>
+          </md-button>
+          <md-button aria-label="New Work" class="md-fab md-mini" ng-click="vm.createWork($event)">
+            <md-tooltip md-direction="left">New Book</md-tooltip>
+            <md-icon>book</md-icon>
+          </md-button>
+        </md-fab-actions>
+      </md-fab-speed-dial>
+    </md-sidenav>
+
+    <md-content flex layout="column" ui-view="main"></md-content>
+  </md-content>
+</md-content>

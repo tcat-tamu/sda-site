@@ -1,0 +1,119 @@
+<nav layout="row" layout-padding>
+  <ol class="breadcrumbs" flex>
+    <li>{{vm.bcTitle.title}}{{vm.bcTitle && vm.bcTitle.subtitle ? ': ' : ''}}{{vm.bcTitle.subtitle}}</a></li>
+  </ol>
+</nav>
+
+<div layout="row" layout-padding flex="noshrink">
+  <div layout="column" flex="60">
+
+    <section class="content citation">
+      <div class="toolbar" layout="row" layout-align="start center">
+        <h2 class="content-heading">Bibliographic Information</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="vm.editBibInfo($event)">
+          <md-icon>edit</md-icon>
+        </md-button>
+      </div>
+      <p>
+        <span class="authors" ng-if="vm.work.authors && vm.work.authors.length > 0">
+          <span class="author" ng-repeat="author in vm.work.authors">
+            <span ng-if="author.authorId">
+              <a ui-sref="editor.person({id: author.authorId})">{{author.lastName}}{{author.lastName && author.firstName ? ', ' : ''}}{{author.firstName}}</a>.
+            </span>
+            <span ng-if="!author.authorId">
+              {{author.lastName}}{{author.lastName && author.firstName ? ', ' : ''}}{{author.firstName}}.
+            </span>
+          </span>
+        </span>
+        <span class="title" ng-if="vm.title">
+          {{vm.title.title}}{{vm.title.title && vm.title.subtitle ? ': ' : ''}}{{vm.title.subtitle}}.
+        </span>
+      </p>
+    </section>
+
+    <section class="content summary">
+      <div class="toolbar" layout="row" layout-align="start center">
+        <h2 class="content-heading">Summary</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="vm.editSummary($event)">
+          <md-icon>edit</md-icon>
+        </md-button>
+      </div>
+      <p ng-if="vm.work.summary" ng-bind-html="vm.work.summary"></p>
+    </section>
+
+    <section class="content editions">
+      <div class="toolbar" layout="row" layout-align="start center">
+        <h2 class="content-heading">Editions</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="vm.addEdition($event)">
+          <md-icon>add</md-icon>
+        </md-button>
+      </div>
+      <md-list>
+        <md-list-item ng-repeat="edition in vm.work.editions" ui-sref="editor.edition({workId: vm.work.id, editionId: edition.id})">
+          <span>{{edition.editionName}}</span>
+          <md-button class="md-secondary md-icon-button md-warn" ng-click="vm.deleteEdition(edition, $event)">
+            <md-icon>delete</md-icon>
+          </md-button>
+        </md-list-item>
+      </md-list>
+    </section>
+
+    <section class="content bibliography">
+      <div class="toolbar" layout="row" layout-align="start center">
+        <h2 class="content-heading">Bibliography</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="vm.editBibliography($event)">
+          <md-icon>edit</md-icon>
+        </md-button>
+      </div>
+      <bibliography refs="vm.references" style-id="mla"></bibliography>
+    </section>
+
+  </div>
+
+  <div layout="column" flex="40">
+
+    <relationships class="content references" anchor="vm.anchor"></relationships>
+
+    <section class="content copies">
+      <div class="toolbar" layout="row" layout-align="start center">
+        <h2 class="content-heading">Digital Copies</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="vm.addCopy($event)">
+          <md-icon>add</md-icon>
+        </md-button>
+      </div>
+      <md-list>
+        <md-list-item ng-repeat="copy in vm.work.copies" ng-click="vm.editCopy(copy, $event)">
+          <span>{{copy.title}}</span>
+          <md-button class="md-secondary md-icon-button md-warn" ng-click="vm.deleteCopy(copy, $event)">
+            <md-icon>delete</md-icon>
+          </md-button>
+        </md-list-item>
+      </md-list>
+    </section>
+
+    <section class="content see-also">
+      <div class="toolbar" layout="row" layout-align="start center">
+        <h2 class="content-heading">See Also</h2>
+      </div>
+      <see-also-editor source-token="vm.work.ref.token"></see-also-editor>
+    </section>
+
+  </div>
+</div>
+<div layout="row" layout-align="end" layout-margin>
+  <div>
+    <md-button class="md-icon-button" aria-label="Create Book Review" ng-click="vm.createBookReview($event, vm.work)">
+      <md-icon>assignment</md-icon>
+      <md-tooltip md-direction="top">Create Book Review</md-tooltip>
+    </md-button>
+    <md-button aria-label="Delete this work" class="md-warn md-icon-button" ng-click="vm.deleteWork($event, vm.work)">
+      <md-icon>delete</md-icon>
+      <md-tooltip md-direction="top">Delete</md-tooltip>
+    </md-button>
+  </div>
+</div>

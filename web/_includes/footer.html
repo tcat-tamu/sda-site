@@ -1,0 +1,26 @@
+<footer class="site-footer{% if include.toggle %} toggleable{% endif %}">
+  {% if include.toggle %}
+    <a class="toggle footer-toggle" href="" title="Toggle Footer">
+       <i class="material-icons">arrow_drop_up</i>
+       <span class="sr-only">Toggle Footer</span>
+    </a>
+  {% endif %}
+  <div id="footer-content" class="container"{% if include.toggle %} style="display: none;"{% endif %}>
+     <div class="content">
+        <p>
+           The Special Divine Action project is hosted by Oxford University’s Bodleian Library. Please see the
+           University’s standard policies on <a href="http://www.ox.ac.uk/copyright.html" target="_blank">Copyright</a>,
+           <a href="http://www.admin.ox.ac.uk/dataprotection/privacypolicy" target="_blank">Privacy</a> and
+           <a href="http://www.admin.ox.ac.uk/dataprotection/cookies" target="_blank">Cookies</a>.
+           As the project grows and adds more content, we will provide more detail specific to the Special Divine Action Project.
+        </p>
+     </div>
+     <ul class="logos">
+         <li><img src="{{ 'assets/images/footer/footer-logo-irc.png' | relative_url }}" alt=""></li>
+         <li><img src="{{ 'assets/images/footer/footer-logo-bodleian-libraries.png' | relative_url }}" alt=""></li>
+         <li><img src="{{ 'assets/images/footer/footer-logo-tees.png' | relative_url }}" alt=""></li>
+         <li><img src="{{ 'assets/images/footer/footer-logo-wmu.png' | relative_url }}" alt=""></li>
+         <li><img src="{{ 'assets/images/footer/footer-logo-jtf.png' | relative_url }}" alt=""></li>
+     </ul>
+  </div>
+</footer>

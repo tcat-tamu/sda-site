@@ -1,0 +1,26 @@
+<md-dialog flex="50">
+
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h3>Digital Copy Editor</h3>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="vm.cancel()">
+        <md-icon>close</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <form ng-submit="vm.close()">
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <copy-editor ng-model="vm.copy"></copy-editor>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions>
+      <md-button ng-click="vm.cancel()">Cancel</md-button>
+      <md-button class="md-primary" type="submit">Done</md-button>
+    </md-dialog-actions>
+  </form>
+
+</md-dialog>

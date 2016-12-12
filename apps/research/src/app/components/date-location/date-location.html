@@ -1,0 +1,3 @@
+<time class="date" ng-if="$ctrl.event.date" datetime="{{$ctrl.event.date.calendar}}">{{$ctrl.event.date.description}}</time>
+<span class="location" ng-if="$ctrl.event.location">{{$ctrl.event.location}}</span>
+<div ng-if="$ctrl.event.description" ng-bind-html="$ctrl.event.description"></div>

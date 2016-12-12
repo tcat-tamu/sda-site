@@ -1,0 +1,82 @@
+<md-dialog flex="80">
+
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h3>Bibliographic Information Editor</h3>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="vm.cancel()">
+        <md-icon>close</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <form ng-submit="vm.close()">
+    <md-dialog-content>
+      <div class="md-dialog-content">
+
+        <div layout="row">
+          <md-input-container flex>
+            <label>edition name</label>
+            <input type="text" ng-model="vm.edition.editionName" required></input>
+          </md-input-container>
+        </div>
+
+        <section class="publication" layout="column">
+          <md-toolbar class="md-hue-3">
+            <div class="md-toolbar-tools">
+              <h2>Publication Information</h2>
+            </div>
+          </md-toolbar>
+          <publication-info-editor ng-model="vm.edition.publicationInfo" flex></publication-info-editor>
+        </section>
+
+        <section class="titles" layout="column">
+          <md-toolbar class="md-hue-3">
+            <div class="md-toolbar-tools">
+              <h2>Titles</h2>
+              <span flex></span>
+              <md-button class="md-icon-button" ng-click="vm.addTitle($event)">
+                <md-icon>add</md-icon>
+              </button>
+            </div>
+          </md-toolbar>
+          <div class="title" layout="row" ng-repeat="title in vm.edition.titles">
+            <title-editor ng-model="title" flex></title-editor>
+            <md-input-container>
+              <md-button class="md-icon-button md-warn" ng-click="vm.deleteTitle(title, $event)">
+                <md-icon>delete</md-icon>
+              </md-button>
+            </md-input-container>
+          </div>
+        </section>
+
+        <section class="authors" layout="column">
+          <md-toolbar class="md-hue-3">
+            <div class="md-toolbar-tools">
+              <h2>Authors</h2>
+              <span flex></span>
+              <md-button class="md-icon-button" ng-click="vm.addAuthor('authors', $event)">
+                <md-icon>add</md-icon>
+              </md-button>
+            </div>
+          </md-toolbar>
+          <div class="author" layout="row" ng-repeat="author in vm.edition.authors">
+            <author-ref-editor ng-model="author" flex></author-ref-editor>
+            <md-input-container>
+              <md-button class="md-icon-button md-warn" ng-click="vm.deleteAuthor('authors', author, $event)">
+                <md-icon>delete</md-icon>
+              </md-icon>
+            </md-input-container>
+          </div>
+        </section>
+
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions>
+      <md-button ng-click="vm.cancel()">Cancel</md-button>
+      <md-button class="md-primary" type="submit">Done</md-button>
+    </md-dialog-actions>
+  </form>
+
+</md-dialog>

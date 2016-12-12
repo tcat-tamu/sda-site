@@ -1,0 +1,48 @@
+<sda-header md-sidenav-id="left" active-url="/research"></sda-header>
+
+<main layout="row" flex>
+  <md-sidenav md-component-id="left" class="md-sidenav-left" layout="column" md-is-locked-open="vm.sidebarFocused">
+    <form layout="row" flex="none">
+      <md-input-container flex>
+        <label for="searchQuery">Search</label>
+        <md-icon>search</md-icon>
+        <input type="search" name="searchQuery" id="searchQuery" ng-model="vm.searchQuery" ng-change="vm.search(vm.searchQuery)" required md-sidenav-focus>
+      </md-input-container>
+    </form>
+
+    <md-content flex>
+      <div ng-if="vm.loading" layout="row" layout-align="center">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+      </div>
+      <div ng-if="!vm.loading && vm.peopleResults && vm.peopleResults.items.length == 0 && vm.worksResults && vm.worksResults.items.length == 0" layout="row" layout-padding>
+        <p>No results for "{{vm.searchQuery}}".</p>
+      </div>
+      <div ng-if="!vm.loading && vm.peopleResults && vm.peopleResults.items.length > 0">
+        <md-subheader>People</md-subheader>
+        <md-list>
+          <md-list-item
+              ng-repeat="item in vm.peopleResults.items"
+              jqyoui-draggable="{animate:false}"
+              data-jqyoui-options="{revert:'invalid',helper:'clone',appendTo:'body'}"
+              data-drag="true">
+            <div class="md-list-item-text" ng-bind-html="item.label"></div>
+          </md-list-item>
+        </md-list>
+      </div>
+      <div ng-if="!vm.loading && vm.worksResults && vm.worksResults.items.length > 0">
+        <md-subheader>Works</md-subheader>
+        <md-list>
+          <md-list-item
+              ng-repeat="item in vm.worksResults.items"
+              jqyoui-draggable="{animate:false}"
+              data-jqyoui-options="{revert:'invalid',helper:'clone',appendTo:'body'}"
+              data-drag="true">
+            <div class="md-list-item-text" ng-bind-html="item.label"></div>
+          </md-list-item>
+        </md-list>
+      </div>
+    </md-content>
+  </md-sidenav>
+
+  <vwise-workspace workspace="vm.workspace" flex layout="column"></vwise-workspace>
+</main>

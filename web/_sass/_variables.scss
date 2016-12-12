@@ -1,0 +1,67 @@
+// font paths for bootstrap and font-awesome
+$icon-font-path: '../../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/';
+$fa-font-path: '../../bower_components/fontawesome/fonts';
+$local-font-path: '../assets/fonts';
+
+// base color palette
+
+$grey0: #ffffff;
+$grey1: #f0f3f0;
+$grey5: #acaaa3;
+$grey6: #333333;
+$grey7: #2e2e2e;
+$grey8: #292626;
+
+$brown8: #272927;
+$brown9: #1a1b1a;
+
+$cream1: #eee8de;
+
+$copper3: #dcc3ab;
+$copper4: #b88554;
+$copper5: #a47140;
+
+$md-dark-overlay1: rgba(#000, 0.13);
+$md-dark-overlay3: rgba(#000, 0.47);
+$md-dark-overlay4: rgba(#000, 0.54);
+$md-dark-overlay5: rgba(#000, 0.87);
+
+$md-light-overlay1: rgba(#fff, 0.13);
+$md-light-overlay3: rgba(#fff, 0.47);
+$md-light-overlay4: rgba(#fff, 0.54);
+$md-light-overlay5: rgba(#fff, 0.87);
+
+// Semantic Colors
+$darkBrown: $brown9;
+$lightBrown: $copper4;
+$text: $grey7;
+$textGrey: $grey5;
+$textBrown: $brown8;
+$textBlack: $grey8;
+$copper: $copper5;
+$lightCopper: $copper3;
+$cream: $cream1;
+
+$sidebar-bg: $grey1;
+
+// Media query breakpoints (bootstrap conventions)
+$screen-xs-min: 35em;
+$screen-sm-min: 51em;
+$screen-md-min: 51em;
+$screen-lg-min: 70em;
+
+// Media query breakpoints (material conventions)
+$md-layout-breakpoint-xs: 50em;
+$md-layout-breakpoint-sm: 60em;
+$md-layout-breakpoint-md: 80em;
+$md-layout-breakpoint-lg: 120em;
+
+
+// layout component dimensions
+$container-max-width: 1600px;
+$header-height: 4rem;
+$banner-padding: 7rem;
+
+$md-baseline-grid: 1rem;
+
+@import 'material/md-layout-variables';

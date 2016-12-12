@@ -1,0 +1,13 @@
+.article-preview {
+  h1.article-title {
+    margin: 0;
+  }
+
+  .abstract > div {
+    max-width: $article-text-width;
+
+    p:first-child {
+      margin-top: 0;
+    }
+  }
+}

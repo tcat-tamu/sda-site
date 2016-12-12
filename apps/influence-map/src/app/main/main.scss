@@ -1,0 +1,32 @@
+md-sidenav {
+  .summary {
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+}
+
+.search-form {
+  border-bottom: 1px solid #b88554;
+  overflow: hidden;
+  transition: width .3s;
+
+  *:focus {
+    outline: 0;
+  }
+
+  input[type='search'] {
+    background: transparent;
+    border: 0;
+    color: inherit;
+  }
+
+  button.clear {
+    background: transparent;
+    border: 0;
+    color: rgba(#fff, 0.56);
+  }
+}
+
+concept-browser {
+  overflow: hidden;
+}

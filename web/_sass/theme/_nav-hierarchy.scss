@@ -1,0 +1,47 @@
+$nav-indent-base: 1em;
+$nav-indent-nested: 1.75em;
+$nav-item-height: 1.75em;
+$nav-item-spacing: 0.5em;
+
+$nav-handle-size: 24px;
+
+@mixin nav-list {
+  list-style: none;
+  margin-bottom: $nav-item-spacing;
+  line-height: $nav-item-height;
+}
+
+ul.nav, ol.nav {
+  @include nav-list;
+  padding-left: $nav-indent-base;
+
+  &-collapsible {
+    li {
+      position: relative;
+
+      > .handle {
+        position: absolute;
+        left: -$nav-handle-size;
+        top: 0;
+        width: $nav-handle-size;
+        height: $nav-handle-size;
+        text-align: center;
+        cursor: pointer;
+      }
+    }
+  }
+
+  ul, ol {
+    @include nav-list;
+    padding-left: $nav-indent-nested;
+    display: none;
+
+    @media screen and (min-width: $md-layout-breakpoint-sm) {
+      display: block;
+    }
+  }
+
+  a {
+    display: inline-block;
+  }
+}

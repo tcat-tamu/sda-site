@@ -1,0 +1,129 @@
+<md-toolbar class="layout-navbar">
+  <div class="md-toolbar-tools" layout-align="center stretch">
+    <a class="logo" href="/" layout="column" layout-align="center center">
+      <img src="/assets/images/sda-logo-light.png" alt="SDA" flex="nogrow">
+    </a>
+
+    <sda-sitenav layout="column" active-url="/research"></sda-sitenav>
+
+    <span flex></span>
+
+    <div layout="row" layout-align="start center">
+      <md-button class="md-icon-button" aria-label="Show People" ng-if="vm.graphType == 'works'" ui-sref="home({type: 'people'})">
+        <md-icon>person</md-icon>
+        <md-tooltip>Show People</md-tooltip>
+      </md-button>
+
+      <md-button class="md-icon-button" aria-label="Show Books" ng-if="vm.graphType == 'people'" ui-sref="home({type: 'works'})">
+        <md-icon>book</md-icon>
+        <md-tooltip>Show Books</md-tooltip>
+      </md-button>
+
+      <md-menu>
+        <md-button class="md-icon-button" md-menu-origin ng-click="$mdOpenMenu($event)" aria-label="Ranking Model">
+          <md-icon>adjust</md-icon>
+          <md-tooltip>Ranking Model</md-tooltip>
+        </md-button>
+        <md-menu-content>
+          <md-menu-item ng-repeat="metric in vm.sizeMetrics">
+            <md-button ng-click="vm.sizeMetric = metric" ng-disabled="metric.disabled">
+              <md-icon md-menu-align-target>radio_button_{{vm.sizeMetric === metric ? '' : 'un'}}checked</md-icon>
+              {{metric.label}}
+            </md-button>
+        </md-menu-content>
+      </md-menu>
+
+      <md-menu>
+        <md-button class="md-icon-button" md-menu-origin ng-click="$mdOpenMenu($event)" aria-label="Selection Mode">
+          <md-icon>device_hub</md-icon>
+          <md-tooltip>Selection Mode</md-tooltip>
+        </md-button>
+        <md-menu-content>
+          <md-menu-item ng-repeat="mode in vm.selectModes">
+            <md-button ng-click="vm.selectMode = mode" ng-disabled="metric.disabled">
+              <md-icon md-menu-align-target>radio_button_{{vm.selectMode === mode ? '' : 'un'}}checked</md-icon>
+              {{mode.label}}
+            </md-button>
+        </md-menu-content>
+      </md-menu>
+
+      <md-menu>
+        <md-button class="md-icon-button" md-menu-origin ng-click="$mdOpenMenu($event)" aria-label="Relationship Types">
+          <md-icon>filter_list</md-icon>
+          <md-tooltip>Filter Types</md-tooltip>
+        </md-button>
+        <md-menu-content>
+          <md-menu-item>
+            <md-button ng-click="vm.relnTypeFilter = []">
+              <md-icon md-menu-align-target>check_box{{vm.relnTypeFilter.length &gt; 0 ? '_outline_blank' : ''}}</md-icon>
+              All Relationships
+            </md-button>
+          </md-menu-item>
+          <md-divider></md-divider>
+          <md-menu-item ng-repeat="type in vm.relnTypes">
+            <md-button ng-click="vm.toggleRelnTypeFilter(type.id)" md-prevent-menu-close>
+              <md-icon md-menu-align-target>check_box{{vm.relnTypeFilter.indexOf(type.id) &lt; 0 ? '_outline_blank' : ''}}</md-icon>
+              {{type.title}}
+            </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+
+      <md-button class="md-icon-button" ng-click="vm.toggleSearchForm($event)">
+        <md-icon>search</md-icon>
+        <md-tooltip>{{vm.showSearchForm ? 'Hide' : 'Show'}} Search</md-tooltip>
+      </md-button>
+
+      <form name="search" class="search-form" layout="row" ng-style="{ width: vm.showSearchForm ? '20rem' : '0' }">
+        <input type="search" name="query" ng-model="searchQuery" ng-change="vm.highlightNodes()" flex>
+        <button class="clear" ng-click="vm.clearSearchForm()">
+          <md-icon>clear</md-icon>
+          <md-tooltip>Clear</md-tooltip>
+        </button>
+      </form>
+
+      <md-button class="md-icon-button" ng-click="vm.showHelp($event)" aria-label="Help">
+        <md-icon>help_outline</md-icon>
+        <md-tooltip>Help</md-tooltip>
+      </md-button>
+    </div>
+  </div>
+</md-toolbar>
+
+<md-sidenav md-component-id="right" class="md-sidenav-right" md-is-open="vm.activeNode" md-disable-backdrop md-whiteframe="4" layout="column">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="vm.activeNode = null">
+        <md-icon>close</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <div flex layout="column" layout-align="center center" ng-if="vm.sidebarLoading">
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+  </div>
+  <div ng-switch="vm.graphType" ng-if="!vm.sidebarLoading && vm.nodeData" layout="column" flex>
+    <person-info ng-switch-when="people" person="vm.nodeData" related="vm.related" activate="vm.activeNode = $node" layout="column" flex></person-info>
+    <work-info ng-switch-when="works" work="vm.nodeData" related="vm.related" activate="vm.activeNode = $node" layout="column" flex></work-info>
+  </div>
+</md-sidenav>
+
+<main layout="column" flex>
+  <concept-browser
+      flex
+      ng-if="vm.graph"
+      ng-model="vm.graph"
+      active-node="vm.activeNode"
+      size-metric="vm.sizeMetric.strategy"
+      select-mode="vm.selectMode.strategy"
+      highlighted-nodes="vm.highlightedNodes"
+      reln-types="vm.relnTypeFilter">
+  </concept-browser>
+  <div ng-if="!vm.graph && vm.graphLoading" flex layout="column" layout-align="center center" layout-padding>
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    <div class="text-center md-headline md-secondary">
+      Loading graph data&hellip;<br>
+      This may take a while.
+    </div>
+  </div>
+</main>

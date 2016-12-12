@@ -1,0 +1,70 @@
+<div layout="row">
+  <md-input-container flex>
+    <label>volume number</label>
+    <input type="text" ng-model="volume.volumeNumber" required></input>
+  </md-input-container>
+</div>
+
+<section class="publication" layout="column">
+  <h2>Publication Information</h2>
+  <publication-info-editor ng-model="volume.publicationInfo"></publication-info-editor>
+</section>
+
+<section class="titles" layout="column">
+  <h2 layout="row">
+    <span flex>Titles</span>
+    <md-button class="md-icon-button" ng-click="volume.titles.push({})">
+      <md-icon>add</md-icon>
+    </button>
+  </h2>
+  <div class="title" layout="row" ng-repeat="title in volume.titles">
+    <title-editor ng-model="title" flex></title-editor>
+    <md-input-container>
+      <md-button class="md-icon-button md-warn" ng-click="volume.titles.splice($index, 1)">
+        <md-icon>delete</md-icon>
+      </md-button>
+    </md-input-container>
+  </div>
+</section>
+
+<section class="authors" layout="column">
+  <h2 layout="row">
+    <span flex>Authors</span>
+    <md-button class="md-icon-button" ng-click="volume.authors.push({})">
+      <md-icon>add</md-icon>
+    </md-button>
+  </h2>
+  <div class="author" layout="row" ng-repeat="author in volume.authors">
+    <author-ref-editor ng-model="author" flex></author-ref-editor>
+    <md-input-container>
+      <md-button class="md-icon-button md-warn" ng-click="volume.authors.splice($index, 1)">
+        <md-icon>delete</md-icon>
+      </md-icon>
+    </md-input-container>
+  </div>
+</section>
+
+<section class="summary">
+  <h2>Summary</h2>
+  <summary-editor ng-model="volume.summary" flex></summary-editor>
+</section>
+
+<section class="copies">
+  <md-toolbar class="md-hue-3">
+    <div class="md-toolbar-tools">
+      <h2>Digital Copies</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="volume.copies.push({})">
+        <md-icon>add</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <div class="copy" layout="column" ng-repeat="copy in volume.copies">
+    <div layout="row">
+      <copy-editor ng-model="copy" flex></copy-editor>
+      <md-button class="md-icon-button md-warn" ng-click="volume.copies.splice($index, 1)">
+        <md-icon>delete</md-icon>
+      </md-button>
+    </div>
+  </div>
+</section>

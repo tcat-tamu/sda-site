@@ -1,0 +1,15 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <md-button ng-if="$ctrl.sidenavId" class="md-accent md-icon-button" ng-click="$ctrl.toggleSidenav($ctrl.sidenavId)" title="toggle menu" hide-gt-sm>
+      <md-icon>menu</md-icon>
+    </md-button>
+    <img class="logo" src="assets/images/sda-logo-light.png">
+    <h2>
+      <span>{{$ctrl.title}}</span> <!-- make this change based on page -->
+    </h2>
+    <span flex></span>
+    <md-button ui-sref="editor">People and Works</md-button>
+    <md-button ui-sref="article">Article</md-button>
+    <md-button ui-sref="task">Tasks</md-button>
+  </div>
+</md-toolbar>

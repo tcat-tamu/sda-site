@@ -1,0 +1,126 @@
+@import 'variables';
+
+$video-aspect-ratio: 9 / 16;
+
+.section--media {
+  .video {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    padding-bottom: $video-aspect-ratio * 100%;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  aside.bio {
+    background: $copper4;
+    color: $cream1;
+  }
+
+  .next-prev {
+    background-color: $cream1;
+
+    a {
+      padding: 1rem;
+      text-decoration: none;
+      font-size: 1.3rem;
+      color: $md-dark-overlay5;
+      opacity: 0.54;
+
+      transition: opacity 200ms;
+
+      &:hover, &:focus, &:active {
+        opacity: 1;
+      }
+
+      i {
+        color: $copper4;
+        font-size: 2rem;
+      }
+
+      span {
+        line-height: 1;
+      }
+
+      &.next {
+        border-left: 1px solid $md-dark-overlay3;
+      }
+
+      &.prev {
+        border-right: 1px solid $md-dark-overlay3;
+      }
+    }
+  }
+}
+
+.section--media-list {
+  max-width: 50rem;
+
+  .media-list-meta {
+    font-size: 1.1em;
+    padding: 1rem;
+    line-height: 1.3;
+
+    border-bottom: 2px solid $copper4;
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 0.5rem;
+    }
+
+    .series {
+      font-style: italic;
+      color: $md-dark-overlay4;
+    }
+  }
+
+  .media-list-content {
+    padding: 0 1rem;
+  }
+
+  ul.media-list {
+    padding: 1rem;
+    margin: 0;
+    list-style: none;
+
+    li {
+      a {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        padding: 1rem;
+        margin: 0 -1rem;
+
+        transition: background-color 200ms;
+
+        &:hover, &:focus, &:active {
+          background-color: $md-dark-overlay1;
+        }
+
+        .media-title {
+          font-size: 1.3rem;
+          margin: 0;
+          display: inline;
+        }
+
+        .media-duration {
+          color: $md-dark-overlay4;
+          margin-left: 1rem;
+        }
+
+        .media-speakers {
+          display: block;
+          font-size: 0.9rem;
+          opacity: 0.54;
+        }
+      }
+    }
+  }
+}

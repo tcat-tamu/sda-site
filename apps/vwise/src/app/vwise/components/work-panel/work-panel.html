@@ -1,0 +1,79 @@
+<div class="panel-work" flex layout="column">
+  <h1>
+    <span class="panel-label">
+      <span class="authors">
+        <span class="author" ng-repeat="author in work.authors">
+          {{author.lastName}}.
+        </span>
+      </span>
+      <span class="title">{{title.title}}<span ng-if="title.subtitle">: {{title.subtitle}}</span>.</span>
+    </span>
+  </h1>
+  <md-tabs flex>
+    <md-tab ng-if="work.summary">
+      <md-tab-label>
+        <md-icon>subject</md-icon>
+      </md-tab-label>
+      <md-tab-body>
+        <div class="summary" ng-bind-html="work.summary"></div>
+      </md-tab-body>
+    </md-tab>
+    <md-tab>
+      <md-tab-label>
+        <md-icon>link</md-icon>
+      </md-tab-label>
+      <md-tab-body>
+        <div ng-repeat="group in relationships">
+          <h3 style="margin-bottom: 0;">{{group.label}}</h3>
+          <md-list>
+            <div ng-repeat="relationship in group.relationships">
+              <md-list-item
+                  ng-repeat="item in relationship.anchors"
+                  jqyoui-draggable="{animate:false}"
+                  data-jqyoui-options="{revert:'invalid',helper:'clone',appendTo:'body'}"
+                  data-drag="true">
+                <div class="md-list-item-text" ng-bind-html="item.label"></div>
+              </md-list-item>
+            </div>
+          </md-list>
+        </div>
+      </md-tab-body>
+    </md-tab>
+    <md-tab ng-if="work.editions.length > 0">
+      <md-tab-label>
+        <md-icon>content_copy</md-icon>
+      </md-tab-label>
+      <md-tab-body>
+        <md-list>
+          <md-list-item
+              ng-repeat="item in work.editions"
+              jqyoui-draggable="{animate:false}"
+              data-jqyoui-options="{revert:'invalid',helper:'clone',appendTo:'body'}"
+              data-drag="true">
+            <div class="md-list-item-text">
+              {{item.editionName}} ({{item.publicationInfo.date.description}})
+            </div>
+          </md-list-item>
+        </md-list>
+      </md-tab-body>
+    </md-tab>
+    <md-tab ng-if="work.copies.length > 0">
+      <md-tab-label>
+        <md-icon>book</md-icon>
+      </md-tab-label>
+      <md-tab-body>
+        <md-list>
+          <md-list-item
+              ng-repeat="item in work.copies"
+              jqyoui-draggable="{animate:false}"
+              data-jqyoui-options="{revert:'invalid',helper:'clone',appendTo:'body'}"
+              data-drag="true">
+            <div class="md-list-item-text">
+              {{item.title}}
+            </div>
+          </md-list-item>
+        </md-list>
+      </md-tab-body>
+    </md-tab>
+  </md-tabs>
+</div>

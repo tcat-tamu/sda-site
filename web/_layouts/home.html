@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<head>
+  {% include meta-common.html %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.9/jquery.fullPage.min.css">
+  <link rel="stylesheet" href="{{ 'css/home.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ 'css/bootstrap.css' | relative_url }}">
+</head>
+<body>
+  {% include header.html %}
+
+  <main class="fullpage-scroll">
+
+    <div class="fullpage-scroll-section">
+      {% include home/billboard.html %}
+
+      <a href="" class="scroll-indicator">
+        <span class="label">scroll down</span>
+        <i class="material-icons">keyboard_arrow_down</i>
+      </a>
+    </div>
+
+    <div class="fullpage-scroll-section">
+      {% include home/sda-nav.html %}
+
+      <a href="" class="scroll-indicator">
+        <span class="label">scroll down</span>
+        <i class="material-icons">keyboard_arrow_down</i>
+      </a>
+    </div>
+
+    <div class="fullpage-scroll-section about-project">
+      <div class="fullpage-scroll-slide">
+        <div class="container">
+          <h1>Advisory Board</h1>
+          <div class="advisors">
+            {% for advisor in page.advisors %}
+              <div class="member">
+                <span class="name">{{ advisor.name }}</span>
+                <span class="position">{{ advisor.position }}</span>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <a href="" class="scroll-indicator">
+        <span class="label">scroll down</span>
+        <i class="material-icons">keyboard_arrow_down</i>
+      </a>
+    </div>
+
+    <!-- TODO this section's content could be generated from jekyll _posts -->
+    <div class="fullpage-scroll-section dark content-news">
+      <div class="container">
+        <aside>
+          <h2>Explore one of the most profound influences on ideas, culture, and civilisation.</h2>
+          <p>The Special Divine Action Project brings together enduring historical resources and contemporary scholarship to help you explore the full scope of this debate and reach your own conclusions.</p>
+        </aside>
+        <div class="content">
+          <h3>Recent News</h3>
+          <ol>
+            {% for news in page.recentNews %}
+              <li>
+                <a href="" class="title">{{ news.title }}</a>
+                <span class="description">{{ news.description }}</span>
+              </li>
+            {% endfor %}
+          </ol>
+        </div>
+      </div>
+
+      <a href="" class="scroll-indicator">
+        <span class="label">scroll down</span>
+        <i class="material-icons">keyboard_arrow_down</i>
+      </a>
+    </div>
+
+    <div class="fullpage-scroll-section site-footer">
+      {% include footer.html %}
+    </div>
+
+  </main>
+
+  {% for slide in page.billboard %}
+    {% if slide.banner.video %}
+      <div class="billboard-video modal fade" id="banner{{ forloop.index }}-video" tabindex="-1" role="dialog" aria-labelledby="banner{{ forloop.index }}-video-label">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 id="banner{{ forloop.index }}-video-label" class="modal-title">Video</h4>
+            </div>
+            <div class="video-container">
+              <iframe data-src="https://www.youtube.com/embed/{{ slide.banner.video }}?autoplay=1" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+  {% for module in page.modules %}
+    {% for section in module.sections %}
+      {% for column in section.panels %}
+        {% for panel in column %}
+          {% if panel.video %}
+            <div class="nav-video modal fade" id="{{ module.title | slugify }}-{{ section.title | slugify }}-{{ panel.title | slugify }}-video" tabindex="-1" role="dialog" aria-labelledby="{{ module.title | slugify }}-{{ section.title | slugify }}-{{ panel.title | slugify }}-video-label">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="{{ module.title | slugify }}-{{ section.title | slugify }}-{{ panel.title | slugify }}-video-label">{{ panel.title }}</h4>
+                  </div>
+                  <div class="video-container">
+                    <iframe data-src="https://www.youtube.com/embed/{{ panel.video }}?autoplay=1" frameborder="0" allowfullscreen></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    {% endfor %}
+  {% endfor %}
+
+  {% include scripts-common.html %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.9/jquery.fullPage.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.9/vendors/jquery.easings.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.9/vendors/jquery.slimscroll.min.js"></script>
+  <script src="{{ 'js/home.js' | relative_url }}"></script>
+  <script src="{{ 'js/bootstrap.js' | relative_url }}"></script>
+
+</body>
+</html>

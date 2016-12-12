@@ -1,0 +1,40 @@
+<div layout="column">
+  <div layout="row">
+
+    <md-autocomplete required
+        md-items="item in vm.authorRoles"
+        md-item-text="role"
+        md-min-length="0"
+        md-search-text="ref.role"
+        md-selected-item-change="ref.role = item"
+        md-floating-label="role">
+      <md-item-template>
+        <span md-highlight-text="ref.role">{{item}}</span>
+      </md-item-template>
+    </md-autocomplete>
+
+    <md-input-container flex>
+      <label>first name</label>
+      <input type="text" ng-model="ref.firstName">
+    </md-input-container>
+
+    <md-input-container flex>
+      <label>last name</label>
+      <input type="text" ng-model="ref.lastName">
+    </md-input-container>
+
+  </div>
+  <div layout="row">
+
+    <md-autocomplete flex
+        md-items="person in vm.getResults(vm.linkAuthorSearchText)"
+        md-item-text="person.label"
+        md-search-text="vm.linkAuthorSearchText"
+        md-search-text-change="vm.searchPeople(vm.linkAuthorSearchText)"
+        md-selected-item-change="vm.setLinkedAuthor(person)"
+        md-floating-label="linked author">
+      <span md-highlight-text="vm.linkAuthorSearchText">{{person.label}}</span>
+    </md-autocomplete>
+
+  </div>
+</div>

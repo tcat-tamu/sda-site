@@ -1,0 +1,33 @@
+<div layout="column">
+  <div layout="row">
+    <md-input-container flex="10">
+      <label>title</label>
+      <input type="text" ng-model="name.title">
+    </md-input-container>
+
+    <md-input-container flex="30">
+      <label>given</label>
+      <input type="text" ng-model="name.givenName">
+    </md-input-container>
+
+    <md-input-container flex="20">
+      <label>middle</label>
+      <input type="text" ng-model="name.middleName">
+    </md-input-container>
+
+    <md-input-container flex="30">
+      <label>family</label>
+      <input type="text" ng-model="name.familyName">
+    </md-input-container>
+
+    <md-input-container flex="10">
+      <label>suffix</label>
+      <input type="text" ng-model="name.suffix">
+    </md-input-container>
+  </div>
+
+  <md-input-container>
+    <label>display label</label>
+    <input type="text" ng-model="name.label" required>
+  </md-input-container>
+</div>

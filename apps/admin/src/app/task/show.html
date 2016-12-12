@@ -1,0 +1,28 @@
+<md-content flex layout="column">
+  <div class="task-info">
+    <span class="label">{{vm.task.label}}</span>
+    <span class="description">{{vm.task.description}}</span>
+  </div>
+  <md-input-container>
+    <label>Search</label>
+    <md-icon>search</md-icon>
+    <input type="search" ng-model="filter" ng-change="vm.search(filter)">
+  </md-input-container>
+  <md-content flex>
+    <div layout="row" layout-align="center center" ng-if="vm.loading">
+      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <div ng-repeat="stageId in vm.stageOrder" ng-if="vm.worklists[stageId]">
+      <md-subheader>{{vm.workflow.stages[stageId].label}}</md-subheader>
+      <md-list>
+        <md-list-item ng-repeat="item in vm.worklists[stageId].items | filter : filter | limitTo : 20" ng-mouseover="item.hover = true" ng-mouseout="item.hover = false" ng-click="vm.focusItem(item, $event)">
+          <span ng-bind-html="item.label"></span>
+          <span flex></span>
+          <md-button class="md-exclude" ng-repeat="transition in vm.workflow.stages[stageId].transitions" ng-click="vm.transition(item, transition, $event)" ng-show="item.hover">
+            <span>{{transition.label}}</span>
+          </md-button>
+        </md-list-item>
+      </md-list>
+    </div>
+  </md-content>
+</md-content>

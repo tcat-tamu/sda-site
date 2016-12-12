@@ -1,0 +1,355 @@
+@import 'theme/mixins';
+
+.billboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  position: relative;
+
+  .banners {
+    flex-grow: 1;
+    align-self: stretch;
+    position: relative;
+    background-color: #000;
+
+    .next, .prev {
+      color: #fff;
+      text-decoration: none;
+      position: absolute;
+      top: 50%;
+      margin-top: -1.5rem;
+      z-index: 2;
+      opacity: 0.3;
+      transition: 400ms;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0.5em;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &:active, &:focus {
+        outline: 0;
+      }
+
+      > i {
+        font-size: 3rem;
+        color: $md-light-overlay5;
+        background: $md-dark-overlay3;
+        border-radius: 3px;
+      }
+    }
+
+    .prev {
+      left: 0;
+      align-items: flex-start;
+    }
+
+    .next {
+      right: 0;
+      align-items: flex-end;
+    }
+
+    .banner {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 1;
+      opacity: 1;
+      transition: opacity linear 0.5s;
+
+      &.ng-hide {
+        opacity: 0;
+      }
+
+      @extend %clearfix;
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: cover;
+
+      .container {
+        position: relative;
+        flex-grow: 1;
+        width: 100%;
+
+        .content {
+          position: absolute;
+          color: $md-dark-overlay4;
+
+          @media all and (min-width: $screen-xs-min) {
+            max-width: 50%;
+          }
+
+          @media all and (min-width: $screen-md-min) {
+            max-width: 40%;
+          }
+
+          h2 {
+            color: $copper5;
+            font-size: 2.1em;
+            line-height: 1;
+            margin: 0;
+            @media all and (min-width: 40em) {
+              font-size: 2.4em;
+            }
+          }
+
+          p {
+            margin: 0.25em 0 0 0;
+            line-height: 1.4;
+            display: none;
+
+            @media all and (min-width: $screen-xs-min) {
+              display: block;
+            }
+          }
+
+          .play-icon {
+            margin-top: 1.5rem;
+
+            a {
+              display: block;
+              text-decoration: none;
+
+              &:active, &:focus, &:hover {
+                outline: 0;
+              }
+            }
+
+            i {
+              display: block;
+              font-size: 3em;
+            }
+          }
+
+          &.bottom {
+            bottom: 1rem;
+          }
+
+          &.top {
+            top: 2rem;
+          }
+
+          &.left {
+            left: 1rem;
+          }
+
+          &.right {
+            right: 1rem;
+          }
+
+          &.dark {
+            color: $md-light-overlay4;
+
+            .play-icon i {
+              color: $md-light-overlay4;
+            }
+          }
+
+          &.overlay {
+            padding: 1rem;
+            background-color: rgba(#fff, 0.75);
+          }
+
+          @media all and (min-width: 20em) {
+            font-size: 1.125em;
+          }
+
+          @media all and (min-width: 30em) {
+          }
+
+          @media all and (min-width: 40em) {
+            font-size: 1.25em;
+          }
+
+          @media all and (min-width: 50em) {
+          }
+
+          @media all and (min-width: 60em) {
+            font-size: 1.5em;
+          }
+
+          @media all and (min-width: 70em) {
+          }
+
+          @media all and (min-width: 80em) {
+            font-size: 1.75em;
+          }
+
+          @media all and (min-width: 90em) {
+          }
+
+          @media all and (min-width: 100em) {
+          }
+
+          /* Slide content is implemented using several different core templates.
+           * Each template provides slots for different textual elements and lays
+           * that text out appropriately to handle different page-widths. This is
+           * designed to accomodate different image types and content needs flexibly
+           * without requiring CSS to tailor the experience for each new slide.
+           */
+          /* A slide with a simple title and sub-title approximately 2/3 down the image.
+           * This template provide for two main content elements
+           *  - title:    Typically 2 to 5 words, large font
+           *  - subtitle  Smaller font, about 80-120 characters. May be manually split
+           *              over two or three lines.
+           *
+           * Class: basic-title
+           * Variants
+           *  - .right    Display the text on the right-hand edge of the slide
+           *  - .textbg   Add a background shading under the text to improve legibility
+           */
+          &.basic-title {
+            p.subtitle {
+              @extend %AvenirLTStd-Roman;
+              font-size: 0.9em;
+              margin: 1em 0 0;
+
+              p.subtitle {
+                display: none;
+              }
+            }
+
+            &.textbg {
+              background-color: rgba($darkBrown, .5);
+            }
+
+          }
+
+          &.upper-box {
+            top: 1rem;
+            left: 1rem;
+            bottom: auto;
+            padding: 5% 1rem 1em;
+            display: inline-block;
+
+            h2 {
+              font-size: 1.5em;
+            }
+
+            h3 {
+              color: inherit;
+              font-size: 1.1em;
+              margin-left: 1em;
+              margin-top: 0.25em;
+              margin-bottom: 1em;
+            }
+
+            p.blurb {
+              @extend %AvenirLTStd-Roman;
+              font-size: 0.8em;
+              margin: 0.5em 0 0;
+              padding-right: 3em;
+            }
+
+            &.right {
+              right: 1rem;
+              left: auto;
+              text-align: left;
+            }
+
+            &.textbg {
+              background-color: rgba($darkBrown, .35);
+
+              &-copper {
+                background-color: rgba($lightBrown, .50);
+              }
+            }
+
+            @media all and (min-width: 20em) {
+              max-width: 80%;
+              font-size: 1.125em;
+              padding-top: 7.5%;
+            }
+
+            @media all and (min-width: 30em) {
+              //  max-width: 70%;
+              padding-top: 2rem;
+
+              p.blurb {
+                display: block;
+              }
+            }
+
+            @media all and (min-width: 40em) {
+              // max-width: 60%;
+              font-size: 1.25em;
+            }
+
+            @media all and (min-width: 50em) {
+              // max-width: 57.5%;
+            }
+
+            @media all and (min-width: 60em) {
+              //max-width: 55%;
+              font-size: 1.5em;
+            }
+
+            @media all and (min-width: 70em) {
+              //max-width: 52.5%;
+            }
+
+            @media all and (min-width: 80em) {
+              // max-width: 50%;
+              font-size: 1.75em;
+            }
+
+            @media all and (min-width: 90em) {
+              //max-width: 47.5%;
+            }
+
+            @media all and (min-width: 100em) {
+              //max-width: 45%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .control-nav {
+    position: absolute;
+    bottom: 1rem;
+    z-index: 1;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      padding: 0.25rem;
+
+      a {
+        display: block;
+        height: 0.5rem;
+        width: 0.5rem;
+        line-height: 0;
+        text-indent: -9999px;
+        border-radius: 50%;
+        border: 1px solid $md-light-overlay5;
+        cursor: pointer;
+
+        transition: background-color 300ms;
+
+        box-shadow: 0 0 0.5rem #000;
+        background: $md-dark-overlay3;
+
+        &:focus, &:hover {
+          background-color: $md-light-overlay3;
+        }
+
+        &.active {
+          background-color: $md-light-overlay5;
+        }
+      }
+    }
+  }
+}

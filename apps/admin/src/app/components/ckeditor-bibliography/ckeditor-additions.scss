@@ -1,0 +1,83 @@
+@keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    visibility: hidden;
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes fadeOut {
+  from {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.cke a.cke_button > .cke_button_icon {
+  &.cke_button__citation_icon {
+    background-image: url(../assets/images/ckeditor/cite.png);
+  }
+}
+
+$animation-time: .3s;
+$min-height: 300px;
+
+.citation-editor-layout {
+  position: relative;
+  min-height: $min-height;
+  overflow: hidden;
+
+  .citation-editor-container {
+    &.ng-show, &.ng-hide {
+      position: absolute;
+      left: 0;
+      right: 0;
+      min-height: $min-height;
+    }
+
+    &.ng-hide-remove {
+      animation: fadeIn $animation-time;
+    }
+
+    &.ng-hide {
+      animation: fadeOut $animation-time;
+    }
+  }
+
+  .zotero-item-editor-container {
+    background: #fff;
+    min-height: 300px;
+
+    &.ng-enter, &.ng-leave {
+      position: absolute;
+      left: 0;
+      right: 0;
+      min-height: $min-height;
+    }
+
+    &.ng-enter {
+      animation: slideInRight $animation-time;
+    }
+
+    &.ng-leave {
+      animation: slideOutRight $animation-time;
+    }
+  }
+}

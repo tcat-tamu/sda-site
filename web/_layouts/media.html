@@ -1,0 +1,45 @@
+---
+layout: base
+---
+<main class="section--media flex layout-row layout-align-center">
+  <div class="container flex layout-column">
+    {% if page.video %}
+      <div class="video">
+        <iframe src="{{ 'https://youtube.com/embed/' | append: page.video }}" frameborder="0" allowfullscreen></iframe>
+      </div>
+    {% endif %}
+    <div class="flex layout-row">
+      <div class="content flex-66 layout-column">
+        <div class="flex-none layout-row next-prev">
+          {% if page.previous %}
+            <a href="{{ page.previous.url }}" class="prev layout-row layout-align-center-center">
+              <i class="material-icons">navigate_before</i>
+              <span>previous</span>
+            </a>
+          {% endif %}
+          <span class="flex"></span>
+          {% if page.next %}
+            <a href="{{ page.next.url }}" class="next layout-row layout-align-center-center">
+              <span>next</span>
+              <i class="material-icons">navigate_next</i>
+            </a>
+          {% endif %}
+        </div>
+        {% if content %}
+          <div class="flex-noshrink layout-padding">
+            <div>{{ content }}</div>
+          </div>
+        {% endif %}
+      </div>
+      {% if page.bio %}
+      <aside class="bio content flex-33 layout-column layout-padding">
+        <div class="content flex layout-column layout-padding">
+          {% for bio in page.bio %}
+            {% include {{ bio }} %}
+          {% endfor %}
+        </div>
+      </aside>
+      {% endif %}
+    </div>
+  </div>
+</main>
