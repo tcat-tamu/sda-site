@@ -23,6 +23,41 @@ $video-aspect-ratio: 9 / 16;
     background: $copper4;
     color: $cream1;
   }
+
+  .next-prev {
+    background-color: $cream1;
+
+    a {
+      padding: 1rem;
+      text-decoration: none;
+      font-size: 1.3rem;
+      color: $md-dark-overlay5;
+      opacity: 0.54;
+
+      transition: opacity 200ms;
+
+      &:hover, &:focus, &:active {
+        opacity: 1;
+      }
+
+      i {
+        color: $copper4;
+        font-size: 2rem;
+      }
+
+      span {
+        line-height: 1;
+      }
+
+      &.next {
+        border-left: 1px solid $md-dark-overlay3;
+      }
+
+      &.prev {
+        border-right: 1px solid $md-dark-overlay3;
+      }
+    }
+  }
 }
 
 .section--media-list {
