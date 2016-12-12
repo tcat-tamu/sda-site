@@ -160,5 +160,14 @@ ol,ul {
   }
 }
 
+// CSL-rendered bibliography
+.csl-bib-body {
+  .csl-entry {
+    text-indent: -1rem;
+    padding-left: 1rem;
+    margin: 0.75rem 0;
+  }
+}
+
 // injector
 // endinjector
