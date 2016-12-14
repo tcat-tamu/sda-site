@@ -14,7 +14,9 @@
                   relnRepoProvider,
                   categorizationServiceProvider,
                   seeAlsoRepoProvider,
-                  trcSearchProvider) {
+                  trcSearchProvider,
+                  trcAuthProvider,
+                  trcAuthInterceptorProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
@@ -29,6 +31,12 @@
     categorizationServiceProvider.url = API_PREFIX + '/categorizations';
     seeAlsoRepoProvider.url = API_PREFIX + '/seealso';
     trcSearchProvider.url = API_PREFIX + '/search';
+
+    // authentication
+    trcAuthProvider.loginUrl = API_PREFIX + '/accounts/auth';
+    trcAuthProvider.loginGuestUrl = API_PREFIX + '/accounts/authguest';
+    trcAuthInterceptorProvider.url = new RegExp('^' + API_PREFIX, 'i');
+    $httpProvider.interceptors.push('trcAuthInterceptor');
   }
 
 })();
