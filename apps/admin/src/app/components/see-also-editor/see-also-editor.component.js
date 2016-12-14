@@ -45,6 +45,10 @@
      * @param {Anchor} anchor
      */
     function createLink(anchor) {
+      if (!anchor) {
+        return;
+      }
+
       if (alreadyLinked(anchor)) {
         sdaToast.info('Item has already been linked.');
         clearLinkForm();
