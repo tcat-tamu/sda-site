@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController(worksRepo, peopleRepo, $state, $stateParams, $mdSidenav, _, $q, $mdDialog, sdaToast) {
+  function MainController(worksRepo, peopleRepo, $state, $stateParams, $mdSidenav, _, $q, personEditDialog, workEditDialog, sdaToast) {
     var vm = this;
 
     vm.loading = false;
@@ -48,17 +48,8 @@
     }
 
     function createPerson($event) {
-      var dialog = {
-        targetEvent: $event,
-        templateUrl: 'app/person/person-edit-dialog.html',
-        locals: {
-          person: peopleRepo.create()
-        },
-        controller: 'PersonEditDialogController',
-        controllerAs: 'vm'
-      };
-
-      var dialogPromise = $mdDialog.show(dialog);
+      var person = peopleRepo.create();
+      var dialogPromise = personEditDialog.show($event, person)
 
       dialogPromise.then(function (person) {
         var savePromise = peopleRepo.save(person);
@@ -75,17 +66,8 @@
     }
 
     function createWork($event) {
-      var dialog = {
-        targetEvent: $event,
-        templateUrl: 'app/work/work-edit-dialog.html',
-        locals: {
-          work: worksRepo.createWork()
-        },
-        controller: 'WorkEditDialogController',
-        controllerAs: 'vm'
-      };
-
-      var dialogPromise = $mdDialog.show(dialog);
+      var work = worksRepo.createWork();
+      var dialogPromise = workEditDialog.show($event, work);
 
       dialogPromise.then(function (work) {
         var savePromise = worksRepo.saveWork(work);
