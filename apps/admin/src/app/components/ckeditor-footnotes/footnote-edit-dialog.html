@@ -13,9 +13,9 @@
   </md-toolbar>
   <div ng-if="vm.references"
       ng-model="vm.footnote.content"
-      ckeditor
+      ckeditor=vm.ckeditorConfig
       ckeditor-bibliography="vm.references"></div>
   <div ng-if="!vm.references"
       ng-model="vm.footnote.content"
-      ckeditor></div>
-</md-dialog>
+      ckeditor=vm.ckeditorConfig></div>
+</md-bottom-sheet>

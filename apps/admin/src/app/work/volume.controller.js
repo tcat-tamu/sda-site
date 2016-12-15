@@ -6,7 +6,7 @@
     .controller('ShowVolumeController', ShowVolumeController);
 
   /** @ngInject */
-  function ShowVolumeController($stateParams, worksRepo, relnRepo, $mdDialog, $mdToast, $q, volumeEditDialog, copyEditDialog, summaryEditDialog) {
+  function ShowVolumeController($stateParams, worksRepo, relnRepo, $mdDialog, sdaToast, $q, volumeEditDialog, copyEditDialog, summaryEditDialog) {
     var vm = this;
 
     vm.loading = true;
@@ -26,30 +26,43 @@
     activate();
 
     function activate() {
+
       var workId = $stateParams.workId
-      var editionId = $stateParams.editionId;
-      var volumeId = $stateParams.volumeId;
-
       vm.work = worksRepo.getWork(workId);
+      var workPromise = vm.work.$promise;
+      workPromise
+        .then(extractTitle(['short', 'canonical', 'bibliographic']))
+        .then(function (title) { vm.workTitle = title; });
+
+      var editionId = $stateParams.editionId;
       vm.edition = worksRepo.getEdition(workId, editionId);
+      var editionPromise = vm.edition.$promise;
+
+      var volumeId = $stateParams.volumeId;
       vm.volume = worksRepo.getVolume(workId, editionId, volumeId);
+      var volumePromise = vm.volume.$promise;
+      volumePromise
+        .then(extractTitle(['canonical', 'bibliographic', 'short']))
+        .then(function (title) { vm.title = title; });
 
-      vm.work.$promise.then(function () {
-        vm.workTitle = worksRepo.getTitle(vm.work.titles, ['short', 'canonical', 'bibliographic']);
-      });
-
-      vm.volume.$promise.then(function () {
-        vm.title = worksRepo.getTitle(vm.volume.titles, ['canonical', 'bibliographic', 'short']);
-      });
-
-      $q.all([vm.work.$promise, vm.edition.$promise, vm.volume.$promise]).then(function () {
-        vm.loading = false;
-
-        vm.anchor = relnRepo.createAnchor(worksRepo.getVolumeLabel(vm.volume, vm.edition.editionName), vm.work.ref.token, {
-          editionId: [vm.edition.id],
-          volumeId: [vm.volume.id]
+      $q.all([workPromise, editionPromise, volumePromise])
+        .then(function () {
+          vm.anchor = relnRepo.createAnchor(worksRepo.getVolumeLabel(vm.volume, vm.edition.editionName), vm.work.ref.token, {
+            editionId: [vm.edition.id],
+            volumeId: [vm.volume.id]
+          });
+        }, function () {
+          sdaToast.error('Unable to load bibliographic entry data from server.');
+        })
+        .then(function () {
+          vm.loading = false;
         });
-      });
+    }
+
+    function extractTitle(preference) {
+      return function (biblioObject) {
+        return worksRepo.getTitle(biblioObject.titles, preference);
+      };
     }
 
     function editBibInfo($event) {
@@ -59,7 +72,7 @@
         // copy updates back to original only after dialog is positively dismissed (i.e. not canceled)
         angular.extend(vm.volume, updatedVolume);
 
-        worksRepo.saveVolume(vm.work.id, vm.edition.id, vm.volume).then(showSavedToast);
+        worksRepo.saveVolume(vm.work.id, vm.edition.id, vm.volume).then(showSavedToast, showErrorToast);
       });
 
       return dialogPromise;
@@ -72,7 +85,7 @@
         // copy updates back to original only after dialog is positively dismissed (i.e. not canceled)
         vm.volume.summary = updatedSummary;
 
-        worksRepo.saveVolume(vm.work.id, vm.edition.id, vm.volume).then(showSavedToast);
+        worksRepo.saveVolume(vm.work.id, vm.edition.id, vm.volume).then(showSavedToast, showErrorToast);
       });
     }
 
@@ -89,7 +102,7 @@
         // copy updates back to original only after dialog is positively dismised (i.e. not canceled)
         angular.extend(copy, updatedCopy);
 
-        worksRepo.saveVolume(vm.work.id, vm.edition.id, vm.volume).then(showSavedToast);
+        worksRepo.saveVolume(vm.work.id, vm.edition.id, vm.volume).then(showSavedToast, showErrorToast);
       });
 
       return dialogPromise;
@@ -108,7 +121,7 @@
           var ix = vm.volume.copies.indexOf(copy);
           if (ix >= 0) {
             vm.volume.copies.splice(ix, 1);
-            worksRepo.saveVolume(vm.work.id, vm.edition.id, vm.volume).then(showSavedToast);
+            worksRepo.saveVolume(vm.work.id, vm.edition.id, vm.volume).then(showSavedToast, showErrorToast);
           }
         });
     }
@@ -122,15 +135,15 @@
       edition.$promise.then(function () {
         edition.copies.push(newCopy);
         return worksRepo.saveEdition(vm.work.id, edition);
-      }).then(showSavedToast);
+      }).then(showSavedToast, showErrorToast);
     }
 
     function showSavedToast() {
-      var toast = $mdToast.simple()
-        .textContent('Saved')
-        .position('bottom right');
+      return sdaToast.success('Saved');
+    }
 
-      return $mdToast.show(toast);
+    function showErrorToast() {
+      return sdaToast.error('Unable to save data.');
     }
   }
 

@@ -37,3 +37,29 @@ cd web
 bundle install
 bundle exec jekyll build
 cd ..
+
+# resize and optimize images with mogrify if available
+if [ -x "$(which mogrify)" ]; then
+  cd web/_site/assets/images
+
+  MFLAGS=( -strip -interlace Plane -sampling-factor 4:2:0 -quality 75% )
+
+  echo "mogrify-ing images..."
+  echo "(ignore any 'No such file or directory' errors)"
+  mogrify $MFLAGS -resize 1200 banners{,/**}/*.{jpg,png}
+  mogrify $MFLAGS -resize 600 nav-tiles{,/**}/*.{jpg,png}
+
+  cd ../../../..
+fi
+
+# optimize pngs with optipng if available
+if [ -x "$(which optipng)" ]; then
+  cd web/_site/assets/images
+
+  OPFLAGS=( -o7 -zm1-9 -fix )
+
+  echo "optipng-ing images..."
+  optipng $OPFLAGS **/*.png
+
+  cd ../../../..
+fi

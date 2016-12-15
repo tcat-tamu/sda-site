@@ -4,9 +4,8 @@
       <h1 class="article-title md-display-1">{{vm.article.title}}</h1>
       <p class="author-info" ng-if="vm.article.authors && vm.article.authors.length > 0">
         by
-        <span class="author" ng-repeat="author in vm.article.authors">
-          <a ng-if="author.contact.email" href="mailto:{{author.contact.email}}">{{author.name}}</a>
-          <span ng-if="!author.contact.email">{{author.name}}</span>
+        <span ng-repeat="author in vm.article.authors">
+          <article-author author="author"></article-author>{{ $last ? '' : '; ' }}
         </span>
       </p>
     </div>

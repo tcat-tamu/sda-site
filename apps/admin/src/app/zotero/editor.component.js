@@ -13,7 +13,7 @@
     });
 
   /** @ngInject */
-  function ZoteroEditorController(zotero) {
+  function ZoteroEditorController($q, sdaToast, zotero) {
     var vm = this;
 
     vm.itemTypeSearchText = '';
@@ -34,6 +34,8 @@
               return vm.typeFilter.indexOf(field.id) >= 0;
             })
           : types;
+      }, function () {
+        sdaToast.error('Unable to load item type info');
       });
 
       if (!vm.item.creators) {
@@ -55,12 +57,18 @@
 
       vm.item.itemType = itemType.id;
 
-      itemType.getFields().then(function (fields) {
+      var fieldsP = itemType.getFields()
+      fieldsP.then(function (fields) {
         vm.fields = fields;
       });
 
-      itemType.getCreatorRoles().then(function (roles) {
+      var creatorRolesP = itemType.getCreatorRoles();
+      creatorRolesP.then(function (roles) {
         vm.roles = roles;
+      });
+
+      $q.all([fieldsP, creatorRolesP]).catch(function () {
+        sdaToast.error('Unable to load data for the "' + itemType.label + '" type.');
       });
     }
   }

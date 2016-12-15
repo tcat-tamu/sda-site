@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController(worksRepo, peopleRepo, $state, $stateParams, $mdSidenav, _, $q, $mdDialog, $mdToast) {
+  function MainController(worksRepo, peopleRepo, $state, $stateParams, $mdSidenav, _, $q, personEditDialog, workEditDialog, sdaToast) {
     var vm = this;
 
     vm.loading = false;
@@ -42,67 +42,52 @@
       ])
         .then(function () {
           vm.loading = false;
+        }, function () {
+          sdaToast.error('Unable to load data from the server');
         });
     }
 
-    function createArticle($event) {
-
-    }
-    
     function createPerson($event) {
-      var dialog = {
-        targetEvent: $event,
-        templateUrl: 'app/person/person-edit-dialog.html',
-        locals: {
-          person: peopleRepo.create()
-        },
-        controller: 'PersonEditDialogController',
-        controllerAs: 'vm'
-      };
+      var person = peopleRepo.create();
+      var dialogPromise = personEditDialog.show($event, person)
 
-      var dialogPromise = $mdDialog.show(dialog);
+      dialogPromise.then(function (person) {
+        var savePromise = peopleRepo.save(person);
 
-      var savePromise = dialogPromise.then(function (person) {
-        return peopleRepo.save(person);
+        savePromise.then(showSavedToast, showErrorToast);
+
+        savePromise.then(function (person) {
+          $state.go('editor.person', { id: person.id });
+        });
+
+        return savePromise;
       });
 
-      savePromise.then(showSavedToast);
-
-      savePromise.then(function (person) {
-        $state.go('editor.person', { id: person.id });
-      });
     }
 
     function createWork($event) {
-      var dialog = {
-        targetEvent: $event,
-        templateUrl: 'app/work/work-edit-dialog.html',
-        locals: {
-          work: worksRepo.createWork()
-        },
-        controller: 'WorkEditDialogController',
-        controllerAs: 'vm'
-      };
+      var work = worksRepo.createWork();
+      var dialogPromise = workEditDialog.show($event, work);
 
-      var dialogPromise = $mdDialog.show(dialog);
+      dialogPromise.then(function (work) {
+        var savePromise = worksRepo.saveWork(work);
 
-      var savePromise = dialogPromise.then(function (work) {
-        return worksRepo.saveWork(work);
-      });
+        savePromise.then(showSavedToast, showErrorToast);
 
-      savePromise.then(showSavedToast);
+        savePromise.then(function (work) {
+          $state.go('editor.work', { workId: work.id });
+        });
 
-      savePromise.then(function (work) {
-        $state.go('editor.work', { workId: work.id });
+        return savePromise;
       });
     }
 
     function showSavedToast() {
-      var toast = $mdToast.simple()
-        .textContent('Saved')
-        .position('bottom right');
+      return sdaToast.success('Saved.');
+    }
 
-      return $mdToast.show(toast);
+    function showErrorToast() {
+      return sdaToast.error('Unable to save.')
     }
   }
 })();

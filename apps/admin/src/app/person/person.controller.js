@@ -6,7 +6,7 @@
     .controller('ShowPersonController', ShowPersonController);
 
   /** @ngInject */
-  function ShowPersonController(peopleRepo, refsRepoFactory, articlesRepo, $log, $state, $stateParams, $mdDialog, $mdToast, _, personEditDialog, eventEditDialog, citationEditDialog, summaryEditDialog) {
+  function ShowPersonController(peopleRepo, refsRepoFactory, articlesRepo, $log, $state, $stateParams, $mdDialog, sdaToast, _, personEditDialog, eventEditDialog, citationEditDialog, summaryEditDialog) {
     var refsRepo = null;
     var vm = this;
 
@@ -53,7 +53,9 @@
         // copy updates back to original only after dialog is positively dismissed (i.e. not canceled)
         angular.extend(vm.person, updatedPerson);
 
-        peopleRepo.save(vm.person).then(showSavedToast);
+        var savePromise = peopleRepo.save(vm.person);
+        savePromise.then(showSavedToast, showErrorToast);
+        return savePromise;
       });
     }
 
@@ -64,7 +66,9 @@
         // copy updates back to original only after dialog is positively dismissed (i.e. not canceled)
         angular.extend(vm.person[field], updatedEvent);
 
-        peopleRepo.save(vm.person).then(showSavedToast);
+        var savePromise = peopleRepo.save(vm.person);
+        savePromise.then(showSavedToast, showErrorToast);
+        return savePromise;
       });
     }
 
@@ -75,13 +79,17 @@
         // copy updates back to original only after dialog is positively dismissed (i.e. not canceled)
         vm.person.summary = updatedSummary;
 
-        peopleRepo.save(vm.person).then(showSavedToast);
+        var savePromise = peopleRepo.save(vm.person);
+        savePromise.then(showSavedToast, showErrorToast);
+        return savePromise;
       });
     }
 
     function editBibliography($event) {
       citationEditDialog.show(vm.references, null, $event).then(function () {
-        refsRepo.save(vm.references).then(showSavedToast);
+        var savePromise = refsRepo.save(vm.references);
+        savePromise.then(showSavedToast, showErrorToast);
+        return savePromise;
       });
     }
 
@@ -104,22 +112,12 @@
       });
 
       function showSuccessToast() {
-        var message = nameLabel + ' has been deleted.';
-        var toast = $mdToast.simple()
-          .textContent(message)
-          .position('bottom right');
-
         $state.go('editor');
-
-        return $mdToast.show(toast);
+        return sdaToast.success(nameLabel + ' has been deleted.');
       }
 
       function showErrorToast() {
-        var toast = $mdToast.simple()
-          .textContent('Unable to delete ' + nameLabel)
-          .position('bottom right');
-
-        return $mdToast.show(toast);
+        return sdaToast.error('Unable to delete ' + nameLabel);
       }
     }
 
@@ -145,21 +143,17 @@
             id: article.id
           });
         }, function () {
-          var toast = $mdToast.simple()
-          .textContent('Unable to create article.')
-          .position('bottom right');
-
-          return $mdToast.show(toast);
+          return sdaToast.error('Unable to create article.');
         });
       });
     }
 
     function showSavedToast() {
-      var toast = $mdToast.simple()
-        .textContent('Saved')
-        .position('bottom right');
+      return sdaToast.success('Saved');
+    }
 
-      return $mdToast.show(toast);
+    function showErrorToast() {
+      return sdaToast.error('Unable to save data.');
     }
   }
 

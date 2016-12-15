@@ -30,7 +30,7 @@
     });
 
   /** @ngInject */
-  function CitationEditorController($filter, $q, $log, $mdDialog, zotero, _, refsRepoFactory, refsRenderer) {
+  function CitationEditorController($filter, $q, $log, $mdDialog, zotero, _, sdaToast, refsRepoFactory, refsRenderer) {
     var vm = this;
 
     // referenced item autocomplete models
@@ -90,9 +90,16 @@
         // library.searchItems returns a native Promise.
         // we wrap that in a $q promise for consistency
         var resultsP = $q.when(library.searchItems(query))
-        return resultsP.then(function (items) {
+
+        var adaptedResultsP = resultsP.then(function (items) {
           return $q.all(items.map(adaptItem).map(wrapItem));
         });
+
+        adaptedResultsP.catch(function () {
+          sdaToast.error('Unable to load search results.');
+        });
+
+        return adaptedResultsP;
       });
     }
 
@@ -147,7 +154,7 @@
      * @return {Promise.<ItemContainer>}
      */
     function wrapItem(item) {
-      var labelP = refsRenderer.renderBiblioItem('modern-language-association', item);
+      var labelP = refsRenderer.renderBiblioItem('mla', item);
 
       return labelP.then(function (label) {
         return {
@@ -232,7 +239,7 @@
       reference.citations[citation.id] = citation;
       reference.bibliography[citationItem.id] = biblioItem;
 
-      var renderedP = refsRenderer.render('modern-language-association', reference);
+      var renderedP = refsRenderer.render('mla', reference);
 
       return renderedP.then(function (rendered) {
         return rendered.citations[citation.id];
@@ -263,6 +270,8 @@
         selectBiblioItem(item);
         vm.searchText = stripTags(item.label);
         vm.zoteroItem = null;
+      }, function () {
+        sdaToast.error('Unable to save zotero data');
       });
     }
   }

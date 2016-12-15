@@ -60,7 +60,7 @@
           var updatedReferences = refsRepoFactory.merge(ctrl.value, refsRepoFactory.compact(newReference));
           angular.merge(ctrl.value, updatedReferences);
 
-          refsRenderer.render('modern-language-association', newReference).then(function (rendered) {
+          refsRenderer.render('mla', newReference).then(function (rendered) {
             var label = rendered.citations[citation.id];
             editor.insertHtml('<cite id="' + citation.id + '" contenteditable="false">' + label + '</cite>')
             done();

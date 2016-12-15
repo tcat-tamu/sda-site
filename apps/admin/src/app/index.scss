@@ -87,6 +87,20 @@ md-fab-speed-dial.md-fab-straddle {
   }
 }
 
+md-toast {
+  &.sda-toast-error {
+    .md-toast-content {
+      background: $red-500;
+    }
+  }
+}
+
+md-input-container {
+  &.no-space .md-errors-spacer:empty {
+    display: none;
+  }
+}
+
 ol,ul {
   &.breadcrumbs {
     margin: 0;
@@ -143,6 +157,15 @@ ol,ul {
     text-indent: -1rem;
     padding-left: 1rem;
     margin: 1rem 0;
+  }
+}
+
+// CSL-rendered bibliography
+.csl-bib-body {
+  .csl-entry {
+    text-indent: -1rem;
+    padding-left: 1rem;
+    margin: 0.75rem 0;
   }
 }
 

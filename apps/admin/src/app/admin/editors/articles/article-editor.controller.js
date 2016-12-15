@@ -6,6 +6,7 @@
     .controller('ArticleEditorController', ArticleEditorController);
 
   var CKEDITOR_CONFIG = {
+    /*
     toolbarGroups: [
       { name: 'styles', groups: [ 'styles' ] },
       { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
@@ -20,6 +21,19 @@
       { name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
       { name: 'others', groups: [ 'others' ] },
     ],
+    */
+
+    toolbar: [
+      { name: 'styles', items: [ 'Styles', 'Format' ] },
+      { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'Subscript', 'Superscript', '-', 'RemoveFormat' ] },
+      { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] },
+      { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+      { name: 'insert', items: [ 'Citation', 'Footnote', '-', 'Image', 'Table', 'HorizontalRule', 'SpecialChar', 'Mathjax' ] },
+      { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
+      { name: 'editing', items: [ 'Scayt' ] },
+      { name: 'tools', items: [ 'Maximize' ] },
+      { name: 'document', items: [ 'Source' ] }
+    ],
 
     // See http://docs.ckeditor.com/#!/api/CKEDITOR.config-cfg-format_tags
     format_tags: 'p;h1;h2;h3;h4;h5;h6;pre;address',
@@ -30,15 +44,13 @@
   };
 
   /** @ngInject */
-  function ArticleEditorController($q, $log, $stateParams, $scope, $mdBottomSheet, articlesRepo, refsRepoFactory) {
+  function ArticleEditorController($q, $log, $stateParams, $scope, footnoteEditDialog, sdaToast, articlesRepo, refsRepoFactory) {
     var refsRepoUrl = articlesRepo.getReferencesEndpoint($stateParams.id);
     var refsRepo = refsRepoFactory.getRepo(refsRepoUrl);
 
     var vm = this;
 
     vm.save = save;
-    vm.cancel = cancel;
-    vm.body = "test";
 
     vm.abstractEditor = {
       config: angular.extend({}, CKEDITOR_CONFIG, {
@@ -52,6 +64,23 @@
           'HorizontalRule',
           'Maximize',
           'Source'
+        ].join(',')
+      })
+    };
+
+    vm.footnoteEditor = {
+      config: angular.extend({}, CKEDITOR_CONFIG, {
+        removeButtons: [
+          'Styles',
+          'Format',
+          'Subscript',
+          'Superscript',
+          'Cut',
+          'Copy',
+          'Footnote',
+          'HorizontalRule',
+          'Maximize',
+          'Source',
         ].join(',')
       })
     };
@@ -77,12 +106,23 @@
       $log.info("Loading article editor", articlesRepo)
 
       vm.article = articlesRepo.get($stateParams.id);
-      vm.references = refsRepo.get();
+      var articlePromise = vm.article.$promise;
+      articlePromise.then(function (article) {
+        // ensure article has at least 1 author
+        if (article.authors.length === 0) {
+          article.authors.push({});
+        }
+      });
 
-      $q.all([vm.article.$promise, vm.references.$promise]).then(function () {
+      vm.references = refsRepo.get();
+      var refsPromise = vm.references.$promise;
+
+      $q.all([articlePromise, refsPromise]).then(function () {
         // start watching for opportunities to remove unused citations and footnotes
         $scope.$watch('vm.article.body', cleanArticleHandler);
         $scope.$watchCollection('vm.article.footnotes', cleanRefsHandler);
+      }, function () {
+        return sdaToast.error('Failed to load data from the server');
       });
 
       /* initialization logic here */
@@ -92,12 +132,14 @@
      * API METHODS
      * ================================ */
      function save() {
-        articlesRepo.save(vm.article);
-        refsRepo.save(vm.references);
-     }
-
-     function cancel() {
-       alert('cancel');
+       return $q.all([
+         articlesRepo.save(vm.article),
+         refsRepo.save(vm.references)
+       ]).then(function () {
+         sdaToast.success('Saved');
+       }, function () {
+         sdaToast.error('Unable to save article.');
+       });
      }
 
      /**
@@ -110,18 +152,10 @@
        var newFootnote = angular.copy(footnote);
        var newReferences = refsRepoFactory.createRefCollection();
 
-       var config = {
-         templateUrl: 'app/components/ckeditor-footnotes/footnote-edit-dialog.html',
-         controller: 'FootnoteEditDialogController',
-         controllerAs: 'vm',
-         clickOutsideToClose: false,
-         locals: {
-           footnote: newFootnote,
-           references: newReferences
-         }
-       };
-
-       var promise = $mdBottomSheet.show(config);
+       var promise = footnoteEditDialog.show($event, newFootnote, {
+         references: newReferences,
+         ckeditor: vm.footnoteEditor
+       });
 
        promise.then(function () {
          vm.article.footnotes[newFootnote.id] = newFootnote;

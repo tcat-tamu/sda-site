@@ -21,7 +21,7 @@
   var UNIFIED_SEARCH_KEYS = ['people', 'works', 'articles'];
 
   /** @ngInject */
-  function SeeAlsoEditorController($scope, $state, $mdDialog, $mdToast, _, seeAlsoRepo, trcSearch) {
+  function SeeAlsoEditorController($scope, $state, $mdDialog, sdaToast, _, seeAlsoRepo, trcSearch) {
     var vm = this;
 
     vm.loading = false;
@@ -45,8 +45,12 @@
      * @param {Anchor} anchor
      */
     function createLink(anchor) {
+      if (!anchor) {
+        return;
+      }
+
       if (alreadyLinked(anchor)) {
-        $mdToast.showSimple('Item has already been linked.');
+        sdaToast.info('Item has already been linked.');
         clearLinkForm();
         return;
       }
@@ -64,9 +68,9 @@
 
         clearLinkForm();
 
-        $mdToast.showSimple('Link created');
+        sdaToast.success('Link created');
       }, function () {
-        $mdToast.showSimple('Unable to create link');
+        sdaToast.error('Unable to create link');
       });
     }
 
@@ -87,7 +91,7 @@
           $state.go('article.edit', { id: anchor.id });
           break;
         default:
-          $mdToast.showSimple('I don\'t know how to follow that link.');
+          sdaToast.error('I don\'t know how to follow that link.');
           break;
       }
     }
@@ -112,13 +116,13 @@
         var deleteP = seeAlsoRepo.delete(vm.sourceToken, anchor.token);
 
         deleteP.then(function () {
-          $mdToast.showSimple('Link deleted');
+          sdaToast.success('Link deleted');
           var ix = vm.seeAlso.links[anchor.type].indexOf(anchor);
           if (ix >= 0) {
             vm.seeAlso.links[anchor.type].splice(ix, 1);
           }
         }, function () {
-          $mdToast.showSimple('Unable to delete link');
+          sdaToast.error('Unable to delete link');
         })
       });
     }
@@ -130,7 +134,9 @@
      */
     function search(query) {
       var results = trcSearch.search(query);
-      return results.$promise.then(combineSearchResults);
+      return results.$promise.then(combineSearchResults, function () {
+        sdaToast.error('Unable to load search results');
+      });
     }
 
     // PRIVATE METHODS

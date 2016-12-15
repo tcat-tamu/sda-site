@@ -36,6 +36,7 @@
         md-item-text="item.label | stripTags"
         md-search-text="$ctrl.searchText"
         md-selected-item="$ctrl.selectedItem"
+        md-selected-item-change="$ctrl.createLink($ctrl.selectedItem)"
         md-min-length="3"
         md-delay="300"
         md-autoselect
@@ -48,9 +49,11 @@
       </md-item-template>
       <md-not-found>No matches found</md-not-found>
     </md-autocomplete>
+    <!-- link creation occurs on autocomplete selected item change
     <md-button type="submit" class="md-icon-button" ng-disabled="!$ctrl.selectedItem">
       <md-icon>add</md-icon>
       <md-tooltip>Add Link</md-tooltip>
     </md-button>
+    -->
   </form>
 </div>
