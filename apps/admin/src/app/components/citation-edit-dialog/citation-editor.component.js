@@ -154,7 +154,7 @@
      * @return {Promise.<ItemContainer>}
      */
     function wrapItem(item) {
-      var labelP = refsRenderer.renderBiblioItem('modern-language-association', item);
+      var labelP = refsRenderer.renderBiblioItem('mla', item);
 
       return labelP.then(function (label) {
         return {
@@ -239,7 +239,7 @@
       reference.citations[citation.id] = citation;
       reference.bibliography[citationItem.id] = biblioItem;
 
-      var renderedP = refsRenderer.render('modern-language-association', reference);
+      var renderedP = refsRenderer.render('mla', reference);
 
       return renderedP.then(function (rendered) {
         return rendered.citations[citation.id];
