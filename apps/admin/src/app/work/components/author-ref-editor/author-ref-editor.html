@@ -28,12 +28,15 @@
 
     <md-autocomplete flex
         md-items="person in vm.getResults(vm.linkAuthorSearchText)"
-        md-item-text="person.label"
+        md-item-text="person.label | stripTags"
         md-search-text="vm.linkAuthorSearchText"
         md-search-text-change="vm.searchPeople(vm.linkAuthorSearchText)"
         md-selected-item-change="vm.setLinkedAuthor(person)"
         md-floating-label="linked author">
-      <span md-highlight-text="vm.linkAuthorSearchText">{{person.label}}</span>
+      <md-item-template>
+        <span md-highlight-text="vm.linkAuthorSearchText" ng-bind-html="person.label"></span>
+      </md-item-template>
+      <md-not-found>No matches found.</md-not-found>
     </md-autocomplete>
 
   </div>
