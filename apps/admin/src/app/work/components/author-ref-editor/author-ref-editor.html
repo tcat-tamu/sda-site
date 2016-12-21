@@ -33,7 +33,10 @@
         md-search-text-change="vm.searchPeople(vm.linkAuthorSearchText)"
         md-selected-item-change="vm.setLinkedAuthor(person)"
         md-floating-label="linked author">
-      <span md-highlight-text="vm.linkAuthorSearchText" ng-bind-html="person.label"></span>
+      <md-item-template>
+        <span md-highlight-text="vm.linkAuthorSearchText" ng-bind-html="person.label"></span>
+      </md-item-template>
+      <md-not-found>No matches found.</md-not-found>
     </md-autocomplete>
 
   </div>
