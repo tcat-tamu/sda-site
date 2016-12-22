@@ -12,7 +12,7 @@
     <section class="editions" ng-if="vm.work.editions && vm.work.editions.length > 0">
       <h2 class="md-title">Editions</h2>
 
-      <div class="edition" ng-repeat="edition in vm.work.editions">
+      <div class="edition" ng-repeat="edition in vm.work.editions | orderBy:'publicationInfo.date.calendar'">
         <h3 class="handle" layout="row" layout-align="start center" ng-click="edition.active = !edition.active">
           <md-button class="md-icon-button" aria-label="toggle details">
             <md-icon>expand_{{edition.active ? 'less' : 'more'}}</md-icon>

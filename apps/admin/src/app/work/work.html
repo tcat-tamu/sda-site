@@ -52,7 +52,8 @@
         </md-button>
       </div>
       <md-list>
-        <md-list-item ng-repeat="edition in vm.work.editions" ui-sref="editor.edition({workId: vm.work.id, editionId: edition.id})">
+        <md-list-item ng-repeat="edition in vm.work.editions | orderBy:'publicationInfo.date.calendar'" ui-sref="editor.edition({workId: vm.work.id, editionId: edition.id})">
+          <pre>{{edition.publicationInfo.date.calendar|json}}</pre>
           <span>{{edition.editionName}}</span>
           <md-button class="md-secondary md-icon-button md-warn" ng-click="vm.deleteEdition(edition, $event)">
             <md-icon>delete</md-icon>

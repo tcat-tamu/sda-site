@@ -13,7 +13,7 @@
       <section class="editions" ng-if="vm.work.editions.length">
          <h2>Editions</h2>
 
-         <div class="edition" ng-repeat="edition in vm.work.editions" ng-class="{active: edition.active}">
+         <div class="edition" ng-repeat="edition in vm.work.editions | orderBy:'publicationInfo.date.calendar'" ng-class="{active: edition.active}">
             <h3 ng-class="{active: edition.active}">
                <a class="edition-name" href="" ng-click="edition.active = !edition.active">{{edition.editionName || '[Untitled Edition]'}}</a>
                <a class="edition-copy readonline" ui-sref="sda.library.bookreader({workId: vm.work.id, editionId: edition.id, volumeId: null, copyId: edition.copies[0].id})" ng-if="edition.copies.length > 0">
