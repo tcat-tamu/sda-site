@@ -19,7 +19,8 @@
       'trcReln',
       'trcRefs',
       'trcArticles',
-      'zotero'
+      'zotero',
+      'accounts'
     ]);
 
 })();

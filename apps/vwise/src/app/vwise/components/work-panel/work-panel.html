@@ -46,7 +46,7 @@
       <md-tab-body>
         <md-list>
           <md-list-item
-              ng-repeat="item in work.editions"
+              ng-repeat="item in work.editions | orderBy:'publicationInfo.date.calendar'"
               jqyoui-draggable="{animate:false}"
               data-jqyoui-options="{revert:'invalid',helper:'clone',appendTo:'body'}"
               data-drag="true">

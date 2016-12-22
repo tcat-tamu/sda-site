@@ -57,7 +57,7 @@
       </md-button>
     </div>
   </md-toolbar>
-  <md-whiteframe class="edition" layout="column" layout-margin ng-repeat="edition in vm.editions" ng-class="{ 'md-whiteframe-2dp': !edition.focused, 'md-whiteframe-8dp': edition.focused }">
+  <md-whiteframe class="edition" layout="column" layout-margin ng-repeat="edition in vm.editions | orderBy:'publicationInfo.date.calendar'" ng-class="{ 'md-whiteframe-2dp': !edition.focused, 'md-whiteframe-8dp': edition.focused }">
     <h3 layout="row">
       <div flex layout="row" layout-align="start center" ng-click="edition.focused = !edition.focused">
         <md-icon>{{ edition.focused ? 'expand_less' : 'expand_more'}}</md-icon>
