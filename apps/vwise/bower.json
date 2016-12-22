@@ -18,7 +18,7 @@
     "angular-dragdrop": "^1.0.13",
     "angular-hotkeys": "chieffancypants/angular-hotkeys#^1.7.0",
     "angular-pouchdb": "^4.3.0",
-    "trc": "^0.1.1",
+    "trc": "^0.1.2",
     "vwise": "^0.0.1",
     "sda": "../sda/"
   },
