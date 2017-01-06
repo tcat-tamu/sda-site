@@ -34,6 +34,7 @@ for APP in "${APPS[@]}"; do
 done
 
 cd web
+rm -rf _site
 bundle install
 bundle exec jekyll build
 cd ..
