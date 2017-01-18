@@ -8,6 +8,10 @@ module.exports = function factory() {
  * @return {boolean}
  */
 function isEmpty(obj) {
+  if (!obj) {
+    return true;
+  }
+
   return isArray(obj) ? obj.length === 0 : Object.keys(obj).length === 0;
 }
 

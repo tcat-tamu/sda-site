@@ -1,0 +1,72 @@
+md-toolbar {
+  .logo {
+    display: flex;
+    flex-direction: column;
+
+    img {
+      margin-right: 2rem;
+      max-height: 43px;
+    }
+  }
+
+  h1 {
+    font-family: inherit;
+    color: inherit;
+  }
+}
+
+md-sidenav {
+  background: rgba(#f0f3f0, 0.8);
+  color: rgba(#000, 0.87);
+
+  md-content {
+    background: transparent;
+  }
+
+  .list-heading {
+    margin-bottom: 0;
+  }
+
+  .summary {
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+}
+
+p.work-result-label {
+  $result-item-indent: 1rem;
+  line-height: 1.3;
+  margin: 1rem 0;
+  text-indent: -$result-item-indent;
+  padding-left: $result-item-indent;
+}
+
+.title {
+  font-style: italic;
+}
+
+.search-form {
+  border-bottom: 1px solid #b88554;
+  overflow: hidden;
+  transition: width .3s;
+
+  *:focus {
+    outline: 0;
+  }
+
+  input[type='search'] {
+    background: transparent;
+    border: 0;
+    color: inherit;
+  }
+
+  button.clear {
+    background: transparent;
+    border: 0;
+    color: rgba(#fff, 0.56);
+  }
+}
+
+concept-browser {
+  overflow: hidden;
+}

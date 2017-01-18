@@ -1,0 +1,50 @@
+<div layout="column" layout-margin>
+  <div>
+    <h2 class="name">
+      <span class="given">{{$ctrl.person.name.givenName}}</span>
+      <span class="family">{{$ctrl.person.name.familyName}}</span>
+    </h2>
+  </div>
+</div>
+
+<md-tabs flex>
+  <md-tab>
+    <md-tab-label>
+      <md-icon>person</md-icon>
+    </md-tab-label>
+    <md-tab-body>
+      <div layout="column" layout-padding flex>
+        <div class="summary" ng-if="$ctrl.person.summary" ng-bind-html="$ctrl.person.summary" flex></div>
+        <div class="summary" ng-if="!$ctrl.person.summary" flex>Summary not available</div>
+      </div>
+    </md-tab-body>
+  </md-tab>
+
+  <md-tab ng-if="$ctrl.works.length > 0">
+    <md-tab-label>
+      <md-icon>content_copy</md-icon>
+    </md-tab-label>
+    <md-tab-body>
+      <div layout-padding layout="column">
+        <h4 class="list-heading">Books ({{$ctrl.works.length}})</h4>
+      </div>
+      <md-list>
+        <md-list-item ng-repeat="work in $ctrl.works" ui-sref="library.book({id: work.id})">
+          <p class="work-result-label">
+            <span class="title">{{work.title}}</span>
+            <span ng-if="work.pubYear">({{work.pubYear}})</span>
+          </p>
+        </md-list-item>
+      </md-list>
+    </md-tab-body>
+  </md-tab>
+
+  <md-tab ng-if="$ctrl.related.length > 0">
+    <md-tab-label>
+      <md-icon>link</md-icon>
+    </md-tab-label>
+    <md-tab-body>
+      <related-nodes related="$ctrl.related" activate="$ctrl.activate({$node: $node})"></related-nodes>
+    </md-tab-body>
+  </md-tab>
+</md-tabs>

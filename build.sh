@@ -21,7 +21,7 @@ copy_app(){
 
 gulp_build sda
 
-APPS=(admin book-reader influence-map research themes vwise)
+APPS=(admin site)
 
 for APP in "${APPS[@]}"; do
   gulp_build "$APP" &
@@ -34,6 +34,8 @@ for APP in "${APPS[@]}"; do
 done
 
 cd web
+# 'site' app should be at 'sda' endpoint, but 'sda' name is already used by shared lib
+mv site sda
 rm -rf _site
 bundle install
 bundle exec jekyll build
