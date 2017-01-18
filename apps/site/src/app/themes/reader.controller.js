@@ -6,7 +6,7 @@
     .controller('ReaderController', ReaderController);
 
   /** @ngInject */
-  function ReaderController($stateParams, $http, $mdSidenav, $mdToast, articlesRepo) {
+  function ReaderController($state, $stateParams, $http, $mdSidenav, $mdToast, articlesRepo) {
     var vm = this;
 
     vm.navigation = [];
@@ -21,6 +21,8 @@
     vm.displayPrevPage = displayPrevPage;
     vm.displayNextPage = displayNextPage;
     vm.displayLastPage = displayLastPage;
+
+    vm.openArticlePreview = openArticlePreview;
 
     function search(query) {
       // HACK: articlesRepo.search() not yet implemented
@@ -72,5 +74,9 @@
        }
     }
 
+    function openArticlePreview(id) {
+      $state.go('reader.preview', { id: id });
+    }
   }
+
 })();
