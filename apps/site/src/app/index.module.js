@@ -28,6 +28,7 @@
       'sdaLibrary',
       'sdaReader',
       'sdaVwise',
+      'sdaAbout',
       'sda'
     ]);
 
