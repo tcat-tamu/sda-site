@@ -11,7 +11,7 @@
   var TAB_BIBLIOGRAPHY = 3;
 
   /** @ngInject */
-  function ArticleController($state, $stateParams, article, references, articlesRepo, $log, $window, $scope, $timeout, _, refsRenderer) {
+  function ArticleController($state, $stateParams, article, references, articlesRepo, $log, $window, $scope, $timeout, _, refsRenderer, seeAlsoLinkHandler) {
     var vm = this;
 
     vm.article = article;
@@ -35,6 +35,8 @@
         id: vm.article.id
       });
     }
+
+    vm.openSeeAlso = seeAlsoLinkHandler;
 
     activate();
 
