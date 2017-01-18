@@ -6,9 +6,7 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log, $rootScope) {
-    $log.debug('runBlock end');
-
+  function runBlock($rootScope) {
     // enable nested scrollspy behavior
     $rootScope.$on('duScrollspy:becameActive', function($event, $element){
       $element.parents('li').addClass('active');

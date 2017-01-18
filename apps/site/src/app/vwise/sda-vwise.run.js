@@ -6,8 +6,7 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log,
-      panelContentMediatorRegistry,
+  function runBlock(panelContentMediatorRegistry,
       peopleContentMediator,
       worksContentMediator,
       editionsContentMediator,
@@ -17,8 +16,6 @@
       internetArchiveContentMediator,
       noteContentMediator,
       passthruContentMediator) {
-    $log.debug('runBlock end');
-
     panelContentMediatorRegistry.register(peopleContentMediator);
     panelContentMediatorRegistry.register(worksContentMediator);
     panelContentMediatorRegistry.register(editionsContentMediator);

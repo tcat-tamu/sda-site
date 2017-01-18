@@ -6,9 +6,7 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log, $rootScope, $location, analytics) {
-    $log.debug('runBlock end');
-
+  function runBlock($rootScope, $location, analytics) {
     $rootScope.$on('$stateChangeSuccess', function () {
       analytics('send', 'pageview', {
         page: $location.url()
