@@ -1,0 +1,17 @@
+<div flex layout="column" layout-padding>
+  <!-- title editor bar -->
+  <md-content layout="row" flex="none">
+    <md-input-container class="no-space" flex>
+      <label>Title</label>
+      <input type="text" ng-model="vm.article.title">
+    </md-input-container>
+
+    <div flex="none">
+      <md-button class="md-raised md-primary" ng-click="vm.save()">Save</md-button>
+    </div>
+  </md-content>
+
+  <div id="article_editor" flex="noshrink" layout="column">
+    <div ng-model="vm.article.body" ckeditor="vm.editor.config"></div>
+  </div>
+</div>

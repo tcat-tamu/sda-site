@@ -1,0 +1,54 @@
+<md-content flex layout="column">
+  <navbar title="About" sidenav-id="left"></navbar>
+  <md-content flex layout="row">
+    <md-sidenav md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" layout="column">
+      <md-tabs flex>
+        <md-tab>
+          <md-tab-label>
+            <md-icon>format_list_bulleted</md-icon>
+            <md-tooltip md-direction="bottom">Page Hierarchy</md-tooltip>
+          </md-tab-label>
+
+          <md-tab-body>
+            <about-categorization-editor scope-id="sda" scheme="about"></about-categorization-editor>
+          </md-tab-body>
+        </md-tab>
+
+        <md-tab>
+          <md-tab-label>
+            <md-icon>search</md-icon>
+            <md-tooltip md-direction="bottom">Search</md-tooltip>
+          </md-tab-label>
+          <md-tab-body>
+            <article-type-search type="about"></article-type-search>
+          </md-tab-body>
+        </md-tab>
+      </md-tabs>
+
+      <md-fab-speed-dial md-direction="up" class="md-scale md-fab-bottom-right md-fab-straddle">
+        <md-fab-trigger>
+          <md-button aria-label="New..." class="md-fab">
+            <md-icon>add</md-icon>
+          </md-button>
+        </md-fab-trigger>
+        <md-fab-actions>
+          <md-button aria-label="New Research Article" class="md-fab md-mini" ng-click="vm.createArticle($event, 'research')">
+            <md-tooltip md-direction="left">New Research Article</md-tooltip>
+            <!-- <md-icon>description</md-icon> -->
+            <md-icon>school</md-icon>
+          </md-button>
+          <md-button aria-label="New Book Review" class="md-fab md-mini" ng-click="vm.createArticle($event, 'book-review')">
+            <md-tooltip md-direction="left">New Book Review</md-tooltip>
+            <md-icon>book</md-icon>
+          </md-button>
+          <md-button aria-label="New Biography" class="md-fab md-mini" ng-click="vm.createArticle($event, 'biography')">
+            <md-tooltip md-direction="left">New Biography</md-tooltip>
+            <md-icon>person</md-icon>
+          </md-button>
+        </md-fab-actions>
+      </md-fab-speed-dial>
+    </md-sidenav>
+
+    <md-content flex layout="column" ui-view></md-content>
+  </md-content>
+</md-content>

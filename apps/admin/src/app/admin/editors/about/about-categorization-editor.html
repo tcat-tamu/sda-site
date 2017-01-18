@@ -1,0 +1,52 @@
+<div id="about_hierarchy">
+ <script type="text/ng-template" id="aboutHierarchyItem.html">
+   <div class="category-node" layout="row" layout-align="start center">
+     <span ng-if="node.entryRef == null" class="node-label">{{ node.label }}</span>
+     <a ui-sref="about.edit({id:node.entryRef.id})" ng-if="node.entryRef != null" class="node-label">{{ node.label }}</a>
+
+     <span flex></span>
+
+     <md-menu class="action">
+       <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button">
+         <md-icon>arrow_drop_down</md-icon>
+       </md-button>
+
+       <md-menu-content>
+         <md-menu-item ng-if="!node.entryRef.id">
+           <md-button ng-click="vm.handleAssociateEntry($event, node)">
+             <md-icon>add_circle_outline</md-icon>
+             Create Page
+           </md-button>
+         </md-menu-item>
+
+         <md-menu-item>
+           <md-button ng-click="vm.handleCreateChild($event, node)">
+             <md-icon>create_new_folder</md-icon>
+             Create Sub-Category
+           </md-button>
+         </md-menu-item>
+
+         <md-menu-item>
+           <md-button ng-click="vm.handleDeleteNode($event, node, parent)">
+             <md-icon>delete{{ node.children.length == 0 ? '' : '_sweep' }}</md-icon>
+             Remove Category
+           </md-button>
+         </md-menu-item>
+       </md-menu-content>
+     </md-menu>
+   </div>
+
+   <ol ng-if="node.children.length > 0">
+     <li ng-repeat="node in node.children" ng-include="'aboutHierarchyItem.html'" ng-init="parent = $parent.$parent.node"></li>
+   </ol>
+ </script>
+
+ <ol>
+   <li ng-repeat="node in vm.hierarchy.root.children" ng-include="'aboutHierarchyItem.html'" ng-init="parent = vm.hierarchy.root"></li>
+ </ol>
+
+ <div layout="row" layout-align="center center">
+   <md-button ng-click="vm.handleCreateChild($event, vm.hierarchy.root)" class="md-raised" aria-label="create category">Create Category</md-button>
+ </div>
+
+</div>
