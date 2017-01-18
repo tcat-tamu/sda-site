@@ -4,7 +4,7 @@
    // HACK this is an impoverished version of the (unfinished) TRC ategorizationService from the SDA Admin site
 
    angular
-      .module('sdaReader')
+      .module('sdaSite')
       .provider('categorizationRepo', categorizationRepoProvider)
 
    function categorizationRepoProvider() {

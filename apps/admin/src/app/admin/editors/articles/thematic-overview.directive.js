@@ -72,7 +72,10 @@
         }).then(openEditor);
 
         function linkArticle(article) {
-          var ref = repo.nodes.link(node, article.reference);
+          var ref = repo.nodes.link(node, {
+            id: article.ref.id,
+            type: article.ref.type
+          });
           return ref.$promise;
         }
 

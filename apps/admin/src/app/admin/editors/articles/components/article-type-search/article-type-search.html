@@ -8,7 +8,7 @@
   </div>
 
   <md-list layout="column">
-    <md-list-item ng-repeat="article in $ctrl.results.articles" ui-sref="article.edit({id: article.id})">
+    <md-list-item ng-repeat="article in $ctrl.results.articles" ng-click="$ctrl.onClickArticle({$event: $event, article: article})">
       <span class="md-list-item-text">{{article.title}}</span>
     </md-list-item>
   </md-list>

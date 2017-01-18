@@ -13,5 +13,14 @@
   background-color: transparent;
 }
 
+[ng-click] {
+  cursor: pointer;
+
+}
+
+a[ng-click] {
+  text-decoration: underline;
+}
+
 // injector
 // endinjector

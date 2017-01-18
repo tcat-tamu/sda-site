@@ -36,6 +36,7 @@
       });
     }
 
+    vm.editArticle = editArticle;
     vm.openSeeAlso = seeAlsoLinkHandler;
 
     activate();
@@ -172,6 +173,10 @@
     function activateCitation(citation, $event) {
       vm.activeTab = TAB_BIBLIOGRAPHY;
       scrollTo(citation.id, true, $event);
+    }
+
+    function editArticle(article) {
+      $state.go('article.edit', { id: article.id });
     }
   }
 

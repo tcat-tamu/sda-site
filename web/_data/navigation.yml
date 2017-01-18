@@ -14,4 +14,4 @@
 #   url: /conferences
 
 - label: About
-  url: /about
+  url: '/sda/#!/about'

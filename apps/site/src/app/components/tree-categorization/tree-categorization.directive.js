@@ -2,18 +2,19 @@
   'use strict';
 
   angular
-    .module('sdaReader')
+    .module('sdaSite')
     .directive('treeCategorization', treeCategorizationDirective);
 
   /** @ngInject */
   function treeCategorizationDirective() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/themes/components/tree-categorization/tree-categorization.html',
+      templateUrl: 'app/components/tree-categorization/tree-categorization.html',
       scope: {
         scopeId: '@',
         scheme: '@',
-        activeRefId: '<'
+        activeRefId: '<',
+        onClickNode: '&'
       },
       controller: TreeCategorizationController,
       controllerAs: 'vm'

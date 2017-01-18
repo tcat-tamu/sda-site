@@ -133,6 +133,23 @@
         templateUrl: 'app/vwise/workspace.html',
         controller: 'WorkspaceController',
         controllerAs: 'vm'
+      })
+
+      .state('about', {
+        url: '/about?id',
+        templateUrl: 'app/about/about.html',
+        controller: 'AboutController',
+        controllerAs: 'vm',
+        resolve: {
+          page: function ($stateParams, articlesRepo) {
+            if (!$stateParams.id) {
+              return null;
+            }
+
+            var page = articlesRepo.get($stateParams.id);
+            return page.$promise;
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/research');

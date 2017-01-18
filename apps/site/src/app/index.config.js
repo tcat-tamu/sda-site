@@ -6,7 +6,7 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, worksRepoProvider, peopleRepoProvider, trcSearchProvider, relnRepoProvider, seeAlsoRepoProvider, graphRepoProvider, articlesRepoProvider, sdaSitenavProvider, analyticsProvider, googleBooksApiProvider) {
+  function config($logProvider, worksRepoProvider, peopleRepoProvider, trcSearchProvider, relnRepoProvider, seeAlsoRepoProvider, graphRepoProvider, articlesRepoProvider, categorizationRepoProvider, sdaSitenavProvider, analyticsProvider, googleBooksApiProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
@@ -19,6 +19,7 @@
     seeAlsoRepoProvider.url = BASE_URL + '/seealso';
     trcSearchProvider.url = BASE_URL + '/search';
     graphRepoProvider.url = BASE_URL + '/graph';
+    categorizationRepoProvider.url = BASE_URL + '/categorizations';
 
     googleBooksApiProvider.configure({ preventLoad: true });
 

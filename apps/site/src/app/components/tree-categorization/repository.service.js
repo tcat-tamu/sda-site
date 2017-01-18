@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('sdaReader')
+    .module('sdaSite')
     .provider('categorizationService', categorizationRepoProvider);
 
   var Strategies = {

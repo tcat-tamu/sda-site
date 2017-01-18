@@ -1,0 +1,46 @@
+#about_hierarchy {
+  ol {
+    list-style: none;
+    padding-left: 1em;
+    margin-bottom: 0.5em;
+    line-height: 1.75em;
+
+    li {
+      >.category-node {
+        white-space: nowrap;
+        margin-top:-0.75em;
+        // max-height:1.75em;
+        padding-right:0.5em;
+
+        &:hover {
+          .action {
+            opacity: 1;
+          }
+        }
+
+        .node-label {
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .action {
+          opacity: 0;
+          transition: opacity 0.2s;
+        }
+
+        button.md-icon-button {
+          margin:0;
+          padding: 0;
+        }
+
+        md-menu {
+          padding:0;
+        }
+      }
+    }
+
+    ol {
+      padding-left: 1.75em;
+    }
+  }
+}
