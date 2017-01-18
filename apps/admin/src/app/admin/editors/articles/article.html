@@ -22,7 +22,7 @@
             <md-tooltip md-direction="bottom">Research Articles</md-tooltip>
           </md-tab-label>
           <md-tab-body>
-            <article-type-search type="research"></article-type-search>
+            <article-type-search type="research" on-click-article="vm.editArticle(article)"></article-type-search>
           </md-tab-body>
         </md-tab>
 
@@ -32,7 +32,7 @@
             <md-tooltip md-direction="bottom">Book Reviews</md-tooltip>
           </md-tab-label>
           <md-tab-body>
-            <article-type-search type="book-review"></article-type-search>
+            <article-type-search type="book-review" on-click-article="vm.editArticle(article)"></article-type-search>
           </md-tab-body>
         </md-tab>
 
@@ -42,7 +42,7 @@
             <md-tooltip md-direction="bottom">Biographies</md-tooltip>
           </md-tab-label>
           <md-tab-body>
-            <article-type-search type="biography"></article-type-search>
+            <article-type-search type="biography" on-click-article="vm.editArticle(article)"></article-type-search>
           </md-tab-body>
         </md-tab>
       </md-tabs>
