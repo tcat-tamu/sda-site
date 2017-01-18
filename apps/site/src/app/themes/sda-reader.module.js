@@ -14,7 +14,8 @@
       'duScroll',
       'trcArticles',
       'trcRefs',
-      'sda'
+      'sda',
+      'sdaSite'
     ]);
 
 })();
