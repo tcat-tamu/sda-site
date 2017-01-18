@@ -1,8 +1,8 @@
 - label: Research
-  url: /research
+  url: '/sda/#!/research'
 
 - label: Themes
-  url: /themes
+  url: '/sda/#!/themes'
 
 - label: Media
   url: /media

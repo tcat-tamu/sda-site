@@ -36,7 +36,7 @@ function RelationshipsController($scope, $state, $window, $mdToast, seeAlsoRepo)
         $state.go('library.person', { id: anchor.id });
         break;
       case TypeId.ARTICLE:
-        $window.location.href = '/themes/#/article/' + anchor.id;
+        $state.go('article', { id: anchor.id });
         break;
       default:
         $mdToast.showSimple('I don\'t know how to follow that link.');
