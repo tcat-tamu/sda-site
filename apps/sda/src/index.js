@@ -14,11 +14,13 @@ var googleAnalytics = require('./google-analytics/google-analytics.service');
 var workCitationComponent = require('./work-citation/work-citation.component');
 var workTitleComponent = require('./work-title/work-title.component');
 var workTitleFilter = require('./work-title/work-title.filter');
+var articleTypeSearchComponent = require('./article-type-search/article-type-search.component');
 
 angular
   .module('sda', [
     'ngMaterial',
     'trcSeeAlso',
+    'trcArticles',
     'trcBiblio'
   ])
   .animation('.slide', slide.slideToggle)
@@ -30,6 +32,7 @@ angular
   .component('workTitle', workTitleComponent.component)
   .component('workCitation', workCitationComponent.component)
   .component('collapsibleSummary', collapsibleSummaryComponent.component)
+  .component('articleTypeSearch', articleTypeSearchComponent.component)
   .filter('empty', empty)
   .filter('stripTags', stripTags)
   .filter('workTitle', workTitleFilter.factory);
