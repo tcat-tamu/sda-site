@@ -7,7 +7,15 @@
     </md-input-container>
   </div>
 
-  <md-list layout="column">
+  <div ng-if="$ctrl.loading" flex layout="row" layout-align="center center">
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+  </div>
+
+  <div ng-if="!$ctrl.loading && (!$ctrl.results || $ctrl.results.articles.length == 0)" layout="row" layout-padding>
+    <p>Nothing found.</p>
+  </div>
+
+  <md-list layout="column" ng-if="!$ctrl.loading && $ctrl.results && $ctrl.results.articles.length > 0">
     <md-list-item ng-repeat="article in $ctrl.results.articles" ng-click="$ctrl.onClickArticle({$event: $event, article: article})">
       <span class="md-list-item-text">{{article.title}}</span>
     </md-list-item>
