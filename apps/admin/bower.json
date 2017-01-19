@@ -23,7 +23,8 @@
     "angular-pouchdb": "^4.3.0",
     "zotero": "^0.0.10",
     "citeproc-js": "Juris-M/citeproc-js#^1.1.122",
-    "trc": "^0.1.2"
+    "trc": "^0.1.2",
+    "sda": "../sda"
   },
   "devDependencies": {
     "angular-mocks": "~1.5.3"
@@ -49,6 +50,12 @@
     "citeproc-js": {
       "main": [
         "citeproc.js"
+      ]
+    },
+    "sda": {
+      "main": [
+        "index/sda.js",
+        "index/sda.css"
       ]
     }
   },
