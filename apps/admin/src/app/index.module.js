@@ -20,7 +20,8 @@
       'trcRefs',
       'trcArticles',
       'zotero',
-      'accounts'
+      'accounts',
+      'sda'
     ]);
 
 })();
