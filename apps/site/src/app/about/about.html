@@ -1,0 +1,33 @@
+<sda-header md-sidenav-id="left" active-url="/sda/#!/about"></sda-header>
+
+<div class="page-banner about shade" layout="row" layout-align="center">
+  <div class="container" flex>
+    <h1>About</h1>
+  </div>
+</div>
+
+<div layout="row" layout-align="center" flex>
+  <main class="container" layout="row" flex>
+
+    <md-sidenav md-component-id="left" class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-sm')" layout="column">
+      <tree-categorization scope-id="sda" scheme="about" active-ref-id="vm.page.id" on-click-node="vm.openAboutPage(ref.id)" flex></tree-categorization>
+    </md-sidenav>
+
+    <md-content layout="column" flex>
+      <div flex="noshrink" layout="row" layout-padding layout-margin>
+        <div ng-if="!vm.page">
+          This is the default about page content. Perhaps it should say something
+          like "please select a page on the left to get started". Alternatively,
+          this route could automatically load or redirect to a default page. If
+          the latter behavior is desired, then how would the app know which page
+          to load?
+        </div>
+        <div ng-if="vm.page">
+          <h1>{{vm.page.title}}</h1>
+          <div ng-bind-html="vm.page.body"></div>
+        </div>
+      </div>
+    </md-content>
+
+  </main>
+</div>

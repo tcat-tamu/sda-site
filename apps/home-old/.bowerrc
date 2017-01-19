@@ -1,6 +1,0 @@
-{
-   "directory": "bower_components",
-   "resolvers": [
-      "mercurial-bower-resolver"
-   ]
-}

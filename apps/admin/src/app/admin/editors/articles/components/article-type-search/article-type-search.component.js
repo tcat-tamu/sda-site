@@ -6,7 +6,8 @@
     .component('articleTypeSearch', {
       templateUrl: 'app/admin/editors/articles/components/article-type-search/article-type-search.html',
       bindings: {
-        type: '@'
+        type: '@',
+        onClickArticle: '&'
       },
       controller: ArticleTypeSearchController
     });

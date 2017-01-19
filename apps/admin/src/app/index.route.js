@@ -71,6 +71,20 @@
         controllerAs: 'vm'
       })
 
+      .state('about', {
+        url: '/about',
+        templateUrl: 'app/admin/editors/about/about.html',
+        controller: 'AboutEditorSectionController',
+        controllerAs: 'vm'
+      })
+
+      .state('about.edit', {
+        url: '/:id',
+        templateUrl: 'app/admin/editors/about/about-editor.html',
+        controller: 'AboutEditorController',
+        controllerAs: 'vm'
+      })
+
       .state('task', {
         url: '/task',
         templateUrl: 'app/task/task.html',

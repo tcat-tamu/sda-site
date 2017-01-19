@@ -6,12 +6,10 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log, trcAuth) {
+  function runBlock(trcAuth) {
     if (!trcAuth.isAuthenticated()) {
       trcAuth.loginGuest();
     }
-
-    $log.debug('runBlock end');
   }
 
 })();

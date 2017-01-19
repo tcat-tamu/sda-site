@@ -1,0 +1,62 @@
+<md-content class="md-content" layout="row" layout-padding layout-margin>
+  <div flex="66">
+    <h1 class="title md-display-1" layout="row">
+      <work-title title="vm.title"></work-title>
+      <span flex></span>
+      <read-online-link copies="vm.work.copies" work-id="vm.work.id"></read-online-link>
+    </h1>
+    <p class="by-line" ng-if="vm.work.authors && vm.work.authors.length > 0"><span>by </span><work-authors authors="vm.work.authors"></work-authors></p>
+
+    <collapsible-summary ng-if="vm.work.summary" content="vm.work.summary"></collapsible-summary>
+
+    <section class="editions" ng-if="vm.work.editions && vm.work.editions.length > 0">
+      <h2 class="md-title">Editions</h2>
+
+      <div class="edition" ng-repeat="edition in vm.work.editions | orderBy:'publicationInfo.date.calendar'">
+        <h3 class="handle" layout="row" layout-align="start center" ng-click="edition.active = !edition.active">
+          <md-button class="md-icon-button" aria-label="toggle details">
+            <md-icon>expand_{{edition.active ? 'less' : 'more'}}</md-icon>
+          </md-button>
+          <span>{{edition.editionName || '[Untitled Edition]'}}</span>
+          <span flex></span>
+          <read-online-link copies="edition.copies" work-id="vm.work.id" edition-id="edition.id"></read-online-link>
+        </h3>
+
+        <div class="slide" ng-show="edition.active">
+          <work-citation authors="edition.authors" title="edition.titles" edition="edition.editionName" pub-info="edition.publicationInfo"></work-citation>
+
+          <section class="summary" ng-if="edition.summary" ng-bind-html="edition.summary"></section>
+
+          <section class="volumes" ng-if="edition.volumes && edition.volumes.length > 0">
+            <h4 class="md-title">Volumes</h4>
+
+            <div class="volume" ng-repeat="volume in edition.volumes">
+
+              <h5 class="handle" ng-click="volume.active = !volume.active" layout="row" layout-align="start center">
+                <md-button class="md-icon-button">
+                  <md-icon>expand_{{volume.active ? 'less': 'more'}}</md-icon>
+                </md-button>
+                <span>Volume {{volume.volumeNumber}}</span>
+                <span flex></span>
+                <read-online-link copies="volume.copies" work-id="vm.work.id" edition-id="edition.id" volume-id="volume.id"></read-online-link>
+              </h5>
+
+              <div class="slide" ng-show="volume.active">
+                <work-citation authors="volume.authors" title="volume.titles" edition="edition.editionName" volume="volume.volumeNumber" pub-info="volume.publicationInfo"></work-citation>
+                <section class="summary" ng-if="edition.summary" ng-bind-html="edition.summary"></section>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div layout="column" layout-padding flex="33">
+    <relationships token="vm.work.ref.token"></relationships>
+    <see-also show-heading="true" token="vm.work.ref.token" on-click-item="vm.openSeeAlso(item)"></see-also>
+    <div ng-if="!(vm.refs.bibliography | empty)">
+      <h2>Bibliography</h2>
+      <bibliography refs="vm.refs" style-id="chicago"></bibliography>
+    </div>
+  </div>
+</md-content>
