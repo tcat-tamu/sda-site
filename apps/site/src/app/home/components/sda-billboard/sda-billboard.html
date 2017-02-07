@@ -1,0 +1,27 @@
+<section class="billboard">
+  <div class="banners">
+    <a href="" class="prev">
+      <md-icon>chevron_left</md-icon>
+    </a>
+    <a href="" class="next">
+      <md-icon>chevron_right</md-icon>
+    </a>
+    <div ng-repeat="slide in $ctrl.slides" class="banner" ng-style="{ backgroundImage: 'url(assets/images/banners/' + slide.banner.image + ')', backgroundPosition: (slide.banner.focus.x * 100) + '% ' + (slide.banner.focus.y * 100) + '%'}">
+      <div class="container">
+        <aside class="content {{ slide.banner.style }}">
+          <div ng-bind-html="slide.banner.content"></div>
+          <div class="flex-none layout-row layout-align-center-center play-icon" ng-if="slide.banner.video">
+            <a ng-click="$ctrl.playVideo($event, slide.banner.video)">
+              <md-icon>play_circle_filled</md-icon>
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+  <ol class="control-nav layout-row layout-align-center-center">
+    <li ng-repeat="slide in $ctrl.slides">
+      <a href="" class="control-nav-trigger" ng-click="$ctrl.activateSlide(slide)">{{ $loop.index }}</a>
+    </li>
+  </ol>
+</section>

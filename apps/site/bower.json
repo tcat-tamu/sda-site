@@ -24,7 +24,8 @@
     "citeproc-js": "Juris-M/citeproc-js#^1.1.137",
     "trc": "^0.1.2",
     "vwise": "^0.0.1",
-    "sda": "../sda/"
+    "sda": "../sda/",
+    "fullpage.js": "^2.9.2"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.8"

@@ -29,6 +29,7 @@
       'sdaReader',
       'sdaVwise',
       'sdaAbout',
+      'sdaHome',
       'sda'
     ]);
 
