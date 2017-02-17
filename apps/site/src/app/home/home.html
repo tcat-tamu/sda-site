@@ -2,7 +2,7 @@
 
 <main class="fullpage-scroll" flex>
   <div class="fullpage-scroll-section" fill-layout>
-    <sda-billboard slides="vm.content.billboard"></sda-billboard>
+    <sda-billboard slides="vm.content.billboard" ng-cloak></sda-billboard>
 
     <a href="" class="scroll-indicator" ng-click="fullpageScroll.nextSection()">
       <span class="label">scroll down</span>
@@ -11,7 +11,7 @@
   </div>
 
   <div class="fullpage-scroll-section">
-    <sda-nav modules="vm.content.modules" class="layout-fill" layout-xs="column" layout-sm="column" layout="row"></sda-nav>
+    <sda-nav modules="vm.content.modules" class="layout-fill" layout-xs="column" layout-sm="column" layout="row" ng-cloak></sda-nav>
 
     <a href="" class="scroll-indicator" ng-click="fullpageScroll.nextSection()">
       <span class="label">scroll down</span>
