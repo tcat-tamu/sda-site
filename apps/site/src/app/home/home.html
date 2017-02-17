@@ -1,8 +1,7 @@
-<sda-header active-url="/"></sda-header>
+<sda-header class="sda-header-home" active-url="/" show-oxford-logo="true"></sda-header>
 
-<main class="fullpage-scroll">
-
-  <div class="fullpage-scroll-section">
+<main class="fullpage-scroll" flex>
+  <div class="fullpage-scroll-section" fill-layout>
     <sda-billboard slides="vm.content.billboard"></sda-billboard>
 
     <a href="" class="scroll-indicator" ng-click="fullpageScroll.nextSection()">
@@ -12,7 +11,7 @@
   </div>
 
   <div class="fullpage-scroll-section">
-    <sda-nav modules="vm.content.modules"></sda-nav>
+    <sda-nav modules="vm.content.modules" class="layout-fill" layout-xs="column" layout-sm="column" layout="row"></sda-nav>
 
     <a href="" class="scroll-indicator" ng-click="fullpageScroll.nextSection()">
       <span class="label">scroll down</span>
@@ -33,7 +32,7 @@
       </div>
     </div>
 
-    <a href="" class="scroll-indicator">
+    <a href="" class="scroll-indicator" ng-click="fullpageScroll.nextSection()">
       <span class="label">scroll down</span>
       <i class="material-icons">keyboard_arrow_down</i>
     </a>
@@ -62,6 +61,5 @@
     </a>
   </div>
 
-  <sda-footer class="fullpage-scroll-section site-footer"></sda-footer>
-
+  <sda-footer class="fullpage-scroll-section" layout="column" layout-align="center center"></sda-footer>
 </main>

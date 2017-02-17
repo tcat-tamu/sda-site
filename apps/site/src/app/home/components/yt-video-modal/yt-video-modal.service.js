@@ -23,7 +23,7 @@
         templateUrl: 'app/home/components/yt-video-modal/yt-video-modal.html',
         controller: function YtVideoModalController() {
           this.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
-          this.close = $mdDialog.close;
+          this.close = $mdDialog.hide;
         },
         controllerAs: 'vm'
       };

@@ -13,12 +13,6 @@
     activate();
 
     function activate() {
-      angular.element('main.fullpage-scroll').fullpage({
-        scrollOverflow: true,
-        sectionSelector: '.fullpage-scroll-section',
-        slideSelector: '.fullpage-scroll-slide',
-        paddingTop: '4rem' // HACK
-      });
     }
   }
 

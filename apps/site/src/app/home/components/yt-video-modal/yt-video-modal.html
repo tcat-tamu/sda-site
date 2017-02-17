@@ -10,7 +10,7 @@
   </md-toolbar>
   <md-dialog-content>
     <div class="video-container">
-      <iframe ng-src="{{vm.src}}" frameborder="0" allowfullscreen></iframe>
+      <iframe ng-src="{{vm.src | trusted}}" frameborder="0" allowfullscreen></iframe>
     </div>
   </md-dialog-content>
 </md-dialog>
