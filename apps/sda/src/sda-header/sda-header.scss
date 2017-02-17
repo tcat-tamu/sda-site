@@ -1,0 +1,16 @@
+$header-height: 4rem;
+$screen-md-min: 51em;
+
+sda-header {
+  height: $header-height;
+
+  .oxford {
+    display: none;
+    max-height: (10/16 * $header-height);
+    margin: (3/16 * $header-height);
+
+    @media only screen and (min-width: $screen-md-min) {
+      display: block;
+    }
+  }
+}
