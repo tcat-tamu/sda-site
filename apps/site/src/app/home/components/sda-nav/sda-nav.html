@@ -47,17 +47,16 @@
               </div>
             </div>
           </div>
-
-          <a ng-href="section.footer.href" class="section-footer" flex="100" ng-if="section.footer && section.footer.href">
-            <span ng-bind-html="section.footer.content"></span>
-            <span class="read-more">
-              <span>&raquo;</span>
-            </span>
-          </a>
-
-          <div class="section-footer" flex="100" ng-if="section.footer && !section.footer.href" ng-bind-html="section.footer.content"></div>
         </div>
 
+        <a ng-href="{{section.footer.href}}" class="section-footer" flex="none" ng-if="section.footer && section.footer.href">
+          <span ng-bind-html="section.footer.content"></span>
+          <span class="read-more">
+            <span>&raquo;</span>
+          </span>
+        </a>
+
+        <div class="section-footer" flex="none" ng-if="section.footer && !section.footer.href" ng-bind-html="section.footer.content"></div>
       </div>
     </div>
 
