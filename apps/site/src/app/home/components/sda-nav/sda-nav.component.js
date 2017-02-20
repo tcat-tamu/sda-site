@@ -12,7 +12,7 @@
     });
 
   /** @ngInject */
-  function SdaNavController($scope, ytVideoModal) {
+  function SdaNavController($scope, ytVideoModal, _) {
     var vm = this;
 
     vm.activateModule = activateModule;
@@ -29,6 +29,15 @@
       });
 
       module.active = true;
+
+      if (!module.sections.some(function (s) { return s.active; })) {
+        activateSection(module, module.sections[0]);
+      } else {
+        $scope.$emit('sdaNavChange', {
+          module: vm.modules.indexOf(module) + 1,
+          section: _.findIndex(module.sections, function (s) { return s.active; }) + 1
+        });
+      }
     }
 
     function activateSection(module, section) {
@@ -37,6 +46,11 @@
       });
 
       section.active = true;
+
+      $scope.$emit('sdaNavChange', {
+        module: vm.modules.indexOf(module) + 1,
+        section: module.sections.indexOf(section) + 1
+      });
     }
 
     function playVideo($event, videoId) {
@@ -51,10 +65,10 @@
           return;
         }
 
-        activateModule(modules[0]);
-        modules.forEach(function (m) {
-          activateSection(m, m.sections[0]);
-        });
+        // activate first module if one is not already active;
+        if (!modules.some(function (m) { return m.active; })) {
+          activateModule(modules[0]);
+        }
       });
     }
 
