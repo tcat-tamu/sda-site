@@ -16,15 +16,27 @@
 
     return directive;
 
-    function linkFunc(scope, el) {
+    function linkFunc(scope, el, attr) {
       scope.fullpageScroll.el = el;
       scope.fullpageScroll.options = {
         scrollOverflow: true,
         sectionSelector: '.fullpage-scroll-section',
         slideSelector: '.fullpage-scroll-slide',
-        paddingTop: '4rem' // HACK
+        paddingTop: '4rem', // HACK
+        afterLoad: function (sectionAnchor, sectionIndex) {
+          scope.$emit('fullpageScrollChange', {
+            section: sectionIndex
+          });
+        },
+        afterSlideLoad: function (sectionAnchor, sectionIndex, slideAnchor, slideIndex) {
+          scope.$emit('fullpageScrollChange', {
+            section: sectionIndex,
+            slide: slideIndex
+          });
+        }
       };
-      scope.fullpageScroll.init();
+
+      scope.fullpageScroll.init(scope.$eval(attr.startSection), scope.$eval(attr.startSlide));
     }
 
     /** @ngInject */
@@ -38,12 +50,15 @@
 
       $scope.$on('$destroy', destroy);
 
-      function init() {
+      function init(initialSectionIndex, initialSlideIndex) {
         if (fullpageScroll.initialized) {
           return;
         }
 
         fullpageScroll.el.fullpage(fullpageScroll.options);
+
+        $window.jQuery.fn.fullpage.silentMoveTo(initialSectionIndex || 1, initialSlideIndex || 1)
+
         fullpageScroll.initialized = true;
       }
 

@@ -9,7 +9,7 @@
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
-        url: '/',
+        url: '/?section&slide',
         templateUrl: 'app/home/home.html',
         controller: 'HomeController',
         controllerAs: 'vm',
