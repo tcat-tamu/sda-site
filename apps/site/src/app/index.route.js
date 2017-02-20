@@ -35,7 +35,7 @@
       })
 
       .state('library', {
-        url: '/research',
+        url: '/research?q',
         templateUrl: 'app/research/library.html',
         controller: 'LibraryController',
         controllerAs: 'vm'

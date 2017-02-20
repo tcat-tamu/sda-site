@@ -13,7 +13,7 @@
         <md-input-container flex>
           <label>search</label>
           <md-icon>search</md-icon>
-          <input type="search" ng-model="query" ng-model-options="{debounce: 500}" ng-change="vm.search(query)">
+          <input type="search" ng-model="vm.query" ng-model-options="{debounce: 500}" ng-change="vm.search(vm.query)">
         </md-input-container>
       </div>
       <div layout="row" ng-if="vm.loading" layout-align="center center" flex>
