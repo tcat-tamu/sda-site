@@ -1,0 +1,332 @@
+@mixin ng-fade {
+  opacity: 1;
+  transition: opacity 0.4s;
+
+  &.ng-hide {
+    opacity: 0;
+  }
+}
+
+sda-nav {
+  background-color: #f2f2f0;
+
+  .buckets {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @media only all and (min-width: $md-layout-breakpoint-sm) {
+      min-width: 300px;
+      max-width: 300px;
+    }
+
+    .bucket {
+      font-family: AvenirLTStd-Heavy;
+      background-color: #b88554;
+      border-bottom: 1px solid #a47140;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      &.active {
+        background-color: #a47140;
+      }
+
+      @media only all and (min-width: 31em) {
+        border: 0;
+        border-right: 1px solid #a47140;
+
+        &:last-child {
+          border-right: 0;
+        }
+      }
+
+      @media only all and (min-width: 64em) {
+        border-bottom: 1px solid #a47140;
+        border-right: 0;
+
+        &:last-child {
+          border-bottom: 0;
+        }
+      }
+
+      a {
+        color: #fff;
+        font-size: 1em;
+        line-height: 1.8;
+        text-decoration: none;
+        text-transform: uppercase;
+        padding: 1.5rem;
+
+        &:active,
+        &:focus,
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .modules {
+    position: relative;
+
+    .module {
+      @include ng-fade;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      .controls {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: AvenirLTStd-Heavy;
+        background-color: #e8e7e3;
+        text-transform: uppercase;
+        border-bottom: 4px solid #dfddd5;
+        font-size: 0.9em;
+
+        li {
+          padding: 1rem 1.5rem;
+          text-align: center;
+          border: 1px solid #dfddd5;
+
+          @media only all and (min-width: 50em) {
+            border: 0;
+            line-height: 1.2;
+          }
+
+          &.active a {
+            color: #b88554;
+
+            @media only all and (min-width: 50em) {
+              color: #b88554;
+              box-sizing: border-box;
+
+              &:before {
+                background-color: white;
+                left: 0;
+                bottom: -1.2rem;
+                content: '';
+                display: block;
+                height: 4px;
+                position: absolute;
+                width: 100%;
+              }
+            }
+          }
+
+          a {
+            color: #acaaa3;
+            position: relative;
+            text-decoration: none;
+
+            &:active, &:focus, &:hover {
+              color: #b88554;
+              outline: 0;
+            }
+          }
+        }
+      }
+
+      .panels {
+        position: relative;
+
+        .panel-set {
+          @include ng-fade;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+
+          .layout-row.border > * {
+            border-top: 2px dotted #bbb;
+
+            @media only all and (min-width: $md-layout-breakpoint-xs) {
+              border-top: none;
+              border-left: 2px dotted #bbb;
+            }
+
+            &:first-child {
+              border-top: none;
+              border-left: none;
+            }
+          }
+
+          .layout-column.border > * {
+            border-top: 2px dotted #bbb;
+
+            &:first-child {
+              border-top: none;
+            }
+          }
+
+          .panel {
+            .panel-content {
+              > div, > a {
+                padding: 3rem;
+                text-decoration: none;
+                color: inherit;
+
+                &:active, &:focus, &:hover {
+                  outline: 0;
+                }
+              }
+
+              &-link {
+                .read-more {
+                  line-height: 1;
+                  font-size: 4rem;
+                  transition: color 200ms;
+                  color: rgba(#000, 0.13);
+                }
+
+                &:hover, &:focus, &:active {
+                  .read-more {
+                    color: $copper4;
+                  }
+                }
+              }
+
+              &-video {
+                text-align: center;
+
+                h3 {
+                  transition: color 200ms;
+                  color: $grey5;
+                }
+
+                .play-icon > md-icon {
+                  color: rgba(#000, 0.13);
+                  font-size: 4rem;
+
+                  border-radius: 50%;
+                  border: 2pt solid rgba(#000, 0.13);
+                  transition: all 200ms;
+                  box-sizing: content-box;
+                }
+
+                &:hover, &:focus, &:active {
+                  h3 {
+                    color: $grey6;
+                  }
+
+                  .play-icon > md-icon {
+                    color: rgba(#000, 0.54);
+                    border-color: $copper5;
+                  }
+                }
+              }
+
+              &-image {
+                text-align: left;
+                background-size: cover;
+                background-position: center center;
+
+                > div, > a {
+                  padding: 1rem;
+                  position: relative;
+                  transition: background-color 200ms;
+                  background-color: rgba(#000, 0.54);
+                  color: rgba(#fff, 0.87);
+
+                  h3 {
+                    font-size: 1.8em;
+                    font-family: CenturyStd-Book;
+                    color: $copper4;
+                  }
+
+                  > h3, > p {
+                    transition: opacity 200ms;
+                  }
+
+                  .play-icon {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+
+                    > md-icon {
+                      color: rgba(#fff, 0.47);
+                      border: 0;
+                    }
+                  }
+                }
+
+                &:hover, &:focus, &:active {
+                  > div, > a {
+                    background-color: rgba(#000, 0);
+                    > h3, > p {
+                      opacity: 0;
+                    }
+                  }
+
+                  .play-icon > md-icon {
+                    color: inherit;
+                  }
+                }
+              }
+            }
+
+            figure {
+              position: relative;
+              overflow: hidden;
+              width: 100%;
+
+              iframe, img {
+                width: 100%;
+                display: block;
+                margin: 0 auto;
+              }
+            }
+
+            h3 {
+              font-size: 1.3em;
+              line-height: 1.2;
+              margin: 0 0 1rem;
+              font-family: AvenirLTStd-Heavy;
+              color: $grey6;
+            }
+
+            p {
+              font-size: 0.9em;
+            }
+          }
+
+          .section-footer {
+            display: block;
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.3em;
+            text-decoration: none;
+            color: inherit;
+            opacity: 0.54;
+            transition: opacity 200ms;
+
+            .read-more {
+              display: inline-block;
+              color: $copper5;
+              font-size: 2rem;
+              font-weight: bold;
+              line-height: 0.8;
+              transition: transform 400ms;
+            }
+
+            &:hover, &:focus, &:active {
+              opacity: 1;
+
+              .read-more {
+                transform: translate(1rem, 0);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

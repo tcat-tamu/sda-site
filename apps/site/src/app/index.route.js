@@ -8,6 +8,21 @@
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
+      .state('home', {
+        url: '/?section&slide&bucket&tab',
+        templateUrl: 'app/home/home.html',
+        controller: 'HomeController',
+        controllerAs: 'vm',
+        resolve: {
+          content: function ($http) {
+            'ngInject';
+            return $http.get('/assets/data/home.json').then(function (res) {
+              return res.data;
+            });
+          }
+        }
+      })
+
       .state('book-reader', {
         url: '/book-reader/:workId/:copyId?editionId&volumeId',
         templateUrl: 'app/book-reader/book-reader.html',
@@ -152,7 +167,7 @@
         }
       });
 
-    $urlRouterProvider.otherwise('/research');
+    $urlRouterProvider.otherwise('/');
   }
 
 })();

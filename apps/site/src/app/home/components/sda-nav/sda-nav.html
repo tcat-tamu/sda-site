@@ -1,0 +1,64 @@
+<ul class="buckets" layout-sm="row" layout-gt-sm="column">
+  <li class="bucket" flex layout="column" ng-repeat="module in $ctrl.modules" ng-class="{active:module.active}">
+    <a flex layout="column" layout-align-sm="center center" layout-align-gt-sm="center start" ng-click="$ctrl.activateModule(module)"><span>{{module.title}}</span></a>
+  </li>
+</ul>
+
+<div class="modules" flex>
+  <div class="module" layout="column" ng-repeat="module in $ctrl.modules" ng-show="module.active">
+
+    <ul class="controls layout-row layout-wrap">
+      <li flex flex-xs="50" ng-repeat="section in module.sections" ng-class="{active: section.active}">
+        <a ng-click="$ctrl.activateSection(module, section)">{{section.title}}</a>
+      </li>
+    </ul>
+
+    <div class="panels" flex>
+      <div class="panel-set" layout="column" ng-repeat="section in module.sections" ng-show="section.active">
+
+        <div ng-bind-html="section.content" ng-if="section.content"></div>
+
+        <div layout="row" layout-wrap flex ng-if="section.panels">
+          <div flex="50" flex-xs="100" layout="column" ng-repeat="column in section.panels">
+            <div class="panel" flex="50" layout="column" ng-repeat="panel in column">
+              <div flex layout="column" ng-class="{'panel-content-link': panel.href, 'panel-content-image': panel.image, 'panel-content-video': panel.video}" class="panel-content" ng-style="{backgroundImage: 'url(/assets/images/' + panel.image + ')', backgroundPosition: (panel.focus.x * 100) + '% ' + (panel.focus.y * 100) + '%'}">
+
+                <a ng-href="panel.href" flex ng-if="panel.href">
+                  <h3>{{ panel.title }}</h3>
+                  <p>{{ panel.content }}</p>
+                  <div class="read-more" flex layout="row" layout-align="end end">
+                    <span>&raquo;</span>
+                  </div>
+                </a>
+
+                <a flex layout="column" layout-align="{{ panel.image ? '' : 'center center' }}" ng-click="$ctrl.playVideo($event, panel.video)" ng-if="panel.video">
+                  <h3 ng-if="panel.title">{{ panel.title }}</h3>
+                  <p ng-if="panel.content">{{ panel.content }}</p>
+                  <div class="play-icon" flex="none" layout="row" layout-align="center center">
+                    <md-icon ng-class="{inverse: panel.image}">play_circle_filled</i>
+                  </div>
+                </a>
+
+                <div flex ng-if="!panel.href && !panel.video">
+                  <h3>{{ panel.title }}</h3>
+                  <p>{{ panel.content }}</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a ng-href="{{section.footer.href}}" class="section-footer" flex="none" ng-if="section.footer && section.footer.href">
+          <span ng-bind-html="section.footer.content"></span>
+          <span class="read-more">
+            <span>&raquo;</span>
+          </span>
+        </a>
+
+        <div class="section-footer" flex="none" ng-if="section.footer && !section.footer.href" ng-bind-html="section.footer.content"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
