@@ -21,7 +21,7 @@
     "lodash": "^4.16.4",
     "d3": "^3.5.17",
     "d3-tip": "^0.6.7",
-    "citeproc-js": "Juris-M/citeproc-js#^1.1.137",
+    "citeproc-js": "Juris-M/citeproc-js#1.1.137",
     "trc": "^0.1.2",
     "vwise": "^0.0.1",
     "sda": "../sda/",
