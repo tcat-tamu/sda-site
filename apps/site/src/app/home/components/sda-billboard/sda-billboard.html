@@ -5,7 +5,7 @@
   <a href="" class="next" ng-click="$ctrl.activateNext()">
     <md-icon>chevron_right</md-icon>
   </a>
-  <div ng-repeat="slide in $ctrl.slides" class="banner" ng-show="slide.active" ng-style="{ backgroundImage: 'url(assets/images/banners/' + slide.banner.image + ')', backgroundPosition: (slide.banner.focus.x * 100) + '% ' + (slide.banner.focus.y * 100) + '%'}">
+  <div ng-repeat="slide in $ctrl.slides" class="banner" ng-show="slide.active" ng-style="{ backgroundImage: 'url(/assets/images/banners/' + slide.banner.image + ')', backgroundPosition: (slide.banner.focus.x * 100) + '% ' + (slide.banner.focus.y * 100) + '%'}">
     <div class="container">
       <aside class="content {{ slide.banner.style }}">
         <div ng-bind-html="slide.banner.content"></div>
