@@ -23,7 +23,7 @@
             <div class="panel" flex="50" layout="column" ng-repeat="panel in column">
               <div flex layout="column" ng-class="{'panel-content-link': panel.href, 'panel-content-image': panel.image, 'panel-content-video': panel.video}" class="panel-content" ng-style="{backgroundImage: 'url(/assets/images/' + panel.image + ')', backgroundPosition: (panel.focus.x * 100) + '% ' + (panel.focus.y * 100) + '%'}">
 
-                <a ng-href="panel.href" flex ng-if="panel.href">
+                <a ng-href="{{ panel.href }}" flex ng-if="panel.href">
                   <h3>{{ panel.title }}</h3>
                   <p>{{ panel.content }}</p>
                   <div class="read-more" flex layout="row" layout-align="end end">
@@ -49,7 +49,7 @@
           </div>
         </div>
 
-        <a ng-href="{{section.footer.href}}" class="section-footer" flex="none" ng-if="section.footer && section.footer.href">
+        <a ng-href="{{ section.footer.href }}" class="section-footer" flex="none" ng-if="section.footer && section.footer.href">
           <span ng-bind-html="section.footer.content"></span>
           <span class="read-more">
             <span>&raquo;</span>
