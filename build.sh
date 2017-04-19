@@ -35,6 +35,7 @@ done
 
 cd web
 # 'site' app should be at 'sda' endpoint, but 'sda' name is already used by shared lib
+rm -rf sda
 mv site sda
 rm -rf _site
 bundle install
