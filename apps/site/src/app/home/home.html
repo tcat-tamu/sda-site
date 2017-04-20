@@ -1,0 +1,65 @@
+<sda-header class="sda-header-home" active-url="/" show-oxford-logo="true"></sda-header>
+
+<main class="fullpage-scroll" flex start-section="vm.startSection" start-slide="vm.startSlide">
+  <div class="fullpage-scroll-section" fill-layout>
+    <sda-billboard slides="vm.content.billboard" ng-cloak></sda-billboard>
+
+    <a href="" class="scroll-indicator" ng-click="fullpageScroll.nextSection()">
+      <span class="label">scroll down</span>
+      <i class="material-icons">keyboard_arrow_down</i>
+    </a>
+  </div>
+
+  <div class="fullpage-scroll-section">
+    <sda-nav modules="vm.content.modules" class="layout-fill" layout-xs="column" layout-sm="column" layout="row" ng-cloak></sda-nav>
+
+    <a href="" class="scroll-indicator" ng-click="fullpageScroll.nextSection()">
+      <span class="label">scroll down</span>
+      <i class="material-icons">keyboard_arrow_down</i>
+    </a>
+  </div>
+
+  <div class="fullpage-scroll-section about-project">
+    <div class="fullpage-scroll-slide">
+      <div class="container">
+        <h1>Advisory Board</h1>
+        <div class="advisors">
+          <div class="member" ng-repeat="advisor in vm.content.advisors">
+            <span class="name">{{ advisor.name }}</span>
+            <span class="position">{{ advisor.position }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="" class="scroll-indicator" ng-click="fullpageScroll.nextSection()">
+      <span class="label">scroll down</span>
+      <i class="material-icons">keyboard_arrow_down</i>
+    </a>
+  </div>
+
+  <div class="fullpage-scroll-section dark content-news">
+    <div class="container">
+      <aside>
+        <h2>Explore one of the most profound influences on ideas, culture, and civilisation.</h2>
+        <p>The Special Divine Action Project brings together enduring historical resources and contemporary scholarship to help you explore the full scope of this debate and reach your own conclusions.</p>
+      </aside>
+      <div class="content">
+        <h3>Recent News</h3>
+        <ol>
+          <li ng-repeat="news in vm.content.recentNews">
+            <a href="" class="title">{{ news.title }}</a>
+            <span class="description">{{ news.description }}</span>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <a href="" class="scroll-indicator" ng-click="fullpageScroll.nextSection()">
+      <span class="label">scroll down</span>
+      <i class="material-icons">keyboard_arrow_down</i>
+    </a>
+  </div>
+
+  <sda-footer class="fullpage-scroll-section" layout="column" layout-align="center center"></sda-footer>
+</main>

@@ -1,0 +1,16 @@
+<md-dialog aria-label="Video" flex="50" layout="column">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Video</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="vm.close()">
+        <md-icon aria-label="Close">close</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+    <div class="video-container">
+      <iframe ng-src="{{vm.src | trusted}}" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </md-dialog-content>
+</md-dialog>

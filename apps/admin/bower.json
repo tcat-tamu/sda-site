@@ -22,7 +22,7 @@
     "angular-hotkeys": "chieffancypants/angular-hotkeys#^1.7.0",
     "angular-pouchdb": "^4.3.0",
     "zotero": "^0.0.10",
-    "citeproc-js": "Juris-M/citeproc-js#^1.1.122",
+    "citeproc-js": "Juris-M/citeproc-js#1.1.137",
     "trc": "^0.1.2",
     "sda": "../sda"
   },

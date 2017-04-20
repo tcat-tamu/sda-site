@@ -15,7 +15,7 @@
       var config = {
         targetEvent: $event,
         fullscreen: $mdMedia('sm') || $mdMedia('xs'),
-        templateUrl: 'app/help/help.html',
+        templateUrl: 'app/influence-map/help/help.html',
         controller: HelpDialogController,
         clickOutsideToClose: true
       };

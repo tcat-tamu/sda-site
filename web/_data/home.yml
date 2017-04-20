@@ -1,9 +1,3 @@
----
-# You don't need to edit this file's content, it's empty on purpose.
-# The home page's content is generated from metadata below.
-# Edit theme's home layout if you want to make changes to the HTML
-layout: home
-
 billboard:
   - banner:
       image: 01-wonder.jpg
@@ -165,19 +159,19 @@ modules:
       - title: Meaning
         panels:
           - - title: Grace
-              href: /about
+              href: /#!/about
               content: >
                 Grace is associated with the idea of blessing, beauty, and salvation. The novel meaning of grace in theology is that of a seed in the ground of human nature, a transformation or second birth into a new life as a child of God.
             - title: Inspiration
-              href: /about
+              href: /#!/about
               content: >
                 Inspiration is insight with a sense of divine illumination. This experience is like a light shining in darkness or a shift to a new and higher perspective, allowing us to see the things we know fit together in a new way.
           - - title: Miracles
-              href: /about
+              href: /#!/about
               content: >
                 A miracle is an object of wonder without a natural cause, attributed to special divine action. Rather than ‘breaking the laws of nature’ in a machine-like cosmos, a miracle is better considered as exceeding the productive power of nature.
             - title: Providence
-              href: /about
+              href: /#!/about
               content: >
                 Providence implies the notion of divine direction of cosmic and human affairs with wise benevolence. In a providential cosmos, time is not simply a succession of moments but has a more organic meaning, marking progress towards some fruitful goal.
       - title: Narratives
@@ -301,4 +295,3 @@ advisors:
 recentNews:
   - title: SDA Project Technology Presented
     description: Dr. Neal Audenaert presents at ASIS&T and INKE-ID.
----
