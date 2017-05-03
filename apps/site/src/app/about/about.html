@@ -2,7 +2,7 @@
 
 <div class="page-banner about shade" layout="row" layout-align="center">
   <div class="container" flex>
-    <h1>About</h1>
+    <h1>About the Project</h1>
   </div>
 </div>
 
@@ -15,13 +15,6 @@
 
     <md-content layout="column" flex>
       <div flex="noshrink" layout="row" layout-padding layout-margin>
-        <div ng-if="!vm.page">
-          This is the default about page content. Perhaps it should say something
-          like "please select a page on the left to get started". Alternatively,
-          this route could automatically load or redirect to a default page. If
-          the latter behavior is desired, then how would the app know which page
-          to load?
-        </div>
         <div ng-if="vm.page">
           <h1>{{vm.page.title}}</h1>
           <div ng-bind-html="vm.page.body"></div>
