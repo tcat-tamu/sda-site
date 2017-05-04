@@ -9,12 +9,12 @@
     <span flex></span>
 
     <div layout="row" layout-align="start center">
-      <md-button class="md-icon-button" aria-label="Show People" ng-if="vm.graphType == 'works'" ui-sref="home({type: 'people'})">
+      <md-button class="md-icon-button" aria-label="Show People" ng-if="vm.graphType == 'works'" ui-sref=".({type: 'people'})">
         <md-icon>person</md-icon>
         <md-tooltip>Show People</md-tooltip>
       </md-button>
 
-      <md-button class="md-icon-button" aria-label="Show Books" ng-if="vm.graphType == 'people'" ui-sref="home({type: 'works'})">
+      <md-button class="md-icon-button" aria-label="Show Books" ng-if="vm.graphType == 'people'" ui-sref=".({type: 'works'})">
         <md-icon>book</md-icon>
         <md-tooltip>Show Books</md-tooltip>
       </md-button>

@@ -28,7 +28,7 @@
     <div ng-switch="vm.copyRef.type" layout="column" layout-padding flex>
       <hathitrust-reader ng-switch-when="hathitrust" book-id="vm.copyRef.properties.htid" page="vm.copyRef.properties.seq" flex></hathitrust-reader>
       <ia-reader ng-switch-when="internetarchive" book-id="vm.copyRef.properties.id" page="vm.copyRef.properties.seq" flex></ia-reader>
-      <google-book-reader ng-switch-when="googlebooks" book-id="vm.copyRef.properties.id" flex></google-book-reader>
+      <google-book-reader ng-switch-when="googlebooks" book-id="vm.copyRef.properties.id" page="vm.copyRef.properties.page" flex></google-book-reader>
       <div ng-switch-default layout="column" layout-align="center center" flex>
         <div class="md-display-1" ng-if="vm.loading">
           Sorry. We were unable to load a book reader for that resource.

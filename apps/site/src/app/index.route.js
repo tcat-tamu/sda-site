@@ -156,13 +156,16 @@
         controller: 'AboutController',
         controllerAs: 'vm',
         resolve: {
-          page: function ($stateParams, articlesRepo) {
-            if (!$stateParams.id) {
-              return null;
-            }
+          page: function ($log, $stateParams, articlesRepo) {
+            // HACK: need a better way of getting the default page
+            var defaultPageId = 191;
+            var page = articlesRepo.get($stateParams.id || defaultPageId);
 
-            var page = articlesRepo.get($stateParams.id);
-            return page.$promise;
+            var pageP = page.$promise.catch(function (err) {
+              $log.warn('unable to load default page id:' + defaultPageId, err);
+              return null;
+            });
+            return pageP;
           }
         }
       });
