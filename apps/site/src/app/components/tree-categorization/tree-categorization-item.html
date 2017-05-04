@@ -1,9 +1,16 @@
-<md-icon ng-if="node.children.length === 0"></md-icon>
-<md-icon ng-click="node.expanded = !node.expanded" ng-if="node.children.length > 0">{{node.expanded ? 'expand_more' : 'keyboard_arrow_right'}}</md-icon>
+<div layout="row" class="label">
+  <md-icon ng-if="node.children.length === 0" flex="none"></md-icon>
+  <md-icon ng-click="node.expanded = !node.expanded" ng-if="node.children.length > 0" flex="none">{{node.expanded ? 'expand_more' : 'keyboard_arrow_right'}}</md-icon>
 
-<span ng-if="!node.entryRef">{{ node.label }}</span>
-<a ng-click="onClickNode({$event: $event, node: node, ref: node.entryRef})" ng-if="node.entryRef">{{ node.label }}</a>
+  <span ng-if="!node.entryRef" flex>{{ node.label }}</span>
+  <a ng-click="onClickNode({$event: $event, node: node, ref: node.entryRef})" ng-if="node.entryRef" flex>{{ node.label }}</a>
+</div>
 
 <ol ng-if="node.children.length > 0" class="slide" ng-show="node.expanded">
-   <li ng-repeat="node in node.children" ng-include="'app/components/tree-categorization/tree-categorization-item.html'" ng-init="parent = $parent.$parent.node"></li>
+  <li
+    ng-class="{active: activeRefId && (node.entryRef.id === activeRefId)}"
+    ng-repeat="node in node.children"
+    ng-include="'app/components/tree-categorization/tree-categorization-item.html'"
+    ng-init="parent = $parent.$parent.node">
+  </li>
 </ol>

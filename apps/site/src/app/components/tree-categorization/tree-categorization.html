@@ -1,3 +1,8 @@
 <ol>
-   <li ng-repeat="node in vm.categories.root.children" ng-include="'app/components/tree-categorization/tree-categorization-item.html'" ng-init="parent = vm.categories.root"></li>
+  <li
+    ng-class="{active: activeRefId && (node.entryRef.id === activeRefId)}"
+    ng-repeat="node in vm.categories.root.children"
+    ng-include="'app/components/tree-categorization/tree-categorization-item.html'"
+    ng-init="parent = vm.categories.root">
+  </li>
 </ol>

@@ -6,9 +6,24 @@ tree-categorization {
     line-height: 1.75em;
 
     li {
+      display: block;
+
+      .label {
+        a, span {
+          padding: 0 0.5rem;
+        }
+      }
+
+      &.active > .label {
+        a, span {
+          background: rgba(#000, 0.05);
+        }
+      }
+
       md-icon[ng-click] {
         cursor: pointer
       }
+
       >.category-node {
         white-space: nowrap;
         margin-top:-0.75em;
@@ -19,15 +34,18 @@ tree-categorization {
           overflow: hidden;
           text-overflow: ellipsis;
         }
+
         .action {
           opacity: 0;
           transition: opacity 0.2s;
         }
+
         &:hover {
           .action {
             opacity: 1;
           }
         }
+
         button.md-icon-button {
           margin:0;
           padding: 0;
