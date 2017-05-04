@@ -15,6 +15,11 @@
 
     <md-content layout="column" flex>
       <div flex="noshrink" layout="row" layout-padding layout-margin>
+        <div ng-if="!vm.page">
+          <h1>Welcome!</h1>
+          <p>Please select a topic in the sidebar to learn more about the <em>Special Divine Action</em> project.</p>
+          <p>Click on the "<md-icon>keyboard_arrow_right</md-icon>" icons to reveal sub-topics.</p>
+        </div>
         <div ng-if="vm.page">
           <h1>{{vm.page.title}}</h1>
           <div ng-bind-html="vm.page.body"></div>
